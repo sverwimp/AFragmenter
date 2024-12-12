@@ -147,8 +147,7 @@ def cluster(graph: igraph.Graph,
 
 
 def plot_matrix(matrix: np.ndarray, 
-                ax = None, 
-                tick_top: bool = True, 
+                ax = None,
                 colorbar: bool = True, 
                 colorbar_label: str = "", 
                 colorbar_decimals: int = None, 
@@ -187,8 +186,6 @@ def plot_matrix(matrix: np.ndarray,
         _, ax = plt.subplots()
     image = ax.imshow(matrix, **kwargs)
 
-    if tick_top:
-        ax.xaxis.tick_top()
     if colorbar:
         divider = make_axes_locatable(ax)
         cax = divider.append_axes("right", size="5%", pad=0.05)
@@ -448,7 +445,11 @@ class AFragmenter:
         Returns:
         - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
         """
-        return plot_matrix(self.pae_matrix, **kwargs)
+        image, ax = plot_matrix(self.pae_matrix, colorbar_label="Predicted Aligned Error (Å)", **kwargs)
+        ax.set_xlabel("Scored residue")
+        ax.set_ylabel("Aligned residue")
+
+        return image, ax
 
 
     def plot_result(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
@@ -463,7 +464,13 @@ class AFragmenter:
         """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        return plot_result(self.pae_matrix, self.cluster_intervals, **kwargs)
+        
+        kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
+        image, ax = plot_result(self.pae_matrix, self.cluster_intervals, **kwargs)
+        ax.set_xlabel("Scored residue")
+        ax.set_ylabel("Aligned residue")
+
+        return image, ax
         
 
     def print_result(self, **kwargs) -> None:
