@@ -256,7 +256,6 @@ def filter_size_intervals(intervals, min_size):
     return renumbered_intervals
 
 
-#def plot_chopping(background_matrix: np.ndarray, cluster_intervals: dict, ax = None, linewidth: int = 2, edgecolor = 'r', **kwargs):
 def plot_result(background_matrix: np.ndarray, cluster_intervals: dict, ax = None, linewidth: int = 2, edgecolor = 'r', **kwargs):
     """
     Plot the cluster intervals as rectangles on top of a background matrix.
@@ -273,7 +272,6 @@ def plot_result(background_matrix: np.ndarray, cluster_intervals: dict, ax = Non
     Returns:
     - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
     """
-
     image, ax = plot_matrix(background_matrix, ax=ax, **kwargs)
     
     for intervals in cluster_intervals.values():
@@ -315,7 +313,6 @@ def _table_format(intervals: dict, **kwargs) -> str:
     Returns:
     - str: The formatted table as a string.
     """
-
     def is_notebook():
         try:
             # Check if the 'ipykernel' module is loaded
@@ -332,9 +329,9 @@ def _table_format(intervals: dict, **kwargs) -> str:
     if sys.stdout.isatty() or is_notebook():
         table = Table(**kwargs)
         
-        table.add_column("Domain", justify="right") # , style="magenta"
-        table.add_column("Number of Residues", justify="right") # , style="green"
-        table.add_column("Chopping", justify="right") # , style="yellow"
+        table.add_column("Domain", justify="right")
+        table.add_column("Number of Residues", justify="right")
+        table.add_column("Chopping", justify="right")
 
         for i, cluster in enumerate(intervals.values()):
             chopping = '_'.join([f'{start + 1}-{end + 1}' for start, end in cluster])
@@ -359,23 +356,32 @@ def _table_format(intervals: dict, **kwargs) -> str:
             writer.writerow([str(i+1), str(nres), chopping])
         return output.getvalue().rstrip('\n')
 
-    
-
-    
-"""
-TODO:
-- Implement visualization method using py3Dmol
-- Implement method to save the results to a file
-- Save parameters used to create the AFragmenter object in a class attribute (e.g. self.parameters) as a dictionary
-- Implement a method to filter out fasta sequences based on the cluster intervals
-- Implement a method to save the filtered fasta sequences to a file
-"""
-
 
 class AFragmenter:
+    """
+    AFragmenter class for clustering protein domains based on Predicted Aligned Error (PAE) values.
+
+    Parameters:
+    - pae_matrix (Union[np.ndarray, FilePath]): The Predicted Aligned Error matrix.
+    - threshold (float, optional): The threshold for the sigmoid function used to transform the PAE values into graph edge weights.
+
+    Attributes:
+    - pae_matrix (np.ndarray): The Predicted Aligned Error matrix.
+    - edge_weights_matrix (np.ndarray): The matrix of edge weights. This is created by transforming the PAE matrix using a 
+                                        logistic function to increase the contrast between high and low PAE values.
+    - graph (igraph.Graph): The graph object created from the edge_weights_matrix.
+
+    Methods:
+    - cluster: Cluster the graph using the Leiden algorithm.
+    - plot_pae: Plot the Predicted Aligned Error matrix as a heatmap.
+    - plot_results: Plot the clustering results on top of the Predicted Aligned Error matrix.
+    - print_results: Print the clustering results in a table format.
+    - visualize_py3Dmol: Visualize the 3D structure of the protein using py3Dmol. (Requires the py3Dmol library to be installed)
+    - print_fasta: Print the sequences corresponding to each cluster in FASTA format.
+    - save_fasta: Save the sequences corresponding to each cluster in FASTA format to a file.
+    """
 
     def __init__(self, pae_matrix: Union[np.ndarray, FilePath], threshold: float = 5.0):
-
         if isinstance(pae_matrix, (str, Path)):
             pae_matrix = load_pae(pae_matrix)
         self.pae_matrix = pae_matrix
@@ -384,12 +390,45 @@ class AFragmenter:
         
 
     def _logistic_transform(self, pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
+        """
+        Transform the PAE matrix into a matrix of edge weights using a logistic function.
+        This creates a larger contrast between the high and low PAE values.
+
+        Parameters:
+        - pae_matrix (np.ndarray): The Predicted Aligned Error matrix.
+        - threshold (float): The threshold for the sigmoid function.
+
+        Returns:
+        - np.ndarray: The edge weights matrix.
+
+        Raises:
+        - ValueError: If the threshold is less than 0 or greater than 31.75.
+        """
+
         if threshold < 0 or threshold > 31.75:
             raise ValueError("Threshold must be between 0 and 31.75")
         return 1 / (1 + np.exp(1.0 * (pae_matrix - threshold)))
     
 
-    def cluster(self, resolution: Union[float, None] = None, n_iterations: int = -1, objective_function: str = "modularity", min_size: int = 0):
+    def cluster(self, resolution: Union[float, None] = None, objective_function: str = "modularity", n_iterations: int = -1, min_size: int = 0):
+        """
+        Create a graph from the edge_weights_matrix and cluster it using the Leiden algorithm.
+
+        Parameters:
+        - resolution (float, optional): The resolution parameter for the Leiden algorithm. Recommended to be between 0.0 and 1.0
+                                        A higher resolution will lead to more and smaller clusters, while a lower resolution will lead to fewer and larger clusters.
+        - objective_function (str, optional): The objective function for the Leiden algorithm. [modularity, CPM]
+        - n_iterations (int, optional): The number of iterations for the Leiden algorithm. 
+                                        If a negative value is given, the algorithm will run until a stable iteration is reached.
+        - min_size (int, optional): The minimum size of the clusters to keep. Must be between 0 and the number of residues.
+
+        Returns:
+        - AFragmenter: The AFragmenter object with the cluster intervals stored in the cluster_intervals attribute.
+
+        Raises:
+        - ValueError: If the minimum cluster size is less than 0 or greater than the number of residues.
+        """
+
         if min_size < 0 or min_size > self.pae_matrix.shape[0]:
             raise ValueError("Minimum cluster size must be between 0 and the number of residues")
 
@@ -397,41 +436,51 @@ class AFragmenter:
         cluster_intervals = find_cluster_intervals(clusters)
         self.cluster_intervals = filter_size_intervals(cluster_intervals, min_size)
         return self
-    
-
-    # TODO: remove this function
-    def print_results_nr(self, chain_id: str, sep="\t"):
-        """
-        Print the results of the FragmentFold analysis.
-
-        Parameters:
-        - chain_id (str): The ID of the chain.
-        - sep (str, optional): The separator used between columns in the output. Defaults to "\t".
-
-        Raises:
-        - ValueError: If the cluster intervals are not defined.
-        """
-        if not hasattr(self, 'cluster_intervals'):
-            raise ValueError("Intervals not defined. Run the cluster method first.")
-
-        print("chain_id", "ndom", "nres", "chopping", sep=sep)
-        for i, cluster in enumerate(self.cluster_intervals.values()):
-            chopping = '_'.join([f'{start + 1}-{end + 1}' for start, end in cluster])
-            nres = sum(end - start + 1 for start, end in cluster)
-            print(chain_id, i+1, nres, chopping, sep=sep) # TODO: Change chain_id
 
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
+        """
+        Plot the Predicted Aligned Error matrix as a heatmap.
+
+        Parameters:
+        - **kwargs: Additional keyword arguments to be passed to the matplotlib.pyplot.imshow function.
+
+        Returns:
+        - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
+        """
         return plot_matrix(self.pae_matrix, **kwargs)
 
 
-    def plot_results(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
+    def plot_result(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
+        """
+        Plot the clustering results on top of the Predicted Aligned Error matrix.
+
+        Parameters:
+        - **kwargs: Additional keyword arguments to be passed to the matplotlib.pyplot.imshow function.
+
+        Returns:
+        - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
+        """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
         return plot_result(self.pae_matrix, self.cluster_intervals, **kwargs)
         
 
-    def print_results(self, **kwargs) -> str:
+    def print_result(self, **kwargs) -> None:
+        """
+        Print the clustering results in a table format. Will use rich if the output is a terminal or a jupyter notebook, else will use csv.
+
+        Parameters:
+        - **kwargs: Additional keyword arguments to be passed to the rich.table.Table constructor.
+
+        Returns:
+        - None
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
+        if not hasattr(self, "cluster_intervals"):
+            raise ValueError("No clustering results found, please run the cluster method first")
         table_string = _table_format(self.cluster_intervals, **kwargs)
         print(table_string)
 
@@ -496,8 +545,17 @@ class AFragmenter:
     def _clusters_to_fasta(self, sequence_file: FilePath, query_chain: str = 'A') -> dict:
         """
         Parse the sequence file and return the sequences corresponding to each cluster.
-        """
 
+        Parameters:
+        - sequence_file (FilePath): The path to the sequence file.
+        - query_chain (str, optional): The chain ID to use as the query. Defaults to 'A'.
+
+        Returns:
+        - dict: A dictionary where the keys are the cluster indices and the values are the corresponding sequences.
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
         if not hasattr(self, 'cluster_intervals'):
             raise ValueError("Intervals not defined. Run the cluster method first.")
         
@@ -518,6 +576,17 @@ class AFragmenter:
 
 
     def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60):
+        """
+        Print the sequences corresponding to each cluster in FASTA format.
+
+        Parameters:
+        - sequence_file (FilePath): The path to the sequence file.
+        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to Path(sequence_file).stem.
+        - width (int, optional): The width of the sequence lines. Defaults to 60.
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
         parsed_sequences = self._clusters_to_fasta(sequence_file)
         
         if not prefix:
@@ -532,6 +601,18 @@ class AFragmenter:
 
 
     def save_fasta(self, sequence_file: FilePath, output_file: FilePath, prefix: str = "", width: int = 60):
+        """
+        Save the sequences corresponding to each cluster in FASTA format to a file.
+
+        Parameters:
+        - sequence_file (FilePath): The path to the sequence file.
+        - output_file (FilePath): The path to save the output file.
+        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to Path(sequence_file).stem.
+        - width (int, optional): The width of the sequence lines. Defaults to 60.
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
         parsed_sequences = self._clusters_to_fasta(sequence_file)
         
         if not prefix:
