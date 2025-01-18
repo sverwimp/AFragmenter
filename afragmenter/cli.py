@@ -115,10 +115,10 @@ def main(structure_file: Path,
                         objective_function=objective_function, 
                         min_size=min_size)
 
-    afragmenter.print_results()
+    afragmenter.print_result()
 
     if plot_results:
-        _, ax = afragmenter.plot_results()
+        _, ax = afragmenter.plot_result()
         fig = ax.get_figure()
         fig.savefig(plot_results)
 

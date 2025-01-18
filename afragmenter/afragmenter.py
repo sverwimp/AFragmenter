@@ -371,8 +371,8 @@ class AFragmenter:
     Methods:
     - cluster: Cluster the graph using the Leiden algorithm.
     - plot_pae: Plot the Predicted Aligned Error matrix as a heatmap.
-    - plot_results: Plot the clustering results on top of the Predicted Aligned Error matrix.
-    - print_results: Print the clustering results in a table format.
+    - plot_result: Plot the clustering results on top of the Predicted Aligned Error matrix.
+    - print_result: Print the clustering results in a table format.
     - visualize_py3Dmol: Visualize the 3D structure of the protein using py3Dmol. (Requires the py3Dmol library to be installed)
     - print_fasta: Print the sequences corresponding to each cluster in FASTA format.
     - save_fasta: Save the sequences corresponding to each cluster in FASTA format to a file.
@@ -445,7 +445,8 @@ class AFragmenter:
         Returns:
         - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
         """
-        image, ax = plot_matrix(self.pae_matrix, colorbar_label="Predicted Aligned Error (Å)", **kwargs)
+        kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
+        image, ax = plot_matrix(self.pae_matrix, **kwargs)
         ax.set_xlabel("Scored residue")
         ax.set_ylabel("Aligned residue")
 
