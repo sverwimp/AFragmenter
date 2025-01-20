@@ -12,7 +12,7 @@ click.rich_click.OPTION_GROUPS = {
         {
             "name": "Input",
             "options": [
-                "--structure_file",
+                "--structure-file",
                 "--json",
             ]
         },
@@ -20,22 +20,22 @@ click.rich_click.OPTION_GROUPS = {
             "name": "Clustering options",
             "options": [
                 "--resolution",
-                "--objective_function",
-                "--n_iterations",
+                "--objective-function",
+                "--n-iterations",
             ]
         },
         {
             "name": "Fine tuning",
             "options": [
                 "--threshold",
-                "--min_size",
+                "--min-size",
             ]
         },
         {
             "name": "Outputs",
             "options": [
-                "--plot_results",
-                "--output_fasta",
+                "--plot-results",
+                "--output-fasta",
             ]
         }
     ],
@@ -45,7 +45,7 @@ click.rich_click.OPTION_GROUPS = {
 @click.command()
 @click.help_option("--help", "-h")
 @click.version_option(importlib.metadata.version("afragmenter"), "--version", "-V")
-@click.option("--structure_file", 
+@click.option("--structure-file", 
               "-s", type=click.Path(exists=True), 
               required=False, 
               help="Path to a PDB or mmCIF file containing the protein structure"
@@ -61,14 +61,14 @@ click.rich_click.OPTION_GROUPS = {
               type=click.FloatRange(min=0.0, min_open=True), 
               help="Resolution used with Leiden clustering (default = 0.8 for modularity, and 0.3 for CPM)"
 )
-@click.option("--objective_function", 
+@click.option("--objective-function", 
               "-f", 
               type=click.Choice(["modularity", "CPM"], case_sensitive=False), 
               default="modularity",
               show_default=True,
               help="Objective function for Leiden clustering (not case sensitive)"
 )
-@click.option("--n_iterations", 
+@click.option("--n-iterations", 
               "-n", 
               type=click.IntRange(),
               default=1_000, 
@@ -81,21 +81,21 @@ click.rich_click.OPTION_GROUPS = {
               show_default=True,
               help="Threshold for the sigmoid function used to transform the PAE values into graph edge weights"
 )
-@click.option("--min_size",
+@click.option("--min-size",
               type=click.IntRange(min=0), 
               default=0, 
               show_default=True,
               help="Minimum cluster size. Maximum size is equal to the number of residues in the protein"
 )
-@click.option("--plot_results",
+@click.option("--plot-results",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
               default=None,
               help="Path to save the results plot"
 )
-@click.option("--output_fasta",
+@click.option("--output-fasta",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
               default=None,
-              help="Path to save the output fasta file (requires --structure_file)"
+              help="Path to save the output fasta file (requires --structure-file)"
 )
 def main(structure_file: Path, 
          json: Path,
@@ -124,7 +124,7 @@ def main(structure_file: Path,
 
     if output_fasta:
         if not structure_file:
-            raise click.BadOptionUsage("output_fasta", "The --structure_file option is required when using --output_fasta")
+            raise click.BadOptionUsage("output_fasta", "The --structure-file option is required when using --output-fasta")
         afragmenter.save_fasta(sequence_file=structure_file, output_file=output_fasta)
 
 
