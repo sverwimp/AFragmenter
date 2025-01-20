@@ -384,6 +384,7 @@ class AFragmenter:
         self.pae_matrix = pae_matrix
         self.edge_weights_matrix = self._logistic_transform(pae_matrix, threshold)
         self.graph = _create_graph(self.edge_weights_matrix)
+        self.params = {"threshold": threshold}
         
 
     def _logistic_transform(self, pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
@@ -429,6 +430,13 @@ class AFragmenter:
         if min_size < 0 or min_size > self.pae_matrix.shape[0]:
             raise ValueError("Minimum cluster size must be between 0 and the number of residues")
 
+        self.params.update({
+            "resolution": resolution,
+            "objective_function": objective_function,
+            "n_iterations": n_iterations,
+            "min_size": min_size
+        })
+        
         clusters = cluster(self.graph, resolution=resolution, n_iterations=n_iterations, objective_function=objective_function)
         cluster_intervals = find_cluster_intervals(clusters)
         self.cluster_intervals = filter_size_intervals(cluster_intervals, min_size)
