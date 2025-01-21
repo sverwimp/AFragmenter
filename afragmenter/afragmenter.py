@@ -17,7 +17,7 @@ from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.patches as patches
 from matplotlib import image, axes
 
-from .sequence_extractor import read_sequence
+from .sequence_reader import read_sequence
 
 
 FilePath = Union[str, Path]
