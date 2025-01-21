@@ -87,7 +87,7 @@ def load_pae(json_file: FilePath) -> np.ndarray:
     return pae_matrix
     
 
-def _create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
+def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
     """
     Create an igraph Graph object from a given weights matrix.
 
@@ -110,10 +110,11 @@ def _create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
     return graph
 
 
-def cluster(graph: igraph.Graph, 
+def cluster_graph(graph: igraph.Graph,
             resolution: Union[float, None] = None, 
             n_iterations: int = -1, 
-            objective_function: str = "modularity") -> igraph.VertexClustering:
+            objective_function: str = "modularity",
+            **kwargs) -> igraph.VertexClustering:
     #TODO: add some info about objective_function
     """
     Cluster the graph using the Leiden algorithm.
@@ -141,13 +142,14 @@ def cluster(graph: igraph.Graph,
         weights="weight",
         resolution=resolution, 
         n_iterations=n_iterations, 
-        objective_function=objective_function
+        objective_function=objective_function,
+        **kwargs
     )
     return partition
 
 
 def plot_matrix(matrix: np.ndarray, 
-                ax = None,
+                ax: axes.Axes = None,
                 colorbar: bool = True, 
                 colorbar_label: str = "", 
                 colorbar_decimals: int = None, 
@@ -195,7 +197,6 @@ def plot_matrix(matrix: np.ndarray,
     return image, ax
 
 
-# TODO: Change the name of this function to something more descriptive / intuitive
 def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
     """
     Create a dictionary of cluster intervals from the vertex clustering object.
@@ -226,7 +227,7 @@ def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
     return results
 
 
-def filter_size_intervals(intervals, min_size):
+def filter_size_intervals(intervals: dict, min_size: int) -> dict:
     """
     Filter out intervals that are smaller than a given size.
     
@@ -253,7 +254,12 @@ def filter_size_intervals(intervals, min_size):
     return renumbered_intervals
 
 
-def plot_result(background_matrix: np.ndarray, cluster_intervals: dict, ax = None, linewidth: int = 2, edgecolor = 'r', **kwargs):
+def plot_cluster_intervals(background_matrix: np.ndarray, 
+                           cluster_intervals: dict, 
+                           ax: axes.Axes = None, 
+                           linewidth: int = 2, 
+                           edgecolor: str = 'r', 
+                           **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
     """
     Plot the cluster intervals as rectangles on top of a background matrix.
 
@@ -297,7 +303,7 @@ def plot_result(background_matrix: np.ndarray, cluster_intervals: dict, ax = Non
     return image, ax
 
 
-def _table_format(intervals: dict, **kwargs) -> str:
+def format_intervals_table(intervals: dict, **kwargs) -> str:
     """
     Print the cluster intervals in a table format.
     If the output is a terminal or a jupyter notebook, the table will be printed using rich.
@@ -383,7 +389,7 @@ class AFragmenter:
             pae_matrix = load_pae(pae_matrix)
         self.pae_matrix = pae_matrix
         self.edge_weights_matrix = self._logistic_transform(pae_matrix, threshold)
-        self.graph = _create_graph(self.edge_weights_matrix)
+        self.graph = create_graph(self.edge_weights_matrix)
         self.params = {"threshold": threshold}
         
 
@@ -408,7 +414,10 @@ class AFragmenter:
         return 1 / (1 + np.exp(1.0 * (pae_matrix - threshold)))
     
 
-    def cluster(self, resolution: Union[float, None] = None, objective_function: str = "modularity", n_iterations: int = -1, min_size: int = 0):
+    def cluster(self, resolution: Union[float, None] = None, 
+                objective_function: str = "modularity", 
+                n_iterations: int = -1, 
+                min_size: int = 0) -> 'AFragmenter':
         """
         Create a graph from the edge_weights_matrix and cluster it using the Leiden algorithm.
 
@@ -437,7 +446,7 @@ class AFragmenter:
             "min_size": min_size
         })
         
-        clusters = cluster(self.graph, resolution=resolution, n_iterations=n_iterations, objective_function=objective_function)
+        clusters = cluster_graph(self.graph, resolution=resolution, n_iterations=n_iterations, objective_function=objective_function)
         cluster_intervals = find_cluster_intervals(clusters)
         self.cluster_intervals = filter_size_intervals(cluster_intervals, min_size)
         return self
@@ -475,7 +484,7 @@ class AFragmenter:
             raise ValueError("No clustering results found, please run the cluster method first")
         
         kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
-        image, ax = plot_result(self.pae_matrix, self.cluster_intervals, **kwargs)
+        image, ax = plot_cluster_intervals(self.pae_matrix, self.cluster_intervals, **kwargs)
         ax.set_xlabel("Scored residue")
         ax.set_ylabel("Aligned residue")
 
@@ -497,17 +506,20 @@ class AFragmenter:
         """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        table_string = _table_format(self.cluster_intervals, **kwargs)
+        table_string = format_intervals_table(self.cluster_intervals, **kwargs)
         print(table_string)
 
 
     def __str__(self) -> str:
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        return _table_format(self.cluster_intervals)
+        return format_intervals_table(self.cluster_intervals)
 
 
-    def visualize_py3Dmol(self, structure_file: str, color_range: list = None, add_surface: bool = False, surface_opacity: float = 0.7):
+    def visualize_py3Dmol(self, structure_file: str, 
+                          color_range: list = None, 
+                          add_surface: bool = False, 
+                          surface_opacity: float = 0.7) -> None:
         """
         Visualize the 3D strucutre of the protein using py3Dmol. Color the residues based on the clusters.
 
@@ -591,7 +603,7 @@ class AFragmenter:
         return parsed_sequences
 
 
-    def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60):
+    def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60) -> None:
         """
         Print the sequences corresponding to each cluster in FASTA format.
 
@@ -616,7 +628,7 @@ class AFragmenter:
                 print(seq[i:i+width])
 
 
-    def save_fasta(self, sequence_file: FilePath, output_file: FilePath, prefix: str = "", width: int = 60):
+    def save_fasta(self, sequence_file: FilePath, output_file: FilePath, prefix: str = "", width: int = 60) -> None:
         """
         Save the sequences corresponding to each cluster in FASTA format to a file.
 
