@@ -35,7 +35,7 @@ def translate_three2one_iter(residue: Iterable) -> str:
     Returns:
     - str: A string containing the translated one-letter amino acid codes.
     """
-    return ''.join([THREE2ONE[res] for res in residue])
+    return ''.join([THREE2ONE[res.upper()] for res in residue])
 
 
 def _read_mmcif_sequence(mmcif_file: FilePath):
