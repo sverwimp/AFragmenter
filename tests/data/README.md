@@ -1,0 +1,1 @@
+This data was directly taken from the AlphaFold database
