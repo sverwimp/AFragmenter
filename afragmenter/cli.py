@@ -7,13 +7,15 @@ import rich_click as click
 from .afragmenter import AFragmenter
 
 
+click.rich_click.USE_RICH_MARKUP = True
+click.rich_click.STYLE_REQUIRED_LONG = "red" # Makes '[required]' a bit more visible in help message
 click.rich_click.OPTION_GROUPS = {
     "afragmenter": [
         {
             "name": "Input",
             "options": [
-                "--structure-file",
                 "--json",
+                "--structure",
             ]
         },
         {
@@ -29,6 +31,7 @@ click.rich_click.OPTION_GROUPS = {
             "options": [
                 "--threshold",
                 "--min-size",
+                "--no-merge",
             ]
         },
         {
@@ -44,22 +47,22 @@ click.rich_click.OPTION_GROUPS = {
 
 @click.command()
 @click.help_option("--help", "-h")
-@click.version_option(importlib.metadata.version("afragmenter"), "--version", "-V")
-@click.option("--structure-file", 
-              "-s", type=click.Path(exists=True), 
+@click.version_option(importlib.metadata.version("afragmenter"), "--version", "-v")
+@click.option("--structure", 
+              "-s", type=click.Path(exists=True, dir_okay=False, readable=True), 
               required=False, 
-              help="Path to a PDB or mmCIF file containing the protein structure"
+              help="Path to a PDB or mmCIF file containing the protein structure and sequence"
 )
 @click.option("--json", 
               "-j" , 
-              type=click.Path(exists=True), 
+              type=click.Path(exists=True, dir_okay=False, readable=True), 
               required=True, 
               help="Path to the AlphaFold json file containing the PAE data"
 )
 @click.option("--resolution", 
               "-r", 
               type=click.FloatRange(min=0.0, min_open=True), 
-              help="Resolution used with Leiden clustering (default = 0.8 for modularity, and 0.3 for CPM)"
+              help="Resolution used with Leiden clustering [dim]\[default: 0.8 for modularity, 0.3 for CPM][/]",
 )
 @click.option("--objective-function", 
               "-f", 
@@ -69,23 +72,33 @@ click.rich_click.OPTION_GROUPS = {
               help="Objective function for Leiden clustering (not case sensitive)"
 )
 @click.option("--n-iterations", 
-              "-n", 
-              type=click.IntRange(),
-              default=1_000, 
+              "-n",
+              type=click.INT,
+              default=10_000, 
               show_default=True,
               help="Number of iterations for Leiden clustering. Negative values will run the algorithm until a stable iteration is reached",
 )
 @click.option("--threshold",
+              "-t",
               type=click.FloatRange(min=0.0, max=31.75), 
               default=5, 
               show_default=True,
-              help="Threshold for the sigmoid function used to transform the PAE values into graph edge weights"
+              help="Contrast thresold for the PAE values. This is a soft cut-off point to increase the contrast between low and high PAE values. Values near the threshold will transition more smoothly."
+              #"Threshold for the sigmoid function used to transform the PAE values into graph edge weights"
 )
 @click.option("--min-size",
+              "-m",
               type=click.IntRange(min=0), 
-              default=0, 
+              default=10, 
               show_default=True,
-              help="Minimum cluster size. Maximum size is equal to the number of residues in the protein"
+              help="Minimum size of partition to be considered. Attempts to merge partitions that are too small with adjecent larger ones. "
+                   "Set to 0 to keep all partitions."
+              #"Minimum cluster size. Maximum size is equal to the number of residues in the protein"
+)
+@click.option("--no-merge",
+              is_flag=True,
+              default=False,
+              help="Do not attempt to merge small partitions with larger paritions, just discard them",
 )
 @click.option("--plot-results",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
@@ -97,23 +110,26 @@ click.rich_click.OPTION_GROUPS = {
               default=None,
               help="Path to save the output fasta file (requires --structure-file)"
 )
-def main(structure_file: Path, 
+def afragmenter(structure: Path, 
          json: Path,
          resolution: float,
          objective_function: str,
          n_iterations: int,
          threshold: float,
          min_size: int,
+         no_merge: bool,
          plot_results: Path,
          output_fasta: Path):
     
     afragmenter = AFragmenter(pae_matrix=json, 
                               threshold=threshold)
 
+    attempt_merge = not no_merge
     afragmenter.cluster(resolution=resolution, 
                         n_iterations=n_iterations, 
                         objective_function=objective_function, 
-                        min_size=min_size)
+                        min_size=min_size,
+                        attempt_merge=attempt_merge)
 
     afragmenter.print_result()
 
@@ -123,11 +139,11 @@ def main(structure_file: Path,
         fig.savefig(plot_results)
 
     if output_fasta:
-        if not structure_file:
+        if not structure:
             raise click.BadOptionUsage("output_fasta", "The --structure-file option is required when using --output-fasta")
-        afragmenter.save_fasta(sequence_file=structure_file, output_file=output_fasta)
+        afragmenter.save_fasta(sequence_file=structure, output_file=output_fasta)
 
 
 if __name__ == "__main__":
-    main()
+    afragmenter()
     sys.exit(0)

@@ -17,10 +17,11 @@ from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.patches as patches
 from matplotlib import image, axes
 
-from .sequence_reader import read_sequence
+from .sequence_reader import read_sequence, determine_file_format
 
 
 FilePath = Union[str, Path]
+default_resolutions = {"modularity": 0.8, "cpm": 0.3}
 
 
 def validate_pae(pae: np.ndarray) -> None:
@@ -133,10 +134,13 @@ def cluster_graph(graph: igraph.Graph,
     Returns:
     - igraph.VertexClustering: The resulting vertex clustering.
     """
-    default_resolutions = {"modularity": 0.8, "cpm": 0.3}
-    if objective_function.lower() not in default_resolutions:
-        raise ValueError("Objective function must be either 'modularity' or 'CPM'")
-    resolution = resolution or default_resolutions[objective_function.lower()]
+
+    objective_funtions = ["modularity", "cpm"]
+    if objective_function.lower() not in objective_funtions:
+        raise ValueError(f"Objective function must be one of {objective_funtions}, got {objective_function}")
+
+    if resolution is None:
+        resolution = default_resolutions[objective_function.lower]
 
     partition = graph.community_leiden(
         weights="weight",
@@ -227,30 +231,163 @@ def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
     return results
 
 
-def filter_size_intervals(intervals: dict, min_size: int) -> dict:
+def remove_min_size_intervals(intervals: dict, min_size: int) -> dict:
     """
-    Filter out intervals that are smaller than a given size.
+    Remove clusters that are smaller than a given size based on the *total* size of the intervals (values) per group (keys).
+
+    In example 1, clusters 0, 2 and 4 are removed because the intervals are too small.
+    In example 2, clusters 0 and 3 are removed because the intervals are too small. Cluser 1 has intervals that
+    are smaller than the min_size threshold, but the total size of the intervals is larger than min_size, so it is kept.
+
+    Example 1:
+        intervals = {0: [(0, 2)],                      -> total size interval = 3
+                    1: [(3, 33)],                      -> total size interval = 31
+                    2: [(34, 35)], 
+                    3: [(36, 133), (143, 269)],        -> total size interval = 225
+                    4: [(134, 138)]}
+        min_size = 10
+        merge_intervals(intervals, min_size) -> {1: [(3, 33)], 
+                                                 3: [(36, 133), (143, 269)]}
     
+    Example 2:
+        intervals = {0: [(0, 5)],                                               -> total size interval = 6
+                    1: [(6, 11), (807, 807), (810, 811), (813, 933)],           -> total size interval = 130
+                    2: [(12, 179), (419, 518), (519, 603), (604, 806), 
+                        (808, 809), (812, 812)],
+                    3: [(180, 182)], 
+                    4: [(183, 229), (230, 418)]}
+        min_size = 10
+        merge_intervals(intervals, min_size) -> {1: [(6, 11), (807, 807), (810, 811), (813, 933)],
+                                                 2: [(12, 179), (419, 518), (519, 603), (604, 806), 
+                                                     (808, 809), (812, 812)],
+                                                 4: [(183, 229), (230, 418)]}
+
     Parameters:
     - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
                         tuples representing the cluster intervals.
     - min_size (int): The minimum total size of the intervals to keep.
 
     Returns:
-    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size
-            removed and the keys renumbered starting from zero.
+    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size removed.
     """
     filtered_intervals = {}
     for key, value in intervals.items():
-        total_length = sum(interval[1] - interval[0] + 1 for interval in value)
-        if total_length >= min_size:
+        total_size = sum(interval[1] - interval[0] + 1 for interval in value)
+        if total_size >= min_size:
             filtered_intervals[key] = value
-    
-    # Remove empty entries
+
+    # Remove any empty entries
     filtered_intervals = {k: v for k, v in filtered_intervals.items() if v}
     
+    return filtered_intervals
+
+
+def merge_intervals(intervals: dict, min_size: int) -> dict:
+    """
+    Iterates over all intervals and removes those that are smaller than the min_size threshold regardless of 
+    the total size of the intervals in a cluster/group (only the size of the individual intervals is considered).
+    Merges adjacent intervals of the same cluster while skipping intervals below the min_size threshold.
+
+    Example:
+        intervals = {0: [(0, 2)], 1: [(3, 33)], 2: [(34, 35)], 3: [(36, 133), (143, 269)], 4: [(134, 138)], 
+                    5: [(139, 142)], 6: [(270, 272)]}
+        min_size = 10
+        merge_intervals(intervals, min_size) -> {1: [(3, 33)], 3: [(36, 269)]}
+
+    In the example, cluster 0, 2 and 4 are removed because the intervals are too small. The intervals of cluster 3 
+    are merged because there is no other cluster with a size >= min_size between its intervals.
+
+    Parameters:
+    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
+                        tuples representing the cluster intervals.
+    - min_size (int): The minimum total size of the intervals to keep.
+
+    Returns:
+    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size 
+            removed and the keys renumbered starting
+    """
+
+
+    class Interval:
+        def __init__(self, group, start, end):
+            self.group = group
+            self.start = start
+            self.end = end
+            self.size = end - start + 1
+        
+        def __repr__(self):
+            return f"Interval(group={self.group}, start={self.start}, end={self.end}, size={self.size})"
+
+    interval_objects = []
+    for key, value in intervals.items():
+        for results in value:
+            start, end = results
+            interval_objects.append(Interval(key, start, end))
+    interval_objects.sort(key=lambda x: x.start)
+
+    previous_valid = None
+    results = []
+    for current in interval_objects:
+        # Skip intervals that are too small
+        if current.size < min_size:
+            continue
+
+        # First interval above the min_size threshold
+        if previous_valid is None:
+            previous_valid = current
+            continue
+
+        # If the current interval is adjacent to the previous one and of the same group, merge them
+        if previous_valid.group == current.group:
+            previous_valid = Interval(previous_valid.group, previous_valid.start, current.end)
+        else:
+            results.append(previous_valid)
+            previous_valid = current
+        
+    # Add the last interval
+    if previous_valid is not None:
+        results.append(previous_valid)
+
+    # Group the merged intervals by cluster
+    merged_intervals = {}
+    for interval in results:
+        if interval.group not in merged_intervals:
+            merged_intervals[interval.group] = []
+        merged_intervals[interval.group].append((interval.start, interval.end))
+    
+    return merged_intervals
+
+
+def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool = True) -> dict:
+    """
+    Filter out intervals that are smaller than a given size. 
+    Optionally attempt to merge smaller clusters with adjacent larger ones.
+
+    Parameters:
+    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
+                        tuples representing the cluster intervals.
+    
+    - min_size (int): The minimum total size of the intervals to keep.
+    - attempt_merge (bool, optional): Whether to try to merge smaller clusters with adjacent larger ones. 
+                                      Defaults to True.
+
+    Returns:
+    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size
+            removed and the keys renumbered starting from zero.
+    """
+
+    if min_size < 0:
+        raise ValueError("Minimum cluster size must be greater than or equal to 0")
+    if min_size == 0:
+        return intervals
+
+    if attempt_merge:
+        intervals = merge_intervals(intervals, min_size)
+    else:
+        intervals = remove_min_size_intervals(intervals, min_size)
+
     # Renumber the keys starting from zero
-    renumbered_intervals = {i: v for i, (k, v) in enumerate(filtered_intervals.items())}
+    renumbered_intervals = {i: v for i, (_, v) in enumerate(intervals.items())}    
     return renumbered_intervals
 
 
@@ -417,7 +554,8 @@ class AFragmenter:
     def cluster(self, resolution: Union[float, None] = None, 
                 objective_function: str = "modularity", 
                 n_iterations: int = -1, 
-                min_size: int = 0) -> 'AFragmenter':
+                min_size: int = 10,
+                attempt_merge: bool = True) -> 'AFragmenter':
         """
         Create a graph from the edge_weights_matrix and cluster it using the Leiden algorithm.
 
@@ -428,6 +566,7 @@ class AFragmenter:
         - n_iterations (int, optional): The number of iterations for the Leiden algorithm. 
                                         If a negative value is given, the algorithm will run until a stable iteration is reached.
         - min_size (int, optional): The minimum size of the clusters to keep. Must be between 0 and the number of residues.
+        - attempt_merge (bool, optional): Whether to attempt to merge smaller clusters with adjacent larger ones. Defaults to True.
 
         Returns:
         - AFragmenter: The AFragmenter object with the cluster intervals stored in the cluster_intervals attribute.
@@ -437,18 +576,26 @@ class AFragmenter:
         """
 
         if min_size < 0 or min_size > self.pae_matrix.shape[0]:
-            raise ValueError("Minimum cluster size must be between 0 and the number of residues")
+            raise ValueError(f"Minimum cluster size must be between 0 and the number of residues in the protein ({self.pae_matrix.shape[0]})")
+        
+        objective_functions = ["modularity", "cpm"]
+        if objective_function.lower() not in objective_functions:
+            raise ValueError(f"Objective function must be one of {objective_functions}, got {objective_function}")
+        
+        if resolution is None:
+            resolution = default_resolutions[objective_function.lower()]
 
         self.params.update({
             "resolution": resolution,
             "objective_function": objective_function,
             "n_iterations": n_iterations,
-            "min_size": min_size
+            "min_size": min_size,
+            "attempt_merge": attempt_merge
         })
         
         clusters = cluster_graph(self.graph, resolution=resolution, n_iterations=n_iterations, objective_function=objective_function)
         cluster_intervals = find_cluster_intervals(clusters)
-        self.cluster_intervals = filter_size_intervals(cluster_intervals, min_size)
+        self.cluster_intervals = filter_cluster_intervals(cluster_intervals, min_size, attempt_merge=attempt_merge)
         return self
 
 
@@ -517,21 +664,30 @@ class AFragmenter:
 
 
     def visualize_py3Dmol(self, structure_file: str, 
-                          color_range: list = None, 
+                          color_range: list = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
+                                               'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
+                                               'beige', 'navy', 'grey', 'white', 'black'], 
+                          width: int = 800, 
+                          height: int = 600,
+                          view: str = 'cartoon',
                           add_surface: bool = False, 
                           surface_opacity: float = 0.7) -> None:
         """
         Visualize the 3D strucutre of the protein using py3Dmol. Color the residues based on the clusters.
 
         Parameters:
-        - pdb_file (str): The path to the PDB file.
-        - color_range (list, optional): A list of colors to use for the clusters. Defaults to None.
+        - pdb_file (str): The path to the PDB or mmcif file.
+        - color_range (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
+        - width (int, optional): The width of the viewer. Defaults to 800.
+        - height (int, optional): The height of the viewer. Defaults to 600.
+        - view (str, optional): The view style to use. Defaults to 'cartoon'.
         - add_surface (bool, optional): Whether to add a surface to the structure. Defaults to False.
         - surface_opacity (float, optional): The opacity of the surface. Defaults to 0.7.
 
         Raises:
         - ImportError: If the py3Dmol library is not installed.
         - ValueError: If the cluster intervals are not defined.
+        - ValueError: If the structure file is not a PDB or mmCIF file.
         """
         try:
             import py3Dmol
@@ -543,26 +699,26 @@ class AFragmenter:
         
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        
-        if color_range is None:
-            color_range = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'cyan', 'magenta']
 
         # TODO: Do something about this
         if len(self.cluster_intervals) > len(color_range):
             print("Warning: More clusters than available colors. Some clusters will have the same color.")
         
-        view = py3Dmol.view(js="https://3dmol.org/build/3Dmol.js")
+        view = py3Dmol.view(width=width, height=height)
         
-        if structure_file.lower().endswith('pdb'):
+        file_format = determine_file_format(structure_file).lower()
+        if file_format == 'pdb':
             view.addModel(open(structure_file, 'r').read(), 'pdb')
-        else:
+        elif file_format == 'mmcif':
             view.addModel(open(structure_file, 'r').read(), 'cif')
+        else:
+            raise ValueError("Unsupported file format. Please provide a PDB or mmCIF file.")
 
-        view.setStyle({'cartoon': {'color': 'grey'}}) # spectrum
+        view.setStyle({f'{view}': {'color': 'grey'}}) # spectrum
         for cluster, ranges in self.cluster_intervals.items():
             col = color_range[cluster % len(color_range)]
             for start, end in ranges:
-                view.setStyle({'resi': f'{start}-{end}'}, {'cartoon': {'color': col}})
+                view.setStyle({'resi': f'{start}-{end}'}, {f'{view}': {'color': col}})
         if add_surface:
             view.addSurface(py3Dmol.VDW,{'opacity':surface_opacity,'color':'white'})
 
@@ -595,7 +751,7 @@ class AFragmenter:
                 if i > 0: # If it isn't the first interval, check for gaps
                     previous_end = interval[i-1][1]
                     if start > previous_end:
-                        gap_size = start - previous_end
+                        gap_size = start - previous_end - 1
                         cluster_sequence.extend(['-'] * gap_size)
                 
                 cluster_sequence.extend(sequence[start:end+1])

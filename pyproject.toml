@@ -24,8 +24,16 @@ rich-click = "^1.8.3"
 biopython = "^1.84"
 
 [tool.poetry.scripts]
-afragmenter = 'afragmenter.cli:main'
+afragmenter = 'afragmenter.cli:afragmenter'
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
