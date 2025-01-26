@@ -669,7 +669,7 @@ class AFragmenter:
                                                'beige', 'navy', 'grey', 'white', 'black'], 
                           width: int = 800, 
                           height: int = 600,
-                          view: str = 'cartoon',
+                          style: str = 'cartoon',
                           add_surface: bool = False, 
                           surface_opacity: float = 0.7) -> None:
         """
@@ -680,7 +680,7 @@ class AFragmenter:
         - color_range (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
         - width (int, optional): The width of the viewer. Defaults to 800.
         - height (int, optional): The height of the viewer. Defaults to 600.
-        - view (str, optional): The view style to use. Defaults to 'cartoon'.
+        - style (str, optional): The style to use. Defaults to 'cartoon'.
         - add_surface (bool, optional): Whether to add a surface to the structure. Defaults to False.
         - surface_opacity (float, optional): The opacity of the surface. Defaults to 0.7.
 
@@ -707,18 +707,18 @@ class AFragmenter:
         view = py3Dmol.view(width=width, height=height)
         
         file_format = determine_file_format(structure_file).lower()
-        if file_format == 'pdb':
+        if file_format.lower() == 'pdb':
             view.addModel(open(structure_file, 'r').read(), 'pdb')
-        elif file_format == 'mmcif':
+        elif file_format.lower() == 'mmcif':
             view.addModel(open(structure_file, 'r').read(), 'cif')
         else:
             raise ValueError("Unsupported file format. Please provide a PDB or mmCIF file.")
 
-        view.setStyle({f'{view}': {'color': 'grey'}}) # spectrum
+        view.setStyle({f'{style}': {'color': 'grey'}}) # spectrum
         for cluster, ranges in self.cluster_intervals.items():
             col = color_range[cluster % len(color_range)]
             for start, end in ranges:
-                view.setStyle({'resi': f'{start}-{end}'}, {f'{view}': {'color': col}})
+                view.setStyle({'resi': f'{start+1}-{end+1}'}, {f'{style}': {'color': col}})
         if add_surface:
             view.addSurface(py3Dmol.VDW,{'opacity':surface_opacity,'color':'white'})
 
