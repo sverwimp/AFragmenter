@@ -180,7 +180,7 @@ def determine_file_format(file_path: FilePath) -> str:
     - file_path (FilePath): The path to the file.
     
     Returns:
-    - str: The format of the file. Possible values are 'fasta', 'PDB', or 'mmCIF'
+    - str: The format of the file. Possible values are 'FASTA', 'PDB', or 'mmCIF'
     
     Raises:
     - ValueError: If the file is empty or contains only comments and the format cannot be inferred.
@@ -189,10 +189,12 @@ def determine_file_format(file_path: FilePath) -> str:
     first_line = read_first_valid_line(file_path)
     if first_line is None:
         raise ValueError("Unable to infer file format, file is empty or contains only comments")
+    
+    pdb_firstlines = ('HEADER', 'ATOM', 'MODEL')
 
     if first_line.startswith('>'):
         return 'FASTA'
-    elif first_line.startswith('HEADER') or first_line.startswith('ATOM'):
+    elif first_line.startswith(pdb_firstlines):
         return 'PDB'
     elif first_line.startswith('data_'):
         return 'mmCIF'
