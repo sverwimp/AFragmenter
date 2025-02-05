@@ -20,7 +20,7 @@ FilePath = Union[str, Path]
 default_resolutions = {"modularity": 0.8, "cpm": 0.3}
 
 
-def validate_pae(pae: np.ndarray) -> None:
+def _validate_pae(pae: np.ndarray) -> None:
     """
     Validate some properties of the Predicted Aligned Error (PAE) matrix.
 
@@ -42,28 +42,19 @@ def validate_pae(pae: np.ndarray) -> None:
         raise ValueError("PAE matrix must be square")
     if np.min(pae) < 0:
         raise ValueError("PAE values must be non-negative")
+    
 
-
-def load_pae(json_file: FilePath) -> np.ndarray:
+def _process_pae_data(pae_json) -> np.ndarray:
     """
-    Load the Predicted Aligned Error (PAE) data from a JSON file.
-
     Parameters:
-    - json_file (FilePath): The path to the JSON file. (str or Path)
+    - pae_json: json-like format containing the PAE data
 
     Returns:
-    - np.ndarray: The PAE matrix.
-
+    - np.ndarray: The PAE matrix
+    
     Raises:
-    - FileNotFoundError: If the JSON file does not exist.
     - ValueError: If the PAE data is not found in the JSON file.
     """
-    if not os.path.exists(json_file):
-        raise FileNotFoundError(f"{json_file} not found")
-    
-    with open(json_file, "r") as f:
-        pae_data = json.load(f)
-
     # AF2 format loads as a list containing a dictionary, AF3 and colabfold directly load the dictionary
     if isinstance(pae_data, list):
         pae_data = pae_data[0]
@@ -80,8 +71,32 @@ def load_pae(json_file: FilePath) -> np.ndarray:
             raise ValueError("PAE data not found in JSON file")
         pae_matrix = np.stack(pae, axis=0)
 
-    validate_pae(pae_matrix)
+    _validate_pae(pae_matrix)
     return pae_matrix
+
+
+
+def load_pae(json_file: FilePath) -> np.ndarray:
+    """
+    Reads a json file and calls the _process_pae_data function to
+    load the Predicted Aligned Error (PAE) data as a numpy array
+
+    Parameters:
+    - json_file (FilePath): The path to the JSON file. (str or Path)
+
+    Returns:
+    - np.ndarray: The PAE matrix.
+
+    Raises:
+    - FileNotFoundError: If the JSON file does not exist.
+    """
+    if not os.path.exists(json_file):
+        raise FileNotFoundError(f"{json_file} not found")
+    
+    with open(json_file, "r") as f:
+        pae_data = json.load(f)
+
+    return _process_pae_data(pae_data)
     
 
 def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
