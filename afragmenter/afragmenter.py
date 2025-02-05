@@ -10,14 +10,10 @@ from rich.console import Console
 from rich.table import Table
 import numpy as np
 import igraph
-import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-from matplotlib.ticker import FormatStrFormatter
-from matplotlib.colors import LinearSegmentedColormap
-import matplotlib.patches as patches
 from matplotlib import image, axes
 
 from .sequence_reader import read_sequence, determine_file_format
+from afragmenter import plotting
 
 
 FilePath = Union[str, Path]
@@ -152,55 +148,6 @@ def cluster_graph(graph: igraph.Graph,
     return partition
 
 
-def plot_matrix(matrix: np.ndarray, 
-                ax: axes.Axes = None,
-                colorbar: bool = True, 
-                colorbar_label: str = "", 
-                colorbar_decimals: int = None, 
-                **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
-    """
-    Plot a matrix as a heatmap.
-
-    Parameters:
-    - matrix (np.ndarray): The matrix to be plotted.
-    - ax (axes.Axes, optional): The matplotlib axes object to plot the matrix on.
-    - tick_top (bool, optional): Whether to place the ticks on the top of the plot.
-    - colorbar (bool, optional): Whether to display a colorbar.
-    - colorbar_label (str, optional): The label for the colorbar.
-    - colorbar_decimals (int, optional): The number of decimal places to display in the colorbar.
-    - **kwargs: Additional keyword arguments to be passed to the matplotlib.pyplot.imshow function.
-
-    Returns:
-    - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
-    """
-    paegreen = ["#1E461E", "#249224", "#37B137", "#56C956", "#82DD82", "#BAEFBA", "#FFFFFF"]
-    cm = LinearSegmentedColormap.from_list("custom", paegreen, N=256)
-
-    if np.all((matrix >= 0) & (matrix <= 1)):
-        kwargs.setdefault("vmax", 1)
-        if colorbar_decimals is None:
-            colorbar_decimals = 1
-    else:
-        if colorbar_decimals is None:
-            colorbar_decimals = 0       
-    
-    kwargs.setdefault("aspect", "equal")
-    kwargs.setdefault("cmap", cm)
-    kwargs.setdefault("vmin", 0)
-    
-    if ax is None:
-        _, ax = plt.subplots()
-    image = ax.imshow(matrix, **kwargs)
-
-    if colorbar:
-        divider = make_axes_locatable(ax)
-        cax = divider.append_axes("right", size="5%", pad=0.05)
-        cbar = plt.colorbar(image, cax=cax)
-        cbar.set_label(colorbar_label, rotation=270, labelpad=15)
-        cbar.ax.yaxis.set_major_formatter(FormatStrFormatter(f"%.{colorbar_decimals}f"))
-    return image, ax
-
-
 def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
     """
     Create a dictionary of cluster intervals from the vertex clustering object.
@@ -309,7 +256,7 @@ def merge_intervals(intervals: dict, min_size: int) -> dict:
 
 
     class Interval:
-        def __init__(self, group, start, end):
+        def __init__(self, group: int, start: int, end: int):
             self.group = group
             self.start = start
             self.end = end
@@ -390,54 +337,6 @@ def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool
     renumbered_intervals = {i: v for i, (_, v) in enumerate(intervals.items())}    
     return renumbered_intervals
 
-
-def plot_cluster_intervals(background_matrix: np.ndarray, 
-                           cluster_intervals: dict, 
-                           ax: axes.Axes = None, 
-                           linewidth: int = 2, 
-                           edgecolor: str = 'r', 
-                           **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
-    """
-    Plot the cluster intervals as rectangles on top of a background matrix.
-
-    Parameters:
-    - background_matrix (np.ndarray): The background matrix to plot.
-    - cluster_intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of
-                                tuples representing the cluster intervals.
-    - ax (axes.Axes, optional): The matplotlib axes object to plot the matrix on.
-    - linewidth (int, optional): The width of the rectangle edges.
-    - edgecolor (str, optional): The color of the rectangle edges.
-    - **kwargs: Additional keyword arguments to be passed to the matplotlib.pyplot.imshow function.
-
-    Returns:
-    - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
-    """
-    image, ax = plot_matrix(background_matrix, ax=ax, **kwargs)
-    
-    for intervals in cluster_intervals.values():
-        # Plot diagonal square for each interval
-        for start, stop in intervals:
-            rect = patches.Rectangle((start, start), stop - start, stop - start, 
-                                        linewidth=linewidth, edgecolor=edgecolor, facecolor='none')
-            ax.add_patch(rect)
-        # Plot off-diagonal rectangles for discontinuous intervals
-        for i, (start1, stop1) in enumerate(intervals[:-1]):
-            for start2, stop2 in intervals[i + 1:]:
-                # Off-diagonal intersection rectangles
-                width1, height1 = stop1 - start1, stop2 - start2
-                width2, height2 = stop2 - start2, stop1 - start1
-                
-                # Add the first off-diagonal rectangle
-                ax.add_patch(
-                    patches.Rectangle((start1, start2), width1, height1,
-                                    linewidth=linewidth, edgecolor=edgecolor, facecolor='none')
-                )
-                # Add the second off-diagonal rectangle (symmetric to the first)
-                ax.add_patch(
-                    patches.Rectangle((start2, start1), width2, height2,
-                                    linewidth=linewidth, edgecolor=edgecolor, facecolor='none')
-                )
-    return image, ax
 
 
 def format_intervals_table(intervals: dict, **kwargs) -> str:
@@ -610,7 +509,7 @@ class AFragmenter:
         - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
         """
         kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
-        image, ax = plot_matrix(self.pae_matrix, **kwargs)
+        image, ax = plotting.plot_matrix(self.pae_matrix, **kwargs)
         ax.set_xlabel("Scored residue")
         ax.set_ylabel("Aligned residue")
 
@@ -631,7 +530,7 @@ class AFragmenter:
             raise ValueError("No clustering results found, please run the cluster method first")
         
         kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
-        image, ax = plot_cluster_intervals(self.pae_matrix, self.cluster_intervals, **kwargs)
+        image, ax = plotting.plot_cluster_intervals(self.pae_matrix, self.cluster_intervals, **kwargs)
         ax.set_xlabel("Scored residue")
         ax.set_ylabel("Aligned residue")
 
@@ -657,6 +556,8 @@ class AFragmenter:
         print(table_string)
 
 
+    # TODO: Change this to just print something like: 'AFragmenter(params={}, ...)
+    # test what it looks like if I just run an AFragmenter object in a jupyter cell.
     def __str__(self) -> str:
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
@@ -666,9 +567,8 @@ class AFragmenter:
     def visualize_py3Dmol(self, structure_file: str, 
                           color_range: list = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
                                                'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
-                                               'beige', 'navy', 'grey', 'white', 'black'], 
-                          width: int = 800, 
-                          height: int = 600,
+                                               'beige', 'navy', 'grey', 'white', 'black'],
+                          size: Tuple[int, int] = (800, 600),
                           style: str = 'cartoon',
                           add_surface: bool = False, 
                           surface_opacity: float = 0.7) -> None:
@@ -678,8 +578,7 @@ class AFragmenter:
         Parameters:
         - pdb_file (str): The path to the PDB or mmcif file.
         - color_range (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
-        - width (int, optional): The width of the viewer. Defaults to 800.
-        - height (int, optional): The height of the viewer. Defaults to 600.
+        - size (Tuple[int, int], optional): The width and height of the viewer. Defaults to (800, 600).
         - style (str, optional): The style to use. Defaults to 'cartoon'.
         - add_surface (bool, optional): Whether to add a surface to the structure. Defaults to False.
         - surface_opacity (float, optional): The opacity of the surface. Defaults to 0.7.
@@ -703,13 +602,13 @@ class AFragmenter:
         # TODO: Do something about this
         if len(self.cluster_intervals) > len(color_range):
             print("Warning: More clusters than available colors. Some clusters will have the same color.")
-        
-        view = py3Dmol.view(width=width, height=height)
+    
+        view = py3Dmol.view(width=size[0], height=size[1])
         
         file_format = determine_file_format(structure_file).lower()
-        if file_format.lower() == 'pdb':
+        if file_format == 'pdb':
             view.addModel(open(structure_file, 'r').read(), 'pdb')
-        elif file_format.lower() == 'mmcif':
+        elif file_format == 'mmcif':
             view.addModel(open(structure_file, 'r').read(), 'cif')
         else:
             raise ValueError("Unsupported file format. Please provide a PDB or mmCIF file.")
