@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 from typing import Union, Tuple
 import os
@@ -12,92 +11,13 @@ import numpy as np
 import igraph
 from matplotlib import image, axes
 
-from .sequence_reader import read_sequence, determine_file_format
+from .data_reader import PAEHandler, SequenceReader
 from afragmenter import plotting
 
 
 FilePath = Union[str, Path]
 default_resolutions = {"modularity": 0.8, "cpm": 0.3}
 
-
-def _validate_pae(pae: np.ndarray) -> None:
-    """
-    Validate some properties of the Predicted Aligned Error (PAE) matrix.
-
-    Parameters:
-    - pae (np.ndarray): The PAE matrix.
-
-    Returns:
-    - None
-
-    Raises:
-    - TypeError: If the PAE matrix is not a numpy array.
-    - ValueError: If the PAE matrix is not 2D, not square, or if it contains negative values.
-    """
-    if not isinstance(pae, np.ndarray):
-        raise TypeError("pae must be a numpy array")
-    if pae.ndim != 2:
-        raise ValueError("PAE matrix must be 2D")
-    if pae.shape[0] != pae.shape[1]:
-        raise ValueError("PAE matrix must be square")
-    if np.min(pae) < 0:
-        raise ValueError("PAE values must be non-negative")
-    
-
-def _process_pae_data(pae_json) -> np.ndarray:
-    """
-    Parameters:
-    - pae_json: json-like format containing the PAE data
-
-    Returns:
-    - np.ndarray: The PAE matrix
-    
-    Raises:
-    - ValueError: If the PAE data is not found in the JSON file.
-    """
-    # AF2 format loads as a list containing a dictionary, AF3 and colabfold directly load the dictionary
-    if isinstance(pae_data, list):
-        pae_data = pae_data[0]
-
-    # AFDB v1 and v2 have different keys for the PAE data
-    if "distance" in pae_data:
-        nrows = max(pae_data.get('residue1'))
-        pae_matrix = np.zeros((nrows + 1, nrows + 1))
-        for r, c, v in zip (pae_data.get('residue1'), pae_data.get('residue2'), pae_data.get('distance')):
-            pae_matrix[r, c] = v
-    else:
-        pae = pae_data.get("predicted_aligned_error") or pae_data.get("pae")
-        if pae is None:
-            raise ValueError("PAE data not found in JSON file")
-        pae_matrix = np.stack(pae, axis=0)
-
-    _validate_pae(pae_matrix)
-    return pae_matrix
-
-
-
-def load_pae(json_file: FilePath) -> np.ndarray:
-    """
-    Reads a json file and calls the _process_pae_data function to
-    load the Predicted Aligned Error (PAE) data as a numpy array
-
-    Parameters:
-    - json_file (FilePath): The path to the JSON file. (str or Path)
-
-    Returns:
-    - np.ndarray: The PAE matrix.
-
-    Raises:
-    - FileNotFoundError: If the JSON file does not exist.
-    """
-    if not os.path.exists(json_file):
-        raise FileNotFoundError(f"{json_file} not found")
-    
-    with open(json_file, "r") as f:
-        pae_data = json.load(f)
-
-    return _process_pae_data(pae_data)
-    
 
 def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
     """
@@ -268,8 +188,6 @@ def merge_intervals(intervals: dict, min_size: int) -> dict:
     - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size 
             removed and the keys renumbered starting
     """
-
-
     class Interval:
         def __init__(self, group: int, start: int, end: int):
             self.group = group
@@ -416,7 +334,7 @@ class AFragmenter:
     AFragmenter class for clustering protein domains based on Predicted Aligned Error (PAE) values.
 
     Parameters:
-    - pae_matrix (Union[np.ndarray, FilePath]): The Predicted Aligned Error matrix.
+    - pae_matrix (Union[np.ndarray, FilePath, dict]): The Predicted Aligned Error matrix.
     - threshold (float, optional): The threshold for the sigmoid function used to transform the PAE values into graph edge weights.
 
     Attributes:
@@ -435,18 +353,24 @@ class AFragmenter:
     - save_fasta: Save the sequences corresponding to each cluster in FASTA format to a file.
     """
 
-    def __init__(self, pae_matrix: Union[np.ndarray, FilePath], threshold: float = 5.0):
-        if isinstance(pae_matrix, (str, Path)):
-            pae_matrix = load_pae(pae_matrix)
+    def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict], threshold: float = 5.0):
+        if isinstance(pae_matrix, (list, dict)):
+            pae_matrix = PAEHandler.process_pae_data(pae_matrix)
+        elif isinstance(pae_matrix, (str, Path)):
+            pae_matrix = PAEHandler.load_pae(pae_matrix)
+        elif not isinstance(pae_matrix, np.ndarray):
+            raise TypeError("pae_matrix must be a numpy array, a file path, or a dictionary containing PAE data")
+        
         self.pae_matrix = pae_matrix
-        self.edge_weights_matrix = self._logistic_transform(pae_matrix, threshold)
+        self.edge_weights_matrix = self._pae_transform(pae_matrix, threshold)
         self.graph = create_graph(self.edge_weights_matrix)
         self.params = {"threshold": threshold}
+        self.sequence_reader = None
         
 
-    def _logistic_transform(self, pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
+    def _pae_transform(self, pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
         """
-        Transform the PAE matrix into a matrix of edge weights using a logistic function.
+        Transform the PAE matrix into a matrix of edge weights using a sigmoid function.
         This creates a larger contrast between the high and low PAE values.
 
         Parameters:
@@ -571,12 +495,16 @@ class AFragmenter:
         print(table_string)
 
 
-    # TODO: Change this to just print something like: 'AFragmenter(params={}, ...)
-    # test what it looks like if I just run an AFragmenter object in a jupyter cell.
+    def __repr__(self) -> str:
+        return (f"AFragmenter(pae_matrix=np.ndarray(shape={self.pae_matrix.shape}), "
+                f"params={self.params} "
+                f"cluster_intervals={self.cluster_intervals if hasattr(self, 'cluster_intervals') else None})")
+
+
     def __str__(self) -> str:
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
-        return format_intervals_table(self.cluster_intervals)
+        return (f"AFragmenter(pae_matrix=np.ndarray(shape={self.pae_matrix.shape}), "
+                f"params={self.params} "
+                f"cluster_intervals={self.cluster_intervals if hasattr(self, 'cluster_intervals') else None})")
 
 
     def visualize_py3Dmol(self, structure_file: str, 
@@ -607,7 +535,7 @@ class AFragmenter:
             import py3Dmol
         except ImportError:
             raise ImportError(
-                "The py3Dmol library is required for this function. "
+                "The py3Dmol library is required for the visualize_py3Dmol function. "
                 "Please install it using 'pip install py3Dmol'."
             )
         
@@ -619,12 +547,17 @@ class AFragmenter:
             print("Warning: More clusters than available colors. Some clusters will have the same color.")
     
         view = py3Dmol.view(width=size[0], height=size[1])
+
+        if os.path.isfile(structure_file):
+            content = open(structure_file, 'r').read()
+        else:
+            content = structure_file
         
-        file_format = determine_file_format(structure_file).lower()
+        file_format = SequenceReader.determine_file_format(content).lower()
         if file_format == 'pdb':
-            view.addModel(open(structure_file, 'r').read(), 'pdb')
+            view.addModel(content, 'pdb')
         elif file_format == 'mmcif':
-            view.addModel(open(structure_file, 'r').read(), 'cif')
+            view.addModel(content, 'cif')
         else:
             raise ValueError("Unsupported file format. Please provide a PDB or mmCIF file.")
 
@@ -640,59 +573,28 @@ class AFragmenter:
         view.show()
 
 
-    def _clusters_to_fasta(self, sequence_file: FilePath, query_chain: str = 'A') -> dict:
-        """
-        Parse the sequence file and return the sequences corresponding to each cluster.
-
-        Parameters:
-        - sequence_file (FilePath): The path to the sequence file.
-        - query_chain (str, optional): The chain ID to use as the query. Defaults to 'A'.
-
-        Returns:
-        - dict: A dictionary where the keys are the cluster indices and the values are the corresponding sequences.
-
-        Raises:
-        - ValueError: If the cluster intervals are not defined.
-        """
-        if not hasattr(self, 'cluster_intervals'):
-            raise ValueError("Intervals not defined. Run the cluster method first.")
-        
-        sequence = read_sequence(sequence_file, seq_length=self.pae_matrix.shape[0] , query_chain=query_chain)
-        parsed_sequences = {}
-        for cluster_id, interval in self.cluster_intervals.items():
-            cluster_sequence = []
-            for i, (start, end) in enumerate(interval):
-                if i > 0: # If it isn't the first interval, check for gaps
-                    previous_end = interval[i-1][1]
-                    if start > previous_end:
-                        gap_size = start - previous_end - 1
-                        cluster_sequence.extend(['-'] * gap_size)
-                
-                cluster_sequence.extend(sequence[start:end+1])
-            parsed_sequences[cluster_id] = ''.join(cluster_sequence)
-        return parsed_sequences
-
-
     def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60) -> None:
         """
         Print the sequences corresponding to each cluster in FASTA format.
 
         Parameters:
         - sequence_file (FilePath): The path to the sequence file.
-        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to Path(sequence_file).stem.
+        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to self.sequence_reader.name.
         - width (int, optional): The width of the sequence lines. Defaults to 60.
 
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        parsed_sequences = self._clusters_to_fasta(sequence_file)
+        if self.sequence_reader is None:
+            self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
+        parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
         
         if not prefix:
-            prefix = Path(sequence_file).stem
+            prefix = self.sequence_reader.name
 
         for i, seq in parsed_sequences.items():
             interval = self.cluster_intervals[i]
-            interval_str = "_".join([f"{start}-{end}" for start, end in interval])
+            interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
             print(f">{prefix}_{i+1} {interval_str}")
             for i in range(0, len(seq), width):
                 print(seq[i:i+width])
@@ -705,23 +607,25 @@ class AFragmenter:
         Parameters:
         - sequence_file (FilePath): The path to the sequence file.
         - output_file (FilePath): The path to save the output file.
-        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to Path(sequence_file).stem.
+        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to self.sequence_reader.name.
         - width (int, optional): The width of the sequence lines. Defaults to 60.
 
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        parsed_sequences = self._clusters_to_fasta(sequence_file)
+        if self.sequence_reader is None:
+            self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
+        parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
         
         if not prefix:
-            prefix = Path(sequence_file).stem
+            prefix = self.sequence_reader.name
 
         output_file = Path(output_file)
         
         with open(output_file, 'w') as f:
             for i, seq in parsed_sequences.items():
                 interval = self.cluster_intervals[i]
-                interval_str = "_".join([f"{start}-{end}" for start, end in interval])
+                interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
                 f.write(f">{prefix}_{i+1} {interval_str}\n")
                 for i in range(0, len(seq), width):
                     f.write(seq[i:i+width] + "\n")

@@ -1,8 +1,9 @@
-from .afragmenter import AFragmenter, load_pae, _validate_pae, plot_matrix
+from .afragmenter import AFragmenter
+from .plotting import plot_matrix
+from .data_reader import PAEHandler
 
 __all__ = [
     "AFragmenter",
-    "load_pae",
-    "_validate_pae",
+    "PAEHandler",
     "plot_matrix",
 ]
