@@ -21,62 +21,6 @@ from afragmenter import plotting
 FilePath = Union[str, Path]
 
 
-def format_results_table(intervals: dict, **kwargs) -> str:
-    """
-    Print the cluster intervals in a table format.
-    If the output is a terminal or a jupyter notebook, the table will be printed using rich.
-    If the output is a file, the table will be printed using csv.
-
-    Parameters:
-    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of tuples representing the cluster intervals.
-    - **kwargs: Additional keyword arguments to be passed to the rich.table.Table constructor.
-
-    Returns:
-    - str: The formatted table as a string.
-    """
-    def is_notebook() -> bool:
-        try:
-            from IPython import get_ipython
-            if get_ipython() is not None:
-                return True
-        except ImportError:
-            return False
-        return False
-    
-    def format_as_rich_table(intervals: dict, **kwargs) -> str:
-        table = Table(**kwargs)
-        table.add_column("Domain", justify="right")
-        table.add_column("Number of Residues", justify="right")
-        table.add_column("Chopping", justify="right")
-
-        for i, cluster in enumerate(intervals.values()):
-            chopping = '_'.join([f'{start + 1}-{end + 1}' for start, end in cluster])
-            nres = sum(end - start + 1 for start, end in cluster)
-            table.add_row(str(i+1), str(nres), chopping)
-        
-        console = Console()
-        with console.capture() as capture:
-            console.print(table)
-            console.quiet = True # This is a weird workaround to avoid rendering an empty output cell in jupyter notebooks
-        console.quiet = False
-        return capture.get().rstrip('\n')
-    
-    def format_as_csv(intervals: dict) -> str:
-        output = StringIO()
-        writer = csv.writer(output, delimiter=',')
-        writer.writerow(["domain", "nres", "chopping"])
-        for i, cluster in enumerate(intervals.values()):
-            chopping = '_'.join([f'{start + 1}-{end + 1}' for start, end in cluster])
-            nres = sum(end - start + 1 for start, end in cluster)
-            writer.writerow([str(i+1), str(nres), chopping])
-        return output.getvalue().rstrip('\n')
-
-    if sys.stdout.isatty() or is_notebook():
-        return format_as_rich_table(intervals, **kwargs)
-    else:
-        return format_as_csv(intervals)
-
-
 class AFragmenter:
     """
     AFragmenter class for clustering protein domains based on Predicted Aligned Error (PAE) values.
