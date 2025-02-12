@@ -8,267 +8,17 @@ import csv
 from rich.console import Console
 from rich.table import Table
 import numpy as np
-import igraph
 from matplotlib import image, axes
 
-from .data_reader import PAEHandler, SequenceReader
+from .pae_handler import PAEHandler
+from .sequence_reader import SequenceReader
+from .graph import create_graph, cluster_graph, default_resolutions
+from .intervals import find_cluster_intervals, filter_cluster_intervals
+from afragmenter import format_result
 from afragmenter import plotting
 
 
 FilePath = Union[str, Path]
-default_resolutions = {"modularity": 0.8, "cpm": 0.3}
-
-
-def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
-    """
-    Create an igraph Graph object from a given weights matrix.
-
-    Parameters:
-    - weights_matrix (np.ndarray): A square matrix containing the edge weights.
-
-    Returns:
-    - igraph.Graph: The graph object.
-    """
-    num_vertices = weights_matrix.shape[0]
-    indices = np.triu_indices(num_vertices, k=1)
-    edges = list(zip(*indices))
-    weights = [weights_matrix[i, j] for i, j in edges]
-    
-    graph = igraph.Graph(n=num_vertices, edges=edges, edge_attrs={'weight': weights}, directed=False)
-    #graph.add_vertices(num_vertices)
-    #graph.add_edges(edges)
-    #graph.es["weight"] = weights
-
-    return graph
-
-
-def cluster_graph(graph: igraph.Graph,
-            resolution: Union[float, None] = None, 
-            n_iterations: int = -1, 
-            objective_function: str = "modularity",
-            **kwargs) -> igraph.VertexClustering:
-    #TODO: add some info about objective_function
-    """
-    Cluster the graph using the Leiden algorithm.
-    
-    The resolution parameter determines the scale of the partition cluster. It can be thought of as the coarseness of the clustering.
-    A higher resolution will lead to more and smaller clusters, while a lower resolution will lead to fewer and larger clusters.
-
-    The number of iterations determines the number of times the Leiden algorithm will be run. A negative value will run the algorithm until the partition stabilizes.
-
-    Parameters:
-    - graph (igraph.Graph): The graph object.
-    - resolution (float, optional): The resolution parameter for the Leiden algorithm.
-    - n_iterations (int, optional): The number of iterations for the Leiden algorithm.
-    - objective_function (str, optional): The objective function for the Leiden algorithm.
-
-    Returns:
-    - igraph.VertexClustering: The resulting vertex clustering.
-    """
-
-    objective_funtions = ["modularity", "cpm"]
-    if objective_function.lower() not in objective_funtions:
-        raise ValueError(f"Objective function must be one of {objective_funtions}, got {objective_function}")
-
-    if resolution is None:
-        resolution = default_resolutions[objective_function.lower]
-
-    partition = graph.community_leiden(
-        weights="weight",
-        resolution=resolution, 
-        n_iterations=n_iterations, 
-        objective_function=objective_function,
-        **kwargs
-    )
-    return partition
-
-
-def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
-    """
-    Create a dictionary of cluster intervals from the vertex clustering object.
-
-    Parameters:
-    - clusters (igraph.VertexClustering): The vertex clustering object.
-
-    Returns:
-    - dict: A dictionary where the keys are the cluster indices and the values are lists of tuples representing the cluster intervals.
-
-    Example output:
-    {
-        0: [(0, 20), (35, 40)],
-        1: [(21, 34)]
-    }
-    """
-    results = {}
-    for i, cluster in enumerate(clusters):
-        region = []
-        if cluster:
-            start = cluster[0]
-            for j in range(1, len(cluster)):
-                if cluster[j] != cluster[j-1] + 1:
-                    region.append((start, cluster[j-1]))
-                    start = cluster[j]
-            region.append((start, cluster[-1]))
-        results[i] = region
-    return results
-
-
-def remove_min_size_intervals(intervals: dict, min_size: int) -> dict:
-    """
-    Remove clusters that are smaller than a given size based on the *total* size of the intervals (values) per group (keys).
-
-    In example 1, clusters 0, 2 and 4 are removed because the intervals are too small.
-    In example 2, clusters 0 and 3 are removed because the intervals are too small. Cluser 1 has intervals that
-    are smaller than the min_size threshold, but the total size of the intervals is larger than min_size, so it is kept.
-
-    Example 1:
-        intervals = {0: [(0, 2)],                      -> total size interval = 3
-                    1: [(3, 33)],                      -> total size interval = 31
-                    2: [(34, 35)], 
-                    3: [(36, 133), (143, 269)],        -> total size interval = 225
-                    4: [(134, 138)]}
-        min_size = 10
-        merge_intervals(intervals, min_size) -> {1: [(3, 33)], 
-                                                 3: [(36, 133), (143, 269)]}
-    
-    Example 2:
-        intervals = {0: [(0, 5)],                                               -> total size interval = 6
-                    1: [(6, 11), (807, 807), (810, 811), (813, 933)],           -> total size interval = 130
-                    2: [(12, 179), (419, 518), (519, 603), (604, 806), 
-                        (808, 809), (812, 812)],
-                    3: [(180, 182)], 
-                    4: [(183, 229), (230, 418)]}
-        min_size = 10
-        merge_intervals(intervals, min_size) -> {1: [(6, 11), (807, 807), (810, 811), (813, 933)],
-                                                 2: [(12, 179), (419, 518), (519, 603), (604, 806), 
-                                                     (808, 809), (812, 812)],
-                                                 4: [(183, 229), (230, 418)]}
-
-    Parameters:
-    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
-                        tuples representing the cluster intervals.
-    - min_size (int): The minimum total size of the intervals to keep.
-
-    Returns:
-    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size removed.
-    """
-    filtered_intervals = {}
-    for key, value in intervals.items():
-        total_size = sum(interval[1] - interval[0] + 1 for interval in value)
-        if total_size >= min_size:
-            filtered_intervals[key] = value
-
-    # Remove any empty entries
-    filtered_intervals = {k: v for k, v in filtered_intervals.items() if v}
-    
-    return filtered_intervals
-
-
-def merge_intervals(intervals: dict, min_size: int) -> dict:
-    """
-    Iterates over all intervals and removes those that are smaller than the min_size threshold regardless of 
-    the total size of the intervals in a cluster/group (only the size of the individual intervals is considered).
-    Merges adjacent intervals of the same cluster while skipping intervals below the min_size threshold.
-
-    Example:
-        intervals = {0: [(0, 2)], 1: [(3, 33)], 2: [(34, 35)], 3: [(36, 133), (143, 269)], 4: [(134, 138)], 
-                    5: [(139, 142)], 6: [(270, 272)]}
-        min_size = 10
-        merge_intervals(intervals, min_size) -> {1: [(3, 33)], 3: [(36, 269)]}
-
-    In the example, cluster 0, 2 and 4 are removed because the intervals are too small. The intervals of cluster 3 
-    are merged because there is no other cluster with a size >= min_size between its intervals.
-
-    Parameters:
-    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
-                        tuples representing the cluster intervals.
-    - min_size (int): The minimum total size of the intervals to keep.
-
-    Returns:
-    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size 
-            removed and the keys renumbered starting
-    """
-    class Interval:
-        def __init__(self, group: int, start: int, end: int):
-            self.group = group
-            self.start = start
-            self.end = end
-            self.size = end - start + 1
-        
-        def __repr__(self):
-            return f"Interval(group={self.group}, start={self.start}, end={self.end}, size={self.size})"
-
-    interval_objects = []
-    for key, value in intervals.items():
-        for results in value:
-            start, end = results
-            interval_objects.append(Interval(key, start, end))
-    interval_objects.sort(key=lambda x: x.start)
-
-    previous_valid = None
-    results = []
-    for current in interval_objects:
-        # Skip intervals that are too small
-        if current.size < min_size:
-            continue
-
-        # First interval above the min_size threshold
-        if previous_valid is None:
-            previous_valid = current
-            continue
-
-        # If the current interval is adjacent to the previous one and of the same group, merge them
-        if previous_valid.group == current.group:
-            previous_valid = Interval(previous_valid.group, previous_valid.start, current.end)
-        else:
-            results.append(previous_valid)
-            previous_valid = current
-        
-    # Add the last interval
-    if previous_valid is not None:
-        results.append(previous_valid)
-
-    # Group the merged intervals by cluster
-    merged_intervals = {}
-    for interval in results:
-        if interval.group not in merged_intervals:
-            merged_intervals[interval.group] = []
-        merged_intervals[interval.group].append((interval.start, interval.end))
-    
-    return merged_intervals
-
-
-def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool = True) -> dict:
-    """
-    Filter out intervals that are smaller than a given size. 
-    Optionally attempt to merge smaller clusters with adjacent larger ones.
-
-    Parameters:
-    - intervals (dict): A dictionary where the keys are the cluster indices and the values are lists of 
-                        tuples representing the cluster intervals.
-    
-    - min_size (int): The minimum total size of the intervals to keep.
-    - attempt_merge (bool, optional): Whether to try to merge smaller clusters with adjacent larger ones. 
-                                      Defaults to True.
-
-    Returns:
-    - dict: A dictionary with the same structure as the input, but with intervals smaller than min_size
-            removed and the keys renumbered starting from zero.
-    """
-
-    if min_size < 0:
-        raise ValueError("Minimum cluster size must be greater than or equal to 0")
-    if min_size == 0:
-        return intervals
-
-    if attempt_merge:
-        intervals = merge_intervals(intervals, min_size)
-    else:
-        intervals = remove_min_size_intervals(intervals, min_size)
-
-    # Renumber the keys starting from zero
-    renumbered_intervals = {i: v for i, (_, v) in enumerate(intervals.items())}    
-    return renumbered_intervals
 
 
 def format_results_table(intervals: dict, **kwargs) -> str:
@@ -434,6 +184,19 @@ class AFragmenter:
         cluster_intervals = find_cluster_intervals(clusters)
         self.cluster_intervals = filter_cluster_intervals(cluster_intervals, min_size, attempt_merge=attempt_merge)
         return self
+    
+
+    def run(self, resolution: Union[float, None] = None, 
+            objective_function: str = "modularity", 
+            n_iterations: int = -1, 
+            min_size: int = 10,
+            attempt_merge: bool = True) -> 'AFragmenter':
+        """Alias for the cluster method."""
+        return self.cluster(resolution=resolution, 
+                            objective_function=objective_function, 
+                            n_iterations=n_iterations, 
+                            min_size=min_size, 
+                            attempt_merge=attempt_merge)
 
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
@@ -473,25 +236,6 @@ class AFragmenter:
         ax.set_ylabel("Aligned residue")
 
         return image, ax
-        
-
-    def print_result(self, **kwargs) -> None:
-        """
-        Print the clustering results in a table format. Will use rich if the output is a terminal or a jupyter notebook, else will use csv.
-
-        Parameters:
-        - **kwargs: Additional keyword arguments to be passed to the rich.table.Table constructor.
-
-        Returns:
-        - None
-
-        Raises:
-        - ValueError: If the cluster intervals are not defined.
-        """
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
-        table_string = format_results_table(self.cluster_intervals, **kwargs)
-        print(table_string)
 
 
     def __repr__(self) -> str:
@@ -504,7 +248,46 @@ class AFragmenter:
         return (f"AFragmenter(pae_matrix=np.ndarray(shape={self.pae_matrix.shape}), "
                 f"params={self.params} "
                 f"cluster_intervals={self.cluster_intervals if hasattr(self, 'cluster_intervals') else None})")
+    
 
+    def print_result(self, format: str = 'auto', delimiter: str = ',') -> None:
+        """
+        Print the clustering results in a table format. Will use rich if the output is a terminal or a jupyter notebook, else will use csv.
+
+        Parameters:
+        - format (str, optional): The format to use. [auto, csv, rich]
+        - delimiter (str, optional): The delimiter to use for the csv format.
+
+        Returns:
+        - None
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
+        if not hasattr(self, "cluster_intervals"):
+            raise ValueError("No clustering results found, please run the cluster method first")
+        format_result.print_result(self.cluster_intervals, format=format, delimiter=delimiter)
+
+    
+    def save_result(self, output_file: FilePath, format: str = 'csv', delimiter: str = ',') -> None:
+        """
+        Save the clustering results in a table format to a file.
+
+        Parameters:
+        - output_file (FilePath): The path to save the output file.
+        - format (str, optional): The format to use. [auto, csv, rich]
+        - delimiter (str, optional): The delimiter to use for the csv format.
+
+        Returns:
+        - None
+
+        Raises:
+        - ValueError: If the cluster intervals are not defined.
+        """
+        if not hasattr(self, "cluster_intervals"):
+            raise ValueError("No clustering results found, please run the cluster method first")
+        format_result.save_result(self.cluster_intervals, output_file, format=format, delimiter=delimiter)
+        
 
     def visualize_py3Dmol(self, structure_file: str, 
                           color_range: list = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
@@ -572,6 +355,26 @@ class AFragmenter:
         view.show()
 
 
+    def format_fasta_sequences(self, parsed_sequences, prefix, width):
+        """
+        Generator function to format sequences in FASTA format.
+
+        Parameters:
+        - parsed_sequences (dict): The parsed sequences.
+        - prefix (str): The prefix to add to the sequence headers.
+        - width (int): The width of the sequence lines.
+
+        Yields:
+        - str: The formatted FASTA sequence.
+        """
+        for i, seq in parsed_sequences.items():
+            interval = self.cluster_intervals[i]
+            interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
+            yield f">{prefix}_{i+1} {interval_str}"
+            for j in range(0, len(seq), width):
+                yield seq[j:j+width]
+
+
     def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60) -> None:
         """
         Print the sequences corresponding to each cluster in FASTA format.
@@ -591,12 +394,8 @@ class AFragmenter:
         if not prefix:
             prefix = self.sequence_reader.name
 
-        for i, seq in parsed_sequences.items():
-            interval = self.cluster_intervals[i]
-            interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
-            print(f">{prefix}_{i+1} {interval_str}")
-            for i in range(0, len(seq), width):
-                print(seq[i:i+width])
+        for line in self.format_fasta_sequences(parsed_sequences, prefix, width):
+            print(line)
 
 
     def save_fasta(self, sequence_file: FilePath, output_file: FilePath, prefix: str = "", width: int = 60) -> None:
@@ -620,11 +419,7 @@ class AFragmenter:
             prefix = self.sequence_reader.name
 
         output_file = Path(output_file)
-        
-        with open(output_file, 'w') as f:
-            for i, seq in parsed_sequences.items():
-                interval = self.cluster_intervals[i]
-                interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
-                f.write(f">{prefix}_{i+1} {interval_str}\n")
-                for i in range(0, len(seq), width):
-                    f.write(seq[i:i+width] + "\n")
+
+        with output_file.open('w') as f:
+            for line in self.format_fasta_sequences(parsed_sequences, prefix, width):
+                f.write(line + "\n")

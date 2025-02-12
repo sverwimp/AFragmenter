@@ -1,6 +1,6 @@
 from .afragmenter import AFragmenter
 from .plotting import plot_matrix
-from .data_reader import PAEHandler
+from .pae_handler import PAEHandler
 
 __all__ = [
     "AFragmenter",

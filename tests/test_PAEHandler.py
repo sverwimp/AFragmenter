@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pytest
 
-from afragmenter.data_reader import PAEHandler, SequenceReader
+from afragmenter.pae_handler import PAEHandler
 
 
 def test_validate_pae_valid_input():

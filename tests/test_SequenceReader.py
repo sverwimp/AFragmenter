@@ -1,6 +1,5 @@
 import pytest
-from afragmenter.data_reader import SequenceReader
-
+from afragmenter.sequence_reader import SequenceReader
 
 def test_translate_three2one_iter():
     """Test translating a list of three-letter amimo acids to one-letter amimo acids."""
