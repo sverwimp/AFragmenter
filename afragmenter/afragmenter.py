@@ -314,7 +314,7 @@ class AFragmenter:
         - ValueError: If the structure file is not a PDB or mmCIF file.
         """
         try:
-            import py3Dmol
+            import py3Dmol # type: ignore
         except ImportError:
             raise ImportError(
                 "The py3Dmol library is required for the visualize_py3Dmol function. "

@@ -72,7 +72,7 @@ def is_notebook() -> bool:
     - bool: True if the code is running in a jupyter notebook, False otherwise.
     """
     try:
-        from IPython import get_ipython
+        from IPython import get_ipython # type: ignore
         if get_ipython() is not None:
             return True
     except ImportError:
