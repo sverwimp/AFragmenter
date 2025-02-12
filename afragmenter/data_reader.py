@@ -43,10 +43,10 @@ class PAEHandler:
     
 
     @staticmethod
-    def process_pae_data(pae_data) -> np.ndarray:
+    def process_pae_data(pae_data: Union[list, dict, StringIO]) -> np.ndarray:
         """
         Parameters:
-        - pae_data: json-like format containing the PAE data
+        - pae_data (list, dict, StringIO): json-like format containing the PAE data
 
         Returns:
         - np.ndarray: The PAE matrix
@@ -65,7 +65,7 @@ class PAEHandler:
         if "distance" in pae_data:
             nrows = max(pae_data.get('residue1'))
             pae_matrix = np.zeros((nrows + 1, nrows + 1))
-            for r, c, v in zip (pae_data.get('residue1'), pae_data.get('residue2'), pae_data.get('distance')):
+            for r, c, v in zip(pae_data.get('residue1'), pae_data.get('residue2'), pae_data.get('distance')):
                 pae_matrix[r, c] = v
         else:
             pae = pae_data.get("predicted_aligned_error") or pae_data.get("pae")
@@ -148,12 +148,12 @@ class SequenceReader:
         
 
     @staticmethod
-    def get_content(file_input: FilePath) -> str:
+    def get_content(file_input: Union[FilePath, StringIO]) -> str:
         """
         Reads the content of a file or returns the input string.
 
         Parameters:
-        - file_input (FilePath or str): The path to the file or the content of the file.
+        - file_input (FilePath or StringIO): The path to the file or the content of the file.
 
         Returns:
         - str: The content of the file.

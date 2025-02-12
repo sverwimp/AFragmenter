@@ -34,10 +34,10 @@ def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
     edges = list(zip(*indices))
     weights = [weights_matrix[i, j] for i, j in edges]
     
-    graph = igraph.Graph()
-    graph.add_vertices(num_vertices)
-    graph.add_edges(edges)
-    graph.es["weight"] = weights
+    graph = igraph.Graph(n=num_vertices, edges=edges, edge_attrs={'weight': weights}, directed=False)
+    #graph.add_vertices(num_vertices)
+    #graph.add_edges(edges)
+    #graph.es["weight"] = weights
 
     return graph
 
@@ -271,8 +271,7 @@ def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool
     return renumbered_intervals
 
 
-
-def format_intervals_table(intervals: dict, **kwargs) -> str:
+def format_results_table(intervals: dict, **kwargs) -> str:
     """
     Print the cluster intervals in a table format.
     If the output is a terminal or a jupyter notebook, the table will be printed using rich.
@@ -285,22 +284,17 @@ def format_intervals_table(intervals: dict, **kwargs) -> str:
     Returns:
     - str: The formatted table as a string.
     """
-    def is_notebook():
+    def is_notebook() -> bool:
         try:
-            # Check if the 'ipykernel' module is loaded
-            if 'ipykernel' in sys.modules:
+            from IPython import get_ipython
+            if get_ipython() is not None:
                 return True
-            # Check if the 'JPY_PARENT_PID' environment variable is set
-            if 'JPY_PARENT_PID' in os.environ:
-                return True
+        except ImportError:
             return False
-        except NameError:
-            return False
+        return False
     
-    # If the output is a terminal or a jupyter notebook, use rich to print the table
-    if sys.stdout.isatty() or is_notebook():
+    def format_as_rich_table(intervals: dict, **kwargs) -> str:
         table = Table(**kwargs)
-        
         table.add_column("Domain", justify="right")
         table.add_column("Number of Residues", justify="right")
         table.add_column("Chopping", justify="right")
@@ -316,17 +310,21 @@ def format_intervals_table(intervals: dict, **kwargs) -> str:
             console.quiet = True # This is a weird workaround to avoid rendering an empty output cell in jupyter notebooks
         console.quiet = False
         return capture.get().rstrip('\n')
-
-    # If the output is a file, use csv to print the table (e.g. when redirecting the output to a file, for easier parsing)
-    else:
+    
+    def format_as_csv(intervals: dict) -> str:
         output = StringIO()
         writer = csv.writer(output, delimiter=',')
-        writer.writerow(["Domain", "Number of Residues", "Chopping"])
+        writer.writerow(["domain", "nres", "chopping"])
         for i, cluster in enumerate(intervals.values()):
             chopping = '_'.join([f'{start + 1}-{end + 1}' for start, end in cluster])
             nres = sum(end - start + 1 for start, end in cluster)
             writer.writerow([str(i+1), str(nres), chopping])
         return output.getvalue().rstrip('\n')
+
+    if sys.stdout.isatty() or is_notebook():
+        return format_as_rich_table(intervals, **kwargs)
+    else:
+        return format_as_csv(intervals)
 
 
 class AFragmenter:
@@ -334,7 +332,7 @@ class AFragmenter:
     AFragmenter class for clustering protein domains based on Predicted Aligned Error (PAE) values.
 
     Parameters:
-    - pae_matrix (Union[np.ndarray, FilePath, dict]): The Predicted Aligned Error matrix.
+    - pae_matrix (Union[np.ndarray, FilePath, list, dict, StringIO]): The Predicted Aligned Error matrix.
     - threshold (float, optional): The threshold for the sigmoid function used to transform the PAE values into graph edge weights.
 
     Attributes:
@@ -353,8 +351,8 @@ class AFragmenter:
     - save_fasta: Save the sequences corresponding to each cluster in FASTA format to a file.
     """
 
-    def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict], threshold: float = 5.0):
-        if isinstance(pae_matrix, (list, dict)):
+    def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict, StringIO], threshold: float = 5.0):
+        if isinstance(pae_matrix, (list, dict, StringIO)):
             pae_matrix = PAEHandler.process_pae_data(pae_matrix)
         elif isinstance(pae_matrix, (str, Path)):
             pae_matrix = PAEHandler.load_pae(pae_matrix)
@@ -362,13 +360,14 @@ class AFragmenter:
             raise TypeError("pae_matrix must be a numpy array, a file path, or a dictionary containing PAE data")
         
         self.pae_matrix = pae_matrix
-        self.edge_weights_matrix = self._pae_transform(pae_matrix, threshold)
+        self.edge_weights_matrix = AFragmenter._pae_transform(pae_matrix, threshold)
         self.graph = create_graph(self.edge_weights_matrix)
         self.params = {"threshold": threshold}
         self.sequence_reader = None
         
 
-    def _pae_transform(self, pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
+    @staticmethod
+    def _pae_transform(pae_matrix: np.ndarray, threshold: float) -> np.ndarray:
         """
         Transform the PAE matrix into a matrix of edge weights using a sigmoid function.
         This creates a larger contrast between the high and low PAE values.
@@ -491,7 +490,7 @@ class AFragmenter:
         """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        table_string = format_intervals_table(self.cluster_intervals, **kwargs)
+        table_string = format_results_table(self.cluster_intervals, **kwargs)
         print(table_string)
 
 
