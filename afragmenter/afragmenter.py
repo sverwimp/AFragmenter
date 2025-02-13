@@ -1,12 +1,8 @@
 from pathlib import Path
 from typing import Union, Tuple
 import os
-import sys
 from io import StringIO
-import csv
 
-from rich.console import Console
-from rich.table import Table
 import numpy as np
 from matplotlib import image, axes
 
