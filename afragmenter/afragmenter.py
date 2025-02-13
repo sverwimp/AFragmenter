@@ -30,13 +30,20 @@ class AFragmenter:
     - edge_weights_matrix (np.ndarray): The matrix of edge weights. This is created by transforming the PAE matrix using a 
                                         logistic function to increase the contrast between high and low PAE values.
     - graph (igraph.Graph): The graph object created from the edge_weights_matrix.
+    - params (dict): The parameters used for clustering.
+    - cluster_intervals (dict): The cluster intervals obtained from the clustering results. Each key represents a cluster number,
+                                and the value is a list of tuples containing the start and end indices of the cluster intervals.
+    - sequence_reader (SequenceReader): The SequenceReader object used to read the sequence file. This is automatically created
+                                        when the print_fasta or save_fasta methods are called.
 
     Methods:
     - cluster: Cluster the graph using the Leiden algorithm.
+    - run: Alias for the cluster method.
     - plot_pae: Plot the Predicted Aligned Error matrix as a heatmap.
     - plot_result: Plot the clustering results on top of the Predicted Aligned Error matrix.
-    - print_result: Print the clustering results in a table format.
-    - visualize_py3Dmol: Visualize the 3D structure of the protein using py3Dmol. (Requires the py3Dmol library to be installed)
+    - print_result: Print the clustering results in a csv or table format.
+    - save_result: Save the clustering results in a csv or table format to a file.
+    - py3Dmol: Visualize the 3D structure of the protein using py3Dmol. (Requires the py3Dmol library to be installed)
     - print_fasta: Print the sequences corresponding to each cluster in FASTA format.
     - save_fasta: Save the sequences corresponding to each cluster in FASTA format to a file.
     """
@@ -229,14 +236,14 @@ class AFragmenter:
         format_result.save_result(self.cluster_intervals, output_file, format=format, delimiter=delimiter)
         
 
-    def visualize_py3Dmol(self, structure_file: str, 
+    def py3Dmol(self, structure_file: str, 
                           color_range: list = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
                                                'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
                                                'beige', 'navy', 'grey', 'white', 'black'],
                           size: Tuple[int, int] = (800, 600),
                           style: str = 'cartoon',
                           add_surface: bool = False, 
-                          surface_opacity: float = 0.7) -> None:
+                          surface_opacity: float = 0.7) -> 'py3Dmol.view':
         """
         Visualize the 3D strucutre of the protein using py3Dmol. Color the residues based on the clusters.
 
@@ -248,6 +255,9 @@ class AFragmenter:
         - add_surface (bool, optional): Whether to add a surface to the structure. Defaults to False.
         - surface_opacity (float, optional): The opacity of the surface. Defaults to 0.7.
 
+        Returns:
+        - py3Dmol.view: The py3Dmol viewer object.
+
         Raises:
         - ImportError: If the py3Dmol library is not installed.
         - ValueError: If the cluster intervals are not defined.
@@ -257,7 +267,7 @@ class AFragmenter:
             import py3Dmol # type: ignore
         except ImportError:
             raise ImportError(
-                "The py3Dmol library is required for the visualize_py3Dmol function. "
+                "The py3Dmol library is required for the py3Dmol function. "
                 "Please install it using 'pip install py3Dmol'."
             )
         
@@ -291,8 +301,7 @@ class AFragmenter:
         if add_surface:
             view.addSurface(py3Dmol.VDW,{'opacity':surface_opacity,'color':'white'})
 
-        view.zoomTo()
-        view.show()
+        return view
 
 
     def format_fasta_sequences(self, parsed_sequences, prefix, width):
