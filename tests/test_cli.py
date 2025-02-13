@@ -14,12 +14,15 @@ def test_version():
     assert result.exit_code == 0
     assert "afragmenter, version" in result.output
 
-def test_missing_json():
+def test_missing_required_args():
     runner = CliRunner()
     cif_file = Path(__file__).parent / "data" / "B1LFV6" / "B1LFV6.cif"
     result = runner.invoke(cli.afragmenter, ["--structure", cif_file])
     assert result.exit_code != 0
-    assert "Missing option '--json' / '-j'." in result.output
+    
+    either_required = ["--json", "--afdb"]
+    either_required_message = "Either {} is required.".format(" or ".join(either_required))
+    assert either_required_message in result.output
 
 def test_invalid_json_path():
     runner = CliRunner()
@@ -49,6 +52,7 @@ def test_all_arguments():
         result = runner.invoke(cli.afragmenter, [
             "--json", json_file,
             "--structure", structure_file,
+            "--afdb", "afdb",
             "--resolution", "0.6",
             "--objective-function", "CPM",
             "--n-iterations", "10",

@@ -3,8 +3,10 @@ import importlib.metadata
 from pathlib import Path
 
 import rich_click as click
+from rich_click import Option
 
 from .afragmenter import AFragmenter
+from .afdb_client import fetch_afdb_data
 
 
 click.rich_click.USE_RICH_MARKUP = True
@@ -16,6 +18,7 @@ click.rich_click.OPTION_GROUPS = {
             "options": [
                 "--json",
                 "--structure",
+                "--afdb",
             ]
         },
         {
@@ -45,6 +48,27 @@ click.rich_click.OPTION_GROUPS = {
 }
 
 
+class EitherRequired(Option):
+    def __init__(self, *args, **kwargs):
+        self.either_required = kwargs.pop("either_required", [])
+        super().__init__(*args, **kwargs)
+    
+    def handle_parse_result(self, ctx, opts, args):
+        if not hasattr(ctx, 'either_required_message_printed'):
+            ctx.either_required_message_printed = False
+        
+        # Print a message if both --json and --afdb are provided, once
+        if set(self.either_required).intersection(opts) and self.name in opts:
+            if not ctx.either_required_message_printed:
+                print("Both --json and --afdb were provided. Using --afdb")
+                ctx.either_required_message_printed = True
+        
+        if not any(opt in opts for opt in self.either_required + [self.name]):
+            raise click.UsageError(f"Either --{self.name} or --{' or --'.join(self.either_required)} is required.")
+            
+        return super().handle_parse_result(ctx, opts, args)
+
+
 @click.command()
 @click.help_option("--help", "-h")
 @click.version_option(importlib.metadata.version("afragmenter"), "--version", "-v")
@@ -56,8 +80,15 @@ click.rich_click.OPTION_GROUPS = {
 @click.option("--json", 
               "-j" , 
               type=click.Path(exists=True, dir_okay=False, readable=True), 
-              required=True, 
-              help="Path to the AlphaFold json file containing the PAE data"
+              cls=EitherRequired,
+              either_required=["afdb"],
+              help="Path to the AlphaFold json file containing the PAE data [red]\[required: either --json or --afdb][/]"
+)
+@click.option("--afdb",
+              type=str,
+              cls=EitherRequired,
+              either_required=["json"],
+              help="Uniprot identifier to fetch data from the AlphaFold database [red]\[required: either --json or --afdb][/]"
 )
 @click.option("--resolution", 
               "-r", 
@@ -112,6 +143,7 @@ click.rich_click.OPTION_GROUPS = {
 )
 def afragmenter(structure: Path, 
          json: Path,
+         afdb: str,
          resolution: float,
          objective_function: str,
          n_iterations: int,
@@ -120,6 +152,12 @@ def afragmenter(structure: Path,
          no_merge: bool,
          plot_results: Path,
          output_fasta: Path):
+    
+    if afdb:
+        data = fetch_afdb_data(afdb)
+        # Override the json and structure options with the fetched data
+        json = data['pae_data']
+        structure = data['structure_data']
     
     afragmenter = AFragmenter(pae_matrix=json, 
                               threshold=threshold)
