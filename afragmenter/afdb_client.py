@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 import requests
 
 
@@ -22,7 +24,7 @@ def fetch_url_content(url: str) -> requests.Response:
     return response
     
 
-def fetch_afdb_data(uniprot_id: str) -> dict:
+def fetch_afdb_data(uniprot_id: str) -> namedtuple:
     """
     Fetch the PAE and structure data for a given UniProt ID from the AlphaFold Database.
     
@@ -30,7 +32,7 @@ def fetch_afdb_data(uniprot_id: str) -> dict:
     - uniprot_id (str): The UniProt ID to fetch the data for.
     
     Returns
-    - data (dict): A dictionary containing the PAE and structure data. The keys are 'pae_data' and 'structure_data'.
+    - data (namedtuple): A named tuple containing the PAE (pae_data) and structure data (structure_data).
     
     Raises
     - ValueError: If no PAE data is available for the given UniProt ID.
@@ -53,7 +55,8 @@ def fetch_afdb_data(uniprot_id: str) -> dict:
     pae_data = pae_data_json[0] if isinstance(pae_data_json, list) else pae_data_json
     structure_data = fetch_url_content(cif_url).text if cif_url else fetch_url_content(pdb_url).text
     
-    return {'pae_data': pae_data, 'structure_data': structure_data}
+    Data = namedtuple('AFDB_Data', ['pae_data', 'structure_data'])
+    return Data(pae_data, structure_data)
     
     
     

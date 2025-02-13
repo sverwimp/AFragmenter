@@ -10,7 +10,6 @@ from .afdb_client import fetch_afdb_data
 
 
 click.rich_click.USE_RICH_MARKUP = True
-click.rich_click.STYLE_REQUIRED_LONG = "red" # Makes '[required]' a bit more visible in help message
 click.rich_click.OPTION_GROUPS = {
     "afragmenter": [
         {
@@ -154,10 +153,7 @@ def afragmenter(structure: Path,
          output_fasta: Path):
     
     if afdb:
-        data = fetch_afdb_data(afdb)
-        # Override the json and structure options with the fetched data
-        json = data['pae_data']
-        structure = data['structure_data']
+        json, structure = fetch_afdb_data(afdb)
     
     afragmenter = AFragmenter(pae_matrix=json, 
                               threshold=threshold)
