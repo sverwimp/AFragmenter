@@ -45,6 +45,7 @@ def cluster_graph(graph: igraph.Graph,
     - resolution (float, optional): The resolution parameter for the Leiden algorithm.
     - n_iterations (int, optional): The number of iterations for the Leiden algorithm.
     - objective_function (str, optional): The objective function for the Leiden algorithm.
+    - kwargs: Additional keyword arguments for the community_leiden function from igraph.
 
     Returns:
     - igraph.VertexClustering: The resulting vertex clustering.

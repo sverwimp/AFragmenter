@@ -89,7 +89,8 @@ class AFragmenter:
                 objective_function: str = "modularity", 
                 n_iterations: int = -1, 
                 min_size: int = 10,
-                attempt_merge: bool = True) -> 'AFragmenter':
+                attempt_merge: bool = True,
+                **kwargs) -> 'AFragmenter':
         """
         Create a graph from the edge_weights_matrix and cluster it using the Leiden algorithm.
 
@@ -101,6 +102,7 @@ class AFragmenter:
                                         If a negative value is given, the algorithm will run until a stable iteration is reached.
         - min_size (int, optional): The minimum size of the clusters to keep. Must be between 0 and the number of residues.
         - attempt_merge (bool, optional): Whether to attempt to merge smaller clusters with adjacent larger ones. Defaults to True.
+        - **kwargs: Additional keyword arguments to be passed to the community_leiden function from igraph.
 
         Returns:
         - AFragmenter: The AFragmenter object with the cluster intervals stored in the cluster_intervals attribute.
@@ -127,9 +129,15 @@ class AFragmenter:
             "attempt_merge": attempt_merge
         })
         
-        clusters = cluster_graph(self.graph, resolution=resolution, n_iterations=n_iterations, objective_function=objective_function)
+        clusters = cluster_graph(graph=self.graph, 
+                                 resolution=resolution, 
+                                 n_iterations=n_iterations,
+                                 objective_function=objective_function,
+                                 **kwargs)
         cluster_intervals = find_cluster_intervals(clusters)
-        self.cluster_intervals = filter_cluster_intervals(cluster_intervals, min_size, attempt_merge=attempt_merge)
+        self.cluster_intervals = filter_cluster_intervals(intervals=cluster_intervals, 
+                                                          min_size=min_size, 
+                                                          attempt_merge=attempt_merge)
         return self
     
 
@@ -137,13 +145,15 @@ class AFragmenter:
             objective_function: str = "modularity", 
             n_iterations: int = -1, 
             min_size: int = 10,
-            attempt_merge: bool = True) -> 'AFragmenter':
+            attempt_merge: bool = True,
+            **kwargs) -> 'AFragmenter':
         """Alias for the cluster method."""
         return self.cluster(resolution=resolution, 
                             objective_function=objective_function, 
                             n_iterations=n_iterations, 
                             min_size=min_size, 
-                            attempt_merge=attempt_merge)
+                            attempt_merge=attempt_merge
+                            **kwargs)
 
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
@@ -274,12 +284,12 @@ class AFragmenter:
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
 
-        # TODO: Do something about this
         if len(self.cluster_intervals) > len(color_range):
             print("Warning: More clusters than available colors. Some clusters will have the same color.")
     
         view = py3Dmol.view(width=size[0], height=size[1])
 
+        # Not using SequenceReader here because we need the content directly in .addModel()
         if os.path.isfile(structure_file):
             content = open(structure_file, 'r').read()
         else:
