@@ -52,7 +52,7 @@ def test_all_arguments():
         result = runner.invoke(cli.afragmenter, [
             "--json", json_file,
             "--structure", structure_file,
-            "--afdb", "afdb",
+            "--afdb", "B1LFV6",
             "--resolution", "0.6",
             "--objective-function", "CPM",
             "--n-iterations", "10",
