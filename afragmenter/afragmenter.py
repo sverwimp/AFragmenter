@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Union, Tuple
+from typing import Optional, Union, Tuple
 import os
 from io import StringIO
 
@@ -85,7 +85,7 @@ class AFragmenter:
         return 1 / (1 + np.exp(1.0 * (pae_matrix - threshold)))
     
 
-    def cluster(self, resolution: Union[float, None] = None, 
+    def cluster(self, resolution: Optional[float] = None, 
                 objective_function: str = "modularity", 
                 n_iterations: int = -1, 
                 min_size: int = 10,
@@ -113,15 +113,8 @@ class AFragmenter:
 
         if min_size < 0 or min_size > self.pae_matrix.shape[0]:
             raise ValueError(f"Minimum cluster size must be between 0 and the number of residues in the protein ({self.pae_matrix.shape[0]})")
-        
-        objective_functions = ["modularity", "cpm"]
-        if objective_function.lower() not in objective_functions:
-            raise ValueError(f"Objective function must be one of {objective_functions}, got {objective_function}")
-        
-        if resolution is None:
-            resolution = default_resolutions[objective_function.lower()]
-
-        self.params.update({
+    
+        self.params.update({ # Update the parameters with the input values
             "resolution": resolution,
             "objective_function": objective_function,
             "n_iterations": n_iterations,
@@ -129,11 +122,13 @@ class AFragmenter:
             "attempt_merge": attempt_merge
         })
         
-        clusters = cluster_graph(graph=self.graph, 
+        clusters, params = cluster_graph(graph=self.graph, 
                                  resolution=resolution, 
                                  n_iterations=n_iterations,
                                  objective_function=objective_function,
+                                 return_params=True,
                                  **kwargs)
+        self.params.update(params) # Update the parameters with the actual values used for clustering
         cluster_intervals = find_cluster_intervals(clusters)
         self.cluster_intervals = filter_cluster_intervals(intervals=cluster_intervals, 
                                                           min_size=min_size, 

@@ -30,7 +30,8 @@ def cluster_graph(graph: igraph.Graph,
             resolution: Union[float, None] = None, 
             n_iterations: int = -1, 
             objective_function: str = "modularity",
-            **kwargs) -> igraph.VertexClustering:
+            return_params: bool = False,
+            **kwargs) -> Union[igraph.VertexClustering, tuple[igraph.VertexClustering, dict]]:
     #TODO: add some info about objective_function
     """
     Cluster the graph using the Leiden algorithm.
@@ -49,14 +50,15 @@ def cluster_graph(graph: igraph.Graph,
 
     Returns:
     - igraph.VertexClustering: The resulting vertex clustering.
+    - dict: A dictionary containing the parameters used for clustering. Only returned if return_params is True.
     """
 
-    objective_funtions = ["modularity", "cpm"]
+    objective_funtions = list(default_resolutions.keys())
     if objective_function.lower() not in objective_funtions:
         raise ValueError(f"Objective function must be one of {objective_funtions}, got {objective_function}")
 
     if resolution is None:
-        resolution = default_resolutions[objective_function.lower]
+        resolution = default_resolutions[objective_function.lower()]
 
     partition = graph.community_leiden(
         weights="weight",
@@ -65,4 +67,7 @@ def cluster_graph(graph: igraph.Graph,
         objective_function=objective_function,
         **kwargs
     )
+
+    if return_params:
+        return partition, {"resolution": resolution, "n_iterations": n_iterations, "objective_function": objective_function}
     return partition
