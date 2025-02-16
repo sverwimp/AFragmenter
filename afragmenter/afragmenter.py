@@ -136,7 +136,7 @@ class AFragmenter:
         return self
     
 
-    def run(self, resolution: Union[float, None] = None, 
+    def run(self, resolution: Optional[float] = None, 
             objective_function: str = "modularity", 
             n_iterations: int = -1, 
             min_size: int = 10,
@@ -290,7 +290,7 @@ class AFragmenter:
         else:
             content = structure_file
         
-        file_format = SequenceReader.determine_file_format(content).lower()
+        file_format = SequenceReader.determine_file_format(content)
         if file_format == 'pdb':
             view.addModel(content, 'pdb')
         elif file_format == 'mmcif':
@@ -309,7 +309,7 @@ class AFragmenter:
         return view
 
 
-    def format_fasta_sequences(self, parsed_sequences, prefix, width):
+    def format_fasta_sequences(self, parsed_sequences: dict, prefix: str, width: int) -> str: # type: ignore (generator)
         """
         Generator function to format sequences in FASTA format.
 

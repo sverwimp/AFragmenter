@@ -86,7 +86,7 @@ class SequenceReader:
         - content (str): The content of a file.
         
         Returns:
-        - str: The format of the file. Possible values are 'FASTA', 'PDB', or 'mmCIF'
+        - str: The format of the file. Possible values are 'fasta', 'pdb', or 'mmcif'
         
         Raises:
         - ValueError: If the file is empty or contains only comments and the format cannot be inferred.
@@ -100,17 +100,17 @@ class SequenceReader:
         pdb_firstlines = ('HEADER', 'ATOM', 'MODEL')
 
         if first_line.startswith('>'):
-            return 'FASTA'
+            return 'fasta'
         elif first_line.startswith(pdb_firstlines):
-            return 'PDB'
+            return 'pdb'
         elif first_line.startswith('data_'):
-            return 'mmCIF'
+            return 'mmcif'
         else:
             raise ValueError("Unsupported file format, please provide a FASTA, PDB or mmCIF file")
 
 
     @staticmethod
-    def read_first_valid_line(content: str) -> Union[str, None]:
+    def read_first_valid_line(content: str) -> Optional[str]:
         """
         Reads the first valid line from a file.
         A valid line is a line that is not empty and does not start with a comment character ('#').
@@ -134,7 +134,7 @@ class SequenceReader:
         
         Parameters:
         - content (str): The content of the file.
-        - format (str): The format of the file. Possible values are 'FASTA', 'PDB', or 'mmCIF'.
+        - format (str): The format of the file. Possible values are 'fasta', 'pdb', or 'mmcif'.
         - query_chain (str): The chain identifier to use when reading a PDB file. Default is 'A'.
         
         Returns:

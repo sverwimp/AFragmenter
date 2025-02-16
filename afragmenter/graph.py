@@ -1,5 +1,5 @@
 import igraph
-from typing import Union
+from typing import Union, Optional
 import numpy as np
 
 
@@ -27,7 +27,7 @@ def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
 
 
 def cluster_graph(graph: igraph.Graph,
-            resolution: Union[float, None] = None, 
+            resolution: Optional[float] = None, 
             n_iterations: int = -1, 
             objective_function: str = "modularity",
             return_params: bool = False,
