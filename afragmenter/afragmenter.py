@@ -202,11 +202,12 @@ class AFragmenter:
                 f"cluster_intervals={self.cluster_intervals if hasattr(self, 'cluster_intervals') else None})")
     
 
-    def print_result(self, format: str = 'auto', delimiter: str = ',') -> None:
+    def print_result(self, base_name: Optional[str] = None, format: str = 'auto', delimiter: str = ',') -> None:
         """
         Print the clustering results in a table format. Will use rich if the output is a terminal or a jupyter notebook, else will use csv.
 
         Parameters:
+        - base_name (str, optional): the base name to use for the cluster intervals.
         - format (str, optional): The format to use. [auto, csv, rich]
         - delimiter (str, optional): The delimiter to use for the csv format.
 
@@ -218,15 +219,21 @@ class AFragmenter:
         """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        format_result.print_result(self.cluster_intervals, format=format, delimiter=delimiter)
+        
+        # not 'if not base_name' because base_name can be an empty string such that only the cluster number is used as name
+        if base_name is None:
+            base_name = self.sequence_reader.name if self.sequence_reader else None
+
+        format_result.print_result(self.cluster_intervals, format=format, delimiter=delimiter, base_name=base_name)
 
     
-    def save_result(self, output_file: FilePath, format: str = 'csv', delimiter: str = ',') -> None:
+    def save_result(self, output_file: FilePath, base_name: Optional[str] = None, format: str = 'csv', delimiter: str = ',') -> None:
         """
         Save the clustering results in a table format to a file.
 
         Parameters:
         - output_file (FilePath): The path to save the output file.
+        - base_name (str, optional): the base name to use for the cluster intervals.
         - format (str, optional): The format to use. [auto, csv, rich]
         - delimiter (str, optional): The delimiter to use for the csv format.
 
@@ -238,7 +245,11 @@ class AFragmenter:
         """
         if not hasattr(self, "cluster_intervals"):
             raise ValueError("No clustering results found, please run the cluster method first")
-        format_result.save_result(self.cluster_intervals, output_file, format=format, delimiter=delimiter)
+        
+        if base_name is None:
+            base_name = self.sequence_reader.name if self.sequence_reader else None
+
+        format_result.save_result(self.cluster_intervals, output_file, base_name=base_name, format=format, delimiter=delimiter)
         
 
     def py3Dmol(self, structure_file: str, 
@@ -309,13 +320,13 @@ class AFragmenter:
         return view
 
 
-    def format_fasta_sequences(self, parsed_sequences: dict, prefix: str, width: int) -> str: # type: ignore (generator)
+    def _format_fasta_sequences(self, parsed_sequences: dict, header_name: str, width: int) -> str: # type: ignore (generator)
         """
         Generator function to format sequences in FASTA format.
 
         Parameters:
         - parsed_sequences (dict): The parsed sequences.
-        - prefix (str): The prefix to add to the sequence headers.
+        - prefix (str): The name to add to the sequence headers.
         - width (int): The width of the sequence lines.
 
         Yields:
@@ -324,18 +335,19 @@ class AFragmenter:
         for i, seq in parsed_sequences.items():
             interval = self.cluster_intervals[i]
             interval_str = "_".join([f"{start+1}-{end+1}" for start, end in interval])
-            yield f">{prefix}_{i+1} {interval_str}"
+            name = f"{header_name}_{i+1}" if header_name else f"{i+1}"
+            yield f">{name} {interval_str}"
             for j in range(0, len(seq), width):
                 yield seq[j:j+width]
 
 
-    def print_fasta(self, sequence_file: FilePath, prefix: str = "", width: int = 60) -> None:
+    def print_fasta(self, sequence_file: FilePath, header_name: Optional[str] = None, width: int = 60) -> None:
         """
         Print the sequences corresponding to each cluster in FASTA format.
 
         Parameters:
         - sequence_file (FilePath): The path to the sequence file.
-        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to self.sequence_reader.name.
+        - header_name (str, optional): The name to add to the sequence headers. Defaults to self.sequence_reader.name.
         - width (int, optional): The width of the sequence lines. Defaults to 60.
 
         Raises:
@@ -345,21 +357,21 @@ class AFragmenter:
             self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
         parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
         
-        if not prefix:
-            prefix = self.sequence_reader.name
+        if header_name is None:
+            header_name = self.sequence_reader.name
 
-        for line in self.format_fasta_sequences(parsed_sequences, prefix, width):
+        for line in self._format_fasta_sequences(parsed_sequences, header_name, width):
             print(line)
 
 
-    def save_fasta(self, sequence_file: FilePath, output_file: FilePath, prefix: str = "", width: int = 60) -> None:
+    def save_fasta(self, sequence_file: FilePath, output_file: FilePath, header_name: Optional[str] = None, width: int = 60) -> None:
         """
         Save the sequences corresponding to each cluster in FASTA format to a file.
 
         Parameters:
         - sequence_file (FilePath): The path to the sequence file.
         - output_file (FilePath): The path to save the output file.
-        - prefix (str, optional): The prefix to add to the sequence headers. Defaults to self.sequence_reader.name.
+        - header_name (str, optional): The name to add to the sequence headers. Defaults to self.sequence_reader.name.
         - width (int, optional): The width of the sequence lines. Defaults to 60.
 
         Raises:
@@ -369,11 +381,11 @@ class AFragmenter:
             self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
         parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
         
-        if not prefix:
-            prefix = self.sequence_reader.name
+        if header_name is None:
+            header_name = self.sequence_reader.name
 
         output_file = Path(output_file)
 
         with output_file.open('w') as f:
-            for line in self.format_fasta_sequences(parsed_sequences, prefix, width):
+            for line in self._format_fasta_sequences(parsed_sequences, header_name, width):
                 f.write(line + "\n")

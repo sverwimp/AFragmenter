@@ -7,6 +7,8 @@ from rich_click import Option
 
 from .afragmenter import AFragmenter
 from .afdb_client import fetch_afdb_data
+from .sequence_reader import SequenceReader
+from .graph import default_resolutions
 
 
 click.rich_click.USE_RICH_MARKUP = True
@@ -39,8 +41,15 @@ click.rich_click.OPTION_GROUPS = {
         {
             "name": "Outputs",
             "options": [
-                "--plot-results",
-                "--output-fasta",
+                "--save-result",
+                "--plot-result",
+                "--save-fasta",
+            ]
+        },
+        {
+            "name": "Misc",
+            "options": [
+                "--name",
             ]
         }
     ],
@@ -92,7 +101,7 @@ class EitherRequired(Option):
 @click.option("--resolution", 
               "-r", 
               type=click.FloatRange(min=0.0, min_open=True), 
-              help="Resolution used with Leiden clustering [dim]\[default: 0.8 for modularity, 0.3 for CPM][/]",
+              help=f"Resolution used with Leiden clustering [dim]\[default: {default_resolutions.get('modularity')} for modularity, {default_resolutions.get('cpm')} for CPM][/]",
 )
 @click.option("--objective-function", 
               "-f", 
@@ -130,16 +139,31 @@ class EitherRequired(Option):
               default=False,
               help="Do not attempt to merge small partitions with larger paritions, just discard them",
 )
-@click.option("--plot-results",
+@click.option("--save-result",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
               default=None,
-              help="Path to save the results plot"
+              help="Path to save the result table (csv) file. If not set, the result will be printed to the console"
 )
-@click.option("--output-fasta",
+@click.option("--plot-result",
+              type=click.Path(path_type=Path, dir_okay=False, writable=True),
+              default=None,
+              help="Path to save the result plot"
+)
+@click.option("--save-fasta",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
               default=None,
               help="Path to save the output fasta file (requires --structure-file)"
 )
+@click.option("--name",
+              "-N",
+              type=str,
+              default='auto',
+              show_default=True,
+              help="Name used to format fasta header and first column of the result table. " \
+                   "Will be parsed from the structure file (if available) if set to 'auto'. " \
+                   "Set to '' or \"\" to only show the cluster numbers."
+)
+
 def afragmenter(structure: Path, 
          json: Path,
          afdb: str,
@@ -149,8 +173,10 @@ def afragmenter(structure: Path,
          threshold: float,
          min_size: int,
          no_merge: bool,
-         plot_results: Path,
-         output_fasta: Path):
+         save_result: Path,
+         plot_result: Path,
+         save_fasta: Path,
+         name: str) :
     
     if afdb:
         json, structure = fetch_afdb_data(afdb)
@@ -164,18 +190,34 @@ def afragmenter(structure: Path,
                         objective_function=objective_function, 
                         min_size=min_size,
                         attempt_merge=attempt_merge)
+    
+    if structure:
+        # If structure is provided, read the sequence and name from the structure file
+        afragmenter.sequence_reader = SequenceReader(structure)
 
-    afragmenter.print_result()
+    # If base_name is set to 'auto', the name will be parsed from the structure file
+    # base_name = None will cause the name to be parsed from the structure file
+    # base_name = '' will result in only the cluster numbers being shown in the fasta header
+    if name.lower() == 'auto':
+        if structure:
+            name = None
+        else:
+            name = ''
 
-    if plot_results:
+    if save_result:
+        afragmenter.save_result(output_file=save_result, base_name=name)
+    else:
+        afragmenter.print_result(base_name=name)
+
+    if plot_result:
         _, ax = afragmenter.plot_result()
         fig = ax.get_figure()
-        fig.savefig(plot_results)
+        fig.savefig(plot_result)
 
-    if output_fasta:
+    if save_fasta:
         if not structure:
             raise click.BadOptionUsage("output_fasta", "The --structure-file option is required when using --output-fasta")
-        afragmenter.save_fasta(sequence_file=structure, output_file=output_fasta)
+        afragmenter.save_fasta(sequence_file=structure, output_file=save_fasta, header_name=name)
 
 
 if __name__ == "__main__":
