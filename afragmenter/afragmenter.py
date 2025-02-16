@@ -49,9 +49,9 @@ class AFragmenter:
     """
 
     def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict, StringIO], threshold: float = 5.0):
-        if isinstance(pae_matrix, (list, dict, StringIO)):
+        if isinstance(pae_matrix, (list, dict)):
             pae_matrix = PAEHandler.process_pae_data(pae_matrix)
-        elif isinstance(pae_matrix, (str, Path)):
+        elif isinstance(pae_matrix, (str, Path, StringIO)):
             pae_matrix = PAEHandler.load_pae(pae_matrix)
         elif not isinstance(pae_matrix, np.ndarray):
             raise TypeError("pae_matrix must be a numpy array, a file path, or a dictionary containing PAE data")
@@ -114,7 +114,9 @@ class AFragmenter:
         if min_size < 0 or min_size > self.pae_matrix.shape[0]:
             raise ValueError(f"Minimum cluster size must be between 0 and the number of residues in the protein ({self.pae_matrix.shape[0]})")
     
-        self.params.update({ # Update the parameters with the input values
+        # Update the parameters with the input values in case of error during clustering
+        # Overwritten by default values, if applicable, after clustering
+        self.params.update({ 
             "resolution": resolution,
             "objective_function": objective_function,
             "n_iterations": n_iterations,
@@ -147,8 +149,23 @@ class AFragmenter:
                             objective_function=objective_function, 
                             n_iterations=n_iterations, 
                             min_size=min_size, 
-                            attempt_merge=attempt_merge
+                            attempt_merge=attempt_merge,
                             **kwargs)
+    
+
+    def check_has_cluster_intervals(self) -> None:
+        """
+        Check if the cluster_intervals attribute is defined.
+        If no results are found, raise a ValueError.
+
+        Returns:
+        - None
+
+        Raises:
+        - ValueError: If the cluster_intervals attribute is not defined.
+        """
+        if not hasattr(self, "cluster_intervals"):
+            raise ValueError("No clustering results found, please run the cluster method first")
 
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
@@ -179,8 +196,7 @@ class AFragmenter:
         Returns:
         - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
         """
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
+        self.check_has_cluster_intervals()
         
         kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
         image, ax = plotting.plot_cluster_intervals(self.pae_matrix, self.cluster_intervals, **kwargs)
@@ -217,8 +233,7 @@ class AFragmenter:
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
+        self.check_has_cluster_intervals()
         
         # not 'if not base_name' because base_name can be an empty string such that only the cluster number is used as name
         if base_name is None:
@@ -243,8 +258,7 @@ class AFragmenter:
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
+        self.check_has_cluster_intervals()
         
         if base_name is None:
             base_name = self.sequence_reader.name if self.sequence_reader else None
@@ -287,8 +301,7 @@ class AFragmenter:
                 "Please install it using 'pip install py3Dmol'."
             )
         
-        if not hasattr(self, "cluster_intervals"):
-            raise ValueError("No clustering results found, please run the cluster method first")
+        self.check_has_cluster_intervals()
 
         if len(self.cluster_intervals) > len(color_range):
             print("Warning: More clusters than available colors. Some clusters will have the same color.")
@@ -341,6 +354,25 @@ class AFragmenter:
                 yield seq[j:j+width]
 
 
+    def _get_parsed_sequence(self, sequence_file: FilePath) -> SequenceReader:
+        """
+        Get the parsed sequences from the sequence file.
+        
+        Parameters:
+        - sequence_file (FilePath): The path to the sequence file.
+
+        Returns:
+        - dict: A dictionary where the keys are the cluster indices and the values are the corresponding protein sequences.
+        """
+        self.check_has_cluster_intervals()
+
+        if self.sequence_reader is None:
+            self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
+        parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
+
+        return parsed_sequences
+
+
     def print_fasta(self, sequence_file: FilePath, header_name: Optional[str] = None, width: int = 60) -> None:
         """
         Print the sequences corresponding to each cluster in FASTA format.
@@ -353,9 +385,7 @@ class AFragmenter:
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        if self.sequence_reader is None:
-            self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
-        parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
+        parsed_sequences = self._get_parsed_sequence(sequence_file)
         
         if header_name is None:
             header_name = self.sequence_reader.name
@@ -377,9 +407,7 @@ class AFragmenter:
         Raises:
         - ValueError: If the cluster intervals are not defined.
         """
-        if self.sequence_reader is None:
-            self.sequence_reader = SequenceReader(sequence_file, seq_length=self.pae_matrix.shape[0])
-        parsed_sequences = self.sequence_reader.clusters_to_fasta(self.cluster_intervals)
+        parsed_sequences = self._get_parsed_sequence(sequence_file)
         
         if header_name is None:
             header_name = self.sequence_reader.name

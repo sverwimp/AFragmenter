@@ -39,10 +39,10 @@ class PAEHandler:
     
 
     @staticmethod
-    def process_pae_data(pae_data: Union[list, dict, StringIO]) -> np.ndarray:
+    def process_pae_data(pae_data: Union[list, dict]) -> np.ndarray:
         """
         Parameters:
-        - pae_data (list, dict, StringIO): json-like format containing the PAE data
+        - pae_data (list, dict): json-like format containing the PAE data
 
         Returns:
         - np.ndarray: The PAE matrix
@@ -74,13 +74,13 @@ class PAEHandler:
 
 
     @staticmethod
-    def load_pae(json_file: FilePath) -> np.ndarray:
+    def load_pae(json_source: Union[FilePath, StringIO]) -> np.ndarray:
         """
         Reads a json file and calls the _process_pae_data function to
         load the Predicted Aligned Error (PAE) data as a numpy array
 
         Parameters:
-        - json_file (FilePath): The path to the JSON file. (str or Path)
+        - json_source (FilePath, StringIO): The path to the JSON file. (str or Path)
 
         Returns:
         - np.ndarray: The PAE matrix.
@@ -88,10 +88,17 @@ class PAEHandler:
         Raises:
         - FileNotFoundError: If the JSON file does not exist.
         """
-        if not os.path.exists(json_file):
-            raise FileNotFoundError(f"{json_file} not found")
-        
-        with open(json_file, "r") as f:
-            pae_data = json.load(f)
+
+        if isinstance(json_source, StringIO):
+            pae_data = json.load(json_source)
+
+        elif isinstance(json_source, (str, Path)):
+            if not os.path.exists(json_source):
+                raise FileNotFoundError(f"{json_source} not found")
+            with open(json_source, "r") as f:
+                pae_data = json.load(f)
+
+        else:
+            raise TypeError("Invalid json_source type, expected str, Path or StringIO")
 
         return PAEHandler.process_pae_data(pae_data)

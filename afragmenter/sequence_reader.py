@@ -262,7 +262,7 @@ class SequenceReader:
                                     values are the corresponding intervals. (from AFragmenter object)
 
         Returns:
-        - dict: A dictionary where the keys are the cluster indices and the values are the corresponding sequences.
+        - dict: A dictionary where the keys are the cluster indices and the values are the corresponding protein sequences.
 
         Raises:
         - ValueError: If the cluster intervals are not defined.
