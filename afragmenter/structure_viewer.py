@@ -12,7 +12,7 @@ COLOR_PALETTE = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', '
 
 def color_view_by_domain(view: py3Dmol.view, 
                     cluster_intervals: dict, 
-                    color_range: list = COLOR_PALETTE, 
+                    color_palette: list = COLOR_PALETTE, 
                     style: str = 'cartoon') -> None:
     """
     Color the structure in the view according to the domain clusters provided in cluster_intervals.
@@ -21,14 +21,14 @@ def color_view_by_domain(view: py3Dmol.view,
     Parameters:
     - view (py3Dmol.view): The view to color.
     - cluster_intervals (dict): Dictionary where keys are cluster indices and values are lists of (start, end) residue indices.
-    - color_range (list): List of colors to use for the clusters.
+    - color_palette (list): List of colors to use for the clusters.
     - style (str): Style to apply.
     """
-    if len(cluster_intervals) > len(color_range):
+    if len(cluster_intervals) > len(color_palette):
         print("Warning: More clusters than available colors. Some clusters will have the same color.")
     
     for cluster, ranges in cluster_intervals.items():
-        col = color_range[cluster % len(color_range)]
+        col = color_palette[cluster % len(color_palette)]
         for start, end in ranges:
             view.setStyle({'resi': f'{start+1}-{end+1}'}, {style: {'color': col}})
     
@@ -37,7 +37,7 @@ def color_view_by_domain(view: py3Dmol.view,
 def view_py3Dmol(structure_file: str, 
                  cluster_intervals: dict, 
                  displace_domains: bool = False, 
-                 color_range: list = COLOR_PALETTE,
+                 color_palette: list = COLOR_PALETTE,
                  style: str = 'cartoon',
                  **kwargs) -> py3Dmol.view:
     """
@@ -47,7 +47,7 @@ def view_py3Dmol(structure_file: str,
     - structure_file (str): Path to the structure file (PDB or mmCIF) or the structure content.
     - cluster_intervals (dict): Dictionary where keys are cluster indices and values are lists of (start, end) residue indices.
     - displace_domains (bool): Whether to displace the domains using tether and repulsive forces.
-    - color_range (list): List of colors to use for the clusters.
+    - color_palette (list): List of colors to use for the clusters.
     - style (str): Style to apply.
     
     Returns:
@@ -87,6 +87,6 @@ def view_py3Dmol(structure_file: str,
     
     view.setStyle({style: {'color': 'grey'}}) # Default color.
     # Color by domain.
-    color_view_by_domain(view, cluster_intervals, color_range, style)
+    color_view_by_domain(view, cluster_intervals, color_palette, style)
 
     return view
