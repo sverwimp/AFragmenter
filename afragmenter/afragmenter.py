@@ -264,26 +264,32 @@ class AFragmenter:
             base_name = self.sequence_reader.name if self.sequence_reader else None
 
         format_result.save_result(self.cluster_intervals, output_file, base_name=base_name, format=format, delimiter=delimiter)
-        
-
-    def py3Dmol(self, structure_file: str, 
-                          color_range: list = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
-                                               'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
-                                               'beige', 'navy', 'grey', 'white', 'black'],
-                          size: Tuple[int, int] = (800, 600),
-                          style: str = 'cartoon',
-                          add_surface: bool = False, 
-                          surface_opacity: float = 0.7) -> 'py3Dmol.view':
+    
+    
+    def py3Dmol(self, structure_file: str,
+                color_range: Optional[list] = None,
+                style: str = 'cartoon',
+                displace_domains: bool = False,
+                tether_strength: float = 0.1,
+                repulse_strength: float = 100,
+                steps: int = 1000,
+                dt: float = 0.01,
+                **kwargs) -> 'py3Dmol.view':
         """
-        Visualize the 3D strucutre of the protein using py3Dmol. Color the residues based on the clusters.
+        Visualize the 3D structure of the protein using py3Dmol. Color the residues based on the clusters.
 
         Parameters:
-        - pdb_file (str): The path to the PDB or mmcif file.
+        - structure_file (str): The path to the PDB or mmcif file.
         - color_range (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
-        - size (Tuple[int, int], optional): The width and height of the viewer. Defaults to (800, 600).
         - style (str, optional): The style to use. Defaults to 'cartoon'.
-        - add_surface (bool, optional): Whether to add a surface to the structure. Defaults to False.
-        - surface_opacity (float, optional): The opacity of the surface. Defaults to 0.7.
+        - displace_domains (bool, optional): Whether to displace the domains based on the clusters. Defaults to False.
+        - tether_strength (float, optional): The spring constant pulling each group toward its original center. Defaults 
+                                             to 0.1. Only used if displace_domains is True.
+        - repulse_strength (float, optional): The constant for the inverse-square repulsion between groups. Defaults to 100.
+                                              Only used if displace_domains is True.
+        - steps (int, optional): The number of simulation iterations. Defaults to 1000. Only used if displace_domains is True.
+        - dt (float, optional): The time step for the simulation. Defaults to 0.01. Only used if displace_domains is True.
+        - **kwargs: Additional keyword arguments to be passed to the py3Dmol.view function.
 
         Returns:
         - py3Dmol.view: The py3Dmol viewer object.
@@ -293,8 +299,11 @@ class AFragmenter:
         - ValueError: If the cluster intervals are not defined.
         - ValueError: If the structure file is not a PDB or mmCIF file.
         """
+        
         try:
-            import py3Dmol # type: ignore
+            # Check if py3Dmol is installed for view_py3Dmol function
+            import py3Dmol # type: ignore 
+            from .structure_viewer import view_py3Dmol
         except ImportError:
             raise ImportError(
                 "The py3Dmol library is required for the py3Dmol function. "
@@ -303,33 +312,20 @@ class AFragmenter:
         
         self.check_has_cluster_intervals()
 
-        if len(self.cluster_intervals) > len(color_range):
-            print("Warning: More clusters than available colors. Some clusters will have the same color.")
-    
-        view = py3Dmol.view(width=size[0], height=size[1])
+        if color_range is None:
+            from .structure_viewer import COLOR_RANGE
+            color_range = COLOR_RANGE
 
-        # Not using SequenceReader here because we need the content directly in .addModel()
-        if os.path.isfile(structure_file):
-            content = open(structure_file, 'r').read()
-        else:
-            content = structure_file
-        
-        file_format = SequenceReader.determine_file_format(content)
-        if file_format == 'pdb':
-            view.addModel(content, 'pdb')
-        elif file_format == 'mmcif':
-            view.addModel(content, 'cif')
-        else:
-            raise ValueError("Unsupported file format. Please provide a PDB or mmCIF file.")
-
-        view.setStyle({f'{style}': {'color': 'grey'}}) # spectrum
-        for cluster, ranges in self.cluster_intervals.items():
-            col = color_range[cluster % len(color_range)]
-            for start, end in ranges:
-                view.setStyle({'resi': f'{start+1}-{end+1}'}, {f'{style}': {'color': col}})
-        if add_surface:
-            view.addSurface(py3Dmol.VDW,{'opacity':surface_opacity,'color':'white'})
-
+        view = view_py3Dmol(structure_file,
+                            self.cluster_intervals,
+                            displace_domains=displace_domains,
+                            color_range=color_range,
+                            style=style,
+                            tether_strength=tether_strength,
+                            repulse_strength=repulse_strength,
+                            steps=steps,
+                            dt=dt,
+                            **kwargs)
         return view
 
 
