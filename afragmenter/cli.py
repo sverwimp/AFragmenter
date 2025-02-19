@@ -164,7 +164,7 @@ class EitherRequired(Option):
                    "Set to '' or \"\" to only show the cluster numbers."
 )
 
-def afragmenter(structure: Path, 
+def main(structure: Path, 
          json: Path,
          afdb: str,
          resolution: float,
@@ -221,5 +221,5 @@ def afragmenter(structure: Path,
 
 
 if __name__ == "__main__":
-    afragmenter()
+    main()
     sys.exit(0)

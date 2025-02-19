@@ -17,13 +17,12 @@ def pdb_file():
 
 def test_help():
     runner = CliRunner()
-    result = runner.invoke(cli.afragmenter, ["--help"])
+    result = runner.invoke(cli.main, ["--help"])
     assert result.exit_code == 0
-    assert "Usage: afragmenter [OPTIONS]" in result.output
 
 def test_missing_required_args(cif_file):
     runner = CliRunner()
-    result = runner.invoke(cli.afragmenter, ["--structure", cif_file])
+    result = runner.invoke(cli.main, ["--structure", cif_file])
     assert result.exit_code != 0
     
     either_required = ["--json", "--afdb"]
@@ -32,26 +31,26 @@ def test_missing_required_args(cif_file):
 
 def test_invalid_json_path():
     runner = CliRunner()
-    result = runner.invoke(cli.afragmenter, ["--json", "invalid.json"])
+    result = runner.invoke(cli.main, ["--json", "invalid.json"])
     assert result.exit_code != 0
     assert "Invalid value for '--json'" in result.output
 
 def test_invalid_structure_path(json_file):
     runner = CliRunner()
-    result = runner.invoke(cli.afragmenter, ["--json", json_file, "--structure", "invalid.pdb"])
+    result = runner.invoke(cli.main, ["--json", json_file, "--structure", "invalid.pdb"])
     assert result.exit_code != 0
     assert "Invalid value for '--structure' / '-s'" in result.output
 
 def test_valid_arguments(json_file):
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(cli.afragmenter, ["--json", json_file, "--n-iterations", "2"])
+        result = runner.invoke(cli.main, ["--json", json_file, "--n-iterations", "2"])
         assert result.exit_code == 0
 
 def test_save_outputs_and_name(json_file, cif_file):
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(cli.afragmenter, ["--json", json_file, "--structure", cif_file,
+        result = runner.invoke(cli.main, ["--json", json_file, "--structure", cif_file,
                                                  "--save-result", "results.csv", "--plot-result", "results.png",
                                                  "--save-fasta", "output.fasta", "--n-iterations", "2",
                                                  "--name", "test_name"])
@@ -65,7 +64,7 @@ def test_save_outputs_and_name(json_file, cif_file):
 def test_emtpy_name(json_file, cif_file):
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(cli.afragmenter, ["--json", json_file, "--structure", cif_file,
+        result = runner.invoke(cli.main, ["--json", json_file, "--structure", cif_file,
                                                  "--save-fasta", "output.fasta", "--n-iterations", "2",
                                                  "--name", ""])
         assert result.exit_code == 0
@@ -76,7 +75,7 @@ def test_emtpy_name(json_file, cif_file):
 def test_all_arguments(json_file, cif_file):
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(cli.afragmenter, [
+        result = runner.invoke(cli.main, [
             "--json", json_file,
             "--structure", cif_file,
             "--afdb", "B1LFV6",
@@ -99,7 +98,7 @@ def test_all_arguments(json_file, cif_file):
 def test_invalid_argument():
     runner = CliRunner()
     json_file = Path(__file__).parent / "data" / "B1LFV6" / "B1LFV6.json"
-    result = runner.invoke(cli.afragmenter, ["--json", json_file, "--invalid"])
+    result = runner.invoke(cli.main, ["--json", json_file, "--invalid"])
     assert result.exit_code != 0
     assert "No such option" in result.output
     

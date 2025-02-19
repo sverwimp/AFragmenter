@@ -25,7 +25,7 @@ biopython = "^1.84"
 requests = "^2.32.3"
 
 [tool.poetry.scripts]
-afragmenter = 'afragmenter.cli:afragmenter'
+afragmenter = 'afragmenter.cli:main'
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"
