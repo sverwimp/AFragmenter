@@ -267,7 +267,7 @@ class AFragmenter:
     
     
     def py3Dmol(self, structure_file: str,
-                color_range: Optional[list] = None,
+                color_palette: Optional[list] = None,
                 style: str = 'cartoon',
                 displace_domains: bool = False,
                 tether_strength: float = 0.1,
@@ -280,7 +280,7 @@ class AFragmenter:
 
         Parameters:
         - structure_file (str): The path to the PDB or mmcif file.
-        - color_range (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
+        - color_palette (list, optional): A list of colors to use for the clusters, expects color names or hex-codes.
         - style (str, optional): The style to use. Defaults to 'cartoon'.
         - displace_domains (bool, optional): Whether to displace the domains based on the clusters. Defaults to False.
         - tether_strength (float, optional): The spring constant pulling each group toward its original center. Defaults 
@@ -312,14 +312,14 @@ class AFragmenter:
         
         self.check_has_cluster_intervals()
 
-        if color_range is None:
-            from .structure_viewer import COLOR_RANGE
-            color_range = COLOR_RANGE
+        if color_palette is None:
+            from .structure_viewer import COLOR_PALETTE
+            color_palette = COLOR_PALETTE
 
         view = view_py3Dmol(structure_file,
                             self.cluster_intervals,
                             displace_domains=displace_domains,
-                            color_range=color_range,
+                            color_palette=color_palette,
                             style=style,
                             tether_strength=tether_strength,
                             repulse_strength=repulse_strength,

@@ -5,14 +5,14 @@ import py3Dmol
 from .sequence_reader import SequenceReader
 from .structure_displacement import displace_structure
 
-COLOR_RANGE = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
+COLOR_PALETTE = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
                 'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
                 'beige', 'navy', 'grey', 'white', 'black']
 
 
 def color_view_by_domain(view: py3Dmol.view, 
                     cluster_intervals: dict, 
-                    color_range: list = COLOR_RANGE, 
+                    color_range: list = COLOR_PALETTE, 
                     style: str = 'cartoon') -> None:
     """
     Color the structure in the view according to the domain clusters provided in cluster_intervals.
@@ -37,7 +37,7 @@ def color_view_by_domain(view: py3Dmol.view,
 def view_py3Dmol(structure_file: str, 
                  cluster_intervals: dict, 
                  displace_domains: bool = False, 
-                 color_range: list = COLOR_RANGE,
+                 color_range: list = COLOR_PALETTE,
                  style: str = 'cartoon',
                  **kwargs) -> py3Dmol.view:
     """
