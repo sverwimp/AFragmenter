@@ -27,19 +27,11 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 
 <br>
 
-<div style="display: flex; justify-content: space-around">
-    <p>Resolution = 0.8</p>
-    <p>Resolution = 1.1</p>
-    <p>Resolution = 0.3</p>
-</div>
+| Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
+|:----------------:|:----------------:|:----------------:|
+| ![Resolution 0.8](images/resolution_0_8.png) | ![Resolution 1.1](images/resolution_1_1.png) | ![Resolution 0.3](images/resolution_0_3.png) |
 
-<p style="display: flex; justify-content: center">
-    <img src="images/resolution_0_8.png" width=33% />
-    <img src="images/resolution_1_1.png" width=33% />
-    <img src="images/resolution_0_3.png" width=33% />
-</p>
-
-<p style="display: flex; justify-content: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="text-align: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 
 
