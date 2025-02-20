@@ -39,6 +39,7 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 
 1. [Try it](#try-it)
 2. [Installation](#installation)
+3. [Tutorial](#quick-tutorial)
 3. [Overview usage](#overview-usage)
    1. [Python](#python)
    2. [Command line](#command-line)
@@ -102,13 +103,13 @@ afragmenter --version
 
 This command should display the installed version of AFragmenter.
 
-## Overview usage
+## Quick Tutorial
 
-- [Python](#python)
-- [Command line](#command-line)
+In this short tutorial, we will walk through the process of using AFragmenter to segment protein domains based on AlphaFold structures. We will use the example protein P15807 (PDB: 1KYQ) to demonstrate the steps involved. This protein is classified differently by various protein domain databases, making it an interesting case for domain segmentation.
 
+> P15807 is classified as a three-domain protein in both [CATH](https://www.cathdb.info/pdb/1kyq) and [ECOD](http://prodata.swmed.edu/ecod/af2_pdb/domain/e1kyqA1#tab-organization), a two-domain protein in [SCOPe](https://scop.berkeley.edu/pdb/code=1kyq) and [InterPro](https://www.ebi.ac.uk/interpro/protein/UniProt/P15807/), and a single-domain protein in [SCOP](https://www.ebi.ac.uk/pdbe/scop/term/8001033).
 
-### Python
+<br>
 
 Since AFragmenter is dependent on the PAE values of AlphaFold, it is a good idea to first have a look at the PAE plot.
 
@@ -121,9 +122,11 @@ p15807.plot_pae()
 ```
 <img src="images/P15807_pae.png" width=400 />
 
-Here we see some collections of very low PAE values (dark green) on the PAE matrix, which could indicate different domains. However, there is still a lot of very green datapoints visible around these potential domains. So we might need to pay attention the the **PAE contrast threshold** that is used.
+Here we see some regions of very low PAE values (dark green) on the PAE matrix, which could indicate different domains. However, there are still many green (low PAE) datapoints visible around these potential domains. Therefore, it is important to consider the **PAE contrast threshold** used.
 
-These PAE values are transformed into edge weights in a way that increases the contrast between high and low PAE values. The **PAE contrast theshold** that is used here can be changed. Below we can see the effect of the threshold on the weights of the graph.
+These PAE values are transformed into edge weights to increase the contrast between high and low PAE values. The **PAE contrast threshold** can be adjusted to control this contrast. Below, we can see the effect of different thresholds on the weights of the graph.
+
+
 
 <details>
 <summary>Show code</summary>
@@ -157,6 +160,8 @@ plt.show()
 
 A threshold of 3 seems to give a good contrast between the higher and lower PAE values.
 
+Next, we cluster the residues into domains using the Leiden clustering algorithm. We get a result, but the resolution parameter can be changed to explore multiple potential solutions.
+
 ```python
 p15807 = AFragmenter(pae, threshold=3)
 p15807.cluster() # default resolution = 0.8
@@ -170,8 +175,6 @@ p15807.py3Dmol(structure)
 </p>
 
 
-
-# Continue working from here
 
 
 ```python
@@ -192,11 +195,12 @@ p15807.cluster(resolution=0.3)
     <img src="images/resolution_0_3.png" width=50% />
 </p>
 
+Once a solution has been found that is satisfactory to the user, we can print the result and the FASTA file for each domain, or save them to files for further analysis.
 
 ```python
-a = AFragmenter(pae, threshold=3)
-a.cluster(resolution=1.1)
-a.print_result()
+p15807 = AFragmenter(pae, threshold=3)
+p15807.cluster(resolution=1.1)
+p15807.print_result()
 
     ┏━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
     ┃ Domain ┃ Number of Residues ┃ Chopping ┃
@@ -206,7 +210,7 @@ a.print_result()
     │ 3      │                 81 │  194-274 │
     └────────┴────────────────────┴──────────┘
 
-a.print_fasta(structure)
+p15807.print_fasta(structure)
 
     >P15807_1 10-146
     QLKDKKILLIGGGEVGLTRLYKLIPTGCKLTLVSPDLHKSIIPKFGKFIQNEDQPDYRED
@@ -218,11 +222,20 @@ a.print_fasta(structure)
     EDAVVKLGELRRGIRLLAPDDKDVKYRMDWARRCTDLFGIQHCHNIDVKRLLDLFKVMFQ
     EQNCSLQFPPRERLLSEYCSS
 
-a.py3Dmol(structure)
+
+# Or save it
+p15807.save_result('result.csv')
+p15807.save_fasta(structure, 'result.fasta')
 ```
 
 
+## Overview usage
 
+- [Python](#python)
+- [Command line](#command-line)
+
+
+### Python
 
 
 ### Command line
