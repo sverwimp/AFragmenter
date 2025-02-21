@@ -40,9 +40,12 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 1. [Try it](#try-it)
 2. [Installation](#installation)
 3. [Tutorial](#quick-tutorial)
-3. [Overview usage](#overview-usage)
+3. [Usage](#usage)
    1. [Python](#python)
    2. [Command line](#command-line)
+4. [Options](#options)
+    1. [Threshold](#threshold)
+    2. [Resolution](#resolution)
 
 ## Try it
 
@@ -229,7 +232,7 @@ p15807.save_fasta(structure, 'result.fasta')
 ```
 
 
-## Overview usage
+## Usage
 
 - [Python](#python)
 - [Command line](#command-line)
@@ -237,7 +240,103 @@ p15807.save_fasta(structure, 'result.fasta')
 
 ### Python
 
+Docs coming soon...
 
 ### Command line
 
 ![help_message](images/help_message.svg)
+
+
+## Options
+
+- [Threshold](#threshold)
+- [Resolution](#resolution)
+- [Objective function](#objective-function)
+- [Minimum size](#minimum-size)
+- [Merge](#merge)
+- [Print / Save result](#print--save-result)
+
+### Threshold
+
+The 'contrast threshold' serves as a soft cut-off to increase the contrast between low and high PAE values. This increased contrast leads to more distinct, better-defined clusters. Used in calculation for the edge weights in the network using the following formula: $edge weight=\frac{1}{1 + e^{(PAE - threshold)}}$.
+
+Below you can see the impact of the threshold on the edge weights matrix used for the network. Adjusting the threshold can help in distinguishing between different domains by increasing the contrast between low and high PAE values, leading to more distinct and better-defined clusters.
+
+
+
+<details>
+<summary>Show code</summary>
+
+```python
+from afragmenter.plotting import plot_matrix
+
+fig, ax = plt.subplots(4, 3, figsize=(15, 20))
+
+q5vsl9_pae, _ = fetch_afdb_data('Q5VSL9')
+q5vsl9 = AFragmenter(q5vsl9_pae)
+q5vsl9.plot_pae(ax=ax[0, 0])
+plot_matrix(q5vsl9.edge_weights_matrix, ax[0, 1])
+q5vsl9 = AFragmenter(q5vsl9_pae, threshold=10)
+plot_matrix(q5vsl9.edge_weights_matrix, ax[0, 2])
+
+ax[0, 0].set_title('Q5VSL9 PAE matrix')
+ax[0, 1].set_title('Q5VSL9 edge weights matrix\n(default threshold = 5)')
+ax[0, 2].set_title('Q5VSL9 edge weights matrix\nthreshold = 10')
+
+
+p15807_pae, _ = fetch_afdb_data('P15807')
+p15807 = AFragmenter(p15807_pae)
+p15807.plot_pae(ax=ax[1, 0])
+plot_matrix(p15807.edge_weights_matrix, ax[1, 1])
+p15807 = AFragmenter(p15807_pae, threshold=3)
+plot_matrix(p15807.edge_weights_matrix, ax[1, 2])
+
+ax[1, 0].set_title('P15807 PAE matrix')
+ax[1, 1].set_title('P15807 edge weights matrix\n(default threshold = 5)')
+ax[1, 2].set_title('P15807 edge weights matrix\nthreshold = 3')
+
+
+p50600_pae, _ = fetch_afdb_data('P50600')
+p50600 = AFragmenter(p50600_pae)
+p50600.plot_pae(ax=ax[2, 0])
+plot_matrix(p50600.edge_weights_matrix, ax[2, 1])
+p50600 = AFragmenter(p50600_pae, threshold=10)
+plot_matrix(p50600.edge_weights_matrix, ax[2, 2])
+
+ax[2, 0].set_title('P50600 PAE matrix')
+ax[2, 1].set_title('P50600 edge weights matrix\n(default threshold = 5)')
+ax[2, 2].set_title('P50600 edge weights matrix\nthreshold = 10')
+
+
+a0a098aqt8_pae, _ = fetch_afdb_data('A0A098AQT8')
+a0a098aqt8 = AFragmenter(a0a098aqt8_pae)
+a0a098aqt8.plot_pae(ax=ax[3, 0])
+plot_matrix(a0a098aqt8.edge_weights_matrix, ax[3, 1])
+a0a098aqt8 = AFragmenter(a0a098aqt8_pae, threshold=20)
+plot_matrix(a0a098aqt8.edge_weights_matrix, ax[3, 2])
+
+ax[3, 0].set_title('A0A098AQT8 PAE matrix')
+ax[3, 1].set_title('A0A098AQT8 edge weights matrix\n(default threshold = 5)')
+ax[3, 2].set_title('A0A098AQT8 edge weights matrix\nthreshold = 20')
+
+plt.tight_layout()
+plt.show()
+```
+
+</details>
+
+![threshold_examples](images/threshold_examples.png)
+
+### Resolution
+
+The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
+
+
+
+### Objective function
+
+### Minimum size
+
+### Merge
+
+### Print / Save result
