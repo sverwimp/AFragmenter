@@ -1,9 +1,11 @@
+<!-- markdownlint-disable MD033 -->
+
 # AFragmenter
 
 AFragmenter is a schema-free, tunable protein domain segmentation tool for AlphaFold structures based on network analysis.
 
-
 ### How it works
+
 1. **Network representation**: Each protein residue is treated as a node within a fully connected network
 2. **Edge weighting**: The edges between the nodes are weighted using transformed **Predicted Aligned Error** (PAE) values from AlphaFold, reflecting relative positional confidence between residues.
     <details>
@@ -19,31 +21,30 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 3. **Clustering with Leiden algorithm**: Utilizes the Leiden clustering algorithm to group residues into domains, with adjustable resolution parameters to control cluster granularity.
 
 ### Key features
+
 - **Schema free**: AFragmenter only uses the PAE values from AlphaFold structures. No domain-segmentation scheme is learned or used for evaluation.
 
 - **Tunable segmentation**: The 'resolution' parameter gives control over the coarseness of clustering, and thus the number of clusers / domains.
-    - **Higher resolution**: Yields more, smaller clusters
-    - **Lower resolution**: Yields fewer, larger clusters
+  - **Higher resolution**: Yields more, smaller clusters
+  - **Lower resolution**: Yields fewer, larger clusters
 
 <br>
 
 | Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
 |:----------------:|:----------------:|:----------------:|
-| ![Resolution 0.8](images/resolution_0_8.png) | ![Resolution 1.1](images/resolution_1_1.png) | ![Resolution 0.3](images/resolution_0_3.png) |
+| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
 
 <p style="text-align: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-
 
 ## Table of contents
 
 1. [Try it](#try-it)
 2. [Installation](#installation)
 3. [Tutorial](#quick-tutorial)
-3. [Usage](#usage)
+4. [Usage](#usage)
    1. [Python](#python)
    2. [Command line](#command-line)
-4. [Options](#options)
+5. [Options](#options)
     1. [Threshold](#threshold)
     2. [Resolution](#resolution)
 
@@ -51,6 +52,7 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 
 The recommended way to use AFragmenter is through jupyter notebooks, where visualization and fine-tuning of parameters is most easily done.
 The easiest way to begin is by using our [Google colab notebook](https://colab.research.google.com/drive/1QQ3MO0kaTrJxD9EH1jghProsAe3Kmoru?usp=sharing).
+
 - **Note**: While colab notebooks offers convenience, it can experience slower performance due to shared resources.
 
 An alternative way to get started is by using the [webtool] (coming soon)
@@ -58,6 +60,7 @@ An alternative way to get started is by using the [webtool] (coming soon)
 ## Installation
 
 ### System Requirements
+
 - **Python Version**: Ensure you have Python 3.9 or higher installed on your system.
 - **Operating Systems**: The tool is compatible with Linux, macOS, and Windows.
 
@@ -91,7 +94,7 @@ An alternative way to get started is by using the [webtool] (coming soon)
 
 3. **Optional Dependencies**:
    - **py3Dmol**: Required for protein structure visualization.
-     
+
      ```bash
      pip install py3Dmol
      ```
@@ -123,13 +126,12 @@ pae, structure = fetch_afdb_data('P15807')
 p15807 = AFragmenter(pae) # Or bring your own files: a = AFragmenter('filename.json')
 p15807.plot_pae()
 ```
-<img src="images/P15807_pae.png" width=400 />
+
+<img src="images/P15807/P15807_pae.png" width=400 alt="P15807 PAE matrix"/>
 
 Here we see some regions of very low PAE values (dark green) on the PAE matrix, which could indicate different domains. However, there are still many green (low PAE) datapoints visible around these potential domains. Therefore, it is important to consider the **PAE contrast threshold** used.
 
 These PAE values are transformed into edge weights to increase the contrast between high and low PAE values. The **PAE contrast threshold** can be adjusted to control this contrast. Below, we can see the effect of different thresholds on the weights of the graph.
-
-
 
 <details>
 <summary>Show code</summary>
@@ -156,10 +158,11 @@ ax[1, 1].set_title('Edge weights matrix (threshold=1)')
 
 plt.tight_layout()
 plt.show()
-``` 
+```
+
 </details>
 
-<img src="images/P15807_thresholds.png" width=700>
+<img src="images/P15807/P15807_thresholds.png" width=700 alt="Effect of different thresholds on edge weights">
 
 A threshold of 3 seems to give a good contrast between the higher and lower PAE values.
 
@@ -173,20 +176,17 @@ p15807.py3Dmol(structure)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/result_resolution_0_8.png" width=35.8% />
-    <img src="images/resolution_0_8.png" width=50% />
+    <img src="images/P15807/result_resolution_0_8.png" width=35.8% alt="PAE result, resolution = 0.8"/>
+    <img src="images/P15807/resolution_0_8.png" width=50% alt="structure colored by resulting domain"/>
 </p>
-
-
-
 
 ```python
 p15807.cluster(resolution=1.1)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/result_resolution_1_1.png" width=35.8% />
-    <img src="images/resolution_1_1.png" width=50% />
+    <img src="images/P15807/result_resolution_1_1.png" width=35.8% alt="PAE result, resolution = 1.1"/>
+    <img src="images/P15807/resolution_1_1.png" width=50% alt="structure colored by resulting domain"/>
 </p>
 
 ```python
@@ -194,8 +194,8 @@ p15807.cluster(resolution=0.3)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/result_resolution_0_3.png" width=35.8% />
-    <img src="images/resolution_0_3.png" width=50% />
+    <img src="images/P15807/result_resolution_0_3.png" width=35.8% alt="PAE result, resolution = 0.3"/>
+    <img src="images/P15807/resolution_0_3.png" width=50% alt="structure colored by resulting domain"/>
 </p>
 
 Once a solution has been found that is satisfactory to the user, we can print the result and the FASTA file for each domain, or save them to files for further analysis.
@@ -231,12 +231,10 @@ p15807.save_result('result.csv')
 p15807.save_fasta(structure, 'result.fasta')
 ```
 
-
 ## Usage
 
 - [Python](#python)
 - [Command line](#command-line)
-
 
 ### Python
 
@@ -245,7 +243,6 @@ Docs coming soon...
 ### Command line
 
 ![help_message](images/help_message.svg)
-
 
 ## Options
 
@@ -257,6 +254,74 @@ Docs coming soon...
 - [Print / Save result](#print--save-result)
 
 ### Threshold
+
+The 'contrast threshold' serves as a soft cut-off to increase the distinction between low and high PAE values. Used in calculating the edge weights of the network and will thus have a large impact on the clustering and segmentation results. It is important to consider this threshold in the context of the AlphaFold results for the protein of interest.
+
+**Examples**:
+
+#### [Q5VSL9](https://alphafold.ebi.ac.uk/entry/Q5VSL9)
+
+Overall good structure with high pLDDt and low PAE scores for the majority of the protein, and lower pLDDT and high PAE scores for the disordered regions / loops, like is expected. Default threshold should be good.
+
+<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
+    <span style="diplay: inline-block; width: 30%; text-align: center">AlphaFold structure</span>
+    <span style="diplay: inline-block; width: 30%; text-align: center">PAE matrix</span>
+    <span style="diplay: inline-block; width: 30%; text-align: center">Edge weights</span>
+</p>
+
+<p style="display: flex; justify-content: space-around; align-items: center">
+    <img src="images/Q5VSL9/Q5VSL9.png" width=30% alt="Q5VSL9 AlphaFold structure">
+    <img src="images/Q5VSL9/Q5VSL9_pae.png" width=30% alt="Q5VSL9 PAE matrix">
+    <img src="images/Q5VSL9/Q5VSL9_edge_weights.png" width=30% alt="Q5VSL9 edge weight matrix">
+</p>
+
+#### [P15807](https://alphafold.ebi.ac.uk/entry/P15807)
+
+Very high pLDDT scores and low PAE scores for the AlphaFold structure indicating strong confidence, with one loop as exception. Several linkers, including the disordered N-terminal region, also show unexpectedly high pLDDT scores and low PAE scores, contrary to what would be expected for such regions. This apparent overconfidence is likely due to the inclusion of the crystal structure (1KYQ) in the AlphaFold training dataset.
+
+Lowering the treshold can help reduce this apparent confidence, making it easier to differentiate between genuinely well-structured regions ans those that are more likely to be flexible or disordered.
+
+<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
+    <span style="diplay: inline-block; width: 50%; text-align: center">AlphaFold structure</span>
+    <span style="diplay: inline-block; width: 50%; text-align: center">PAE matrix</span>
+</p>
+<p style="display: flex; justify-content: space-around; align-items: center">
+    <img src="images/P15807/P15807.png" width=30% alt="P15807 AlphaFold structure">
+    <img src="images/P15807/P15807_pae.png" width=30% alt="P15807 PAE matrix">
+</p>
+<p style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; align-items: center">
+    <span style="diplay: inline-block; width: 50%; text-align: center">Edge weights (default threshold = 5)</span>
+    <span style="diplay: inline-block; width: 50%; text-align: center">Edge weights (threshold = 3)</span>
+</p>
+<p style="display: flex; justify-content: space-around; align-items: center">
+    <img src="images/P15807/P15807_edge_weights.png" width=30% alt="P15807 edge weight matrix">
+    <img src="images/P15807/P15807_edge_weights_3.png" width=30% alt="P15807 edge weight matrix, threshold = 3">
+</p>
+
+#### [Q9YFU8](https://alphafold.ebi.ac.uk/entry/Q9YFU8)
+
+Q9YFU8 is a great example to remind us again that the PAE scores are not originally intended to be used for domain segmentation, but instead are a measure of how confident AlphaFold is in the relative position of two residues.
+
+...
+
+# To be continued soon
+
+<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
+    <span style="diplay: inline-block; width: 30%; text-align: center">AlphaFold structure</span>
+    <span style="diplay: inline-block; width: 30%; text-align: center">PAE matrix</span>
+    <span style="diplay: inline-block; width: 30%; text-align: center">Crystal structures: 1W5S (green) and 1W5T (red)</span>
+</p>
+
+<p style="display: flex; justify-content: space-around; align-items: center">
+    <img src="images/Q9YFU8/Q9YFU8.png" width=30% alt="Q9YFU8 AlphaFold structure">
+    <img src="images/Q9YFU8/Q9YFU8_pae.png" width=30% alt="Q9YFU8 PAE matrix">
+    <img src="images/Q9YFU8/1w5s_1w5t.png" width=30% alt="1W5S (green) and 1W5T (red) structures">
+</p>
+
+
+
+---------------
+
 
 The 'contrast threshold' serves as a soft cut-off to increase the contrast between low and high PAE values. This increased contrast leads to more distinct, better-defined clusters. Used in calculation for the edge weights in the network using the following formula: $edge weight=\frac{1}{1 + e^{(PAE - threshold)}}$.
 
