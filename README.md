@@ -263,17 +263,9 @@ The 'contrast threshold' serves as a soft cut-off to increase the distinction be
 
 Overall good structure with high pLDDt and low PAE scores for the majority of the protein, and lower pLDDT and high PAE scores for the disordered regions / loops, like is expected. Default threshold should be good.
 
-<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
-    <span style="diplay: inline-block; width: 30%; text-align: center">AlphaFold structure</span>
-    <span style="diplay: inline-block; width: 30%; text-align: center">PAE matrix</span>
-    <span style="diplay: inline-block; width: 30%; text-align: center">Edge weights</span>
-</p>
-
-<p style="display: flex; justify-content: space-around; align-items: center">
-    <img src="images/Q5VSL9/Q5VSL9.png" width=30% alt="Q5VSL9 AlphaFold structure">
-    <img src="images/Q5VSL9/Q5VSL9_pae.png" width=30% alt="Q5VSL9 PAE matrix">
-    <img src="images/Q5VSL9/Q5VSL9_edge_weights.png" width=30% alt="Q5VSL9 edge weight matrix">
-</p>
+| AlphaFold structure | PAE plot | Edge weights |
+|:-------------------:|:----------:|:------------:|
+| ![Q5VSL9 AF structure](images/Q5VSL9/Q5VSL9.png) | ![Q5VSL9 PAE plot](images/Q5VSL9/Q5VSL9_pae.png) | ![Q5VSL9 edge weights](images/Q5VSL9/Q5VSL9_edge_weights.png) |
 
 #### [P15807](https://alphafold.ebi.ac.uk/entry/P15807)
 
@@ -281,22 +273,12 @@ Very high pLDDT scores and low PAE scores for the AlphaFold structure indicating
 
 Lowering the treshold can help reduce this apparent confidence, making it easier to differentiate between genuinely well-structured regions ans those that are more likely to be flexible or disordered.
 
-<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
-    <span style="diplay: inline-block; width: 50%; text-align: center">AlphaFold structure</span>
-    <span style="diplay: inline-block; width: 50%; text-align: center">PAE matrix</span>
-</p>
-<p style="display: flex; justify-content: space-around; align-items: center">
-    <img src="images/P15807/P15807.png" width=30% alt="P15807 AlphaFold structure">
-    <img src="images/P15807/P15807_pae.png" width=30% alt="P15807 PAE matrix">
-</p>
-<p style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; align-items: center">
-    <span style="diplay: inline-block; width: 50%; text-align: center">Edge weights (default threshold = 5)</span>
-    <span style="diplay: inline-block; width: 50%; text-align: center">Edge weights (threshold = 3)</span>
-</p>
-<p style="display: flex; justify-content: space-around; align-items: center">
-    <img src="images/P15807/P15807_edge_weights.png" width=30% alt="P15807 edge weight matrix">
-    <img src="images/P15807/P15807_edge_weights_3.png" width=30% alt="P15807 edge weight matrix, threshold = 3">
-</p>
+| AlphaFold structure | PAE plot |
+|:-------------------:|:--------:|
+| ![P15807 AF structure](images/P15807/P15807.png) | <img src="images/P15807/P15807_pae.png" width=70%> |
+| <strong>Edge weights (default threshold = 5)</strong> | <strong>Edge weights (treshold = 3)</strong> |
+| <img src="images/P15807/P15807_edge_weights.png" width=70%> | <img src="images/P15807/P15807_edge_weights_3.png" width=67%> |
+
 
 #### [Q9YFU8](https://alphafold.ebi.ac.uk/entry/Q9YFU8)
 
@@ -306,17 +288,10 @@ Q9YFU8 is a great example to remind us again that the PAE scores are not origina
 
 # To be continued soon
 
-<p style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
-    <span style="diplay: inline-block; width: 30%; text-align: center">AlphaFold structure</span>
-    <span style="diplay: inline-block; width: 30%; text-align: center">PAE matrix</span>
-    <span style="diplay: inline-block; width: 30%; text-align: center">Crystal structures: 1W5S (green) and 1W5T (red)</span>
-</p>
+| AlphaFold structure | PAE plot | Crystal structures: 1W5S (green) and 1W5T (red) |
+|:-------------------:|:--------:|:-----------------------------------------------:|
+| ![Q9YFU8 AlphaFold structure](images/Q9YFU8/Q9YFU8.png) | <img src="images/Q9YFU8/Q9YFU8_pae.png" width=75%> | ![1W5S (green) and 1W5T (red) structures](images/Q9YFU8/1w5s_1w5t.png) |
 
-<p style="display: flex; justify-content: space-around; align-items: center">
-    <img src="images/Q9YFU8/Q9YFU8.png" width=30% alt="Q9YFU8 AlphaFold structure">
-    <img src="images/Q9YFU8/Q9YFU8_pae.png" width=30% alt="Q9YFU8 PAE matrix">
-    <img src="images/Q9YFU8/1w5s_1w5t.png" width=30% alt="1W5S (green) and 1W5T (red) structures">
-</p>
 
 
 
