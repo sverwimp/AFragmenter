@@ -12,6 +12,14 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
   - **Higher resolution**: Yields more, smaller clusters
   - **Lower resolution**: Yields fewer, larger clusters
 
+<br>
+
+| Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
+|:----------------:|:----------------:|:----------------:|
+| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
+
+<p style="text-align: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
 ### How it works
 
 1. **Network representation**: Each protein residue is treated as a node within a fully connected network
@@ -27,14 +35,6 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
     </details>
 
 3. **Clustering with Leiden algorithm**: Utilizes the Leiden clustering algorithm to group residues into domains, with adjustable resolution parameters to control cluster granularity.
-
-<br>
-
-| Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
-|:----------------:|:----------------:|:----------------:|
-| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
-
-<p style="text-align: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 ## Table of contents
 
@@ -261,7 +261,7 @@ The 'contrast threshold' serves as a soft cut-off to increase the distinction be
 
 #### [Q5VSL9](https://alphafold.ebi.ac.uk/entry/Q5VSL9)
 
-Overall good structure with high pLDDt and low PAE scores for the majority of the protein, and lower pLDDT and high PAE scores for the disordered regions / loops, like is expected. Default threshold should be good.
+Overall good structure with high pLDDt and low PAE scores for the majority of the protein, and lower pLDDT and high PAE scores for the disordered regions / loops, like is expected. Default threshold should be good (default PAE threshold = 5).
 
 | AlphaFold structure | PAE plot | Edge weights |
 |:-------------------:|:----------:|:------------:|
@@ -275,103 +275,38 @@ Lowering the treshold can help reduce this apparent confidence, making it easier
 
 | AlphaFold structure | PAE plot |
 |:-------------------:|:--------:|
-| ![P15807 AF structure](images/P15807/P15807.png) | <img src="images/P15807/P15807_pae.png" width=70%> |
+| ![P15807 AF structure](images/P15807/P15807.png) | <img src="images/P15807/P15807_pae.png" width=70% alt="P15807 PAE plot"> |
 | <strong>Edge weights (default threshold = 5)</strong> | <strong>Edge weights (treshold = 3)</strong> |
-| <img src="images/P15807/P15807_edge_weights.png" width=70%> | <img src="images/P15807/P15807_edge_weights_3.png" width=67%> |
-
+| <img src="images/P15807/P15807_edge_weights.png" width=70% alt="edge weight using default threshold"> | <img src="images/P15807/P15807_edge_weights_3.png" width=67% alt="edge weights using PAE threshold = 3"> |
 
 #### [Q9YFU8](https://alphafold.ebi.ac.uk/entry/Q9YFU8)
 
-Q9YFU8 is a great example to remind us again that the PAE scores are not originally intended to be used for domain segmentation, but instead are a measure of how confident AlphaFold is in the relative position of two residues.
+Q9YFU8 is a great example to remind us again that the PAE scores are not primarily intended to be used for domain segmentation,
+but instead are a measure of how confident AlphaFold is in the relative position of two residues.
 
-...
-
-# To be continued soon
+The PAE plot for Q9YFU8 shows two distinct parts of the protein seperated with hight PAE values, indicating uncertainty in their relative positions.
+Going of off the previous examples, it would not be uncommon to assume there to be two distince domains in this protein, but this isn't necessarily the case.
+Q9YFU8 has two crystal structures in the PDB: 1W5S and 1W5T. Superpositioning of these crystal structures reveals that a significant portion
+of the protein overlays well, however another part shows a large deviation in orientation. AlphaFold likely learned this similarity and difference,
+resulting in low PAE scores for the overlapping regions and high PAE scores between the differently oriented parts.
+These structures might explain the resulting PAE scores, but this means we still need to pay attention choosing the threshold
+to properly segment the remaining parts of the protein structure.
 
 | AlphaFold structure | PAE plot | Crystal structures: 1W5S (green) and 1W5T (red) |
 |:-------------------:|:--------:|:-----------------------------------------------:|
-| ![Q9YFU8 AlphaFold structure](images/Q9YFU8/Q9YFU8.png) | <img src="images/Q9YFU8/Q9YFU8_pae.png" width=75%> | ![1W5S (green) and 1W5T (red) structures](images/Q9YFU8/1w5s_1w5t.png) |
+| ![Q9YFU8 AlphaFold structure](images/Q9YFU8/Q9YFU8.png) | <img src="images/Q9YFU8/Q9YFU8_pae.png" width=75% alt="Q9YFU8 PAE plot"> | ![1W5S (green) and 1W5T (red) structures](images/Q9YFU8/1w5s_1w5t.png) |
 
+Lowering the treshold even if initial inspection deems it not necessary can still change the results. Without changing the threshold
+we see two domains, conform with the results from [SCOP](https://www.ebi.ac.uk/pdbe/scop/search?t=txt;q=1w5s) and [SCOPe](https://scop.berkeley.edu/pdb/code=1w5s). While lowering the threshold results in 3 domains, consistent with [ECOD](http://prodata.swmed.edu/ecod/af2_pdb/domain/e1w5sA1#tab-organization), [CATH](https://www.cathdb.info/pdb/1w5s), [Interpro](https://www.ebi.ac.uk/interpro/protein/reviewed/Q9YFU8/) and SCOP.
+(SCOP can contain multiple solutions)
 
-
-
----------------
-
-
-The 'contrast threshold' serves as a soft cut-off to increase the contrast between low and high PAE values. This increased contrast leads to more distinct, better-defined clusters. Used in calculation for the edge weights in the network using the following formula: $edge weight=\frac{1}{1 + e^{(PAE - threshold)}}$.
-
-Below you can see the impact of the threshold on the edge weights matrix used for the network. Adjusting the threshold can help in distinguishing between different domains by increasing the contrast between low and high PAE values, leading to more distinct and better-defined clusters.
-
-
-
-<details>
-<summary>Show code</summary>
-
-```python
-from afragmenter.plotting import plot_matrix
-
-fig, ax = plt.subplots(4, 3, figsize=(15, 20))
-
-q5vsl9_pae, _ = fetch_afdb_data('Q5VSL9')
-q5vsl9 = AFragmenter(q5vsl9_pae)
-q5vsl9.plot_pae(ax=ax[0, 0])
-plot_matrix(q5vsl9.edge_weights_matrix, ax[0, 1])
-q5vsl9 = AFragmenter(q5vsl9_pae, threshold=10)
-plot_matrix(q5vsl9.edge_weights_matrix, ax[0, 2])
-
-ax[0, 0].set_title('Q5VSL9 PAE matrix')
-ax[0, 1].set_title('Q5VSL9 edge weights matrix\n(default threshold = 5)')
-ax[0, 2].set_title('Q5VSL9 edge weights matrix\nthreshold = 10')
-
-
-p15807_pae, _ = fetch_afdb_data('P15807')
-p15807 = AFragmenter(p15807_pae)
-p15807.plot_pae(ax=ax[1, 0])
-plot_matrix(p15807.edge_weights_matrix, ax[1, 1])
-p15807 = AFragmenter(p15807_pae, threshold=3)
-plot_matrix(p15807.edge_weights_matrix, ax[1, 2])
-
-ax[1, 0].set_title('P15807 PAE matrix')
-ax[1, 1].set_title('P15807 edge weights matrix\n(default threshold = 5)')
-ax[1, 2].set_title('P15807 edge weights matrix\nthreshold = 3')
-
-
-p50600_pae, _ = fetch_afdb_data('P50600')
-p50600 = AFragmenter(p50600_pae)
-p50600.plot_pae(ax=ax[2, 0])
-plot_matrix(p50600.edge_weights_matrix, ax[2, 1])
-p50600 = AFragmenter(p50600_pae, threshold=10)
-plot_matrix(p50600.edge_weights_matrix, ax[2, 2])
-
-ax[2, 0].set_title('P50600 PAE matrix')
-ax[2, 1].set_title('P50600 edge weights matrix\n(default threshold = 5)')
-ax[2, 2].set_title('P50600 edge weights matrix\nthreshold = 10')
-
-
-a0a098aqt8_pae, _ = fetch_afdb_data('A0A098AQT8')
-a0a098aqt8 = AFragmenter(a0a098aqt8_pae)
-a0a098aqt8.plot_pae(ax=ax[3, 0])
-plot_matrix(a0a098aqt8.edge_weights_matrix, ax[3, 1])
-a0a098aqt8 = AFragmenter(a0a098aqt8_pae, threshold=20)
-plot_matrix(a0a098aqt8.edge_weights_matrix, ax[3, 2])
-
-ax[3, 0].set_title('A0A098AQT8 PAE matrix')
-ax[3, 1].set_title('A0A098AQT8 edge weights matrix\n(default threshold = 5)')
-ax[3, 2].set_title('A0A098AQT8 edge weights matrix\nthreshold = 20')
-
-plt.tight_layout()
-plt.show()
-```
-
-</details>
-
-![threshold_examples](images/threshold_examples.png)
+| Threshold = 5 | Threshold = 3 |
+|:-------------:|:-------------:|
+|<img src="images/Q9YFU8/Q9YFU8_two_domains.png" width=75% alt="Q9YFU8 two domains colored"> | <img src="images/Q9YFU8/Q9YFU8_three_domains.png" width=75% alt="Q9YFU8 three domains colored"> |
 
 ### Resolution
 
 The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
-
-
 
 ### Objective function
 
