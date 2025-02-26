@@ -4,6 +4,14 @@
 
 AFragmenter is a schema-free, tunable protein domain segmentation tool for AlphaFold structures based on network analysis.
 
+### Key features
+
+- **Schema free**: AFragmenter only uses the PAE values from AlphaFold structures. No domain-segmentation scheme is learned or used for evaluation.
+
+- **Tunable segmentation**: The 'resolution' parameter gives control over the coarseness of clustering, and thus the number of clusers / domains.
+  - **Higher resolution**: Yields more, smaller clusters
+  - **Lower resolution**: Yields fewer, larger clusters
+
 ### How it works
 
 1. **Network representation**: Each protein residue is treated as a node within a fully connected network
@@ -19,14 +27,6 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
     </details>
 
 3. **Clustering with Leiden algorithm**: Utilizes the Leiden clustering algorithm to group residues into domains, with adjustable resolution parameters to control cluster granularity.
-
-### Key features
-
-- **Schema free**: AFragmenter only uses the PAE values from AlphaFold structures. No domain-segmentation scheme is learned or used for evaluation.
-
-- **Tunable segmentation**: The 'resolution' parameter gives control over the coarseness of clustering, and thus the number of clusers / domains.
-  - **Higher resolution**: Yields more, smaller clusters
-  - **Lower resolution**: Yields fewer, larger clusters
 
 <br>
 
