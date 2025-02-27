@@ -42,11 +42,15 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 2. [Installation](#installation)
 3. [Tutorial](#quick-tutorial)
 4. [Usage](#usage)
-   1. [Python](#python)
-   2. [Command line](#command-line)
+    - [Python](#python)
+    - [Command line](#command-line)
 5. [Options](#options)
-    1. [Threshold](#threshold)
-    2. [Resolution](#resolution)
+    - [Threshold](#threshold)
+    - [Resolution](#resolution)
+    - [Objective function](#objective-function)
+    - [Minimum size](#minimum-size)
+    - [Merge](#merge)
+    - [Print / Save result](#print--save-result)
 
 ## Try it
 
@@ -253,7 +257,7 @@ Docs coming soon...
 - [Merge](#merge)
 - [Print / Save result](#print--save-result)
 
-### Threshold
+### <ins>Threshold</ins>
 
 The 'contrast threshold' serves as a soft cut-off to increase the distinction between low and high PAE values. Used in calculating the edge weights of the network and will thus have a large impact on the clustering and segmentation results. It is important to consider this threshold in the context of the AlphaFold results for the protein of interest.
 
@@ -297,18 +301,51 @@ to properly segment the remaining parts of the protein structure.
 | ![Q9YFU8 AlphaFold structure](images/Q9YFU8/Q9YFU8.png) | <img src="images/Q9YFU8/Q9YFU8_pae.png" width=75% alt="Q9YFU8 PAE plot"> | ![1W5S (green) and 1W5T (red) structures](images/Q9YFU8/1w5s_1w5t.png) |
 
 Lowering the treshold even if initial inspection deems it not necessary can still change the results. Without changing the threshold
-we see two domains, conform with the results from [SCOP](https://www.ebi.ac.uk/pdbe/scop/search?t=txt;q=1w5s) and [SCOPe](https://scop.berkeley.edu/pdb/code=1w5s). While lowering the threshold results in 3 domains, consistent with [ECOD](http://prodata.swmed.edu/ecod/af2_pdb/domain/e1w5sA1#tab-organization), [CATH](https://www.cathdb.info/pdb/1w5s), [Interpro](https://www.ebi.ac.uk/interpro/protein/reviewed/Q9YFU8/) and SCOP.
+we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.uk/pdbe/scop/search?t=txt;q=1w5s) and [SCOPe](https://scop.berkeley.edu/pdb/code=1w5s). While lowering the threshold results in 3 domains, consistent with [ECOD](http://prodata.swmed.edu/ecod/af2_pdb/domain/e1w5sA1#tab-organization), [CATH](https://www.cathdb.info/pdb/1w5s), [Interpro](https://www.ebi.ac.uk/interpro/protein/reviewed/Q9YFU8/) and SCOP.
 (SCOP can contain multiple solutions)
 
 | Threshold = 5 | Threshold = 3 |
 |:-------------:|:-------------:|
 |<img src="images/Q9YFU8/Q9YFU8_two_domains.png" width=75% alt="Q9YFU8 two domains colored"> | <img src="images/Q9YFU8/Q9YFU8_three_domains.png" width=75% alt="Q9YFU8 three domains colored"> |
 
-### Resolution
+(Other settings kept as default values)
+
+### <ins>Resolution</ins>
 
 The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
 
+**Examples**:
+
+#### [P15807](https://alphafold.ebi.ac.uk/entry/P15807)
+
+| Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
+|:----------------:|:----------------:|:----------------:|
+| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
+
+#### [A0A098AQT8](https://alphafold.ebi.ac.uk/entry/A0A098AQT8)
+
+| Resolution = 0.8 | Resolution = 1.4 |
+|:----------------:|:----------------:|
+|<img src="images/A0A098AQT8/A0A098AQT8_resolution_0_8.png" width=75% alt="Resolution 0.8"> | <img src="images/A0A098AQT8/A0A098AQT8_resolution_1_4.png" width=75% alt="Resolution 1.4"> |
+
 ### Objective function
+
+The objective function that is optimized during clustering, choices are either CPM (constant potts model) or Modularity. The contant potts model does not suffer from the resolution limit problem like modularity does, leading to more, smaller well-defined clusters.
+This means that 'CPM' will result in more smaller, tightly connected clusters that represent specific subgroups or communities within the data. On the other hand, 'Modularity' will tend to produce fewer, larger clusters that encompass broader groups within the data.
+
+For AFragmenter, 'CPM' translates to a more sensitive approach where we see many more smaller clusters, especially for disordered regions. 'Modularity' is less sensitive to small shifts in PAE values, and will be better at clustering residues from disordered regions together.
+
+**Examples**:
+
+#### [P04637](https://alphafold.ebi.ac.uk/entry/P04637)
+
+![Result plots P04637](images/P04637/PAE_results.png)
+![Result structures P04637](images/P04637/structure_results.png)
+
+#### [Q837X5](https://alphafold.ebi.ac.uk/entry/Q837X5)
+
+![Result plots Q837X5](images/Q837X5/PAE_results.png)
+![Result structures Q837X5](images/Q837X5/structure_results.png)
 
 ### Minimum size
 
