@@ -48,14 +48,13 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
     - [Threshold](#threshold)
     - [Resolution](#resolution)
     - [Objective function](#objective-function)
-    - [Minimum size](#minimum-size)
+    - [Minimum size](#minimum-size-min_size)
     - [Merge](#merge)
-    - [Print / Save result](#print--save-result)
 
 ## Try it
 
 The recommended way to use AFragmenter is through jupyter notebooks, where visualization and fine-tuning of parameters is most easily done.
-The easiest way to begin is by using our [Google colab notebook](https://colab.research.google.com/drive/1QQ3MO0kaTrJxD9EH1jghProsAe3Kmoru?usp=sharing).
+The easiest way to begin is by using our [Google colab notebook](https://colab.research.google.com/drive/1Fphc-SkTFsphBIL-i7Rfxg86p4znU7m4?usp=sharing).
 
 - **Note**: While colab notebooks offers convenience, it can experience slower performance due to shared resources.
 
@@ -253,13 +252,14 @@ Docs coming soon...
 - [Threshold](#threshold)
 - [Resolution](#resolution)
 - [Objective function](#objective-function)
-- [Minimum size](#minimum-size)
+- [Minimum size](#minimum-size-min_size)
 - [Merge](#merge)
-- [Print / Save result](#print--save-result)
 
 ### <ins>Threshold</ins>
 
 The 'contrast threshold' serves as a soft cut-off to increase the distinction between low and high PAE values. Used in calculating the edge weights of the network and will thus have a large impact on the clustering and segmentation results. It is important to consider this threshold in the context of the AlphaFold results for the protein of interest.
+
+
 
 **Examples**:
 
@@ -314,6 +314,8 @@ we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.u
 
 The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
 
+- Default: dependent on objective_function `{"modularity": 0.8, "cpm": 0.3}`
+
 **Examples**:
 
 #### [P15807](https://alphafold.ebi.ac.uk/entry/P15807)
@@ -328,12 +330,15 @@ The **resolution** can be thought of as the coarseness of clustering. Increasing
 |:----------------:|:----------------:|
 |<img src="images/A0A098AQT8/A0A098AQT8_resolution_0_8.png" width=75% alt="Resolution 0.8"> | <img src="images/A0A098AQT8/A0A098AQT8_resolution_1_4.png" width=75% alt="Resolution 1.4"> |
 
-### Objective function
+### <ins>Objective function</ins>
 
 The objective function that is optimized during clustering, choices are either CPM (constant potts model) or Modularity. The contant potts model does not suffer from the resolution limit problem like modularity does, leading to more, smaller well-defined clusters.
 This means that 'CPM' will result in more smaller, tightly connected clusters that represent specific subgroups or communities within the data. On the other hand, 'Modularity' will tend to produce fewer, larger clusters that encompass broader groups within the data.
 
 For AFragmenter, 'CPM' translates to a more sensitive approach where we see many more smaller clusters, especially for disordered regions. 'Modularity' is less sensitive to small shifts in PAE values, and will be better at clustering residues from disordered regions together.
+
+- Default: `modularity`
+- Options: `[modularity, cpm]`
 
 **Examples**:
 
@@ -347,8 +352,20 @@ For AFragmenter, 'CPM' translates to a more sensitive approach where we see many
 ![Result plots Q837X5](images/Q837X5/PAE_results.png)
 ![Result structures Q837X5](images/Q837X5/structure_results.png)
 
-### Minimum size
+### <ins>Minimum size</ins> (`min_size`)
 
-### Merge
+The `min_size` parameter specifies the minimum number of residues required for a cluster / domain to be considered valid. Clusters below this threshold are filtered out during post-processing. This helps in reducing noise and focusing on significant structural or functional regions.
 
-### Print / Save result
+- Default value: 10
+- Valid range: 0 ≤ min_size ≤ Number of Residues
+
+A higher min_size is often used for larger proteins to focus on major domains, while a lower value allows capturing smaller but potentially important regions. Adjusting this parameter can impact the granularity of your clustering results.
+
+For examples, refer to the examples in [Objective function](#objective-function).
+
+### <ins>Merge</ins>
+
+The `merge` parameter, also referred to as `attempt_merge`, plays a important role in refining the clustering process. 
+When enabled, it attempts to merge smaller clusters (= below min_size) with adjacent larger ones, ensuring that the resulting clusters are more meaningful and less fragmented. Resulting clusters below the min_size are first attempted to be merged with adjacent larger clusters. If merging is not possible, the small clusters are filtered out.
+
+- Default value: `True`
