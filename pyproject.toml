@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "AFragmenter"
-version = "0.0.2"
+version = "0.0.3"
 description = ""
 authors = ["Stefaan Verwimp <stefaan.verwimp@gmail.com>"]
 license = "MIT"
