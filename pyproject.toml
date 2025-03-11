@@ -16,12 +16,12 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-python-igraph = "^0.10.3"
+python-igraph = ">=0.10.3,<1.0.0"
 numpy = "^2.0.0"
 matplotlib = "^3.9.2"
 rich = "^13.8.1"
 rich-click = "^1.8.3"
-biopython = "^1.84"
+biopython = "^1.76"
 requests = "^2.32.3"
 
 [tool.poetry.scripts]
