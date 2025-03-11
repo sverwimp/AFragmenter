@@ -16,7 +16,7 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
 
 | Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
 |:----------------:|:----------------:|:----------------:|
-| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
+| ![Resolution 0.8](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_8.png) | ![Resolution 1.1](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_1_1.png) | ![Resolution 0.3](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_3.png) |
 
 <p style="text-align: right">protein: P15807&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
@@ -130,7 +130,7 @@ p15807 = AFragmenter(pae) # Or bring your own files: a = AFragmenter('filename.j
 p15807.plot_pae()
 ```
 
-<img src="images/P15807/P15807_pae.png" width=400 alt="P15807 PAE matrix"/>
+<img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_pae.png" width=400 alt="P15807 PAE matrix"/>
 
 Here we see some regions of very low PAE values (dark green) on the PAE matrix, which could indicate different domains. However, there are still many green (low PAE) datapoints visible around these potential domains. Therefore, it is important to consider the **PAE contrast threshold** used.
 
@@ -165,7 +165,7 @@ plt.show()
 
 </details>
 
-<img src="images/P15807/P15807_thresholds.png" width=700 alt="Effect of different thresholds on edge weights">
+<img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_thresholds.png" width=700 alt="Effect of different thresholds on edge weights">
 
 A threshold of 3 seems to give a good contrast between the higher and lower PAE values.
 
@@ -179,8 +179,8 @@ p15807.py3Dmol(structure)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/P15807/result_resolution_0_8.png" width=35.8% alt="PAE result, resolution = 0.8"/>
-    <img src="images/P15807/resolution_0_8.png" width=50% alt="structure colored by resulting domain"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/result_resolution_0_8.png" width=35.8% alt="PAE result, resolution = 0.8"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_8.png" width=50% alt="structure colored by resulting domain"/>
 </p>
 
 ```python
@@ -188,8 +188,8 @@ p15807.cluster(resolution=1.1)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/P15807/result_resolution_1_1.png" width=35.8% alt="PAE result, resolution = 1.1"/>
-    <img src="images/P15807/resolution_1_1.png" width=50% alt="structure colored by resulting domain"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/result_resolution_1_1.png" width=35.8% alt="PAE result, resolution = 1.1"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_1_1.png" width=50% alt="structure colored by resulting domain"/>
 </p>
 
 ```python
@@ -197,8 +197,8 @@ p15807.cluster(resolution=0.3)
 ```
 
 <p style="display: flex" float="left">
-    <img src="images/P15807/result_resolution_0_3.png" width=35.8% alt="PAE result, resolution = 0.3"/>
-    <img src="images/P15807/resolution_0_3.png" width=50% alt="structure colored by resulting domain"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/result_resolution_0_3.png" width=35.8% alt="PAE result, resolution = 0.3"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_3.png" width=50% alt="structure colored by resulting domain"/>
 </p>
 
 Once a solution has been found that is satisfactory to the user, we can print the result and the FASTA file for each domain, or save them to files for further analysis.
@@ -245,7 +245,7 @@ Docs coming soon...
 
 ### Command line
 
-![help_message](images/help_message.svg)
+![help_message](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/help_message.svg)
 
 ## Options
 
@@ -269,7 +269,7 @@ Overall good structure with high pLDDt and low PAE scores for the majority of th
 
 | AlphaFold structure | PAE plot | Edge weights |
 |:-------------------:|:----------:|:------------:|
-| ![Q5VSL9 AF structure](images/Q5VSL9/Q5VSL9.png) | ![Q5VSL9 PAE plot](images/Q5VSL9/Q5VSL9_pae.png) | ![Q5VSL9 edge weights](images/Q5VSL9/Q5VSL9_edge_weights.png) |
+| ![Q5VSL9 AF structure](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q5VSL9/Q5VSL9.png) | ![Q5VSL9 PAE plot](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q5VSL9/Q5VSL9_pae.png) | ![Q5VSL9 edge weights](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q5VSL9/Q5VSL9_edge_weights.png) |
 
 #### [P15807](https://alphafold.ebi.ac.uk/entry/P15807)
 
@@ -279,9 +279,9 @@ Lowering the treshold can help reduce this apparent confidence, making it easier
 
 | AlphaFold structure | PAE plot |
 |:-------------------:|:--------:|
-| ![P15807 AF structure](images/P15807/P15807.png) | <img src="images/P15807/P15807_pae.png" width=70% alt="P15807 PAE plot"> |
+| ![P15807 AF structure](https://github.com/sverwimp/AFragmenter/blob/main/https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807.png?raw=True) | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_pae.png" width=70% alt="P15807 PAE plot"> |
 | <strong>Edge weights (default threshold = 5)</strong> | <strong>Edge weights (treshold = 3)</strong> |
-| <img src="images/P15807/P15807_edge_weights.png" width=70% alt="edge weight using default threshold"> | <img src="images/P15807/P15807_edge_weights_3.png" width=67% alt="edge weights using PAE threshold = 3"> |
+| <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_edge_weights.png" width=70% alt="edge weight using default threshold"> | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_edge_weights_3.png" width=67% alt="edge weights using PAE threshold = 3"> |
 
 #### [Q9YFU8](https://alphafold.ebi.ac.uk/entry/Q9YFU8)
 
@@ -298,7 +298,7 @@ to properly segment the remaining parts of the protein structure.
 
 | AlphaFold structure | PAE plot | Crystal structures: 1W5S (green) and 1W5T (red) |
 |:-------------------:|:--------:|:-----------------------------------------------:|
-| ![Q9YFU8 AlphaFold structure](images/Q9YFU8/Q9YFU8.png) | <img src="images/Q9YFU8/Q9YFU8_pae.png" width=75% alt="Q9YFU8 PAE plot"> | ![1W5S (green) and 1W5T (red) structures](images/Q9YFU8/1w5s_1w5t.png) |
+| ![Q9YFU8 AlphaFold structure](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q9YFU8/Q9YFU8.png) | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q9YFU8/Q9YFU8_pae.png" width=75% alt="Q9YFU8 PAE plot"> | ![1W5S (green) and 1W5T (red) structures](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q9YFU8/1w5s_1w5t.png) |
 
 Lowering the treshold even if initial inspection deems it not necessary can still change the results. Without changing the threshold
 we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.uk/pdbe/scop/search?t=txt;q=1w5s) and [SCOPe](https://scop.berkeley.edu/pdb/code=1w5s). While lowering the threshold results in 3 domains, consistent with [ECOD](http://prodata.swmed.edu/ecod/af2_pdb/domain/e1w5sA1#tab-organization), [CATH](https://www.cathdb.info/pdb/1w5s), [Interpro](https://www.ebi.ac.uk/interpro/protein/reviewed/Q9YFU8/) and SCOP.
@@ -306,7 +306,7 @@ we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.u
 
 | Threshold = 5 | Threshold = 3 |
 |:-------------:|:-------------:|
-|<img src="images/Q9YFU8/Q9YFU8_two_domains.png" width=75% alt="Q9YFU8 two domains colored"> | <img src="images/Q9YFU8/Q9YFU8_three_domains.png" width=75% alt="Q9YFU8 three domains colored"> |
+|<img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q9YFU8/Q9YFU8_two_domains.png" width=75% alt="Q9YFU8 two domains colored"> | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q9YFU8/Q9YFU8_three_domains.png" width=75% alt="Q9YFU8 three domains colored"> |
 
 (Other settings kept as default values)
 
@@ -322,13 +322,13 @@ The **resolution** can be thought of as the coarseness of clustering. Increasing
 
 | Resolution = 0.8 | Resolution = 1.1 | Resolution = 0.3 |
 |:----------------:|:----------------:|:----------------:|
-| ![Resolution 0.8](images/P15807/resolution_0_8.png) | ![Resolution 1.1](images/P15807/resolution_1_1.png) | ![Resolution 0.3](images/P15807/resolution_0_3.png) |
+| ![Resolution 0.8](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_8.png) | ![Resolution 1.1](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_1_1.png) | ![Resolution 0.3](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/resolution_0_3.png) |
 
 #### [A0A098AQT8](https://alphafold.ebi.ac.uk/entry/A0A098AQT8)
 
 | Resolution = 0.8 | Resolution = 1.4 |
 |:----------------:|:----------------:|
-|<img src="images/A0A098AQT8/A0A098AQT8_resolution_0_8.png" width=75% alt="Resolution 0.8"> | <img src="images/A0A098AQT8/A0A098AQT8_resolution_1_4.png" width=75% alt="Resolution 1.4"> |
+|<img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/A0A098AQT8/A0A098AQT8_resolution_0_8.png" width=75% alt="Resolution 0.8"> | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/A0A098AQT8/A0A098AQT8_resolution_1_4.png" width=75% alt="Resolution 1.4"> |
 
 ### <ins>Objective function</ins>
 
@@ -344,13 +344,13 @@ For AFragmenter, 'CPM' translates to a more sensitive approach where we see many
 
 #### [P04637](https://alphafold.ebi.ac.uk/entry/P04637)
 
-![Result plots P04637](images/P04637/PAE_results.png)
-![Result structures P04637](images/P04637/structure_results.png)
+![Result plots P04637](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P04637/PAE_results.png)
+![Result structures P04637](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P04637/structure_results.png)
 
 #### [Q837X5](https://alphafold.ebi.ac.uk/entry/Q837X5)
 
-![Result plots Q837X5](images/Q837X5/PAE_results.png)
-![Result structures Q837X5](images/Q837X5/structure_results.png)
+![Result plots Q837X5](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q837X5/PAE_results.png)
+![Result structures Q837X5](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q837X5/structure_results.png)
 
 ### <ins>Minimum size</ins> (`min_size`)
 
