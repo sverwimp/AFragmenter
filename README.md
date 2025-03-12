@@ -64,53 +64,33 @@ An alternative way to get started is by using the [webtool] (coming soon)
 
 ### System Requirements
 
-- **Python Version**: Ensure you have Python 3.9 or higher installed on your system.
-- **Operating Systems**: The tool is compatible with Linux, macOS, and Windows.
+- **Python Version**: Python 3.9 or higher
+- **Operating Systems**: Linux, macOS, or Windows.
 
-### Installation Steps
+### Installation
 
-1. **Set Up a Virtual Environment (Recommended)**:
-   Creating a virtual environment helps manage dependencies effectively. Here's how to set it up:
+AFragmenter is available through PyPI and bioconda.
 
-   ```bash
-   # Install virtualenv if not already installed
-   pip install virtualenv
-   
-   # Create a new virtual environment
-   virtualenv myenv
-   
-   # Activate the virtual environment
-   # On Windows:
-   myenv\Scripts\activate
-   # On macOS/Linux:
-   source myenv/bin/activate
-   ```
+```bash
+pip install afragmenter
+``` 
+or
+```bash
+conda install -c conda-forge -c bioconda afragmenter
+```
 
-   or alternatively, create and use a conda environment `conda create --name myenv pip 'python>=3.9'` & `conda activate myenv`
 
-2. **Install AFragmenter**:
-   Install the package using pip within your activated virtual environment.
 
-   ```bash
-   pip install AFragmenter
-   ```
-
-3. **Optional Dependencies**:
+#### **Optional Dependencies**:
    - **py3Dmol**: Required for protein structure visualization.
 
      ```bash
      pip install py3Dmol
      ```
-
-### Verification
-
-After installation, verify that AFragmenter is correctly installed by running:
-
-```bash
-afragmenter --version
-```
-
-This command should display the installed version of AFragmenter.
+     Or
+     ```bash
+     conda install -c conda-forge py3Dmol
+     ```
 
 ## Quick Tutorial
 
