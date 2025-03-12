@@ -259,7 +259,7 @@ Lowering the treshold can help reduce this apparent confidence, making it easier
 
 | AlphaFold structure | PAE plot |
 |:-------------------:|:--------:|
-| ![P15807 AF structure](https://github.com/sverwimp/AFragmenter/blob/main/https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807.png?raw=True) | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_pae.png" width=70% alt="P15807 PAE plot"> |
+| ![P15807 AF structure](https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807.png) | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_pae.png" width=70% alt="P15807 PAE plot"> |
 | <strong>Edge weights (default threshold = 5)</strong> | <strong>Edge weights (treshold = 3)</strong> |
 | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_edge_weights.png" width=70% alt="edge weight using default threshold"> | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/P15807/P15807_edge_weights_3.png" width=67% alt="edge weights using PAE threshold = 3"> |
 
