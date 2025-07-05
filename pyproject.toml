@@ -1,8 +1,10 @@
-[tool.poetry]
+[project]
 name = "AFragmenter"
 version = "0.0.3"
 description = ""
-authors = ["Stefaan Verwimp <stefaan.verwimp@gmail.com>"]
+authors = [
+    {name = "Stefaan Verwimp", email = "stefaan.verwimp@gmail.com"}
+]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/sverwimp/AFragmenter"
@@ -13,18 +15,19 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
+requires-python = ">=3.9"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-python-igraph = ">=0.10.3,<1.0.0"
-numpy = "^2.0.0"
-matplotlib = "^3.9.2"
-rich = "^13.8.1"
-rich-click = "^1.8.3"
-biopython = "^1.76"
-requests = "^2.32.3"
+dependencies = [
+  "python-igraph>=0.10.3,<1.0.0",
+  "numpy>=1.0.0",
+  "matplotlib>=3.9.2,<4.0",
+  "rich>=13.8.1,<14.0",
+  "rich-click>=1.8.3,<2.0",
+  "biopython>=1.76,<2.0",
+  "requests>=2.32.3,<3.0"
+]
 
-[tool.poetry.scripts]
+[project.scripts]
 afragmenter = 'afragmenter.cli:main'
 
 [tool.poetry.group.dev.dependencies]
