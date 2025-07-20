@@ -7,7 +7,6 @@ from rich_click import Option
 
 from .afragmenter import AFragmenter
 from .afdb_client import fetch_afdb_data
-from .sequence_reader import SequenceReader
 from .graph import default_resolutions
 
 
@@ -113,14 +112,14 @@ class EitherRequired(Option):
 @click.option("--n-iterations", 
               "-n",
               type=click.INT,
-              default=10_000, 
+              default=-1, 
               show_default=True,
               help="Number of iterations for Leiden clustering. Negative values will run the algorithm until a stable iteration is reached",
 )
 @click.option("--threshold",
               "-t",
               type=click.FloatRange(min=0.0, max=31.75), 
-              default=5, 
+              default=2, 
               show_default=True,
               help="Contrast thresold for the PAE values. This is a soft cut-off point to increase the contrast between low and high PAE values. Values near the threshold will transition more smoothly."
               #"Threshold for the sigmoid function used to transform the PAE values into graph edge weights"
@@ -152,7 +151,7 @@ class EitherRequired(Option):
 @click.option("--save-fasta",
               type=click.Path(path_type=Path, dir_okay=False, writable=True),
               default=None,
-              help="Path to save the output fasta file (requires --structure-file)"
+              help="Path to save the output fasta file (requires --structure if using --json)"
 )
 @click.option("--name",
               "-N",
@@ -182,19 +181,16 @@ def main(structure: Path,
         json, structure = fetch_afdb_data(afdb)
     
     afragmenter = AFragmenter(pae_matrix=json, 
-                              threshold=threshold)
+                              threshold=threshold,
+                              sequence_file=structure)
 
     attempt_merge = not no_merge
-    afragmenter.cluster(resolution=resolution, 
+    result = afragmenter.cluster(resolution=resolution, 
                         n_iterations=n_iterations, 
                         objective_function=objective_function, 
                         min_size=min_size,
                         attempt_merge=attempt_merge)
     
-    if structure:
-        # If structure is provided, read the sequence and name from the structure file
-        afragmenter.sequence_reader = SequenceReader(structure)
-
     # If base_name is set to 'auto', the name will be parsed from the structure file
     # base_name = None will cause the name to be parsed from the structure file
     # base_name = '' will result in only the cluster numbers being shown in the fasta header
@@ -205,19 +201,19 @@ def main(structure: Path,
             name = ''
 
     if save_result:
-        afragmenter.save_result(output_file=save_result, base_name=name)
+        result.save_result(output_file=save_result, base_name=name)
     else:
-        afragmenter.print_result(base_name=name)
+        result.print_result(base_name=name)
 
     if plot_result:
-        _, ax = afragmenter.plot_result()
+        _, ax = result.plot_result()
         fig = ax.get_figure()
         fig.savefig(plot_result)
 
     if save_fasta:
         if not structure:
-            raise click.BadOptionUsage("output_fasta", "The --structure-file option is required when using --output-fasta")
-        afragmenter.save_fasta(sequence_file=structure, output_file=save_fasta, header_name=name)
+            raise click.BadOptionUsage("output_fasta", "The --structure option is required when using --output-fasta")
+        result.save_fasta(sequence_file=structure, output_file=save_fasta, header_name=name)
 
 
 if __name__ == "__main__":

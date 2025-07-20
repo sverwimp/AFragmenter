@@ -1,6 +1,5 @@
 import os
-
-import py3Dmol
+from typing  import TYPE_CHECKING
 
 from .sequence_reader import SequenceReader
 from .structure_displacement import displace_structure
@@ -9,8 +8,11 @@ COLOR_PALETTE = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', '
                 'lime', 'pink', 'teal', 'lavender', 'brown', 'apricot', 'maroon', 'mint', 'olive', 
                 'beige', 'navy', 'grey', 'white', 'black']
 
+if TYPE_CHECKING:
+    import py3Dmol  # type: ignore # This import is only for type checking and should not be executed at runtime.
 
-def color_view_by_domain(view: py3Dmol.view, 
+
+def color_view_by_domain(view: 'py3Dmol.view',  # type: ignore
                     cluster_intervals: dict, 
                     color_palette: list = COLOR_PALETTE, 
                     style: str = 'cartoon') -> None:
@@ -39,7 +41,7 @@ def view_py3Dmol(structure_file: str,
                  displace_domains: bool = False, 
                  color_palette: list = COLOR_PALETTE,
                  style: str = 'cartoon',
-                 **kwargs) -> py3Dmol.view:
+                 **kwargs) -> 'py3Dmol.view': # type: ignore
     """
     Create a 3D view of the structure in structure_file, coloring the domains according to cluster_intervals.
 
@@ -53,6 +55,15 @@ def view_py3Dmol(structure_file: str,
     Returns:
     - The py3Dmol.view object.
     """
+    try:
+        # Check if py3Dmol is installed for view_py3Dmol function
+        import py3Dmol  # type: ignore
+    except ImportError:
+        raise ImportError(
+            "The py3Dmol library is required for the py3Dmol function. "
+            "Please install it using 'pip install py3Dmol'."
+            )
+
     # Read the structure and determine the file format.
     if os.path.isfile(structure_file):
         content = open(structure_file).read()

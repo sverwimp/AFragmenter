@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pytest
 
-from afragmenter.pae_handler import PAEHandler
+from afragmenter.pae_handler import load_pae, process_pae_data, _validate_pae
 
 
 def test_validate_pae_valid_input():
@@ -12,7 +12,7 @@ def test_validate_pae_valid_input():
                    [4.0, 5.0, 6.0],
                    [7.0, 8.0, 9.0]])
     
-    PAEHandler._validate_pae(pae)
+    _validate_pae(pae)
 
 
 def test_validate_pae_invalid_type():
@@ -21,7 +21,7 @@ def test_validate_pae_invalid_type():
     pae = [[1.0, 2.0], [3.0, 4.0]]
     
     with pytest.raises(TypeError, match="pae must be a numpy array"):
-        PAEHandler._validate_pae(pae)
+        _validate_pae(pae)
 
 
 def test_validate_pae_invalid_ndim():
@@ -30,7 +30,7 @@ def test_validate_pae_invalid_ndim():
     pae = np.array([1.0, 2.0, 3.0])
     
     with pytest.raises(ValueError, match="PAE matrix must be 2D"):
-        PAEHandler._validate_pae(pae)
+        _validate_pae(pae)
 
 
 def test_validate_pae_invalid_shape():
@@ -41,7 +41,7 @@ def test_validate_pae_invalid_shape():
                    [5.0, 6.0]])
     
     with pytest.raises(ValueError, match="PAE matrix must be square"):
-        PAEHandler._validate_pae(pae)
+        _validate_pae(pae)
 
 
 def test_validate_pae_negative_values():
@@ -51,7 +51,7 @@ def test_validate_pae_negative_values():
                    [-3.0, 4.0]])
     
     with pytest.raises(ValueError, match="PAE values must be non-negative"):
-        PAEHandler._validate_pae(pae)
+        _validate_pae(pae)
 
 
 def test_validate_pae_empty_array():
@@ -60,13 +60,13 @@ def test_validate_pae_empty_array():
     pae = np.array([])
     
     with pytest.raises(ValueError, match="PAE matrix is empty"):
-        PAEHandler._validate_pae(pae)
+        _validate_pae(pae)
 
 
 def test_validate_pae_zero_matrix():
     """Test that a zero matrix (all zeros) does not raise exceptions."""
     pae = np.zeros((2, 2))
-    PAEHandler._validate_pae(pae)
+    _validate_pae(pae)
 
 
 def test_process_pae_data_afdb_v1_v2_format():
@@ -81,7 +81,7 @@ def test_process_pae_data_afdb_v1_v2_format():
         [0.0, 0.6, 0.0],
         [0.0, 0.0, 0.7]
     ])
-    result_matrix = PAEHandler.process_pae_data(pae)
+    result_matrix = process_pae_data(pae)
     np.testing.assert_array_equal(result_matrix, expected_matrix)
 
 
@@ -99,7 +99,7 @@ def test_process_pae_data_afdb_format():
         [0.6, 0.5, 0.8],
         [0.7, 0.8, 0.5]
     ])
-    result_matrix = PAEHandler.process_pae_data(pae)
+    result_matrix = process_pae_data(pae)
     np.testing.assert_array_almost_equal(result_matrix, expected_matrix)
 
 
@@ -114,7 +114,7 @@ def test_process_pae_data_list():
         [0.6, 0.5, 0.8],
         [0.7, 0.8, 0.5]
     ])
-    result_matrix = PAEHandler.process_pae_data(pae)
+    result_matrix = process_pae_data(pae)
     np.testing.assert_array_almost_equal(result_matrix, expected_matrix)
 
 
@@ -122,14 +122,14 @@ def test_process_pae_data_missing_pae():
     """Test that missing PAE data raises ValueError."""
     pae_data = {}
     with pytest.raises(ValueError, match="PAE data not found in JSON file"):
-        PAEHandler.process_pae_data(pae_data)
+        process_pae_data(pae_data)
 
 
 def test_process_pae_data_invalid_format():
     """Test that invalid PAE data format raises TypeError."""
     pae_data = "invalid_format"
     with pytest.raises(TypeError, match="Invalid PAE data format, expected a dictionary"):
-        PAEHandler.process_pae_data(pae_data)
+        process_pae_data(pae_data)
 
 
 def test_load_pae_valid_input(tmp_path):
@@ -150,14 +150,14 @@ def test_load_pae_valid_input(tmp_path):
     with open(json_file, 'w') as f:
         json.dump(pae, f)
     
-    result_matrix = PAEHandler.load_pae(json_file)
+    result_matrix = load_pae(json_file)
     np.testing.assert_array_almost_equal(result_matrix, expected_matrix)
 
 
 def test_load_pae_file_not_found():
     """Test loading a non-existent PAE JSON file."""
     with pytest.raises(FileNotFoundError, match="not found"):
-        PAEHandler.load_pae("non_existent_file.json")
+        load_pae("non_existent_file.json")
 
 def test_load_pae_invalid_json(tmp_path):
     """Test loading an invalid JSON file."""
@@ -166,7 +166,7 @@ def test_load_pae_invalid_json(tmp_path):
         f.write("invalid json content")
     
     with pytest.raises(json.JSONDecodeError):
-        PAEHandler.load_pae(invalid_json_file)
+        load_pae(invalid_json_file)
 
 def test_load_pae_missing_pae_data(tmp_path):
     """Test loading a JSON file with missing PAE data."""
@@ -184,7 +184,7 @@ def test_load_pae_missing_pae_data(tmp_path):
         json.dump(invalid_pae_data, f)
     
     with pytest.raises(ValueError, match="PAE data not found in JSON file"):
-        PAEHandler.load_pae(json_file)
+        load_pae(json_file)
 
 
 def test_load_pae_invalid_format(tmp_path):
@@ -197,4 +197,4 @@ def test_load_pae_invalid_format(tmp_path):
         f.write(invalid_pae_data)
     
     with pytest.raises(json.JSONDecodeError):
-        PAEHandler.load_pae(json_file)
+        load_pae(json_file)

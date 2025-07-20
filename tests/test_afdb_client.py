@@ -50,7 +50,7 @@ def test_fetch_afdb_data_no_pae():
     }]
     
     with patch('requests.get', return_value=mock_afdb_response):
-        with pytest.raises(ValueError, match="No PAE data available for P12345"):
+        with pytest.raises(ValueError, match="No PAE data URL available for P12345"):
             fetch_afdb_data(uniprot_id)
 
 
@@ -65,5 +65,5 @@ def test_fetch_afdb_data_no_structure():
     }]
     
     with patch('requests.get', return_value=mock_afdb_response):
-        with pytest.raises(ValueError, match="No CIF or PDB data available for P12345"):
+        with pytest.raises(ValueError, match="No CIF data available for P12345 as requested."):
             fetch_afdb_data(uniprot_id)

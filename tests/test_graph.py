@@ -40,10 +40,10 @@ def test_cluster_graph_default_resolution():
     data = np.array([[0, 1], [1, 0]])
     a = AFragmenter(data)   
 
-    _ = a.cluster(objective_function='modularity', min_size=0) # min_size must not be larger than the number of nodes, default is 10
-    assert a.params.get('resolution') == default_resolutions['modularity']
-    _ = a.cluster(objective_function='cpm', min_size=0)
-    assert a.params.get('resolution') == default_resolutions['cpm']
+    result = a.cluster(objective_function='modularity', min_size=0) # min_size must not be larger than the number of nodes, default is 10
+    assert result.params.get('resolution') == default_resolutions['modularity']
+    result = a.cluster(objective_function='cpm', min_size=0)
+    assert result.params.get('resolution') == default_resolutions['cpm']
 
 
 def test_cluster_graph_invalid_objective_function():

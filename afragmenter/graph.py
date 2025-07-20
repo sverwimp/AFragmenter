@@ -3,7 +3,7 @@ from typing import Union, Optional
 import numpy as np
 
 
-default_resolutions = {"modularity": 0.8, "cpm": 0.3}
+default_resolutions = {"modularity": 0.7, "cpm": 0.3}
 
 
 def create_graph(weights_matrix: np.ndarray) -> igraph.Graph:
@@ -32,7 +32,6 @@ def cluster_graph(graph: igraph.Graph,
             objective_function: str = "modularity",
             return_params: bool = False,
             **kwargs) -> Union[igraph.VertexClustering, tuple[igraph.VertexClustering, dict]]:
-    #TODO: add some info about objective_function
     """
     Cluster the graph using the Leiden algorithm.
     

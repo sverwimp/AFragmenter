@@ -153,9 +153,9 @@ Next, we cluster the residues into domains using the Leiden clustering algorithm
 
 ```python
 p15807 = AFragmenter(pae, threshold=3)
-p15807.cluster() # default resolution = 0.8
-p15807.plot_result()
-p15807.py3Dmol(structure)
+result = p15807.cluster() # default resolution = 0.8
+result.plot_result()
+result.py3Dmol(structure)
 ```
 
 <p style="display: flex" float="left">
@@ -185,8 +185,8 @@ Once a solution has been found that is satisfactory to the user, we can print th
 
 ```python
 p15807 = AFragmenter(pae, threshold=3)
-p15807.cluster(resolution=1.1)
-p15807.print_result()
+result = p15807.cluster(resolution=1.1)
+result.print_result()
 
     ┏━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┓
     ┃ Domain ┃ Number of Residues ┃ Chopping ┃
@@ -196,7 +196,7 @@ p15807.print_result()
     │ 3      │                 81 │  194-274 │
     └────────┴────────────────────┴──────────┘
 
-p15807.print_fasta(structure)
+result.print_fasta(structure)
 
     >P15807_1 10-146
     QLKDKKILLIGGGEVGLTRLYKLIPTGCKLTLVSPDLHKSIIPKFGKFIQNEDQPDYRED
@@ -210,8 +210,8 @@ p15807.print_fasta(structure)
 
 
 # Or save it
-p15807.save_result('result.csv')
-p15807.save_fasta(structure, 'result.fasta')
+result.save_result('result.csv')
+result.save_fasta(structure, 'result.fasta')
 ```
 
 ## Usage

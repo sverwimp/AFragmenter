@@ -4,6 +4,7 @@ from io import StringIO
 import numpy as np
 
 from afragmenter.afragmenter import AFragmenter
+from afragmenter.result import ClusteringResult
 from afragmenter.graph import default_resolutions
 
 
@@ -112,53 +113,43 @@ def test_threshold_range(pae_matrix):
 def test_cluster_params_update(json_file):
     a = AFragmenter(json_file)
     assert a.params.get('resolution') == None
-    a = a.cluster(resolution=0.8, n_iterations=2, objective_function="CPM", min_size=42, attempt_merge=False)
-    assert a.params.get('resolution') == 0.8
-    assert a.params.get('n_iterations') == 2
-    assert a.params.get('objective_function') == "CPM"
-    assert a.params.get('min_size') == 42
-    assert a.params.get('attempt_merge') == False
+    result = a.cluster(resolution=0.8, n_iterations=2, objective_function="CPM", min_size=42, attempt_merge=False)
+    assert result.params.get('resolution') == 0.8
+    assert result.params.get('n_iterations') == 2
+    assert result.params.get('objective_function') == "CPM"
+    assert result.params.get('min_size') == 42
+    assert result.params.get('attempt_merge') == False
 
     b = AFragmenter(json_file)
     assert b.params.get('resolution') == None
-    b = b.cluster(objective_function='modularity')
+    result_b = b.cluster(objective_function='modularity')
     # Check if the default resolution is set
-    assert b.params.get('resolution') == default_resolutions.get('modularity')
+    assert result_b.params.get('resolution') == default_resolutions.get('modularity')
 
 
 def test_cluster_intervals(json_file):
     """Test if the cluster method assigns the cluster_intervals attribute"""
     a = AFragmenter(json_file)
-    assert not hasattr(a, 'cluster_intervals')
-    a = a.cluster()
-    assert hasattr(a, 'cluster_intervals')
+    result = a.cluster()
+    assert hasattr(result, 'cluster_intervals')
 
 
 def test_run(json_file):
     """Test alias for cluster method"""
     a = AFragmenter(json_file)
-    assert not hasattr(a, 'cluster_intervals')
-    a = a.run()
-    assert hasattr(a, 'cluster_intervals')
+    result = a.run()
+    assert hasattr(result, 'cluster_intervals')
 
 
-def test_no_result_output(json_file):
+def test_result_object_creation(json_file):
+    """Test if the cluster method returns a ClusteringResult object with the correct attributes."""
     a = AFragmenter(json_file)
-    
-    with pytest.raises(ValueError, match="No clustering results found, please run the cluster method first"):
-        a.print_result()
-
-    with pytest.raises(ValueError, match="No clustering results found, please run the cluster method first"):
-        a.plot_result()
-    
-    with pytest.raises(ValueError, match="No clustering results found, please run the cluster method first"):
-        a.save_result("results.csv")
-
-    with pytest.raises(ValueError, match="No clustering results found, please run the cluster method first"):
-        a.save_fasta("sequence_file.cif", "output.fasta")
-
-    with pytest.raises(ValueError, match="No clustering results found, please run the cluster method first"):
-        a.print_fasta("sequence_file.cif")
+    result = a.cluster()
+    assert isinstance(result, ClusteringResult)
+    assert hasattr(result, 'pae_matrix')
+    assert hasattr(result, 'cluster_intervals')
+    assert hasattr(result, 'params')
+    assert hasattr(result, 'sequence_reader')
     
 
 
