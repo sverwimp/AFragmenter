@@ -294,7 +294,7 @@ we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.u
 
 The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
 
-- Default: dependent on objective_function `{"modularity": 0.8, "cpm": 0.3}`
+- Default: dependent on objective_function `{"modularity": 0.7, "pm": 0.3}`
 
 **Examples**:
 
