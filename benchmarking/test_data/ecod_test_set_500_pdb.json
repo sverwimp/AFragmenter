@@ -1,0 +1,4502 @@
+[
+    {
+        "pdb_id": "4h0p",
+        "pdb_length": 430,
+        "alphafold_length": 430,
+        "chain_id": "B",
+        "uniprot_id": "J9W3A6",
+        "coverage": 1.0,
+        "true_chopping": "5-211,212-434"
+    },
+    {
+        "pdb_id": "2bwr",
+        "pdb_length": 401,
+        "alphafold_length": 395,
+        "chain_id": "B",
+        "uniprot_id": "Q309D1",
+        "coverage": 1.01519,
+        "true_chopping": "1-401"
+    },
+    {
+        "pdb_id": "4n02",
+        "pdb_length": 332,
+        "alphafold_length": 336,
+        "chain_id": "A",
+        "uniprot_id": "B2ILS5",
+        "coverage": 0.9881,
+        "true_chopping": "23-354"
+    },
+    {
+        "pdb_id": "4ita",
+        "pdb_length": 452,
+        "alphafold_length": 454,
+        "chain_id": "A",
+        "uniprot_id": "B1XMM6",
+        "coverage": 0.99559,
+        "true_chopping": "5-232"
+    },
+    {
+        "pdb_id": "3c9f",
+        "pdb_length": 531,
+        "alphafold_length": 562,
+        "chain_id": "A",
+        "uniprot_id": "Q5A5Q7",
+        "coverage": 0.94484,
+        "true_chopping": "5-326"
+    },
+    {
+        "pdb_id": "4a5s",
+        "pdb_length": 728,
+        "alphafold_length": 766,
+        "chain_id": "A",
+        "uniprot_id": "P27487",
+        "coverage": 0.95039,
+        "true_chopping": "2-465"
+    },
+    {
+        "pdb_id": "5ady",
+        "pdb_length": 426,
+        "alphafold_length": 426,
+        "chain_id": "6",
+        "uniprot_id": "P25519",
+        "coverage": 1.0,
+        "true_chopping": "1-191,192-334"
+    },
+    {
+        "pdb_id": "1zn6",
+        "pdb_length": 205,
+        "alphafold_length": 219,
+        "chain_id": "A",
+        "uniprot_id": "A0A0H3LKE5",
+        "coverage": 0.93607,
+        "true_chopping": "2-219"
+    },
+    {
+        "pdb_id": "6jkr",
+        "pdb_length": 303,
+        "alphafold_length": 326,
+        "chain_id": "C",
+        "uniprot_id": "O15636",
+        "coverage": 0.92945,
+        "true_chopping": "160-246_268-328"
+    },
+    {
+        "pdb_id": "5juy",
+        "pdb_length": 1139,
+        "alphafold_length": 1248,
+        "chain_id": "A",
+        "uniprot_id": "O14727",
+        "coverage": 0.91266,
+        "true_chopping": "285-374"
+    },
+    {
+        "pdb_id": "2qq9",
+        "pdb_length": 212,
+        "alphafold_length": 226,
+        "chain_id": "A",
+        "uniprot_id": "P0DJL7",
+        "coverage": 0.93805,
+        "true_chopping": "3-64,65-139"
+    },
+    {
+        "pdb_id": "6yx3",
+        "pdb_length": 297,
+        "alphafold_length": 297,
+        "chain_id": "A",
+        "uniprot_id": "B1MHW4",
+        "coverage": 1.0,
+        "true_chopping": "9-305"
+    },
+    {
+        "pdb_id": "5ze9",
+        "pdb_length": 587,
+        "alphafold_length": 593,
+        "chain_id": "C",
+        "uniprot_id": "Q08636",
+        "coverage": 0.98988,
+        "true_chopping": "8-70"
+    },
+    {
+        "pdb_id": "5gmd",
+        "pdb_length": 325,
+        "alphafold_length": 325,
+        "chain_id": "A",
+        "uniprot_id": "Q97UL5",
+        "coverage": 1.0,
+        "true_chopping": "178-325"
+    },
+    {
+        "pdb_id": "7php",
+        "pdb_length": 456,
+        "alphafold_length": 457,
+        "chain_id": "A",
+        "uniprot_id": "Q9KRU4",
+        "coverage": 0.99781,
+        "true_chopping": "27-250,251-484"
+    },
+    {
+        "pdb_id": "3dr2",
+        "pdb_length": 297,
+        "alphafold_length": 305,
+        "chain_id": "B",
+        "uniprot_id": "B0RN69",
+        "coverage": 0.97377,
+        "true_chopping": "5-305"
+    },
+    {
+        "pdb_id": "7csh",
+        "pdb_length": 312,
+        "alphafold_length": 317,
+        "chain_id": "A",
+        "uniprot_id": "Q9SVP6",
+        "coverage": 0.98423,
+        "true_chopping": "6-317"
+    },
+    {
+        "pdb_id": "3mml",
+        "pdb_length": 286,
+        "alphafold_length": 294,
+        "chain_id": "C",
+        "uniprot_id": "A0QPL0",
+        "coverage": 0.97279,
+        "true_chopping": "172-291"
+    },
+    {
+        "pdb_id": "1ixb",
+        "pdb_length": 205,
+        "alphafold_length": 206,
+        "chain_id": "A",
+        "uniprot_id": "P00448",
+        "coverage": 0.99515,
+        "true_chopping": "91-205"
+    },
+    {
+        "pdb_id": "5f33",
+        "pdb_length": 303,
+        "alphafold_length": 298,
+        "chain_id": "A",
+        "uniprot_id": "Q9X1X7",
+        "coverage": 1.01678,
+        "true_chopping": "8-83_266-305,177-265"
+    },
+    {
+        "pdb_id": "8pbc",
+        "pdb_length": 311,
+        "alphafold_length": 339,
+        "chain_id": "I",
+        "uniprot_id": "Q06609",
+        "coverage": 0.9174,
+        "true_chopping": "21-89"
+    },
+    {
+        "pdb_id": "4hfq",
+        "pdb_length": 203,
+        "alphafold_length": 203,
+        "chain_id": "B",
+        "uniprot_id": "A0A0H2URA0",
+        "coverage": 1.0,
+        "true_chopping": "1-64,65-203"
+    },
+    {
+        "pdb_id": "1wx1",
+        "pdb_length": 330,
+        "alphafold_length": 335,
+        "chain_id": "B",
+        "uniprot_id": "Q7SIC7",
+        "coverage": 0.98507,
+        "true_chopping": "1-335"
+    },
+    {
+        "pdb_id": "6nkf",
+        "pdb_length": 291,
+        "alphafold_length": 298,
+        "chain_id": "B",
+        "uniprot_id": "Q65FG3",
+        "coverage": 0.97651,
+        "true_chopping": "26-296"
+    },
+    {
+        "pdb_id": "7uwe",
+        "pdb_length": 189,
+        "alphafold_length": 198,
+        "chain_id": "C",
+        "uniprot_id": "P10442",
+        "coverage": 0.95455,
+        "true_chopping": "6-194"
+    },
+    {
+        "pdb_id": "8a0e",
+        "pdb_length": 349,
+        "alphafold_length": 369,
+        "chain_id": "C",
+        "uniprot_id": "P49366",
+        "coverage": 0.9458,
+        "true_chopping": "12-365"
+    },
+    {
+        "pdb_id": "2bh2",
+        "pdb_length": 418,
+        "alphafold_length": 433,
+        "chain_id": "A",
+        "uniprot_id": "P55135",
+        "coverage": 0.96536,
+        "true_chopping": "75-432"
+    },
+    {
+        "pdb_id": "5ex1",
+        "pdb_length": 271,
+        "alphafold_length": 300,
+        "chain_id": "A",
+        "uniprot_id": "C6XII3",
+        "coverage": 0.90333,
+        "true_chopping": "11-281"
+    },
+    {
+        "pdb_id": "5ya0",
+        "pdb_length": 480,
+        "alphafold_length": 530,
+        "chain_id": "B",
+        "uniprot_id": "P77432",
+        "coverage": 0.90566,
+        "true_chopping": "273-515"
+    },
+    {
+        "pdb_id": "1va0",
+        "pdb_length": 221,
+        "alphafold_length": 240,
+        "chain_id": "A",
+        "uniprot_id": "Q5SKH6",
+        "coverage": 0.92083,
+        "true_chopping": "113-225"
+    },
+    {
+        "pdb_id": "8iug",
+        "pdb_length": 50,
+        "alphafold_length": 55,
+        "chain_id": "6",
+        "uniprot_id": "A7NQE9",
+        "coverage": 0.90909,
+        "true_chopping": "6-55"
+    },
+    {
+        "pdb_id": "2pmv",
+        "pdb_length": 378,
+        "alphafold_length": 417,
+        "chain_id": "C",
+        "uniprot_id": "P27352",
+        "coverage": 0.90647,
+        "true_chopping": "7-281"
+    },
+    {
+        "pdb_id": "2quy",
+        "pdb_length": 330,
+        "alphafold_length": 338,
+        "chain_id": "A",
+        "uniprot_id": "P12256",
+        "coverage": 0.97633,
+        "true_chopping": "1-330"
+    },
+    {
+        "pdb_id": "3s4y",
+        "pdb_length": 224,
+        "alphafold_length": 243,
+        "chain_id": "A",
+        "uniprot_id": "Q9H3S4",
+        "coverage": 0.92181,
+        "true_chopping": "20-161"
+    },
+    {
+        "pdb_id": "4atg",
+        "pdb_length": 195,
+        "alphafold_length": 196,
+        "chain_id": "A",
+        "uniprot_id": "I6L8L5",
+        "coverage": 0.9949,
+        "true_chopping": "1-195"
+    },
+    {
+        "pdb_id": "6x1l",
+        "pdb_length": 255,
+        "alphafold_length": 269,
+        "chain_id": "A",
+        "uniprot_id": "A0A0C4KUT2",
+        "coverage": 0.94796,
+        "true_chopping": "4-149"
+    },
+    {
+        "pdb_id": "4igl",
+        "pdb_length": 1449,
+        "alphafold_length": 1487,
+        "chain_id": "C",
+        "uniprot_id": "B6A880",
+        "coverage": 0.97445,
+        "true_chopping": "8-381_683-1485"
+    },
+    {
+        "pdb_id": "5eas",
+        "pdb_length": 514,
+        "alphafold_length": 548,
+        "chain_id": "A",
+        "uniprot_id": "Q40577",
+        "coverage": 0.93796,
+        "true_chopping": "221-548"
+    },
+    {
+        "pdb_id": "1rjj",
+        "pdb_length": 111,
+        "alphafold_length": 111,
+        "chain_id": "A",
+        "uniprot_id": "Q9FK81",
+        "coverage": 1.0,
+        "true_chopping": "1-111"
+    },
+    {
+        "pdb_id": "4rw5",
+        "pdb_length": 278,
+        "alphafold_length": 302,
+        "chain_id": "A",
+        "uniprot_id": "P0CE82",
+        "coverage": 0.92053,
+        "true_chopping": "24-301"
+    },
+    {
+        "pdb_id": "2vxo",
+        "pdb_length": 658,
+        "alphafold_length": 693,
+        "chain_id": "B",
+        "uniprot_id": "P49915",
+        "coverage": 0.94949,
+        "true_chopping": "491-697"
+    },
+    {
+        "pdb_id": "1v9s",
+        "pdb_length": 201,
+        "alphafold_length": 208,
+        "chain_id": "B",
+        "uniprot_id": "Q72J35",
+        "coverage": 0.96635,
+        "true_chopping": "1-208"
+    },
+    {
+        "pdb_id": "5h0j",
+        "pdb_length": 234,
+        "alphafold_length": 236,
+        "chain_id": "A",
+        "uniprot_id": "C6Y1J8",
+        "coverage": 0.99153,
+        "true_chopping": "1-234"
+    },
+    {
+        "pdb_id": "1poi",
+        "pdb_length": 260,
+        "alphafold_length": 266,
+        "chain_id": "D",
+        "uniprot_id": "Q59112",
+        "coverage": 0.97744,
+        "true_chopping": "1-260"
+    },
+    {
+        "pdb_id": "7vd7",
+        "pdb_length": 94,
+        "alphafold_length": 95,
+        "chain_id": "A",
+        "uniprot_id": "Q7CP72",
+        "coverage": 0.98947,
+        "true_chopping": "1-94"
+    },
+    {
+        "pdb_id": "1piw",
+        "pdb_length": 360,
+        "alphafold_length": 360,
+        "chain_id": "A",
+        "uniprot_id": "Q04894",
+        "coverage": 1.0,
+        "true_chopping": "1-152_321-360"
+    },
+    {
+        "pdb_id": "3dr4",
+        "pdb_length": 366,
+        "alphafold_length": 371,
+        "chain_id": "B",
+        "uniprot_id": "Q9A9H3",
+        "coverage": 0.98652,
+        "true_chopping": "267-391"
+    },
+    {
+        "pdb_id": "6kil",
+        "pdb_length": 113,
+        "alphafold_length": 119,
+        "chain_id": "A",
+        "uniprot_id": "O46709",
+        "coverage": 0.94958,
+        "true_chopping": "12-124"
+    },
+    {
+        "pdb_id": "1r94",
+        "pdb_length": 97,
+        "alphafold_length": 107,
+        "chain_id": "B",
+        "uniprot_id": "P0AAC8",
+        "coverage": 0.90654,
+        "true_chopping": "2-97"
+    },
+    {
+        "pdb_id": "3amr",
+        "pdb_length": 352,
+        "alphafold_length": 383,
+        "chain_id": "A",
+        "uniprot_id": "O31097",
+        "coverage": 0.91906,
+        "true_chopping": "2-353"
+    },
+    {
+        "pdb_id": "5cfj",
+        "pdb_length": 140,
+        "alphafold_length": 152,
+        "chain_id": "A",
+        "uniprot_id": "C0H4F3",
+        "coverage": 0.92105,
+        "true_chopping": "4-149"
+    },
+    {
+        "pdb_id": "6edw",
+        "pdb_length": 740,
+        "alphafold_length": 766,
+        "chain_id": "D",
+        "uniprot_id": "Q8VJU4",
+        "coverage": 0.96606,
+        "true_chopping": "31-610"
+    },
+    {
+        "pdb_id": "4u5r",
+        "pdb_length": 152,
+        "alphafold_length": 146,
+        "chain_id": "B",
+        "uniprot_id": "Q0SDB1",
+        "coverage": 1.0411,
+        "true_chopping": "1-145"
+    },
+    {
+        "pdb_id": "2v8h",
+        "pdb_length": 431,
+        "alphafold_length": 455,
+        "chain_id": "A",
+        "uniprot_id": "Q96W94",
+        "coverage": 0.94725,
+        "true_chopping": "247-362"
+    },
+    {
+        "pdb_id": "3r3r",
+        "pdb_length": 184,
+        "alphafold_length": 184,
+        "chain_id": "A",
+        "uniprot_id": "Q8ZLN3",
+        "coverage": 1.0,
+        "true_chopping": "1-184"
+    },
+    {
+        "pdb_id": "3l21",
+        "pdb_length": 293,
+        "alphafold_length": 300,
+        "chain_id": "D",
+        "uniprot_id": "P9WP25",
+        "coverage": 0.97667,
+        "true_chopping": "10-304"
+    },
+    {
+        "pdb_id": "5g5e",
+        "pdb_length": 220,
+        "alphafold_length": 229,
+        "chain_id": "A",
+        "uniprot_id": "A0A1P8NWC2",
+        "coverage": 0.9607,
+        "true_chopping": "85-221"
+    },
+    {
+        "pdb_id": "4c3s",
+        "pdb_length": 435,
+        "alphafold_length": 462,
+        "chain_id": "A",
+        "uniprot_id": "A9KN57",
+        "coverage": 0.94156,
+        "true_chopping": "11-220,221-445"
+    },
+    {
+        "pdb_id": "8cff",
+        "pdb_length": 823,
+        "alphafold_length": 826,
+        "chain_id": "A",
+        "uniprot_id": "Q7SIF4",
+        "coverage": 0.99637,
+        "true_chopping": "681-823"
+    },
+    {
+        "pdb_id": "4zm6",
+        "pdb_length": 844,
+        "alphafold_length": 858,
+        "chain_id": "B",
+        "uniprot_id": "V9M3A9",
+        "coverage": 0.98368,
+        "true_chopping": "8-371,537-684"
+    },
+    {
+        "pdb_id": "2ia2",
+        "pdb_length": 247,
+        "alphafold_length": 265,
+        "chain_id": "A",
+        "uniprot_id": "Q0SH23",
+        "coverage": 0.93208,
+        "true_chopping": "91-265"
+    },
+    {
+        "pdb_id": "2pwy",
+        "pdb_length": 250,
+        "alphafold_length": 255,
+        "chain_id": "B",
+        "uniprot_id": "Q8GBB2",
+        "coverage": 0.98039,
+        "true_chopping": "8-63,64-257"
+    },
+    {
+        "pdb_id": "2e87",
+        "pdb_length": 353,
+        "alphafold_length": 357,
+        "chain_id": "A",
+        "uniprot_id": "O59046",
+        "coverage": 0.9888,
+        "true_chopping": "1-164,165-356"
+    },
+    {
+        "pdb_id": "3nec",
+        "pdb_length": 162,
+        "alphafold_length": 163,
+        "chain_id": "B",
+        "uniprot_id": "Q58NA1",
+        "coverage": 0.99387,
+        "true_chopping": "3-166"
+    },
+    {
+        "pdb_id": "3aoe",
+        "pdb_length": 416,
+        "alphafold_length": 419,
+        "chain_id": "E",
+        "uniprot_id": "Q72IC0",
+        "coverage": 0.99284,
+        "true_chopping": "188-419"
+    },
+    {
+        "pdb_id": "2c92",
+        "pdb_length": 147,
+        "alphafold_length": 160,
+        "chain_id": "C",
+        "uniprot_id": "P9WHE9",
+        "coverage": 0.91875,
+        "true_chopping": "14-160"
+    },
+    {
+        "pdb_id": "1kbl",
+        "pdb_length": 872,
+        "alphafold_length": 874,
+        "chain_id": "A",
+        "uniprot_id": "P22983",
+        "coverage": 0.99771,
+        "true_chopping": "1-375,509-872"
+    },
+    {
+        "pdb_id": "7pmw",
+        "pdb_length": 641,
+        "alphafold_length": 708,
+        "chain_id": "A",
+        "uniprot_id": "P46059",
+        "coverage": 0.90537,
+        "true_chopping": "275-381_570-683"
+    },
+    {
+        "pdb_id": "4xab",
+        "pdb_length": 246,
+        "alphafold_length": 252,
+        "chain_id": "A",
+        "uniprot_id": "A0A0M3KL01",
+        "coverage": 0.97619,
+        "true_chopping": "4-251"
+    },
+    {
+        "pdb_id": "1my6",
+        "pdb_length": 198,
+        "alphafold_length": 200,
+        "chain_id": "B",
+        "uniprot_id": "Q8DIR2",
+        "coverage": 0.99,
+        "true_chopping": "1-88"
+    },
+    {
+        "pdb_id": "2k5g",
+        "pdb_length": 191,
+        "alphafold_length": 183,
+        "chain_id": "A",
+        "uniprot_id": "Q7WAN9",
+        "coverage": 1.04372,
+        "true_chopping": "1-183"
+    },
+    {
+        "pdb_id": "1mpg",
+        "pdb_length": 282,
+        "alphafold_length": 282,
+        "chain_id": "B",
+        "uniprot_id": "P04395",
+        "coverage": 1.0,
+        "true_chopping": "1-99"
+    },
+    {
+        "pdb_id": "4qhj",
+        "pdb_length": 108,
+        "alphafold_length": 110,
+        "chain_id": "A",
+        "uniprot_id": "Q58610",
+        "coverage": 0.98182,
+        "true_chopping": "1-108"
+    },
+    {
+        "pdb_id": "6j42",
+        "pdb_length": 219,
+        "alphafold_length": 230,
+        "chain_id": "C",
+        "uniprot_id": "Q8YSJ5",
+        "coverage": 0.95217,
+        "true_chopping": "1-225"
+    },
+    {
+        "pdb_id": "2exn",
+        "pdb_length": 130,
+        "alphafold_length": 128,
+        "chain_id": "A",
+        "uniprot_id": "A0A0H3LRM9",
+        "coverage": 1.01562,
+        "true_chopping": "1-128"
+    },
+    {
+        "pdb_id": "5yhv",
+        "pdb_length": 394,
+        "alphafold_length": 388,
+        "chain_id": "A",
+        "uniprot_id": "P96847",
+        "coverage": 1.01546,
+        "true_chopping": "1-290"
+    },
+    {
+        "pdb_id": "3umo",
+        "pdb_length": 309,
+        "alphafold_length": 309,
+        "chain_id": "A",
+        "uniprot_id": "P06999",
+        "coverage": 1.0,
+        "true_chopping": "1-309"
+    },
+    {
+        "pdb_id": "2uyt",
+        "pdb_length": 479,
+        "alphafold_length": 489,
+        "chain_id": "A",
+        "uniprot_id": "Q1R415",
+        "coverage": 0.97955,
+        "true_chopping": "2-246,247-480"
+    },
+    {
+        "pdb_id": "5gas",
+        "pdb_length": 619,
+        "alphafold_length": 652,
+        "chain_id": "N",
+        "uniprot_id": "H9ZQR4",
+        "coverage": 0.94939,
+        "true_chopping": "113-204"
+    },
+    {
+        "pdb_id": "4dup",
+        "pdb_length": 323,
+        "alphafold_length": 331,
+        "chain_id": "A",
+        "uniprot_id": "Q2KB38",
+        "coverage": 0.97583,
+        "true_chopping": "23-139_320-353,140-319"
+    },
+    {
+        "pdb_id": "3bmz",
+        "pdb_length": 185,
+        "alphafold_length": 191,
+        "chain_id": "A",
+        "uniprot_id": "Q7NSZ5",
+        "coverage": 0.96859,
+        "true_chopping": "5-189"
+    },
+    {
+        "pdb_id": "6zqm",
+        "pdb_length": 226,
+        "alphafold_length": 226,
+        "chain_id": "a",
+        "uniprot_id": "P00847",
+        "coverage": 1.0,
+        "true_chopping": "1-120_148-226"
+    },
+    {
+        "pdb_id": "4bzi",
+        "pdb_length": 733,
+        "alphafold_length": 768,
+        "chain_id": "A",
+        "uniprot_id": "P15303",
+        "coverage": 0.95443,
+        "true_chopping": "2-44_391-523"
+    },
+    {
+        "pdb_id": "6oh9",
+        "pdb_length": 452,
+        "alphafold_length": 489,
+        "chain_id": "A",
+        "uniprot_id": "Q07729",
+        "coverage": 0.92434,
+        "true_chopping": "94-406"
+    },
+    {
+        "pdb_id": "6jtb",
+        "pdb_length": 699,
+        "alphafold_length": 720,
+        "chain_id": "A",
+        "uniprot_id": "B2RID1",
+        "coverage": 0.97083,
+        "true_chopping": "22-279_572-720,280-571"
+    },
+    {
+        "pdb_id": "1hfo",
+        "pdb_length": 113,
+        "alphafold_length": 114,
+        "chain_id": "D",
+        "uniprot_id": "P81529",
+        "coverage": 0.99123,
+        "true_chopping": "1-113"
+    },
+    {
+        "pdb_id": "7s4k",
+        "pdb_length": 382,
+        "alphafold_length": 414,
+        "chain_id": "I",
+        "uniprot_id": "G1UBD1",
+        "coverage": 0.92271,
+        "true_chopping": "33-166"
+    },
+    {
+        "pdb_id": "3kzx",
+        "pdb_length": 205,
+        "alphafold_length": 210,
+        "chain_id": "A",
+        "uniprot_id": "Q2GHD1",
+        "coverage": 0.97619,
+        "true_chopping": "22-230"
+    },
+    {
+        "pdb_id": "1ntx",
+        "pdb_length": 60,
+        "alphafold_length": 60,
+        "chain_id": "A",
+        "uniprot_id": "P01416",
+        "coverage": 1.0,
+        "true_chopping": "1-60"
+    },
+    {
+        "pdb_id": "6b9u",
+        "pdb_length": 242,
+        "alphafold_length": 252,
+        "chain_id": "B",
+        "uniprot_id": "Q2YJS1",
+        "coverage": 0.96032,
+        "true_chopping": "7-257"
+    },
+    {
+        "pdb_id": "4mkz",
+        "pdb_length": 336,
+        "alphafold_length": 350,
+        "chain_id": "A",
+        "uniprot_id": "A5YBJ8",
+        "coverage": 0.96,
+        "true_chopping": "13-143_305-355,144-304"
+    },
+    {
+        "pdb_id": "8g5s",
+        "pdb_length": 358,
+        "alphafold_length": 370,
+        "chain_id": "A",
+        "uniprot_id": "A0A125SA13",
+        "coverage": 0.96757,
+        "true_chopping": "143-389"
+    },
+    {
+        "pdb_id": "1m6s",
+        "pdb_length": 343,
+        "alphafold_length": 343,
+        "chain_id": "D",
+        "uniprot_id": "Q9X266",
+        "coverage": 1.0,
+        "true_chopping": "5-250"
+    },
+    {
+        "pdb_id": "1vct",
+        "pdb_length": 193,
+        "alphafold_length": 205,
+        "chain_id": "A",
+        "uniprot_id": "O57975",
+        "coverage": 0.94146,
+        "true_chopping": "9-107,108-201"
+    },
+    {
+        "pdb_id": "1hd6",
+        "pdb_length": 37,
+        "alphafold_length": 37,
+        "chain_id": "A",
+        "uniprot_id": "P58548",
+        "coverage": 1.0,
+        "true_chopping": "1-37"
+    },
+    {
+        "pdb_id": "2cyg",
+        "pdb_length": 312,
+        "alphafold_length": 340,
+        "chain_id": "A",
+        "uniprot_id": "O22317",
+        "coverage": 0.91765,
+        "true_chopping": "1-312"
+    },
+    {
+        "pdb_id": "4oif",
+        "pdb_length": 684,
+        "alphafold_length": 686,
+        "chain_id": "B",
+        "uniprot_id": "F8TRX0",
+        "coverage": 0.99708,
+        "true_chopping": "619-686"
+    },
+    {
+        "pdb_id": "3o9z",
+        "pdb_length": 310,
+        "alphafold_length": 310,
+        "chain_id": "A",
+        "uniprot_id": "Q72KX8",
+        "coverage": 1.0,
+        "true_chopping": "3-134_264-312"
+    },
+    {
+        "pdb_id": "4yub",
+        "pdb_length": 500,
+        "alphafold_length": 538,
+        "chain_id": "A",
+        "uniprot_id": "Q6XQN6",
+        "coverage": 0.92937,
+        "true_chopping": "16-146"
+    },
+    {
+        "pdb_id": "1w3f",
+        "pdb_length": 313,
+        "alphafold_length": 315,
+        "chain_id": "A",
+        "uniprot_id": "Q7Z8V1",
+        "coverage": 0.99365,
+        "true_chopping": "148-313"
+    },
+    {
+        "pdb_id": "3j0e",
+        "pdb_length": 702,
+        "alphafold_length": 704,
+        "chain_id": "H",
+        "uniprot_id": "P0A6M8",
+        "coverage": 0.99716,
+        "true_chopping": "288-410"
+    },
+    {
+        "pdb_id": "2lvw",
+        "pdb_length": 98,
+        "alphafold_length": 96,
+        "chain_id": "A",
+        "uniprot_id": "P0ADF8",
+        "coverage": 1.02083,
+        "true_chopping": "1-98"
+    },
+    {
+        "pdb_id": "2mzg",
+        "pdb_length": 64,
+        "alphafold_length": 64,
+        "chain_id": "A",
+        "uniprot_id": "B3EWH0",
+        "coverage": 1.0,
+        "true_chopping": "1-64"
+    },
+    {
+        "pdb_id": "8h1w",
+        "pdb_length": 393,
+        "alphafold_length": 399,
+        "chain_id": "A",
+        "uniprot_id": "A7BFV6",
+        "coverage": 0.98496,
+        "true_chopping": "2-294,295-395"
+    },
+    {
+        "pdb_id": "2dqb",
+        "pdb_length": 346,
+        "alphafold_length": 376,
+        "chain_id": "B",
+        "uniprot_id": "Q5SL81",
+        "coverage": 0.92021,
+        "true_chopping": "1-376"
+    },
+    {
+        "pdb_id": "2ahf",
+        "pdb_length": 377,
+        "alphafold_length": 377,
+        "chain_id": "B",
+        "uniprot_id": "Q9RC92",
+        "coverage": 1.0,
+        "true_chopping": "1-377"
+    },
+    {
+        "pdb_id": "3ge3",
+        "pdb_length": 491,
+        "alphafold_length": 500,
+        "chain_id": "A",
+        "uniprot_id": "Q00456",
+        "coverage": 0.982,
+        "true_chopping": "2-492"
+    },
+    {
+        "pdb_id": "4nq8",
+        "pdb_length": 301,
+        "alphafold_length": 324,
+        "chain_id": "B",
+        "uniprot_id": "A0A0H3LPK2",
+        "coverage": 0.92901,
+        "true_chopping": "146-235"
+    },
+    {
+        "pdb_id": "7q0o",
+        "pdb_length": 240,
+        "alphafold_length": 240,
+        "chain_id": "A",
+        "uniprot_id": "P17117",
+        "coverage": 1.0,
+        "true_chopping": "1-240"
+    },
+    {
+        "pdb_id": "8ids",
+        "pdb_length": 543,
+        "alphafold_length": 555,
+        "chain_id": "A",
+        "uniprot_id": "A0A2Z5WH92",
+        "coverage": 0.97838,
+        "true_chopping": "476-556"
+    },
+    {
+        "pdb_id": "1g61",
+        "pdb_length": 225,
+        "alphafold_length": 228,
+        "chain_id": "B",
+        "uniprot_id": "Q60357",
+        "coverage": 0.98684,
+        "true_chopping": "3-227"
+    },
+    {
+        "pdb_id": "4x28",
+        "pdb_length": 361,
+        "alphafold_length": 373,
+        "chain_id": "C",
+        "uniprot_id": "I6Y3Q0",
+        "coverage": 0.96783,
+        "true_chopping": "215-373"
+    },
+    {
+        "pdb_id": "1vhk",
+        "pdb_length": 240,
+        "alphafold_length": 256,
+        "chain_id": "C",
+        "uniprot_id": "P54461",
+        "coverage": 0.9375,
+        "true_chopping": "76-255"
+    },
+    {
+        "pdb_id": "5jsc",
+        "pdb_length": 388,
+        "alphafold_length": 402,
+        "chain_id": "C",
+        "uniprot_id": "Q13JS1",
+        "coverage": 0.96517,
+        "true_chopping": "14-138,248-406"
+    },
+    {
+        "pdb_id": "2prf",
+        "pdb_length": 125,
+        "alphafold_length": 126,
+        "chain_id": "A",
+        "uniprot_id": "P68696",
+        "coverage": 0.99206,
+        "true_chopping": "1-125"
+    },
+    {
+        "pdb_id": "3ddm",
+        "pdb_length": 363,
+        "alphafold_length": 382,
+        "chain_id": "C",
+        "uniprot_id": "A0A0H3LM82",
+        "coverage": 0.95026,
+        "true_chopping": "8-142,143-373"
+    },
+    {
+        "pdb_id": "6rzo",
+        "pdb_length": 344,
+        "alphafold_length": 344,
+        "chain_id": "A",
+        "uniprot_id": "A0A5S8WFA1",
+        "coverage": 1.0,
+        "true_chopping": "99-344"
+    },
+    {
+        "pdb_id": "5o0s",
+        "pdb_length": 768,
+        "alphafold_length": 806,
+        "chain_id": "A",
+        "uniprot_id": "F6BL85",
+        "coverage": 0.95285,
+        "true_chopping": "12-431,432-466_486-782"
+    },
+    {
+        "pdb_id": "8chx",
+        "pdb_length": 185,
+        "alphafold_length": 198,
+        "chain_id": "A",
+        "uniprot_id": "P57069",
+        "coverage": 0.93434,
+        "true_chopping": "25-209"
+    },
+    {
+        "pdb_id": "1nho",
+        "pdb_length": 85,
+        "alphafold_length": 85,
+        "chain_id": "A",
+        "uniprot_id": "O26898",
+        "coverage": 1.0,
+        "true_chopping": "1-85"
+    },
+    {
+        "pdb_id": "2zws",
+        "pdb_length": 630,
+        "alphafold_length": 670,
+        "chain_id": "A",
+        "uniprot_id": "Q9I596",
+        "coverage": 0.9403,
+        "true_chopping": "1-511,512-645"
+    },
+    {
+        "pdb_id": "7dk8",
+        "pdb_length": 558,
+        "alphafold_length": 605,
+        "chain_id": "A",
+        "uniprot_id": "A3BLS0",
+        "coverage": 0.92231,
+        "true_chopping": "359-435,436-595"
+    },
+    {
+        "pdb_id": "1vly",
+        "pdb_length": 314,
+        "alphafold_length": 326,
+        "chain_id": "A",
+        "uniprot_id": "P0ADE8",
+        "coverage": 0.96319,
+        "true_chopping": "256-337"
+    },
+    {
+        "pdb_id": "7vm0",
+        "pdb_length": 386,
+        "alphafold_length": 405,
+        "chain_id": "A",
+        "uniprot_id": "O31853",
+        "coverage": 0.95309,
+        "true_chopping": "216-405"
+    },
+    {
+        "pdb_id": "6uk3",
+        "pdb_length": 475,
+        "alphafold_length": 477,
+        "chain_id": "C",
+        "uniprot_id": "L8H6B5",
+        "coverage": 0.99581,
+        "true_chopping": "243-407"
+    },
+    {
+        "pdb_id": "3byc",
+        "pdb_length": 312,
+        "alphafold_length": 314,
+        "chain_id": "A",
+        "uniprot_id": "Q7SIG4",
+        "coverage": 0.99363,
+        "true_chopping": "3-314"
+    },
+    {
+        "pdb_id": "5wwr",
+        "pdb_length": 461,
+        "alphafold_length": 469,
+        "chain_id": "A",
+        "uniprot_id": "Q8TEA1",
+        "coverage": 0.98294,
+        "true_chopping": "219-466"
+    },
+    {
+        "pdb_id": "5o9z",
+        "pdb_length": 2190,
+        "alphafold_length": 2335,
+        "chain_id": "A",
+        "uniprot_id": "Q6P2Q9",
+        "coverage": 0.9379,
+        "true_chopping": "1755-2006"
+    },
+    {
+        "pdb_id": "6h0h",
+        "pdb_length": 410,
+        "alphafold_length": 453,
+        "chain_id": "B",
+        "uniprot_id": "B8DWA9",
+        "coverage": 0.90508,
+        "true_chopping": "126-168_190-288"
+    },
+    {
+        "pdb_id": "8dr7",
+        "pdb_length": 318,
+        "alphafold_length": 323,
+        "chain_id": "B",
+        "uniprot_id": "P40339",
+        "coverage": 0.98452,
+        "true_chopping": "231-321"
+    },
+    {
+        "pdb_id": "3oby",
+        "pdb_length": 316,
+        "alphafold_length": 344,
+        "chain_id": "B",
+        "uniprot_id": "O29421",
+        "coverage": 0.9186,
+        "true_chopping": "126-246"
+    },
+    {
+        "pdb_id": "5tva",
+        "pdb_length": 238,
+        "alphafold_length": 240,
+        "chain_id": "B",
+        "uniprot_id": "O67575",
+        "coverage": 0.99167,
+        "true_chopping": "2-239"
+    },
+    {
+        "pdb_id": "1nya",
+        "pdb_length": 176,
+        "alphafold_length": 177,
+        "chain_id": "A",
+        "uniprot_id": "P06495",
+        "coverage": 0.99435,
+        "true_chopping": "92-176"
+    },
+    {
+        "pdb_id": "5ddt",
+        "pdb_length": 232,
+        "alphafold_length": 232,
+        "chain_id": "A",
+        "uniprot_id": "Q06755",
+        "coverage": 1.0,
+        "true_chopping": "1-232"
+    },
+    {
+        "pdb_id": "3ipw",
+        "pdb_length": 301,
+        "alphafold_length": 302,
+        "chain_id": "A",
+        "uniprot_id": "C4M7X7",
+        "coverage": 0.99669,
+        "true_chopping": "24-323"
+    },
+    {
+        "pdb_id": "1u84",
+        "pdb_length": 81,
+        "alphafold_length": 87,
+        "chain_id": "A",
+        "uniprot_id": "Q5KVS1",
+        "coverage": 0.93103,
+        "true_chopping": "6-86"
+    },
+    {
+        "pdb_id": "4fak",
+        "pdb_length": 163,
+        "alphafold_length": 159,
+        "chain_id": "A",
+        "uniprot_id": "P0C1V0",
+        "coverage": 1.02516,
+        "true_chopping": "1-163"
+    },
+    {
+        "pdb_id": "2loq",
+        "pdb_length": 104,
+        "alphafold_length": 104,
+        "chain_id": "A",
+        "uniprot_id": "Q96BM0",
+        "coverage": 1.0,
+        "true_chopping": "10-113"
+    },
+    {
+        "pdb_id": "3ijd",
+        "pdb_length": 285,
+        "alphafold_length": 306,
+        "chain_id": "B",
+        "uniprot_id": "A3DHS7",
+        "coverage": 0.93137,
+        "true_chopping": "4-305"
+    },
+    {
+        "pdb_id": "3lf7",
+        "pdb_length": 633,
+        "alphafold_length": 638,
+        "chain_id": "A",
+        "uniprot_id": "Q1W3Z7",
+        "coverage": 0.99216,
+        "true_chopping": "2-449"
+    },
+    {
+        "pdb_id": "4mam",
+        "pdb_length": 368,
+        "alphafold_length": 365,
+        "chain_id": "A",
+        "uniprot_id": "Q5NGE8",
+        "coverage": 1.00822,
+        "true_chopping": "1-95,299-365"
+    },
+    {
+        "pdb_id": "6jlz",
+        "pdb_length": 315,
+        "alphafold_length": 341,
+        "chain_id": "B",
+        "uniprot_id": "Q9USP0",
+        "coverage": 0.92375,
+        "true_chopping": "15-119"
+    },
+    {
+        "pdb_id": "3cw9",
+        "pdb_length": 503,
+        "alphafold_length": 504,
+        "chain_id": "B",
+        "uniprot_id": "Q8GN86",
+        "coverage": 0.99802,
+        "true_chopping": "1-145"
+    },
+    {
+        "pdb_id": "1o63",
+        "pdb_length": 197,
+        "alphafold_length": 208,
+        "chain_id": "B",
+        "uniprot_id": "Q9X0D2",
+        "coverage": 0.94712,
+        "true_chopping": "3-84_171-202"
+    },
+    {
+        "pdb_id": "3gzi",
+        "pdb_length": 196,
+        "alphafold_length": 217,
+        "chain_id": "A",
+        "uniprot_id": "A3QIY5",
+        "coverage": 0.90323,
+        "true_chopping": "9-90"
+    },
+    {
+        "pdb_id": "5sv9",
+        "pdb_length": 476,
+        "alphafold_length": 476,
+        "chain_id": "A",
+        "uniprot_id": "A0A1C7D1B8",
+        "coverage": 1.0,
+        "true_chopping": "1-476"
+    },
+    {
+        "pdb_id": "7znz",
+        "pdb_length": 761,
+        "alphafold_length": 796,
+        "chain_id": "A",
+        "uniprot_id": "B2UR61",
+        "coverage": 0.95603,
+        "true_chopping": "1-238,239-688,689-761"
+    },
+    {
+        "pdb_id": "3j5s",
+        "pdb_length": 554,
+        "alphafold_length": 555,
+        "chain_id": "D",
+        "uniprot_id": "P0A9W3",
+        "coverage": 0.9982,
+        "true_chopping": "8-258,259-561"
+    },
+    {
+        "pdb_id": "3sql",
+        "pdb_length": 516,
+        "alphafold_length": 532,
+        "chain_id": "A",
+        "uniprot_id": "B1XLD2",
+        "coverage": 0.96992,
+        "true_chopping": "8-379"
+    },
+    {
+        "pdb_id": "1znp",
+        "pdb_length": 138,
+        "alphafold_length": 142,
+        "chain_id": "A",
+        "uniprot_id": "A9CFG3",
+        "coverage": 0.97183,
+        "true_chopping": "4-143"
+    },
+    {
+        "pdb_id": "1vjk",
+        "pdb_length": 88,
+        "alphafold_length": 90,
+        "chain_id": "A",
+        "uniprot_id": "Q8U3C7",
+        "coverage": 0.97778,
+        "true_chopping": "9-96"
+    },
+    {
+        "pdb_id": "7zme",
+        "pdb_length": 169,
+        "alphafold_length": 186,
+        "chain_id": "U",
+        "uniprot_id": "G0S0R3",
+        "coverage": 0.9086,
+        "true_chopping": "1-169"
+    },
+    {
+        "pdb_id": "2r79",
+        "pdb_length": 279,
+        "alphafold_length": 297,
+        "chain_id": "A",
+        "uniprot_id": "O68879",
+        "coverage": 0.93939,
+        "true_chopping": "119-262"
+    },
+    {
+        "pdb_id": "2ivn",
+        "pdb_length": 325,
+        "alphafold_length": 324,
+        "chain_id": "A",
+        "uniprot_id": "Q9UXT7",
+        "coverage": 1.00309,
+        "true_chopping": "1-123_300-325,124-299"
+    },
+    {
+        "pdb_id": "4eys",
+        "pdb_length": 336,
+        "alphafold_length": 343,
+        "chain_id": "A",
+        "uniprot_id": "A0A0H2UN46",
+        "coverage": 0.97959,
+        "true_chopping": "4-157"
+    },
+    {
+        "pdb_id": "6n1z",
+        "pdb_length": 961,
+        "alphafold_length": 1041,
+        "chain_id": "A",
+        "uniprot_id": "Q96P70",
+        "coverage": 0.92315,
+        "true_chopping": "15-934_997-1040"
+    },
+    {
+        "pdb_id": "7oqy",
+        "pdb_length": 258,
+        "alphafold_length": 264,
+        "chain_id": "D",
+        "uniprot_id": "P39471",
+        "coverage": 0.97727,
+        "true_chopping": "37-158"
+    },
+    {
+        "pdb_id": "4fgm",
+        "pdb_length": 578,
+        "alphafold_length": 589,
+        "chain_id": "A",
+        "uniprot_id": "Q5QTY1",
+        "coverage": 0.98132,
+        "true_chopping": "174-456,486-587"
+    },
+    {
+        "pdb_id": "2wnw",
+        "pdb_length": 446,
+        "alphafold_length": 447,
+        "chain_id": "A",
+        "uniprot_id": "Q9KIJ7",
+        "coverage": 0.99776,
+        "true_chopping": "1-44_382-446"
+    },
+    {
+        "pdb_id": "1go3",
+        "pdb_length": 106,
+        "alphafold_length": 115,
+        "chain_id": "N",
+        "uniprot_id": "Q60351",
+        "coverage": 0.92174,
+        "true_chopping": "2-107"
+    },
+    {
+        "pdb_id": "6o9z",
+        "pdb_length": 318,
+        "alphafold_length": 351,
+        "chain_id": "D",
+        "uniprot_id": "P49770",
+        "coverage": 0.90598,
+        "true_chopping": "25-114_145-163"
+    },
+    {
+        "pdb_id": "4f4e",
+        "pdb_length": 398,
+        "alphafold_length": 399,
+        "chain_id": "B",
+        "uniprot_id": "Q63NE4",
+        "coverage": 0.99749,
+        "true_chopping": "320-420"
+    },
+    {
+        "pdb_id": "7v58",
+        "pdb_length": 396,
+        "alphafold_length": 398,
+        "chain_id": "A",
+        "uniprot_id": "U3BPN5",
+        "coverage": 0.99497,
+        "true_chopping": "297-400"
+    },
+    {
+        "pdb_id": "8fum",
+        "pdb_length": 363,
+        "alphafold_length": 378,
+        "chain_id": "H",
+        "uniprot_id": "A0A402C2Q3",
+        "coverage": 0.96032,
+        "true_chopping": "10-373"
+    },
+    {
+        "pdb_id": "3lmc",
+        "pdb_length": 186,
+        "alphafold_length": 202,
+        "chain_id": "A",
+        "uniprot_id": "A2SQK8",
+        "coverage": 0.92079,
+        "true_chopping": "2-192"
+    },
+    {
+        "pdb_id": "7b3a",
+        "pdb_length": 276,
+        "alphafold_length": 275,
+        "chain_id": "A",
+        "uniprot_id": "A0A2L1TND5",
+        "coverage": 1.00364,
+        "true_chopping": "5-122,123-280"
+    },
+    {
+        "pdb_id": "6kd0",
+        "pdb_length": 343,
+        "alphafold_length": 343,
+        "chain_id": "A",
+        "uniprot_id": "A0A6P3CW43",
+        "coverage": 1.0,
+        "true_chopping": "1-343"
+    },
+    {
+        "pdb_id": "6ptr",
+        "pdb_length": 372,
+        "alphafold_length": 373,
+        "chain_id": "B",
+        "uniprot_id": "J1IY24",
+        "coverage": 0.99732,
+        "true_chopping": "260-381"
+    },
+    {
+        "pdb_id": "3r3s",
+        "pdb_length": 292,
+        "alphafold_length": 294,
+        "chain_id": "A",
+        "uniprot_id": "Q8ZM09",
+        "coverage": 0.9932,
+        "true_chopping": "3-294"
+    },
+    {
+        "pdb_id": "1u9y",
+        "pdb_length": 274,
+        "alphafold_length": 284,
+        "chain_id": "B",
+        "uniprot_id": "Q58761",
+        "coverage": 0.96479,
+        "true_chopping": "1-155,156-284"
+    },
+    {
+        "pdb_id": "2cyj",
+        "pdb_length": 117,
+        "alphafold_length": 118,
+        "chain_id": "A",
+        "uniprot_id": "O59174",
+        "coverage": 0.99153,
+        "true_chopping": "1-118"
+    },
+    {
+        "pdb_id": "3ayh",
+        "pdb_length": 183,
+        "alphafold_length": 203,
+        "chain_id": "B",
+        "uniprot_id": "O94285",
+        "coverage": 0.90148,
+        "true_chopping": "1-78"
+    },
+    {
+        "pdb_id": "4l6h",
+        "pdb_length": 761,
+        "alphafold_length": 767,
+        "chain_id": "A",
+        "uniprot_id": "P82610",
+        "coverage": 0.99218,
+        "true_chopping": "23-446,447-789"
+    },
+    {
+        "pdb_id": "3e54",
+        "pdb_length": 159,
+        "alphafold_length": 169,
+        "chain_id": "B",
+        "uniprot_id": "Q6L703",
+        "coverage": 0.94083,
+        "true_chopping": "4-162"
+    },
+    {
+        "pdb_id": "2qvb",
+        "pdb_length": 297,
+        "alphafold_length": 300,
+        "chain_id": "A",
+        "uniprot_id": "P9WMR9",
+        "coverage": 0.99,
+        "true_chopping": "1-297"
+    },
+    {
+        "pdb_id": "1n02",
+        "pdb_length": 102,
+        "alphafold_length": 101,
+        "chain_id": "A",
+        "uniprot_id": "P81180",
+        "coverage": 1.0099,
+        "true_chopping": "1-53,54-102"
+    },
+    {
+        "pdb_id": "6xoj",
+        "pdb_length": 296,
+        "alphafold_length": 326,
+        "chain_id": "A",
+        "uniprot_id": "A0A3B6UEU3",
+        "coverage": 0.90798,
+        "true_chopping": "28-323"
+    },
+    {
+        "pdb_id": "5ex8",
+        "pdb_length": 414,
+        "alphafold_length": 391,
+        "chain_id": "A",
+        "uniprot_id": "Q8KLL7",
+        "coverage": 1.05882,
+        "true_chopping": "34-424"
+    },
+    {
+        "pdb_id": "6uan",
+        "pdb_length": 230,
+        "alphafold_length": 247,
+        "chain_id": "Z",
+        "uniprot_id": "A0A068JLL8",
+        "coverage": 0.93117,
+        "true_chopping": "4-233"
+    },
+    {
+        "pdb_id": "2yoc",
+        "pdb_length": 1029,
+        "alphafold_length": 1090,
+        "chain_id": "A",
+        "uniprot_id": "P07206",
+        "coverage": 0.94404,
+        "true_chopping": "391-470_544-953"
+    },
+    {
+        "pdb_id": "4ep4",
+        "pdb_length": 166,
+        "alphafold_length": 166,
+        "chain_id": "A",
+        "uniprot_id": "Q5SJC4",
+        "coverage": 1.0,
+        "true_chopping": "1-166"
+    },
+    {
+        "pdb_id": "4edh",
+        "pdb_length": 208,
+        "alphafold_length": 210,
+        "chain_id": "A",
+        "uniprot_id": "Q9HZN8",
+        "coverage": 0.99048,
+        "true_chopping": "4-212"
+    },
+    {
+        "pdb_id": "4yca",
+        "pdb_length": 286,
+        "alphafold_length": 294,
+        "chain_id": "B",
+        "uniprot_id": "A0A0J9X283",
+        "coverage": 0.97279,
+        "true_chopping": "3-159"
+    },
+    {
+        "pdb_id": "1nyc",
+        "pdb_length": 111,
+        "alphafold_length": 109,
+        "chain_id": "A",
+        "uniprot_id": "Q7A189",
+        "coverage": 1.01835,
+        "true_chopping": "1-111"
+    },
+    {
+        "pdb_id": "2kla",
+        "pdb_length": 106,
+        "alphafold_length": 104,
+        "chain_id": "A",
+        "uniprot_id": "Q57773",
+        "coverage": 1.01923,
+        "true_chopping": "1-106"
+    },
+    {
+        "pdb_id": "2pcq",
+        "pdb_length": 279,
+        "alphafold_length": 283,
+        "chain_id": "A",
+        "uniprot_id": "Q5SKB1",
+        "coverage": 0.98587,
+        "true_chopping": "1-283"
+    },
+    {
+        "pdb_id": "3dan",
+        "pdb_length": 473,
+        "alphafold_length": 473,
+        "chain_id": "A",
+        "uniprot_id": "Q40778",
+        "coverage": 1.0,
+        "true_chopping": "1-309_330-473"
+    },
+    {
+        "pdb_id": "1orv",
+        "pdb_length": 728,
+        "alphafold_length": 766,
+        "chain_id": "D",
+        "uniprot_id": "P22411",
+        "coverage": 0.95039,
+        "true_chopping": "1-470"
+    },
+    {
+        "pdb_id": "3szp",
+        "pdb_length": 288,
+        "alphafold_length": 299,
+        "chain_id": "B",
+        "uniprot_id": "Q9KT56",
+        "coverage": 0.96321,
+        "true_chopping": "1-86"
+    },
+    {
+        "pdb_id": "7cb8",
+        "pdb_length": 394,
+        "alphafold_length": 404,
+        "chain_id": "A",
+        "uniprot_id": "B2HP08",
+        "coverage": 0.97525,
+        "true_chopping": "2-306"
+    },
+    {
+        "pdb_id": "3of5",
+        "pdb_length": 216,
+        "alphafold_length": 225,
+        "chain_id": "B",
+        "uniprot_id": "Q5NGB5",
+        "coverage": 0.96,
+        "true_chopping": "3-222"
+    },
+    {
+        "pdb_id": "6r8b",
+        "pdb_length": 422,
+        "alphafold_length": 431,
+        "chain_id": "A",
+        "uniprot_id": "P0A6V1",
+        "coverage": 0.97912,
+        "true_chopping": "10-310"
+    },
+    {
+        "pdb_id": "2xki",
+        "pdb_length": 110,
+        "alphafold_length": 110,
+        "chain_id": "A",
+        "uniprot_id": "O76242",
+        "coverage": 1.0,
+        "true_chopping": "1-110"
+    },
+    {
+        "pdb_id": "4lqb",
+        "pdb_length": 129,
+        "alphafold_length": 127,
+        "chain_id": "A",
+        "uniprot_id": "D2Q399",
+        "coverage": 1.01575,
+        "true_chopping": "65-130"
+    },
+    {
+        "pdb_id": "3foz",
+        "pdb_length": 305,
+        "alphafold_length": 316,
+        "chain_id": "A",
+        "uniprot_id": "P16384",
+        "coverage": 0.96519,
+        "true_chopping": "7-120_186-311,121-192"
+    },
+    {
+        "pdb_id": "2qeu",
+        "pdb_length": 128,
+        "alphafold_length": 140,
+        "chain_id": "B",
+        "uniprot_id": "Q13HH1",
+        "coverage": 0.91429,
+        "true_chopping": "9-141"
+    },
+    {
+        "pdb_id": "2iqt",
+        "pdb_length": 281,
+        "alphafold_length": 293,
+        "chain_id": "A",
+        "uniprot_id": "P60053",
+        "coverage": 0.95904,
+        "true_chopping": "2-296"
+    },
+    {
+        "pdb_id": "3no6",
+        "pdb_length": 215,
+        "alphafold_length": 229,
+        "chain_id": "B",
+        "uniprot_id": "Q8CNK1",
+        "coverage": 0.93886,
+        "true_chopping": "20-245"
+    },
+    {
+        "pdb_id": "5ys9",
+        "pdb_length": 691,
+        "alphafold_length": 700,
+        "chain_id": "B",
+        "uniprot_id": "O74936",
+        "coverage": 0.98714,
+        "true_chopping": "493-699"
+    },
+    {
+        "pdb_id": "6j3i",
+        "pdb_length": 583,
+        "alphafold_length": 617,
+        "chain_id": "A",
+        "uniprot_id": "A0A1B1MKD3",
+        "coverage": 0.94489,
+        "true_chopping": "1-357_417-617"
+    },
+    {
+        "pdb_id": "8iat",
+        "pdb_length": 501,
+        "alphafold_length": 501,
+        "chain_id": "A",
+        "uniprot_id": "Q8DQ84",
+        "coverage": 1.0,
+        "true_chopping": "112-215"
+    },
+    {
+        "pdb_id": "6v7n",
+        "pdb_length": 369,
+        "alphafold_length": 399,
+        "chain_id": "A",
+        "uniprot_id": "P38571",
+        "coverage": 0.92481,
+        "true_chopping": "9-384"
+    },
+    {
+        "pdb_id": "1p5d",
+        "pdb_length": 454,
+        "alphafold_length": 463,
+        "chain_id": "X",
+        "uniprot_id": "P26276",
+        "coverage": 0.98056,
+        "true_chopping": "9-154,259-367,368-463"
+    },
+    {
+        "pdb_id": "3tsa",
+        "pdb_length": 372,
+        "alphafold_length": 390,
+        "chain_id": "A",
+        "uniprot_id": "Q9ALM8",
+        "coverage": 0.95385,
+        "true_chopping": "1-207"
+    },
+    {
+        "pdb_id": "2roe",
+        "pdb_length": 66,
+        "alphafold_length": 66,
+        "chain_id": "A",
+        "uniprot_id": "Q5SHL2",
+        "coverage": 1.0,
+        "true_chopping": "1-66"
+    },
+    {
+        "pdb_id": "7c9r",
+        "pdb_length": 318,
+        "alphafold_length": 324,
+        "chain_id": "M",
+        "uniprot_id": "G1BIY7",
+        "coverage": 0.98148,
+        "true_chopping": "2-319"
+    },
+    {
+        "pdb_id": "1f5n",
+        "pdb_length": 570,
+        "alphafold_length": 592,
+        "chain_id": "A",
+        "uniprot_id": "P32455",
+        "coverage": 0.96284,
+        "true_chopping": "7-283"
+    },
+    {
+        "pdb_id": "1fnn",
+        "pdb_length": 379,
+        "alphafold_length": 389,
+        "chain_id": "B",
+        "uniprot_id": "Q8ZYK1",
+        "coverage": 0.97429,
+        "true_chopping": "2-192,193-276"
+    },
+    {
+        "pdb_id": "8bhx",
+        "pdb_length": 203,
+        "alphafold_length": 204,
+        "chain_id": "A",
+        "uniprot_id": "Q47RC2",
+        "coverage": 0.9951,
+        "true_chopping": "87-204"
+    },
+    {
+        "pdb_id": "6eew",
+        "pdb_length": 466,
+        "alphafold_length": 500,
+        "chain_id": "C",
+        "uniprot_id": "P17770",
+        "coverage": 0.932,
+        "true_chopping": "376-496"
+    },
+    {
+        "pdb_id": "5y1f",
+        "pdb_length": 311,
+        "alphafold_length": 308,
+        "chain_id": "A",
+        "uniprot_id": "D6PBM7",
+        "coverage": 1.00974,
+        "true_chopping": "21-328"
+    },
+    {
+        "pdb_id": "3t1b",
+        "pdb_length": 290,
+        "alphafold_length": 299,
+        "chain_id": "A",
+        "uniprot_id": "Q9KT56",
+        "coverage": 0.9699,
+        "true_chopping": "160-262"
+    },
+    {
+        "pdb_id": "6bbm",
+        "pdb_length": 448,
+        "alphafold_length": 471,
+        "chain_id": "F",
+        "uniprot_id": "P0ACB0",
+        "coverage": 0.95117,
+        "true_chopping": "190-468"
+    },
+    {
+        "pdb_id": "2bjf",
+        "pdb_length": 328,
+        "alphafold_length": 329,
+        "chain_id": "A",
+        "uniprot_id": "P54965",
+        "coverage": 0.99696,
+        "true_chopping": "2-329"
+    },
+    {
+        "pdb_id": "2kz8",
+        "pdb_length": 131,
+        "alphafold_length": 131,
+        "chain_id": "A",
+        "uniprot_id": "Q46864",
+        "coverage": 1.0,
+        "true_chopping": "1-68,69-131"
+    },
+    {
+        "pdb_id": "5mwv",
+        "pdb_length": 281,
+        "alphafold_length": 301,
+        "chain_id": "A",
+        "uniprot_id": "P76045",
+        "coverage": 0.93355,
+        "true_chopping": "1-281"
+    },
+    {
+        "pdb_id": "2o3j",
+        "pdb_length": 462,
+        "alphafold_length": 481,
+        "chain_id": "B",
+        "uniprot_id": "Q19905",
+        "coverage": 0.9605,
+        "true_chopping": "316-471"
+    },
+    {
+        "pdb_id": "5y06",
+        "pdb_length": 235,
+        "alphafold_length": 242,
+        "chain_id": "A",
+        "uniprot_id": "A0R095",
+        "coverage": 0.97107,
+        "true_chopping": "214-260"
+    },
+    {
+        "pdb_id": "1uzb",
+        "pdb_length": 516,
+        "alphafold_length": 516,
+        "chain_id": "A",
+        "uniprot_id": "P83849",
+        "coverage": 1.0,
+        "true_chopping": "291-516"
+    },
+    {
+        "pdb_id": "3pnx",
+        "pdb_length": 148,
+        "alphafold_length": 159,
+        "chain_id": "F",
+        "uniprot_id": "Q0AU90",
+        "coverage": 0.93082,
+        "true_chopping": "4-160"
+    },
+    {
+        "pdb_id": "1ylo",
+        "pdb_length": 334,
+        "alphafold_length": 345,
+        "chain_id": "D",
+        "uniprot_id": "A0A0H2VWV0",
+        "coverage": 0.96812,
+        "true_chopping": "4-69_151-348"
+    },
+    {
+        "pdb_id": "1wu4",
+        "pdb_length": 374,
+        "alphafold_length": 388,
+        "chain_id": "A",
+        "uniprot_id": "Q9KB30",
+        "coverage": 0.96392,
+        "true_chopping": "6-381"
+    },
+    {
+        "pdb_id": "1ycd",
+        "pdb_length": 238,
+        "alphafold_length": 243,
+        "chain_id": "B",
+        "uniprot_id": "P38777",
+        "coverage": 0.97942,
+        "true_chopping": "4-49_69-241"
+    },
+    {
+        "pdb_id": "5ezm",
+        "pdb_length": 537,
+        "alphafold_length": 575,
+        "chain_id": "A",
+        "uniprot_id": "Q1LDT6",
+        "coverage": 0.93391,
+        "true_chopping": "28-466,467-578"
+    },
+    {
+        "pdb_id": "1t33",
+        "pdb_length": 214,
+        "alphafold_length": 224,
+        "chain_id": "B",
+        "uniprot_id": "Q8ZQN9",
+        "coverage": 0.95536,
+        "true_chopping": "89-220"
+    },
+    {
+        "pdb_id": "2q67",
+        "pdb_length": 103,
+        "alphafold_length": 114,
+        "chain_id": "B",
+        "uniprot_id": "Q81HW2",
+        "coverage": 0.90351,
+        "true_chopping": "1-103"
+    },
+    {
+        "pdb_id": "6ap5",
+        "pdb_length": 115,
+        "alphafold_length": 107,
+        "chain_id": "A",
+        "uniprot_id": "G7CIN2",
+        "coverage": 1.07477,
+        "true_chopping": "9-115"
+    },
+    {
+        "pdb_id": "4hdt",
+        "pdb_length": 340,
+        "alphafold_length": 350,
+        "chain_id": "A",
+        "uniprot_id": "G7CC99",
+        "coverage": 0.97143,
+        "true_chopping": "8-351"
+    },
+    {
+        "pdb_id": "1sez",
+        "pdb_length": 456,
+        "alphafold_length": 504,
+        "chain_id": "A",
+        "uniprot_id": "O24164",
+        "coverage": 0.90476,
+        "true_chopping": "13-329_442-497"
+    },
+    {
+        "pdb_id": "3ifs",
+        "pdb_length": 440,
+        "alphafold_length": 450,
+        "chain_id": "C",
+        "uniprot_id": "Q81K75",
+        "coverage": 0.97778,
+        "true_chopping": "228-453"
+    },
+    {
+        "pdb_id": "4zrs",
+        "pdb_length": 291,
+        "alphafold_length": 290,
+        "chain_id": "B",
+        "uniprot_id": "E7DJY5",
+        "coverage": 1.00345,
+        "true_chopping": "17-306"
+    },
+    {
+        "pdb_id": "5jou",
+        "pdb_length": 945,
+        "alphafold_length": 954,
+        "chain_id": "A",
+        "uniprot_id": "A7LXT0",
+        "coverage": 0.99057,
+        "true_chopping": "759-839,840-955"
+    },
+    {
+        "pdb_id": "3mq6",
+        "pdb_length": 332,
+        "alphafold_length": 339,
+        "chain_id": "A",
+        "uniprot_id": "Q9F6L0",
+        "coverage": 0.97935,
+        "true_chopping": "1-117_142-338"
+    },
+    {
+        "pdb_id": "2wm3",
+        "pdb_length": 296,
+        "alphafold_length": 299,
+        "chain_id": "A",
+        "uniprot_id": "Q9HBL8",
+        "coverage": 0.98997,
+        "true_chopping": "4-299"
+    },
+    {
+        "pdb_id": "7vmx",
+        "pdb_length": 260,
+        "alphafold_length": 271,
+        "chain_id": "A",
+        "uniprot_id": "P9WNM1",
+        "coverage": 0.95941,
+        "true_chopping": "143-271"
+    },
+    {
+        "pdb_id": "3e6c",
+        "pdb_length": 225,
+        "alphafold_length": 232,
+        "chain_id": "C",
+        "uniprot_id": "B8FW11",
+        "coverage": 0.96983,
+        "true_chopping": "9-147,148-227"
+    },
+    {
+        "pdb_id": "1oz9",
+        "pdb_length": 141,
+        "alphafold_length": 150,
+        "chain_id": "A",
+        "uniprot_id": "O67367",
+        "coverage": 0.94,
+        "true_chopping": "8-148"
+    },
+    {
+        "pdb_id": "2avn",
+        "pdb_length": 242,
+        "alphafold_length": 248,
+        "chain_id": "A",
+        "uniprot_id": "Q9X1A9",
+        "coverage": 0.97581,
+        "true_chopping": "13-258"
+    },
+    {
+        "pdb_id": "2bid",
+        "pdb_length": 197,
+        "alphafold_length": 195,
+        "chain_id": "A",
+        "uniprot_id": "P55957",
+        "coverage": 1.01026,
+        "true_chopping": "1-197"
+    },
+    {
+        "pdb_id": "2i3o",
+        "pdb_length": 487,
+        "alphafold_length": 516,
+        "chain_id": "C",
+        "uniprot_id": "Q9HJH4",
+        "coverage": 0.9438,
+        "true_chopping": "2-516"
+    },
+    {
+        "pdb_id": "2gk3",
+        "pdb_length": 239,
+        "alphafold_length": 253,
+        "chain_id": "D",
+        "uniprot_id": "Q8ZLF9",
+        "coverage": 0.94466,
+        "true_chopping": "11-256"
+    },
+    {
+        "pdb_id": "1wek",
+        "pdb_length": 205,
+        "alphafold_length": 217,
+        "chain_id": "E",
+        "uniprot_id": "Q5SHT6",
+        "coverage": 0.9447,
+        "true_chopping": "5-212"
+    },
+    {
+        "pdb_id": "4qcd",
+        "pdb_length": 242,
+        "alphafold_length": 248,
+        "chain_id": "A",
+        "uniprot_id": "Q55891",
+        "coverage": 0.97581,
+        "true_chopping": "7-248"
+    },
+    {
+        "pdb_id": "2n50",
+        "pdb_length": 79,
+        "alphafold_length": 79,
+        "chain_id": "A",
+        "uniprot_id": "Q82ZE9",
+        "coverage": 1.0,
+        "true_chopping": "1-79"
+    },
+    {
+        "pdb_id": "1tum",
+        "pdb_length": 129,
+        "alphafold_length": 129,
+        "chain_id": "A",
+        "uniprot_id": "P08337",
+        "coverage": 1.0,
+        "true_chopping": "1-129"
+    },
+    {
+        "pdb_id": "3wd6",
+        "pdb_length": 241,
+        "alphafold_length": 256,
+        "chain_id": "B",
+        "uniprot_id": "A8R5V3",
+        "coverage": 0.94141,
+        "true_chopping": "103-250"
+    },
+    {
+        "pdb_id": "2id6",
+        "pdb_length": 194,
+        "alphafold_length": 200,
+        "chain_id": "A",
+        "uniprot_id": "Q9X0C0",
+        "coverage": 0.97,
+        "true_chopping": "3-77,78-202"
+    },
+    {
+        "pdb_id": "1fmc",
+        "pdb_length": 255,
+        "alphafold_length": 255,
+        "chain_id": "A",
+        "uniprot_id": "P0AET8",
+        "coverage": 1.0,
+        "true_chopping": "1-255"
+    },
+    {
+        "pdb_id": "2i2l",
+        "pdb_length": 125,
+        "alphafold_length": 134,
+        "chain_id": "C",
+        "uniprot_id": "O34401",
+        "coverage": 0.93284,
+        "true_chopping": "1-66,67-131"
+    },
+    {
+        "pdb_id": "5vn5",
+        "pdb_length": 332,
+        "alphafold_length": 332,
+        "chain_id": "A",
+        "uniprot_id": "G2IN02",
+        "coverage": 1.0,
+        "true_chopping": "1-332"
+    },
+    {
+        "pdb_id": "4xk2",
+        "pdb_length": 309,
+        "alphafold_length": 343,
+        "chain_id": "B",
+        "uniprot_id": "Q124A1",
+        "coverage": 0.90087,
+        "true_chopping": "1-224_246-344"
+    },
+    {
+        "pdb_id": "5c6o",
+        "pdb_length": 446,
+        "alphafold_length": 464,
+        "chain_id": "A",
+        "uniprot_id": "Q9KAX3",
+        "coverage": 0.96121,
+        "true_chopping": "234-448"
+    },
+    {
+        "pdb_id": "2bkw",
+        "pdb_length": 376,
+        "alphafold_length": 385,
+        "chain_id": "A",
+        "uniprot_id": "P43567",
+        "coverage": 0.97662,
+        "true_chopping": "3-278"
+    },
+    {
+        "pdb_id": "4kx7",
+        "pdb_length": 875,
+        "alphafold_length": 957,
+        "chain_id": "A",
+        "uniprot_id": "Q07075",
+        "coverage": 0.91432,
+        "true_chopping": "559-879"
+    },
+    {
+        "pdb_id": "2y1h",
+        "pdb_length": 265,
+        "alphafold_length": 274,
+        "chain_id": "B",
+        "uniprot_id": "Q17R31",
+        "coverage": 0.96715,
+        "true_chopping": "3-270"
+    },
+    {
+        "pdb_id": "6qyi",
+        "pdb_length": 518,
+        "alphafold_length": 520,
+        "chain_id": "A",
+        "uniprot_id": "Q57160",
+        "coverage": 0.99615,
+        "true_chopping": "284-520"
+    },
+    {
+        "pdb_id": "6m3x",
+        "pdb_length": 310,
+        "alphafold_length": 311,
+        "chain_id": "E",
+        "uniprot_id": "Q972K4",
+        "coverage": 0.99678,
+        "true_chopping": "150-311"
+    },
+    {
+        "pdb_id": "1pgj",
+        "pdb_length": 478,
+        "alphafold_length": 479,
+        "chain_id": "A",
+        "uniprot_id": "P31072",
+        "coverage": 0.99791,
+        "true_chopping": "179-478"
+    },
+    {
+        "pdb_id": "3zho",
+        "pdb_length": 193,
+        "alphafold_length": 198,
+        "chain_id": "A",
+        "uniprot_id": "P0A8G6",
+        "coverage": 0.97475,
+        "true_chopping": "1-197"
+    },
+    {
+        "pdb_id": "8dmg",
+        "pdb_length": 1034,
+        "alphafold_length": 1049,
+        "chain_id": "B",
+        "uniprot_id": "P14779",
+        "coverage": 0.9857,
+        "true_chopping": "4-458,459-628,874-1037"
+    },
+    {
+        "pdb_id": "4nn3",
+        "pdb_length": 311,
+        "alphafold_length": 339,
+        "chain_id": "A",
+        "uniprot_id": "C6BW16",
+        "coverage": 0.9174,
+        "true_chopping": "28-149_239-338"
+    },
+    {
+        "pdb_id": "5v0t",
+        "pdb_length": 452,
+        "alphafold_length": 486,
+        "chain_id": "D",
+        "uniprot_id": "Q13W28",
+        "coverage": 0.93004,
+        "true_chopping": "239-467"
+    },
+    {
+        "pdb_id": "5yx6",
+        "pdb_length": 360,
+        "alphafold_length": 394,
+        "chain_id": "A",
+        "uniprot_id": "P96877",
+        "coverage": 0.91371,
+        "true_chopping": "5-224_248-391"
+    },
+    {
+        "pdb_id": "1v7r",
+        "pdb_length": 186,
+        "alphafold_length": 186,
+        "chain_id": "A",
+        "uniprot_id": "O59580",
+        "coverage": 1.0,
+        "true_chopping": "1-186"
+    },
+    {
+        "pdb_id": "2ci1",
+        "pdb_length": 273,
+        "alphafold_length": 285,
+        "chain_id": "A",
+        "uniprot_id": "P56965",
+        "coverage": 0.95789,
+        "true_chopping": "1-275"
+    },
+    {
+        "pdb_id": "8tn3",
+        "pdb_length": 388,
+        "alphafold_length": 415,
+        "chain_id": "A",
+        "uniprot_id": "Q643B9",
+        "coverage": 0.93494,
+        "true_chopping": "16-304"
+    },
+    {
+        "pdb_id": "3oks",
+        "pdb_length": 446,
+        "alphafold_length": 446,
+        "chain_id": "D",
+        "uniprot_id": "A0QWJ0",
+        "coverage": 1.0,
+        "true_chopping": "7-349,350-450"
+    },
+    {
+        "pdb_id": "1nfv",
+        "pdb_length": 170,
+        "alphafold_length": 179,
+        "chain_id": "M",
+        "uniprot_id": "Q93PP9",
+        "coverage": 0.94972,
+        "true_chopping": "4-172"
+    },
+    {
+        "pdb_id": "8jj5",
+        "pdb_length": 254,
+        "alphafold_length": 260,
+        "chain_id": "D",
+        "uniprot_id": "Q06AT4",
+        "coverage": 0.97692,
+        "true_chopping": "110-230"
+    },
+    {
+        "pdb_id": "8d0b",
+        "pdb_length": 362,
+        "alphafold_length": 368,
+        "chain_id": "B",
+        "uniprot_id": "Q9H668",
+        "coverage": 0.9837,
+        "true_chopping": "1-177,178-288"
+    },
+    {
+        "pdb_id": "5ib0",
+        "pdb_length": 137,
+        "alphafold_length": 141,
+        "chain_id": "E",
+        "uniprot_id": "Q9HVP3",
+        "coverage": 0.97163,
+        "true_chopping": "1-137"
+    },
+    {
+        "pdb_id": "3v4d",
+        "pdb_length": 124,
+        "alphafold_length": 128,
+        "chain_id": "C",
+        "uniprot_id": "P0AFQ6",
+        "coverage": 0.96875,
+        "true_chopping": "7-134"
+    },
+    {
+        "pdb_id": "4g1e",
+        "pdb_length": 964,
+        "alphafold_length": 1048,
+        "chain_id": "A",
+        "uniprot_id": "P06756",
+        "coverage": 0.91985,
+        "true_chopping": "738-959"
+    },
+    {
+        "pdb_id": "2qpz",
+        "pdb_length": 103,
+        "alphafold_length": 104,
+        "chain_id": "A",
+        "uniprot_id": "P0A185",
+        "coverage": 0.99038,
+        "true_chopping": "1-42_86-103"
+    },
+    {
+        "pdb_id": "4rnl",
+        "pdb_length": 340,
+        "alphafold_length": 343,
+        "chain_id": "B",
+        "uniprot_id": "A0A0B4J187",
+        "coverage": 0.99125,
+        "true_chopping": "2-343"
+    },
+    {
+        "pdb_id": "2h3g",
+        "pdb_length": 247,
+        "alphafold_length": 262,
+        "chain_id": "X",
+        "uniprot_id": "Q81VX4",
+        "coverage": 0.94275,
+        "true_chopping": "123-254"
+    },
+    {
+        "pdb_id": "6jmb",
+        "pdb_length": 374,
+        "alphafold_length": 405,
+        "chain_id": "A",
+        "uniprot_id": "A0A482LWB1",
+        "coverage": 0.92346,
+        "true_chopping": "3-249_322-376"
+    },
+    {
+        "pdb_id": "6baj",
+        "pdb_length": 1024,
+        "alphafold_length": 1049,
+        "chain_id": "B",
+        "uniprot_id": "P31224",
+        "coverage": 0.97617,
+        "true_chopping": "674-724_813-868"
+    },
+    {
+        "pdb_id": "5adx",
+        "pdb_length": 270,
+        "alphafold_length": 277,
+        "chain_id": "L",
+        "uniprot_id": "D2JYW4",
+        "coverage": 0.97473,
+        "true_chopping": "87-270"
+    },
+    {
+        "pdb_id": "2l9q",
+        "pdb_length": 109,
+        "alphafold_length": 109,
+        "chain_id": "A",
+        "uniprot_id": "P22943",
+        "coverage": 1.0,
+        "true_chopping": "1-109"
+    },
+    {
+        "pdb_id": "7dex",
+        "pdb_length": 460,
+        "alphafold_length": 469,
+        "chain_id": "A",
+        "uniprot_id": "Q9ZWR8",
+        "coverage": 0.98081,
+        "true_chopping": "6-225,248-465"
+    },
+    {
+        "pdb_id": "3hdu",
+        "pdb_length": 143,
+        "alphafold_length": 156,
+        "chain_id": "A",
+        "uniprot_id": "Q2LUI2",
+        "coverage": 0.91667,
+        "true_chopping": "5-157"
+    },
+    {
+        "pdb_id": "6v4c",
+        "pdb_length": 294,
+        "alphafold_length": 311,
+        "chain_id": "A",
+        "uniprot_id": "A0A1S4K3K8",
+        "coverage": 0.94534,
+        "true_chopping": "2-140,141-295"
+    },
+    {
+        "pdb_id": "4j3c",
+        "pdb_length": 227,
+        "alphafold_length": 245,
+        "chain_id": "A",
+        "uniprot_id": "Q92RS8",
+        "coverage": 0.92653,
+        "true_chopping": "100-267"
+    },
+    {
+        "pdb_id": "8qi7",
+        "pdb_length": 461,
+        "alphafold_length": 504,
+        "chain_id": "A",
+        "uniprot_id": "P34897",
+        "coverage": 0.91468,
+        "true_chopping": "15-316"
+    },
+    {
+        "pdb_id": "2ooc",
+        "pdb_length": 103,
+        "alphafold_length": 112,
+        "chain_id": "A",
+        "uniprot_id": "Q9A980",
+        "coverage": 0.91964,
+        "true_chopping": "9-112"
+    },
+    {
+        "pdb_id": "2dg6",
+        "pdb_length": 201,
+        "alphafold_length": 214,
+        "chain_id": "A",
+        "uniprot_id": "O86531",
+        "coverage": 0.93925,
+        "true_chopping": "1-214"
+    },
+    {
+        "pdb_id": "5jm8",
+        "pdb_length": 552,
+        "alphafold_length": 576,
+        "chain_id": "C",
+        "uniprot_id": "A0A1A9TA96",
+        "coverage": 0.95833,
+        "true_chopping": "167-573"
+    },
+    {
+        "pdb_id": "7e7l",
+        "pdb_length": 770,
+        "alphafold_length": 806,
+        "chain_id": "A",
+        "uniprot_id": "A0A100YWM3",
+        "coverage": 0.95533,
+        "true_chopping": "19-685"
+    },
+    {
+        "pdb_id": "1kvn",
+        "pdb_length": 104,
+        "alphafold_length": 104,
+        "chain_id": "A",
+        "uniprot_id": "O29010",
+        "coverage": 1.0,
+        "true_chopping": "1-104"
+    },
+    {
+        "pdb_id": "2v78",
+        "pdb_length": 311,
+        "alphafold_length": 313,
+        "chain_id": "B",
+        "uniprot_id": "Q97U29",
+        "coverage": 0.99361,
+        "true_chopping": "2-312"
+    },
+    {
+        "pdb_id": "2epi",
+        "pdb_length": 97,
+        "alphafold_length": 100,
+        "chain_id": "D",
+        "uniprot_id": "Q58452",
+        "coverage": 0.97,
+        "true_chopping": "4-100"
+    },
+    {
+        "pdb_id": "2rdx",
+        "pdb_length": 369,
+        "alphafold_length": 369,
+        "chain_id": "E",
+        "uniprot_id": "A3SNF8",
+        "coverage": 1.0,
+        "true_chopping": "130-371"
+    },
+    {
+        "pdb_id": "1f1e",
+        "pdb_length": 147,
+        "alphafold_length": 154,
+        "chain_id": "A",
+        "uniprot_id": "O93641",
+        "coverage": 0.95455,
+        "true_chopping": "4-76,77-154"
+    },
+    {
+        "pdb_id": "7kyd",
+        "pdb_length": 534,
+        "alphafold_length": 544,
+        "chain_id": "A",
+        "uniprot_id": "Q9VCC6",
+        "coverage": 0.98162,
+        "true_chopping": "7-191,192-354"
+    },
+    {
+        "pdb_id": "2nvw",
+        "pdb_length": 413,
+        "alphafold_length": 457,
+        "chain_id": "A",
+        "uniprot_id": "Q06433",
+        "coverage": 0.90372,
+        "true_chopping": "177-350_384-395"
+    },
+    {
+        "pdb_id": "1svv",
+        "pdb_length": 328,
+        "alphafold_length": 359,
+        "chain_id": "A",
+        "uniprot_id": "E9AC39",
+        "coverage": 0.91365,
+        "true_chopping": "15-264"
+    },
+    {
+        "pdb_id": "1zh8",
+        "pdb_length": 318,
+        "alphafold_length": 328,
+        "chain_id": "B",
+        "uniprot_id": "Q9WYE8",
+        "coverage": 0.96951,
+        "true_chopping": "17-143_288-340,144-287"
+    },
+    {
+        "pdb_id": "6ovt",
+        "pdb_length": 561,
+        "alphafold_length": 575,
+        "chain_id": "A",
+        "uniprot_id": "P9WKJ5",
+        "coverage": 0.97565,
+        "true_chopping": "422-600"
+    },
+    {
+        "pdb_id": "6l0a",
+        "pdb_length": 362,
+        "alphafold_length": 364,
+        "chain_id": "B",
+        "uniprot_id": "P20051",
+        "coverage": 0.99451,
+        "true_chopping": "2-364"
+    },
+    {
+        "pdb_id": "5gj7",
+        "pdb_length": 388,
+        "alphafold_length": 398,
+        "chain_id": "B",
+        "uniprot_id": "C8WV06",
+        "coverage": 0.97487,
+        "true_chopping": "1-121,116-237,238-398"
+    },
+    {
+        "pdb_id": "1jnd",
+        "pdb_length": 400,
+        "alphafold_length": 440,
+        "chain_id": "A",
+        "uniprot_id": "Q9V3D4",
+        "coverage": 0.90909,
+        "true_chopping": "2-278_371-420"
+    },
+    {
+        "pdb_id": "3k5l",
+        "pdb_length": 781,
+        "alphafold_length": 783,
+        "chain_id": "A",
+        "uniprot_id": "P21189",
+        "coverage": 0.99745,
+        "true_chopping": "393-639"
+    },
+    {
+        "pdb_id": "3tos",
+        "pdb_length": 247,
+        "alphafold_length": 257,
+        "chain_id": "J",
+        "uniprot_id": "Q8KNF1",
+        "coverage": 0.96109,
+        "true_chopping": "7-257"
+    },
+    {
+        "pdb_id": "7zhu",
+        "pdb_length": 543,
+        "alphafold_length": 562,
+        "chain_id": "B",
+        "uniprot_id": "A2CIL3",
+        "coverage": 0.96619,
+        "true_chopping": "5-253_482-495"
+    },
+    {
+        "pdb_id": "4qgr",
+        "pdb_length": 376,
+        "alphafold_length": 374,
+        "chain_id": "A",
+        "uniprot_id": "Q2YRB9",
+        "coverage": 1.00535,
+        "true_chopping": "250-381"
+    },
+    {
+        "pdb_id": "2ihy",
+        "pdb_length": 251,
+        "alphafold_length": 260,
+        "chain_id": "B",
+        "uniprot_id": "A0A0H2WZ98",
+        "coverage": 0.96538,
+        "true_chopping": "20-278"
+    },
+    {
+        "pdb_id": "3vw7",
+        "pdb_length": 442,
+        "alphafold_length": 425,
+        "chain_id": "A",
+        "uniprot_id": "P25116",
+        "coverage": 1.04,
+        "true_chopping": "9-223_377-455"
+    },
+    {
+        "pdb_id": "2nlz",
+        "pdb_length": 536,
+        "alphafold_length": 539,
+        "chain_id": "A",
+        "uniprot_id": "Q9KEI5",
+        "coverage": 0.99443,
+        "true_chopping": "3-539"
+    },
+    {
+        "pdb_id": "2w49",
+        "pdb_length": 159,
+        "alphafold_length": 163,
+        "chain_id": "9",
+        "uniprot_id": "P02588",
+        "coverage": 0.97546,
+        "true_chopping": "87-159"
+    },
+    {
+        "pdb_id": "7wbu",
+        "pdb_length": 898,
+        "alphafold_length": 996,
+        "chain_id": "A",
+        "uniprot_id": "Q288C4",
+        "coverage": 0.90161,
+        "true_chopping": "30-237,322-383,384-537,538-932"
+    },
+    {
+        "pdb_id": "2wsk",
+        "pdb_length": 654,
+        "alphafold_length": 657,
+        "chain_id": "A",
+        "uniprot_id": "P15067",
+        "coverage": 0.99543,
+        "true_chopping": "4-135,136-570,571-657"
+    },
+    {
+        "pdb_id": "5zxn",
+        "pdb_length": 324,
+        "alphafold_length": 340,
+        "chain_id": "B",
+        "uniprot_id": "A0A4V8GZL3",
+        "coverage": 0.95294,
+        "true_chopping": "2-114_291-340"
+    },
+    {
+        "pdb_id": "5ib9",
+        "pdb_length": 412,
+        "alphafold_length": 456,
+        "chain_id": "A",
+        "uniprot_id": "A2V759",
+        "coverage": 0.90351,
+        "true_chopping": "5-86_193-416,87-192"
+    },
+    {
+        "pdb_id": "3f4l",
+        "pdb_length": 340,
+        "alphafold_length": 345,
+        "chain_id": "F",
+        "uniprot_id": "P46853",
+        "coverage": 0.98551,
+        "true_chopping": "2-128_297-345,127-296"
+    },
+    {
+        "pdb_id": "2c4m",
+        "pdb_length": 791,
+        "alphafold_length": 796,
+        "chain_id": "C",
+        "uniprot_id": "Q8KQ56",
+        "coverage": 0.99372,
+        "true_chopping": "6-438"
+    },
+    {
+        "pdb_id": "8cxa",
+        "pdb_length": 251,
+        "alphafold_length": 251,
+        "chain_id": "B",
+        "uniprot_id": "A0QVD5",
+        "coverage": 1.0,
+        "true_chopping": "23-273"
+    },
+    {
+        "pdb_id": "2ve3",
+        "pdb_length": 435,
+        "alphafold_length": 444,
+        "chain_id": "A",
+        "uniprot_id": "Q59990",
+        "coverage": 0.97973,
+        "true_chopping": "9-443"
+    },
+    {
+        "pdb_id": "8fw5",
+        "pdb_length": 285,
+        "alphafold_length": 314,
+        "chain_id": "E",
+        "uniprot_id": "O74544",
+        "coverage": 0.90764,
+        "true_chopping": "177-314"
+    },
+    {
+        "pdb_id": "5c5d",
+        "pdb_length": 158,
+        "alphafold_length": 159,
+        "chain_id": "B",
+        "uniprot_id": "Q73PV9",
+        "coverage": 0.99371,
+        "true_chopping": "1-158"
+    },
+    {
+        "pdb_id": "5y58",
+        "pdb_length": 548,
+        "alphafold_length": 602,
+        "chain_id": "A",
+        "uniprot_id": "P32807",
+        "coverage": 0.9103,
+        "true_chopping": "234-557"
+    },
+    {
+        "pdb_id": "6soy",
+        "pdb_length": 313,
+        "alphafold_length": 338,
+        "chain_id": "B",
+        "uniprot_id": "Q8WPU2",
+        "coverage": 0.92604,
+        "true_chopping": "18-337"
+    },
+    {
+        "pdb_id": "1w0s",
+        "pdb_length": 442,
+        "alphafold_length": 469,
+        "chain_id": "B",
+        "uniprot_id": "P27918",
+        "coverage": 0.94243,
+        "true_chopping": "1-50,51-107"
+    },
+    {
+        "pdb_id": "1ezw",
+        "pdb_length": 347,
+        "alphafold_length": 349,
+        "chain_id": "A",
+        "uniprot_id": "Q8TXY4",
+        "coverage": 0.99427,
+        "true_chopping": "2-348"
+    },
+    {
+        "pdb_id": "2een",
+        "pdb_length": 177,
+        "alphafold_length": 183,
+        "chain_id": "A",
+        "uniprot_id": "O59483",
+        "coverage": 0.96721,
+        "true_chopping": "2-178"
+    },
+    {
+        "pdb_id": "2cyy",
+        "pdb_length": 147,
+        "alphafold_length": 151,
+        "chain_id": "A",
+        "uniprot_id": "O59188",
+        "coverage": 0.97351,
+        "true_chopping": "5-64,65-150"
+    },
+    {
+        "pdb_id": "3alu",
+        "pdb_length": 157,
+        "alphafold_length": 157,
+        "chain_id": "C",
+        "uniprot_id": "Q7M4F9",
+        "coverage": 1.0,
+        "true_chopping": "1-157"
+    },
+    {
+        "pdb_id": "4k28",
+        "pdb_length": 266,
+        "alphafold_length": 269,
+        "chain_id": "B",
+        "uniprot_id": "Q88JP1",
+        "coverage": 0.98885,
+        "true_chopping": "106-266"
+    },
+    {
+        "pdb_id": "5ayk",
+        "pdb_length": 744,
+        "alphafold_length": 793,
+        "chain_id": "A",
+        "uniprot_id": "Q9DC23",
+        "coverage": 0.93821,
+        "true_chopping": "444-546,547-659"
+    },
+    {
+        "pdb_id": "6gmf",
+        "pdb_length": 386,
+        "alphafold_length": 397,
+        "chain_id": "A",
+        "uniprot_id": "A0A017T5A5",
+        "coverage": 0.97229,
+        "true_chopping": "1-397"
+    },
+    {
+        "pdb_id": "6cmz",
+        "pdb_length": 459,
+        "alphafold_length": 463,
+        "chain_id": "D",
+        "uniprot_id": "B4EEF2",
+        "coverage": 0.99136,
+        "true_chopping": "5-157_274-343"
+    },
+    {
+        "pdb_id": "3vqi",
+        "pdb_length": 256,
+        "alphafold_length": 271,
+        "chain_id": "D",
+        "uniprot_id": "W0T4V8",
+        "coverage": 0.94465,
+        "true_chopping": "4-135"
+    },
+    {
+        "pdb_id": "3lfk",
+        "pdb_length": 122,
+        "alphafold_length": 126,
+        "chain_id": "A",
+        "uniprot_id": "Q97AP8",
+        "coverage": 0.96825,
+        "true_chopping": "2-123"
+    },
+    {
+        "pdb_id": "7soy",
+        "pdb_length": 288,
+        "alphafold_length": 309,
+        "chain_id": "C",
+        "uniprot_id": "P67775",
+        "coverage": 0.93204,
+        "true_chopping": "6-293"
+    },
+    {
+        "pdb_id": "1yir",
+        "pdb_length": 390,
+        "alphafold_length": 398,
+        "chain_id": "D",
+        "uniprot_id": "Q9HW26",
+        "coverage": 0.9799,
+        "true_chopping": "4-144"
+    },
+    {
+        "pdb_id": "3bwx",
+        "pdb_length": 275,
+        "alphafold_length": 284,
+        "chain_id": "A",
+        "uniprot_id": "Q2G9T7",
+        "coverage": 0.96831,
+        "true_chopping": "1-285"
+    },
+    {
+        "pdb_id": "5iq4",
+        "pdb_length": 445,
+        "alphafold_length": 447,
+        "chain_id": "A",
+        "uniprot_id": "A3SLM3",
+        "coverage": 0.99553,
+        "true_chopping": "2-169_272-446"
+    },
+    {
+        "pdb_id": "4fuq",
+        "pdb_length": 488,
+        "alphafold_length": 503,
+        "chain_id": "A",
+        "uniprot_id": "Q6ND88",
+        "coverage": 0.97018,
+        "true_chopping": "1-147"
+    },
+    {
+        "pdb_id": "6lum",
+        "pdb_length": 238,
+        "alphafold_length": 261,
+        "chain_id": "Q",
+        "uniprot_id": "A0QT07",
+        "coverage": 0.91188,
+        "true_chopping": "23-132,133-260"
+    },
+    {
+        "pdb_id": "4cvk",
+        "pdb_length": 438,
+        "alphafold_length": 458,
+        "chain_id": "A",
+        "uniprot_id": "Q9HVZ7",
+        "coverage": 0.95633,
+        "true_chopping": "1-100,312-451"
+    },
+    {
+        "pdb_id": "7jqy",
+        "pdb_length": 293,
+        "alphafold_length": 309,
+        "chain_id": "F",
+        "uniprot_id": "B4EJL9",
+        "coverage": 0.94822,
+        "true_chopping": "11-303"
+    },
+    {
+        "pdb_id": "8oo2",
+        "pdb_length": 177,
+        "alphafold_length": 190,
+        "chain_id": "A",
+        "uniprot_id": "V9XTV0",
+        "coverage": 0.93158,
+        "true_chopping": "5-75"
+    },
+    {
+        "pdb_id": "5vkv",
+        "pdb_length": 224,
+        "alphafold_length": 222,
+        "chain_id": "A",
+        "uniprot_id": "Q5SIG0",
+        "coverage": 1.00901,
+        "true_chopping": "1-222"
+    },
+    {
+        "pdb_id": "4c97",
+        "pdb_length": 233,
+        "alphafold_length": 239,
+        "chain_id": "A",
+        "uniprot_id": "Q5SM65",
+        "coverage": 0.9749,
+        "true_chopping": "120-243"
+    },
+    {
+        "pdb_id": "5joz",
+        "pdb_length": 507,
+        "alphafold_length": 529,
+        "chain_id": "A",
+        "uniprot_id": "A7LXU0",
+        "coverage": 0.95841,
+        "true_chopping": "307-507"
+    },
+    {
+        "pdb_id": "3ljs",
+        "pdb_length": 315,
+        "alphafold_length": 338,
+        "chain_id": "B",
+        "uniprot_id": "Q87CC0",
+        "coverage": 0.93195,
+        "true_chopping": "4-330"
+    },
+    {
+        "pdb_id": "6g60",
+        "pdb_length": 505,
+        "alphafold_length": 512,
+        "chain_id": "B",
+        "uniprot_id": "O69787",
+        "coverage": 0.98633,
+        "true_chopping": "1-506"
+    },
+    {
+        "pdb_id": "7vyq",
+        "pdb_length": 280,
+        "alphafold_length": 279,
+        "chain_id": "A",
+        "uniprot_id": "G8BHG6",
+        "coverage": 1.00358,
+        "true_chopping": "1-280"
+    },
+    {
+        "pdb_id": "5vnl",
+        "pdb_length": 699,
+        "alphafold_length": 765,
+        "chain_id": "A",
+        "uniprot_id": "Q15436",
+        "coverage": 0.91373,
+        "true_chopping": "126-393"
+    },
+    {
+        "pdb_id": "3rxz",
+        "pdb_length": 278,
+        "alphafold_length": 297,
+        "chain_id": "A",
+        "uniprot_id": "A0R0G0",
+        "coverage": 0.93603,
+        "true_chopping": "11-296"
+    },
+    {
+        "pdb_id": "6ey4",
+        "pdb_length": 483,
+        "alphafold_length": 513,
+        "chain_id": "A",
+        "uniprot_id": "Q5EGM3",
+        "coverage": 0.94152,
+        "true_chopping": "221-310,311-394,395-501"
+    },
+    {
+        "pdb_id": "4ony",
+        "pdb_length": 583,
+        "alphafold_length": 615,
+        "chain_id": "B",
+        "uniprot_id": "C0RL96",
+        "coverage": 0.94797,
+        "true_chopping": "86-190"
+    },
+    {
+        "pdb_id": "1kmn",
+        "pdb_length": 387,
+        "alphafold_length": 424,
+        "chain_id": "C",
+        "uniprot_id": "P60906",
+        "coverage": 0.91274,
+        "true_chopping": "326-424"
+    },
+    {
+        "pdb_id": "3lp8",
+        "pdb_length": 421,
+        "alphafold_length": 421,
+        "chain_id": "A",
+        "uniprot_id": "Q2GFJ0",
+        "coverage": 1.0,
+        "true_chopping": "22-122"
+    },
+    {
+        "pdb_id": "7v1o",
+        "pdb_length": 286,
+        "alphafold_length": 293,
+        "chain_id": "B",
+        "uniprot_id": "O35403",
+        "coverage": 0.97611,
+        "true_chopping": "5-290"
+    },
+    {
+        "pdb_id": "7ezb",
+        "pdb_length": 171,
+        "alphafold_length": 182,
+        "chain_id": "B",
+        "uniprot_id": "A0A135VL07",
+        "coverage": 0.93956,
+        "true_chopping": "1-179"
+    },
+    {
+        "pdb_id": "2bhu",
+        "pdb_length": 580,
+        "alphafold_length": 600,
+        "chain_id": "A",
+        "uniprot_id": "Q9RX51",
+        "coverage": 0.96667,
+        "true_chopping": "14-110,111-530,531-602"
+    },
+    {
+        "pdb_id": "7ckj",
+        "pdb_length": 206,
+        "alphafold_length": 208,
+        "chain_id": "A",
+        "uniprot_id": "Q5SL35",
+        "coverage": 0.99038,
+        "true_chopping": "1-208"
+    },
+    {
+        "pdb_id": "8fvi",
+        "pdb_length": 180,
+        "alphafold_length": 200,
+        "chain_id": "A",
+        "uniprot_id": "Q6NTF7",
+        "coverage": 0.9,
+        "true_chopping": "10-189"
+    },
+    {
+        "pdb_id": "2wtm",
+        "pdb_length": 250,
+        "alphafold_length": 251,
+        "chain_id": "C",
+        "uniprot_id": "D2YW37",
+        "coverage": 0.99602,
+        "true_chopping": "1-250"
+    },
+    {
+        "pdb_id": "2lzf",
+        "pdb_length": 68,
+        "alphafold_length": 65,
+        "chain_id": "A",
+        "uniprot_id": "O31697",
+        "coverage": 1.04615,
+        "true_chopping": "1-68"
+    },
+    {
+        "pdb_id": "1fuu",
+        "pdb_length": 369,
+        "alphafold_length": 395,
+        "chain_id": "B",
+        "uniprot_id": "P10081",
+        "coverage": 0.93418,
+        "true_chopping": "233-394"
+    },
+    {
+        "pdb_id": "3por",
+        "pdb_length": 301,
+        "alphafold_length": 301,
+        "chain_id": "A",
+        "uniprot_id": "P31243",
+        "coverage": 1.0,
+        "true_chopping": "1-301"
+    },
+    {
+        "pdb_id": "6d6z",
+        "pdb_length": 393,
+        "alphafold_length": 417,
+        "chain_id": "A",
+        "uniprot_id": "D9TSN9",
+        "coverage": 0.94245,
+        "true_chopping": "2-30_266-330_352-415"
+    },
+    {
+        "pdb_id": "7stw",
+        "pdb_length": 170,
+        "alphafold_length": 185,
+        "chain_id": "H",
+        "uniprot_id": "Q8U1L3",
+        "coverage": 0.91892,
+        "true_chopping": "14-183"
+    },
+    {
+        "pdb_id": "1z6o",
+        "pdb_length": 191,
+        "alphafold_length": 211,
+        "chain_id": "U",
+        "uniprot_id": "A0A7E5WTY7",
+        "coverage": 0.90521,
+        "true_chopping": "1-191"
+    },
+    {
+        "pdb_id": "3c0k",
+        "pdb_length": 386,
+        "alphafold_length": 396,
+        "chain_id": "B",
+        "uniprot_id": "P75876",
+        "coverage": 0.97475,
+        "true_chopping": "71-396"
+    },
+    {
+        "pdb_id": "8hka",
+        "pdb_length": 299,
+        "alphafold_length": 322,
+        "chain_id": "A",
+        "uniprot_id": "A0A0K8P8D2",
+        "coverage": 0.92857,
+        "true_chopping": "1-99_227-299,100-226"
+    },
+    {
+        "pdb_id": "1gvf",
+        "pdb_length": 273,
+        "alphafold_length": 286,
+        "chain_id": "A",
+        "uniprot_id": "P0AB74",
+        "coverage": 0.95455,
+        "true_chopping": "2-285"
+    },
+    {
+        "pdb_id": "2kif",
+        "pdb_length": 102,
+        "alphafold_length": 100,
+        "chain_id": "A",
+        "uniprot_id": "A6B4U8",
+        "coverage": 1.02,
+        "true_chopping": "1-100"
+    },
+    {
+        "pdb_id": "4wyd",
+        "pdb_length": 430,
+        "alphafold_length": 437,
+        "chain_id": "B",
+        "uniprot_id": "P9WQ81",
+        "coverage": 0.98398,
+        "true_chopping": "27-360"
+    },
+    {
+        "pdb_id": "1dc1",
+        "pdb_length": 310,
+        "alphafold_length": 323,
+        "chain_id": "A",
+        "uniprot_id": "P70985",
+        "coverage": 0.95975,
+        "true_chopping": "5-323"
+    },
+    {
+        "pdb_id": "2noq",
+        "pdb_length": 165,
+        "alphafold_length": 174,
+        "chain_id": "H",
+        "uniprot_id": "Q3E757",
+        "coverage": 0.94828,
+        "true_chopping": "1-165"
+    },
+    {
+        "pdb_id": "2b7u",
+        "pdb_length": 251,
+        "alphafold_length": 257,
+        "chain_id": "A",
+        "uniprot_id": "P84786",
+        "coverage": 0.97665,
+        "true_chopping": "4-257"
+    },
+    {
+        "pdb_id": "1nuy",
+        "pdb_length": 328,
+        "alphafold_length": 338,
+        "chain_id": "A",
+        "uniprot_id": "P00636",
+        "coverage": 0.97041,
+        "true_chopping": "200-334"
+    },
+    {
+        "pdb_id": "2ekd",
+        "pdb_length": 199,
+        "alphafold_length": 207,
+        "chain_id": "A",
+        "uniprot_id": "O57988",
+        "coverage": 0.96135,
+        "true_chopping": "3-205"
+    },
+    {
+        "pdb_id": "2vs7",
+        "pdb_length": 179,
+        "alphafold_length": 194,
+        "chain_id": "A",
+        "uniprot_id": "P21505",
+        "coverage": 0.92268,
+        "true_chopping": "100-182"
+    },
+    {
+        "pdb_id": "3u04",
+        "pdb_length": 172,
+        "alphafold_length": 188,
+        "chain_id": "A",
+        "uniprot_id": "Q2GI30",
+        "coverage": 0.91489,
+        "true_chopping": "3-187"
+    },
+    {
+        "pdb_id": "3bh1",
+        "pdb_length": 487,
+        "alphafold_length": 497,
+        "chain_id": "D",
+        "uniprot_id": "Q6NEC9",
+        "coverage": 0.97988,
+        "true_chopping": "5-341,342-491"
+    },
+    {
+        "pdb_id": "1ztf",
+        "pdb_length": 243,
+        "alphafold_length": 258,
+        "chain_id": "A",
+        "uniprot_id": "O28471",
+        "coverage": 0.94186,
+        "true_chopping": "5-257"
+    },
+    {
+        "pdb_id": "2yy5",
+        "pdb_length": 334,
+        "alphafold_length": 346,
+        "chain_id": "A",
+        "uniprot_id": "P75510",
+        "coverage": 0.96532,
+        "true_chopping": "4-348"
+    },
+    {
+        "pdb_id": "1umd",
+        "pdb_length": 361,
+        "alphafold_length": 367,
+        "chain_id": "C",
+        "uniprot_id": "Q5SLR4",
+        "coverage": 0.98365,
+        "true_chopping": "6-366"
+    },
+    {
+        "pdb_id": "3oet",
+        "pdb_length": 367,
+        "alphafold_length": 378,
+        "chain_id": "C",
+        "uniprot_id": "P60802",
+        "coverage": 0.9709,
+        "true_chopping": "254-379"
+    },
+    {
+        "pdb_id": "5med",
+        "pdb_length": 565,
+        "alphafold_length": 569,
+        "chain_id": "B",
+        "uniprot_id": "B7JX99",
+        "coverage": 0.99297,
+        "true_chopping": "1-569"
+    },
+    {
+        "pdb_id": "2vk4",
+        "pdb_length": 560,
+        "alphafold_length": 563,
+        "chain_id": "D",
+        "uniprot_id": "Q12629",
+        "coverage": 0.99467,
+        "true_chopping": "360-563"
+    },
+    {
+        "pdb_id": "3h1q",
+        "pdb_length": 269,
+        "alphafold_length": 269,
+        "chain_id": "B",
+        "uniprot_id": "Q3AE93",
+        "coverage": 1.0,
+        "true_chopping": "138-272"
+    },
+    {
+        "pdb_id": "5ysq",
+        "pdb_length": 279,
+        "alphafold_length": 286,
+        "chain_id": "A",
+        "uniprot_id": "Q9WYP6",
+        "coverage": 0.97552,
+        "true_chopping": "1-285"
+    },
+    {
+        "pdb_id": "2vk8",
+        "pdb_length": 562,
+        "alphafold_length": 563,
+        "chain_id": "A",
+        "uniprot_id": "P06169",
+        "coverage": 0.99822,
+        "true_chopping": "2-180,181-359"
+    },
+    {
+        "pdb_id": "2zds",
+        "pdb_length": 318,
+        "alphafold_length": 332,
+        "chain_id": "F",
+        "uniprot_id": "O69946",
+        "coverage": 0.95783,
+        "true_chopping": "2-323"
+    },
+    {
+        "pdb_id": "6tve",
+        "pdb_length": 524,
+        "alphafold_length": 574,
+        "chain_id": "P",
+        "uniprot_id": "P21589",
+        "coverage": 0.91289,
+        "true_chopping": "23-328,329-546"
+    },
+    {
+        "pdb_id": "1wzn",
+        "pdb_length": 244,
+        "alphafold_length": 252,
+        "chain_id": "C",
+        "uniprot_id": "O59000",
+        "coverage": 0.96825,
+        "true_chopping": "1-251"
+    },
+    {
+        "pdb_id": "2o14",
+        "pdb_length": 345,
+        "alphafold_length": 382,
+        "chain_id": "A",
+        "uniprot_id": "P42304",
+        "coverage": 0.90314,
+        "true_chopping": "160-367"
+    },
+    {
+        "pdb_id": "1pjc",
+        "pdb_length": 361,
+        "alphafold_length": 361,
+        "chain_id": "A",
+        "uniprot_id": "O52942",
+        "coverage": 1.0,
+        "true_chopping": "136-303"
+    },
+    {
+        "pdb_id": "8bkd",
+        "pdb_length": 220,
+        "alphafold_length": 230,
+        "chain_id": "K",
+        "uniprot_id": "P75897",
+        "coverage": 0.95652,
+        "true_chopping": "2-224"
+    },
+    {
+        "pdb_id": "3sjn",
+        "pdb_length": 373,
+        "alphafold_length": 373,
+        "chain_id": "A",
+        "uniprot_id": "A8H9D1",
+        "coverage": 1.0,
+        "true_chopping": "2-129,130-374"
+    },
+    {
+        "pdb_id": "4hms",
+        "pdb_length": 202,
+        "alphafold_length": 222,
+        "chain_id": "A",
+        "uniprot_id": "Q51793",
+        "coverage": 0.90991,
+        "true_chopping": "24-225"
+    },
+    {
+        "pdb_id": "7ls5",
+        "pdb_length": 196,
+        "alphafold_length": 215,
+        "chain_id": "H",
+        "uniprot_id": "P38624",
+        "coverage": 0.91163,
+        "true_chopping": "20-215"
+    },
+    {
+        "pdb_id": "7m3k",
+        "pdb_length": 587,
+        "alphafold_length": 601,
+        "chain_id": "A",
+        "uniprot_id": "Q2YJ21",
+        "coverage": 0.97671,
+        "true_chopping": "19-392,393-605"
+    },
+    {
+        "pdb_id": "6jz2",
+        "pdb_length": 596,
+        "alphafold_length": 603,
+        "chain_id": "B",
+        "uniprot_id": "Q6W7J7",
+        "coverage": 0.98839,
+        "true_chopping": "210-302,297-621"
+    },
+    {
+        "pdb_id": "2r3v",
+        "pdb_length": 390,
+        "alphafold_length": 396,
+        "chain_id": "C",
+        "uniprot_id": "Q03426",
+        "coverage": 0.98485,
+        "true_chopping": "2-209"
+    },
+    {
+        "pdb_id": "1mdb",
+        "pdb_length": 536,
+        "alphafold_length": 539,
+        "chain_id": "A",
+        "uniprot_id": "P40871",
+        "coverage": 0.99443,
+        "true_chopping": "429-536"
+    },
+    {
+        "pdb_id": "6rea",
+        "pdb_length": 538,
+        "alphafold_length": 574,
+        "chain_id": "X",
+        "uniprot_id": "A0ZW41",
+        "coverage": 0.93728,
+        "true_chopping": "109-574"
+    },
+    {
+        "pdb_id": "4rgi",
+        "pdb_length": 68,
+        "alphafold_length": 70,
+        "chain_id": "A",
+        "uniprot_id": "A0A2U2H2V6",
+        "coverage": 0.97143,
+        "true_chopping": "4-73"
+    },
+    {
+        "pdb_id": "6rqa",
+        "pdb_length": 322,
+        "alphafold_length": 320,
+        "chain_id": "A",
+        "uniprot_id": "A1B8Z0",
+        "coverage": 1.00625,
+        "true_chopping": "20-131_315-341,132-314"
+    },
+    {
+        "pdb_id": "2qed",
+        "pdb_length": 252,
+        "alphafold_length": 251,
+        "chain_id": "A",
+        "uniprot_id": "Q8ZRM2",
+        "coverage": 1.00398,
+        "true_chopping": "8-258"
+    },
+    {
+        "pdb_id": "1t9i",
+        "pdb_length": 155,
+        "alphafold_length": 163,
+        "chain_id": "B",
+        "uniprot_id": "P05725",
+        "coverage": 0.95092,
+        "true_chopping": "2-154"
+    },
+    {
+        "pdb_id": "7n97",
+        "pdb_length": 2331,
+        "alphafold_length": 2366,
+        "chain_id": "A",
+        "uniprot_id": "P18177",
+        "coverage": 0.98521,
+        "true_chopping": "2109-2232"
+    },
+    {
+        "pdb_id": "4yah",
+        "pdb_length": 245,
+        "alphafold_length": 271,
+        "chain_id": "X",
+        "uniprot_id": "P28635",
+        "coverage": 0.90406,
+        "true_chopping": "112-227"
+    },
+    {
+        "pdb_id": "6h3j",
+        "pdb_length": 397,
+        "alphafold_length": 419,
+        "chain_id": "C",
+        "uniprot_id": "A5FJ36",
+        "coverage": 0.94749,
+        "true_chopping": "23-154"
+    },
+    {
+        "pdb_id": "4hzd",
+        "pdb_length": 250,
+        "alphafold_length": 274,
+        "chain_id": "A",
+        "uniprot_id": "A0A0F6AR69",
+        "coverage": 0.91241,
+        "true_chopping": "11-151"
+    },
+    {
+        "pdb_id": "4ezb",
+        "pdb_length": 290,
+        "alphafold_length": 294,
+        "chain_id": "A",
+        "uniprot_id": "Q92PI7",
+        "coverage": 0.98639,
+        "true_chopping": "24-186,187-313"
+    },
+    {
+        "pdb_id": "7epg",
+        "pdb_length": 100,
+        "alphafold_length": 101,
+        "chain_id": "A",
+        "uniprot_id": "P62554",
+        "coverage": 0.9901,
+        "true_chopping": "1-100"
+    },
+    {
+        "pdb_id": "6mag",
+        "pdb_length": 282,
+        "alphafold_length": 285,
+        "chain_id": "C",
+        "uniprot_id": "Q5D6Y4",
+        "coverage": 0.98947,
+        "true_chopping": "3-284"
+    },
+    {
+        "pdb_id": "2qhp",
+        "pdb_length": 282,
+        "alphafold_length": 295,
+        "chain_id": "A",
+        "uniprot_id": "Q8A6W9",
+        "coverage": 0.95593,
+        "true_chopping": "3-296"
+    },
+    {
+        "pdb_id": "2l4b",
+        "pdb_length": 88,
+        "alphafold_length": 84,
+        "chain_id": "A",
+        "uniprot_id": "Q2GJE9",
+        "coverage": 1.04762,
+        "true_chopping": "6-88"
+    },
+    {
+        "pdb_id": "5gzy",
+        "pdb_length": 291,
+        "alphafold_length": 301,
+        "chain_id": "C",
+        "uniprot_id": "Q52086",
+        "coverage": 0.96678,
+        "true_chopping": "119-300"
+    },
+    {
+        "pdb_id": "4zg5",
+        "pdb_length": 247,
+        "alphafold_length": 255,
+        "chain_id": "A",
+        "uniprot_id": "B2S5B9",
+        "coverage": 0.96863,
+        "true_chopping": "1-250"
+    },
+    {
+        "pdb_id": "5hli",
+        "pdb_length": 146,
+        "alphafold_length": 146,
+        "chain_id": "A",
+        "uniprot_id": "Q5HKZ1",
+        "coverage": 1.0,
+        "true_chopping": "1-149"
+    },
+    {
+        "pdb_id": "2jbh",
+        "pdb_length": 212,
+        "alphafold_length": 225,
+        "chain_id": "B",
+        "uniprot_id": "Q9NRG1",
+        "coverage": 0.94222,
+        "true_chopping": "9-225"
+    },
+    {
+        "pdb_id": "7lc3",
+        "pdb_length": 557,
+        "alphafold_length": 557,
+        "chain_id": "A",
+        "uniprot_id": "P03959",
+        "coverage": 1.0,
+        "true_chopping": "405-557"
+    },
+    {
+        "pdb_id": "6vm4",
+        "pdb_length": 129,
+        "alphafold_length": 134,
+        "chain_id": "e",
+        "uniprot_id": "P00833",
+        "coverage": 0.96269,
+        "true_chopping": "3-84"
+    },
+    {
+        "pdb_id": "7qb8",
+        "pdb_length": 221,
+        "alphafold_length": 229,
+        "chain_id": "A",
+        "uniprot_id": "V7PYQ5",
+        "coverage": 0.96507,
+        "true_chopping": "1-230"
+    },
+    {
+        "pdb_id": "1xru",
+        "pdb_length": 270,
+        "alphafold_length": 278,
+        "chain_id": "A",
+        "uniprot_id": "Q46938",
+        "coverage": 0.97122,
+        "true_chopping": "152-280"
+    },
+    {
+        "pdb_id": "8dr1",
+        "pdb_length": 330,
+        "alphafold_length": 340,
+        "chain_id": "C",
+        "uniprot_id": "P38629",
+        "coverage": 0.97059,
+        "true_chopping": "237-336"
+    },
+    {
+        "pdb_id": "7ciw",
+        "pdb_length": 216,
+        "alphafold_length": 216,
+        "chain_id": "A",
+        "uniprot_id": "Q9W469",
+        "coverage": 1.0,
+        "true_chopping": "1-216"
+    },
+    {
+        "pdb_id": "6gi4",
+        "pdb_length": 190,
+        "alphafold_length": 203,
+        "chain_id": "B",
+        "uniprot_id": "P0C960",
+        "coverage": 0.93596,
+        "true_chopping": "2-191"
+    },
+    {
+        "pdb_id": "2x8s",
+        "pdb_length": 443,
+        "alphafold_length": 469,
+        "chain_id": "B",
+        "uniprot_id": "P42293",
+        "coverage": 0.94456,
+        "true_chopping": "371-470"
+    },
+    {
+        "pdb_id": "7e8s",
+        "pdb_length": 151,
+        "alphafold_length": 159,
+        "chain_id": "D",
+        "uniprot_id": "Q03630",
+        "coverage": 0.94969,
+        "true_chopping": "2-157"
+    },
+    {
+        "pdb_id": "2g0b",
+        "pdb_length": 181,
+        "alphafold_length": 196,
+        "chain_id": "E",
+        "uniprot_id": "Q8KNZ7",
+        "coverage": 0.92347,
+        "true_chopping": "4-193"
+    },
+    {
+        "pdb_id": "4uyb",
+        "pdb_length": 401,
+        "alphafold_length": 400,
+        "chain_id": "A",
+        "uniprot_id": "Q9UDX4",
+        "coverage": 1.0025,
+        "true_chopping": "1-76,77-275"
+    },
+    {
+        "pdb_id": "4mmh",
+        "pdb_length": 637,
+        "alphafold_length": 659,
+        "chain_id": "A",
+        "uniprot_id": "Q59289",
+        "coverage": 0.96662,
+        "true_chopping": "364-635"
+    },
+    {
+        "pdb_id": "1j0h",
+        "pdb_length": 588,
+        "alphafold_length": 588,
+        "chain_id": "A",
+        "uniprot_id": "P38940",
+        "coverage": 1.0,
+        "true_chopping": "1-123,506-588"
+    },
+    {
+        "pdb_id": "6pd2",
+        "pdb_length": 608,
+        "alphafold_length": 616,
+        "chain_id": "D",
+        "uniprot_id": "Q73MU2",
+        "coverage": 0.98701,
+        "true_chopping": "1-250,251-510"
+    },
+    {
+        "pdb_id": "4jvt",
+        "pdb_length": 253,
+        "alphafold_length": 275,
+        "chain_id": "A",
+        "uniprot_id": "Q47NQ8",
+        "coverage": 0.92,
+        "true_chopping": "25-290"
+    },
+    {
+        "pdb_id": "2hke",
+        "pdb_length": 377,
+        "alphafold_length": 382,
+        "chain_id": "A",
+        "uniprot_id": "Q388P2",
+        "coverage": 0.98691,
+        "true_chopping": "183-380"
+    },
+    {
+        "pdb_id": "1wz9",
+        "pdb_length": 357,
+        "alphafold_length": 375,
+        "chain_id": "A",
+        "uniprot_id": "P36952",
+        "coverage": 0.952,
+        "true_chopping": "1-375"
+    },
+    {
+        "pdb_id": "6kd7",
+        "pdb_length": 327,
+        "alphafold_length": 327,
+        "chain_id": "A",
+        "uniprot_id": "L7W5I6",
+        "coverage": 1.0,
+        "true_chopping": "1-327"
+    },
+    {
+        "pdb_id": "3mcw",
+        "pdb_length": 189,
+        "alphafold_length": 197,
+        "chain_id": "B",
+        "uniprot_id": "Q7NYF4",
+        "coverage": 0.95939,
+        "true_chopping": "2-194"
+    },
+    {
+        "pdb_id": "1x6v",
+        "pdb_length": 586,
+        "alphafold_length": 624,
+        "chain_id": "B",
+        "uniprot_id": "O43252",
+        "coverage": 0.9391,
+        "true_chopping": "390-623"
+    },
+    {
+        "pdb_id": "2ux9",
+        "pdb_length": 67,
+        "alphafold_length": 69,
+        "chain_id": "B",
+        "uniprot_id": "Q5SIE3",
+        "coverage": 0.97101,
+        "true_chopping": "2-67"
+    },
+    {
+        "pdb_id": "5dte",
+        "pdb_length": 286,
+        "alphafold_length": 313,
+        "chain_id": "C",
+        "uniprot_id": "A6VKG5",
+        "coverage": 0.91374,
+        "true_chopping": "137-270"
+    },
+    {
+        "pdb_id": "6ll8",
+        "pdb_length": 306,
+        "alphafold_length": 308,
+        "chain_id": "A",
+        "uniprot_id": "L8AXY8",
+        "coverage": 0.99351,
+        "true_chopping": "3-188,189-308"
+    },
+    {
+        "pdb_id": "3niq",
+        "pdb_length": 315,
+        "alphafold_length": 318,
+        "chain_id": "A",
+        "uniprot_id": "Q9I6K2",
+        "coverage": 0.99057,
+        "true_chopping": "4-318"
+    },
+    {
+        "pdb_id": "5y9x",
+        "pdb_length": 298,
+        "alphafold_length": 305,
+        "chain_id": "A",
+        "uniprot_id": "B3DUR4",
+        "coverage": 0.97705,
+        "true_chopping": "11-308"
+    },
+    {
+        "pdb_id": "7luh",
+        "pdb_length": 191,
+        "alphafold_length": 212,
+        "chain_id": "A",
+        "uniprot_id": "Q63Y08",
+        "coverage": 0.90094,
+        "true_chopping": "10-107_128-200"
+    },
+    {
+        "pdb_id": "2it9",
+        "pdb_length": 115,
+        "alphafold_length": 126,
+        "chain_id": "A",
+        "uniprot_id": "Q46J75",
+        "coverage": 0.9127,
+        "true_chopping": "2-123"
+    },
+    {
+        "pdb_id": "3llc",
+        "pdb_length": 251,
+        "alphafold_length": 269,
+        "chain_id": "A",
+        "uniprot_id": "B9JYM4",
+        "coverage": 0.93309,
+        "true_chopping": "7-267"
+    },
+    {
+        "pdb_id": "1ka2",
+        "pdb_length": 497,
+        "alphafold_length": 499,
+        "chain_id": "A",
+        "uniprot_id": "Q8U3L0",
+        "coverage": 0.99599,
+        "true_chopping": "3-499"
+    },
+    {
+        "pdb_id": "3hn7",
+        "pdb_length": 465,
+        "alphafold_length": 505,
+        "chain_id": "A",
+        "uniprot_id": "Q4FVQ2",
+        "coverage": 0.92079,
+        "true_chopping": "20-109,110-283_304-372,373-523"
+    },
+    {
+        "pdb_id": "7ye3",
+        "pdb_length": 276,
+        "alphafold_length": 281,
+        "chain_id": "A",
+        "uniprot_id": "C2JUP1",
+        "coverage": 0.98221,
+        "true_chopping": "2-279"
+    },
+    {
+        "pdb_id": "5cxd",
+        "pdb_length": 121,
+        "alphafold_length": 119,
+        "chain_id": "C",
+        "uniprot_id": "Q5HED0",
+        "coverage": 1.01681,
+        "true_chopping": "2-122"
+    },
+    {
+        "pdb_id": "5mlq",
+        "pdb_length": 224,
+        "alphafold_length": 239,
+        "chain_id": "B",
+        "uniprot_id": "K0F6G5",
+        "coverage": 0.93724,
+        "true_chopping": "5-230"
+    },
+    {
+        "pdb_id": "2p3z",
+        "pdb_length": 405,
+        "alphafold_length": 405,
+        "chain_id": "A",
+        "uniprot_id": "Q8ZNF9",
+        "coverage": 1.0,
+        "true_chopping": "4-165"
+    },
+    {
+        "pdb_id": "2zg6",
+        "pdb_length": 199,
+        "alphafold_length": 220,
+        "chain_id": "B",
+        "uniprot_id": "Q96X90",
+        "coverage": 0.90455,
+        "true_chopping": "1-218"
+    },
+    {
+        "pdb_id": "2mvh",
+        "pdb_length": 26,
+        "alphafold_length": 26,
+        "chain_id": "A",
+        "uniprot_id": "P37817",
+        "coverage": 1.0,
+        "true_chopping": "1-26"
+    },
+    {
+        "pdb_id": "3r5d",
+        "pdb_length": 320,
+        "alphafold_length": 344,
+        "chain_id": "D",
+        "uniprot_id": "G3XD76",
+        "coverage": 0.93023,
+        "true_chopping": "1-168"
+    },
+    {
+        "pdb_id": "5vfa",
+        "pdb_length": 222,
+        "alphafold_length": 229,
+        "chain_id": "B",
+        "uniprot_id": "Q8DR53",
+        "coverage": 0.96943,
+        "true_chopping": "2-125"
+    },
+    {
+        "pdb_id": "1wdj",
+        "pdb_length": 186,
+        "alphafold_length": 187,
+        "chain_id": "C",
+        "uniprot_id": "Q5SI60",
+        "coverage": 0.99465,
+        "true_chopping": "2-187"
+    },
+    {
+        "pdb_id": "2e52",
+        "pdb_length": 298,
+        "alphafold_length": 300,
+        "chain_id": "B",
+        "uniprot_id": "P43870",
+        "coverage": 0.99333,
+        "true_chopping": "3-300"
+    },
+    {
+        "pdb_id": "2hqr",
+        "pdb_length": 223,
+        "alphafold_length": 223,
+        "chain_id": "A",
+        "uniprot_id": "Q9ZM42",
+        "coverage": 1.0,
+        "true_chopping": "118-223"
+    },
+    {
+        "pdb_id": "4xt6",
+        "pdb_length": 237,
+        "alphafold_length": 258,
+        "chain_id": "A",
+        "uniprot_id": "P71968",
+        "coverage": 0.9186,
+        "true_chopping": "42-258"
+    },
+    {
+        "pdb_id": "4i1a",
+        "pdb_length": 359,
+        "alphafold_length": 391,
+        "chain_id": "B",
+        "uniprot_id": "P96649",
+        "coverage": 0.91816,
+        "true_chopping": "14-377"
+    },
+    {
+        "pdb_id": "5euv",
+        "pdb_length": 731,
+        "alphafold_length": 731,
+        "chain_id": "A",
+        "uniprot_id": "D1LZK0",
+        "coverage": 1.0,
+        "true_chopping": "1-151,152-244,245-532,634-731"
+    },
+    {
+        "pdb_id": "1alq",
+        "pdb_length": 259,
+        "alphafold_length": 281,
+        "chain_id": "A",
+        "uniprot_id": "P00807",
+        "coverage": 0.92171,
+        "true_chopping": "4-38_189-266"
+    },
+    {
+        "pdb_id": "4r3u",
+        "pdb_length": 129,
+        "alphafold_length": 136,
+        "chain_id": "D",
+        "uniprot_id": "I3VE74",
+        "coverage": 0.94853,
+        "true_chopping": "15-143"
+    },
+    {
+        "pdb_id": "6vu9",
+        "pdb_length": 631,
+        "alphafold_length": 633,
+        "chain_id": "A",
+        "uniprot_id": "B2FN79",
+        "coverage": 0.99684,
+        "true_chopping": "11-70"
+    },
+    {
+        "pdb_id": "1wet",
+        "pdb_length": 338,
+        "alphafold_length": 341,
+        "chain_id": "A",
+        "uniprot_id": "P0ACP7",
+        "coverage": 0.9912,
+        "true_chopping": "56-158"
+    },
+    {
+        "pdb_id": "6c4m",
+        "pdb_length": 418,
+        "alphafold_length": 456,
+        "chain_id": "C",
+        "uniprot_id": "Q8CKU7",
+        "coverage": 0.91667,
+        "true_chopping": "19-174_199-244"
+    },
+    {
+        "pdb_id": "3ive",
+        "pdb_length": 487,
+        "alphafold_length": 519,
+        "chain_id": "A",
+        "uniprot_id": "A0A0H2VD83",
+        "coverage": 0.93834,
+        "true_chopping": "4-308,309-501"
+    },
+    {
+        "pdb_id": "2o6x",
+        "pdb_length": 306,
+        "alphafold_length": 326,
+        "chain_id": "A",
+        "uniprot_id": "Q24940",
+        "coverage": 0.93865,
+        "true_chopping": "1-86,87-310"
+    },
+    {
+        "pdb_id": "2onf",
+        "pdb_length": 137,
+        "alphafold_length": 139,
+        "chain_id": "B",
+        "uniprot_id": "Q9HLN2",
+        "coverage": 0.98561,
+        "true_chopping": "2-140"
+    },
+    {
+        "pdb_id": "2kmq",
+        "pdb_length": 44,
+        "alphafold_length": 46,
+        "chain_id": "A",
+        "uniprot_id": "P80424",
+        "coverage": 0.95652,
+        "true_chopping": "1-44"
+    },
+    {
+        "pdb_id": "3bqy",
+        "pdb_length": 201,
+        "alphafold_length": 221,
+        "chain_id": "A",
+        "uniprot_id": "Q9S1P1",
+        "coverage": 0.9095,
+        "true_chopping": "3-65,66-207"
+    },
+    {
+        "pdb_id": "3pop",
+        "pdb_length": 493,
+        "alphafold_length": 498,
+        "chain_id": "A",
+        "uniprot_id": "Q7X2G7",
+        "coverage": 0.98996,
+        "true_chopping": "221-501"
+    },
+    {
+        "pdb_id": "7epv",
+        "pdb_length": 369,
+        "alphafold_length": 385,
+        "chain_id": "A",
+        "uniprot_id": "A0A3T0V9Y5",
+        "coverage": 0.95844,
+        "true_chopping": "9-380"
+    },
+    {
+        "pdb_id": "6znh",
+        "pdb_length": 79,
+        "alphafold_length": 80,
+        "chain_id": "D",
+        "uniprot_id": "P41784",
+        "coverage": 0.9875,
+        "true_chopping": "2-80"
+    },
+    {
+        "pdb_id": "5xmj",
+        "pdb_length": 622,
+        "alphafold_length": 627,
+        "chain_id": "M",
+        "uniprot_id": "T2GB49",
+        "coverage": 0.99203,
+        "true_chopping": "460-622"
+    },
+    {
+        "pdb_id": "4n06",
+        "pdb_length": 340,
+        "alphafold_length": 345,
+        "chain_id": "B",
+        "uniprot_id": "O28401",
+        "coverage": 0.98551,
+        "true_chopping": "1-347"
+    },
+    {
+        "pdb_id": "7bn9",
+        "pdb_length": 630,
+        "alphafold_length": 668,
+        "chain_id": "A",
+        "uniprot_id": "P42971",
+        "coverage": 0.94311,
+        "true_chopping": "22-140"
+    },
+    {
+        "pdb_id": "4r6r",
+        "pdb_length": 133,
+        "alphafold_length": 133,
+        "chain_id": "G",
+        "uniprot_id": "P18670",
+        "coverage": 1.0,
+        "true_chopping": "1-133"
+    },
+    {
+        "pdb_id": "4aci",
+        "pdb_length": 176,
+        "alphafold_length": 188,
+        "chain_id": "A",
+        "uniprot_id": "Q8NQ97",
+        "coverage": 0.93617,
+        "true_chopping": "14-75"
+    },
+    {
+        "pdb_id": "6p01",
+        "pdb_length": 252,
+        "alphafold_length": 253,
+        "chain_id": "B",
+        "uniprot_id": "P05057",
+        "coverage": 0.99605,
+        "true_chopping": "5-128"
+    },
+    {
+        "pdb_id": "4tkz",
+        "pdb_length": 130,
+        "alphafold_length": 144,
+        "chain_id": "F",
+        "uniprot_id": "Q8E371",
+        "coverage": 0.90278,
+        "true_chopping": "1-130"
+    },
+    {
+        "pdb_id": "4k0n",
+        "pdb_length": 234,
+        "alphafold_length": 241,
+        "chain_id": "A",
+        "uniprot_id": "O00299",
+        "coverage": 0.97095,
+        "true_chopping": "7-93,94-240"
+    },
+    {
+        "pdb_id": "5b6d",
+        "pdb_length": 316,
+        "alphafold_length": 334,
+        "chain_id": "A",
+        "uniprot_id": "B4Y380",
+        "coverage": 0.94611,
+        "true_chopping": "1-325"
+    },
+    {
+        "pdb_id": "3e0x",
+        "pdb_length": 239,
+        "alphafold_length": 242,
+        "chain_id": "B",
+        "uniprot_id": "Q97KV0",
+        "coverage": 0.9876,
+        "true_chopping": "3-245"
+    },
+    {
+        "pdb_id": "5bqp",
+        "pdb_length": 176,
+        "alphafold_length": 179,
+        "chain_id": "D",
+        "uniprot_id": "Q97W22",
+        "coverage": 0.98324,
+        "true_chopping": "3-156"
+    },
+    {
+        "pdb_id": "3vse",
+        "pdb_length": 390,
+        "alphafold_length": 390,
+        "chain_id": "D",
+        "uniprot_id": "A0A0H3JYW8",
+        "coverage": 1.0,
+        "true_chopping": "1-68"
+    },
+    {
+        "pdb_id": "6nby",
+        "pdb_length": 69,
+        "alphafold_length": 70,
+        "chain_id": "O",
+        "uniprot_id": "Q8DMU4",
+        "coverage": 0.98571,
+        "true_chopping": "2-70"
+    },
+    {
+        "pdb_id": "8b9z",
+        "pdb_length": 173,
+        "alphafold_length": 174,
+        "chain_id": "J",
+        "uniprot_id": "P18933",
+        "coverage": 0.99425,
+        "true_chopping": "22-173"
+    },
+    {
+        "pdb_id": "3ajx",
+        "pdb_length": 207,
+        "alphafold_length": 207,
+        "chain_id": "A",
+        "uniprot_id": "Q9LBW4",
+        "coverage": 1.0,
+        "true_chopping": "1-207"
+    },
+    {
+        "pdb_id": "7d78",
+        "pdb_length": 295,
+        "alphafold_length": 318,
+        "chain_id": "A",
+        "uniprot_id": "J4WAT9",
+        "coverage": 0.92767,
+        "true_chopping": "26-320"
+    },
+    {
+        "pdb_id": "4bvx",
+        "pdb_length": 170,
+        "alphafold_length": 174,
+        "chain_id": "B",
+        "uniprot_id": "O43324",
+        "coverage": 0.97701,
+        "true_chopping": "1-170"
+    },
+    {
+        "pdb_id": "5k2x",
+        "pdb_length": 414,
+        "alphafold_length": 440,
+        "chain_id": "A",
+        "uniprot_id": "P71894",
+        "coverage": 0.94091,
+        "true_chopping": "1-112_289-414,113-288"
+    },
+    {
+        "pdb_id": "5vfk",
+        "pdb_length": 146,
+        "alphafold_length": 138,
+        "chain_id": "A",
+        "uniprot_id": "Q97ZH2",
+        "coverage": 1.05797,
+        "true_chopping": "1-67"
+    },
+    {
+        "pdb_id": "3c7a",
+        "pdb_length": 403,
+        "alphafold_length": 399,
+        "chain_id": "A",
+        "uniprot_id": "Q9BHM6",
+        "coverage": 1.01003,
+        "true_chopping": "197-399"
+    },
+    {
+        "pdb_id": "3sza",
+        "pdb_length": 447,
+        "alphafold_length": 453,
+        "chain_id": "A",
+        "uniprot_id": "P30838",
+        "coverage": 0.98675,
+        "true_chopping": "18-228,229-464"
+    },
+    {
+        "pdb_id": "5lmx",
+        "pdb_length": 1115,
+        "alphafold_length": 1203,
+        "chain_id": "B",
+        "uniprot_id": "P22138",
+        "coverage": 0.92685,
+        "true_chopping": "210-400,1069-1203"
+    },
+    {
+        "pdb_id": "5awo",
+        "pdb_length": 595,
+        "alphafold_length": 636,
+        "chain_id": "A",
+        "uniprot_id": "Q7WSN5",
+        "coverage": 0.93553,
+        "true_chopping": "372-468"
+    },
+    {
+        "pdb_id": "4wqq",
+        "pdb_length": 141,
+        "alphafold_length": 140,
+        "chain_id": "D",
+        "uniprot_id": "Q7M462",
+        "coverage": 1.00714,
+        "true_chopping": "1-141"
+    }
+]

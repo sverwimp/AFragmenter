@@ -1,0 +1,3002 @@
+[
+    {
+        "uniprot_id": "A0A0K0ERT7",
+        "alphafold_length": 486,
+        "chain_id": "A",
+        "true_chopping": "226-445"
+    },
+    {
+        "uniprot_id": "A0A077Z6N3",
+        "alphafold_length": 372,
+        "chain_id": "A",
+        "true_chopping": "1-345"
+    },
+    {
+        "uniprot_id": "A0A0H3GLF3",
+        "alphafold_length": 303,
+        "chain_id": "A",
+        "true_chopping": "1-115"
+    },
+    {
+        "uniprot_id": "Q15477",
+        "alphafold_length": 1246,
+        "chain_id": "A",
+        "true_chopping": "1086-1240"
+    },
+    {
+        "uniprot_id": "P44528",
+        "alphafold_length": 185,
+        "chain_id": "A",
+        "true_chopping": "1-180"
+    },
+    {
+        "uniprot_id": "C0NMZ2",
+        "alphafold_length": 539,
+        "chain_id": "A",
+        "true_chopping": "6-35_171-420,16-170"
+    },
+    {
+        "uniprot_id": "Q8IL66",
+        "alphafold_length": 1280,
+        "chain_id": "A",
+        "true_chopping": "281-330,331-395"
+    },
+    {
+        "uniprot_id": "Q5N6V3",
+        "alphafold_length": 557,
+        "chain_id": "A",
+        "true_chopping": "6-115_141-550"
+    },
+    {
+        "uniprot_id": "P97430",
+        "alphafold_length": 131,
+        "chain_id": "A",
+        "true_chopping": "91-130"
+    },
+    {
+        "uniprot_id": "Q86AZ8",
+        "alphafold_length": 730,
+        "chain_id": "A",
+        "true_chopping": "186-360,361-730"
+    },
+    {
+        "uniprot_id": "Q9HX18",
+        "alphafold_length": 285,
+        "chain_id": "A",
+        "true_chopping": "1-285"
+    },
+    {
+        "uniprot_id": "Q19140",
+        "alphafold_length": 590,
+        "chain_id": "A",
+        "true_chopping": "36-205_231-365_406-520"
+    },
+    {
+        "uniprot_id": "Q38B82",
+        "alphafold_length": 500,
+        "chain_id": "A",
+        "true_chopping": "6-95_122-290"
+    },
+    {
+        "uniprot_id": "O96195",
+        "alphafold_length": 1245,
+        "chain_id": "A",
+        "true_chopping": "311-475"
+    },
+    {
+        "uniprot_id": "O16810",
+        "alphafold_length": 924,
+        "chain_id": "A",
+        "true_chopping": "11-190"
+    },
+    {
+        "uniprot_id": "K0EX18",
+        "alphafold_length": 158,
+        "chain_id": "A",
+        "true_chopping": "41-158"
+    },
+    {
+        "uniprot_id": "A0A0R4IDU8",
+        "alphafold_length": 216,
+        "chain_id": "A",
+        "true_chopping": "1-145"
+    },
+    {
+        "uniprot_id": "A0A3P7DWF5",
+        "alphafold_length": 478,
+        "chain_id": "A",
+        "true_chopping": "11-45,311-355"
+    },
+    {
+        "uniprot_id": "Q05631",
+        "alphafold_length": 351,
+        "chain_id": "A",
+        "true_chopping": "141-230,231-350"
+    },
+    {
+        "uniprot_id": "P32434",
+        "alphafold_length": 355,
+        "chain_id": "A",
+        "true_chopping": "1-350"
+    },
+    {
+        "uniprot_id": "A0A2R8RVV2",
+        "alphafold_length": 1077,
+        "chain_id": "A",
+        "true_chopping": "81-205,371-680"
+    },
+    {
+        "uniprot_id": "Q9HDW7",
+        "alphafold_length": 1292,
+        "chain_id": "A",
+        "true_chopping": "551-785"
+    },
+    {
+        "uniprot_id": "A0A5K4F249",
+        "alphafold_length": 1679,
+        "chain_id": "A",
+        "true_chopping": "341-600_621-905_926-985_1031-1245_1271-1310_1341-1370"
+    },
+    {
+        "uniprot_id": "E9QIG7",
+        "alphafold_length": 1568,
+        "chain_id": "A",
+        "true_chopping": "601-645_716-775,896-995,996-1085_1141-1290"
+    },
+    {
+        "uniprot_id": "A0A0D2G2D0",
+        "alphafold_length": 424,
+        "chain_id": "A",
+        "true_chopping": "226-415"
+    },
+    {
+        "uniprot_id": "Q4CTK1",
+        "alphafold_length": 223,
+        "chain_id": "A",
+        "true_chopping": "1-220"
+    },
+    {
+        "uniprot_id": "A0A077ZD39",
+        "alphafold_length": 198,
+        "chain_id": "A",
+        "true_chopping": "1-198"
+    },
+    {
+        "uniprot_id": "Q32D16",
+        "alphafold_length": 496,
+        "chain_id": "A",
+        "true_chopping": "211-280,336-495"
+    },
+    {
+        "uniprot_id": "K7KAE5",
+        "alphafold_length": 722,
+        "chain_id": "A",
+        "true_chopping": "1-690"
+    },
+    {
+        "uniprot_id": "P23739",
+        "alphafold_length": 1841,
+        "chain_id": "A",
+        "true_chopping": "721-800"
+    },
+    {
+        "uniprot_id": "A0A0H3GV92",
+        "alphafold_length": 470,
+        "chain_id": "A",
+        "true_chopping": "31-470"
+    },
+    {
+        "uniprot_id": "P0A4N0",
+        "alphafold_length": 308,
+        "chain_id": "A",
+        "true_chopping": "31-305"
+    },
+    {
+        "uniprot_id": "U7PNM2",
+        "alphafold_length": 940,
+        "chain_id": "A",
+        "true_chopping": "126-155_211-650"
+    },
+    {
+        "uniprot_id": "P52332",
+        "alphafold_length": 1153,
+        "chain_id": "A",
+        "true_chopping": "36-280"
+    },
+    {
+        "uniprot_id": "A0A4U3ZUY4",
+        "alphafold_length": 446,
+        "chain_id": "A",
+        "true_chopping": "6-50,56-110,266-445"
+    },
+    {
+        "uniprot_id": "Q4DPM9",
+        "alphafold_length": 425,
+        "chain_id": "A",
+        "true_chopping": "226-270_301-320"
+    },
+    {
+        "uniprot_id": "E7F568",
+        "alphafold_length": 1343,
+        "chain_id": "A",
+        "true_chopping": "56-140"
+    },
+    {
+        "uniprot_id": "A0A0H3GNP9",
+        "alphafold_length": 196,
+        "chain_id": "A",
+        "true_chopping": "6-195"
+    },
+    {
+        "uniprot_id": "Q8IYP9",
+        "alphafold_length": 409,
+        "chain_id": "A",
+        "true_chopping": "256-300_376-395"
+    },
+    {
+        "uniprot_id": "Q2R8V2",
+        "alphafold_length": 428,
+        "chain_id": "A",
+        "true_chopping": "76-230,231-425"
+    },
+    {
+        "uniprot_id": "F4I8Q8",
+        "alphafold_length": 417,
+        "chain_id": "A",
+        "true_chopping": "6-15_81-215_371-390"
+    },
+    {
+        "uniprot_id": "B6SJT7",
+        "alphafold_length": 123,
+        "chain_id": "A",
+        "true_chopping": "6-110"
+    },
+    {
+        "uniprot_id": "A0A175VZ21",
+        "alphafold_length": 471,
+        "chain_id": "A",
+        "true_chopping": "36-265_301-405"
+    },
+    {
+        "uniprot_id": "Q2QNB5",
+        "alphafold_length": 731,
+        "chain_id": "A",
+        "true_chopping": "331-520_581-620"
+    },
+    {
+        "uniprot_id": "A0A0R0F023",
+        "alphafold_length": 569,
+        "chain_id": "A",
+        "true_chopping": "121-415_441-525"
+    },
+    {
+        "uniprot_id": "A0A1D8PPZ0",
+        "alphafold_length": 107,
+        "chain_id": "A",
+        "true_chopping": "6-100"
+    },
+    {
+        "uniprot_id": "C1H8U0",
+        "alphafold_length": 779,
+        "chain_id": "A",
+        "true_chopping": "601-779"
+    },
+    {
+        "uniprot_id": "Q75JU9",
+        "alphafold_length": 629,
+        "chain_id": "A",
+        "true_chopping": "1-100_136-629"
+    },
+    {
+        "uniprot_id": "Q10CG2",
+        "alphafold_length": 382,
+        "chain_id": "A",
+        "true_chopping": "6-100_121-215_331-380,101-120_216-330"
+    },
+    {
+        "uniprot_id": "A0A044QYJ7",
+        "alphafold_length": 1882,
+        "chain_id": "A",
+        "true_chopping": "1-25_591-610_691-765_806-865_886-940,26-465_491-590_611-690_766-805_871-880_941-1880"
+    },
+    {
+        "uniprot_id": "A0A5K4EJV5",
+        "alphafold_length": 562,
+        "chain_id": "A",
+        "true_chopping": "96-365"
+    },
+    {
+        "uniprot_id": "Q9VB62",
+        "alphafold_length": 609,
+        "chain_id": "A",
+        "true_chopping": "1-80,171-210_346-609,216-345"
+    },
+    {
+        "uniprot_id": "Q38AF8",
+        "alphafold_length": 457,
+        "chain_id": "A",
+        "true_chopping": "11-80_111-215_271-325_361-445"
+    },
+    {
+        "uniprot_id": "Q9D115",
+        "alphafold_length": 76,
+        "chain_id": "A",
+        "true_chopping": "1-65"
+    },
+    {
+        "uniprot_id": "A0A0K0IMU2",
+        "alphafold_length": 645,
+        "chain_id": "A",
+        "true_chopping": "271-390"
+    },
+    {
+        "uniprot_id": "C0NN95",
+        "alphafold_length": 462,
+        "chain_id": "A",
+        "true_chopping": "191-435"
+    },
+    {
+        "uniprot_id": "P77748",
+        "alphafold_length": 1018,
+        "chain_id": "A",
+        "true_chopping": "556-705"
+    },
+    {
+        "uniprot_id": "H2KZ60",
+        "alphafold_length": 1196,
+        "chain_id": "A",
+        "true_chopping": "141-240,441-535,536-630,731-845"
+    },
+    {
+        "uniprot_id": "A0A0R0JAX8",
+        "alphafold_length": 767,
+        "chain_id": "A",
+        "true_chopping": "541-730"
+    },
+    {
+        "uniprot_id": "G4VJK7",
+        "alphafold_length": 261,
+        "chain_id": "A",
+        "true_chopping": "1-260"
+    },
+    {
+        "uniprot_id": "Q581X3",
+        "alphafold_length": 194,
+        "chain_id": "A",
+        "true_chopping": "6-165"
+    },
+    {
+        "uniprot_id": "A0A3P7GAI4",
+        "alphafold_length": 1275,
+        "chain_id": "A",
+        "true_chopping": "1-250_756-1275,476-755"
+    },
+    {
+        "uniprot_id": "P0CX78",
+        "alphafold_length": 362,
+        "chain_id": "A",
+        "true_chopping": "246-360"
+    },
+    {
+        "uniprot_id": "Q9I356",
+        "alphafold_length": 1175,
+        "chain_id": "A",
+        "true_chopping": "81-385_411-470,926-1045_1156-1175,1046-1155"
+    },
+    {
+        "uniprot_id": "A0A175W148",
+        "alphafold_length": 1830,
+        "chain_id": "A",
+        "true_chopping": "1311-1415"
+    },
+    {
+        "uniprot_id": "A0A158Q4G0",
+        "alphafold_length": 431,
+        "chain_id": "A",
+        "true_chopping": "6-135"
+    },
+    {
+        "uniprot_id": "X1WGX5",
+        "alphafold_length": 629,
+        "chain_id": "A",
+        "true_chopping": "91-629"
+    },
+    {
+        "uniprot_id": "D3ZD31",
+        "alphafold_length": 1456,
+        "chain_id": "A",
+        "true_chopping": "931-1085"
+    },
+    {
+        "uniprot_id": "A0A132ZBS9",
+        "alphafold_length": 295,
+        "chain_id": "A",
+        "true_chopping": "61-210"
+    },
+    {
+        "uniprot_id": "Q6AWW0",
+        "alphafold_length": 121,
+        "chain_id": "A",
+        "true_chopping": "31-120"
+    },
+    {
+        "uniprot_id": "Q4D943",
+        "alphafold_length": 755,
+        "chain_id": "A",
+        "true_chopping": "126-320"
+    },
+    {
+        "uniprot_id": "Q8MQW8",
+        "alphafold_length": 1789,
+        "chain_id": "A",
+        "true_chopping": "458-595,1521-1670,1681-1789"
+    },
+    {
+        "uniprot_id": "A0A0K0E0S5",
+        "alphafold_length": 562,
+        "chain_id": "A",
+        "true_chopping": "31-70_111-525"
+    },
+    {
+        "uniprot_id": "A4IDJ6",
+        "alphafold_length": 375,
+        "chain_id": "A",
+        "true_chopping": "111-159_221-255"
+    },
+    {
+        "uniprot_id": "A0A0P0VC55",
+        "alphafold_length": 608,
+        "chain_id": "A",
+        "true_chopping": "111-185_252-395"
+    },
+    {
+        "uniprot_id": "C1GTP9",
+        "alphafold_length": 1105,
+        "chain_id": "A",
+        "true_chopping": "241-570"
+    },
+    {
+        "uniprot_id": "A0A3Q0KT20",
+        "alphafold_length": 1294,
+        "chain_id": "A",
+        "true_chopping": "1-200_221-435,521-570_631-845_911-950,1031-1045_1101-1130_1206-1260"
+    },
+    {
+        "uniprot_id": "A0A044S5K2",
+        "alphafold_length": 422,
+        "chain_id": "A",
+        "true_chopping": "51-224_246-420"
+    },
+    {
+        "uniprot_id": "A0A132Z394",
+        "alphafold_length": 377,
+        "chain_id": "A",
+        "true_chopping": "1-145_346-375,151-345"
+    },
+    {
+        "uniprot_id": "A0A077YV47",
+        "alphafold_length": 434,
+        "chain_id": "A",
+        "true_chopping": "11-425"
+    },
+    {
+        "uniprot_id": "A1ZA64",
+        "alphafold_length": 260,
+        "chain_id": "A",
+        "true_chopping": "26-260"
+    },
+    {
+        "uniprot_id": "K7LER5",
+        "alphafold_length": 1079,
+        "chain_id": "A",
+        "true_chopping": "541-760"
+    },
+    {
+        "uniprot_id": "Q86AG7",
+        "alphafold_length": 390,
+        "chain_id": "A",
+        "true_chopping": "6-225"
+    },
+    {
+        "uniprot_id": "Q5XJN6",
+        "alphafold_length": 358,
+        "chain_id": "A",
+        "true_chopping": "11-200,206-295,206-295"
+    },
+    {
+        "uniprot_id": "C1H923",
+        "alphafold_length": 805,
+        "chain_id": "A",
+        "true_chopping": "6-230"
+    },
+    {
+        "uniprot_id": "P53255",
+        "alphafold_length": 507,
+        "chain_id": "A",
+        "true_chopping": "266-500"
+    },
+    {
+        "uniprot_id": "A0A5K4EU96",
+        "alphafold_length": 767,
+        "chain_id": "A",
+        "true_chopping": "1-245_361-505_536-625_676-740"
+    },
+    {
+        "uniprot_id": "Q9I127",
+        "alphafold_length": 175,
+        "chain_id": "A",
+        "true_chopping": "1-175"
+    },
+    {
+        "uniprot_id": "A0A044TMT1",
+        "alphafold_length": 2143,
+        "chain_id": "A",
+        "true_chopping": "776-1015,1016-1195,1196-1425"
+    },
+    {
+        "uniprot_id": "Q93XX2",
+        "alphafold_length": 822,
+        "chain_id": "A",
+        "true_chopping": "586-690_716-780"
+    },
+    {
+        "uniprot_id": "A0A0D2GLS3",
+        "alphafold_length": 927,
+        "chain_id": "A",
+        "true_chopping": "206-215_341-740_766-925"
+    },
+    {
+        "uniprot_id": "Q14210",
+        "alphafold_length": 128,
+        "chain_id": "A",
+        "true_chopping": "21-100"
+    },
+    {
+        "uniprot_id": "C1HBX8",
+        "alphafold_length": 226,
+        "chain_id": "A",
+        "true_chopping": "171-220"
+    },
+    {
+        "uniprot_id": "A0A0K0EF46",
+        "alphafold_length": 225,
+        "chain_id": "A",
+        "true_chopping": "31-90"
+    },
+    {
+        "uniprot_id": "A0A0K0DZX2",
+        "alphafold_length": 576,
+        "chain_id": "A",
+        "true_chopping": "356-550"
+    },
+    {
+        "uniprot_id": "Q5AA42",
+        "alphafold_length": 234,
+        "chain_id": "A",
+        "true_chopping": "16-125"
+    },
+    {
+        "uniprot_id": "Q57721",
+        "alphafold_length": 103,
+        "chain_id": "A",
+        "true_chopping": "11-100"
+    },
+    {
+        "uniprot_id": "A0A1D6L4R8",
+        "alphafold_length": 1384,
+        "chain_id": "A",
+        "true_chopping": "251-500"
+    },
+    {
+        "uniprot_id": "A0A0D2FHB6",
+        "alphafold_length": 411,
+        "chain_id": "A",
+        "true_chopping": "11-190"
+    },
+    {
+        "uniprot_id": "Q54L13",
+        "alphafold_length": 627,
+        "chain_id": "A",
+        "true_chopping": "76-305_376-620"
+    },
+    {
+        "uniprot_id": "A0A1D6KP74",
+        "alphafold_length": 357,
+        "chain_id": "A",
+        "true_chopping": "6-85"
+    },
+    {
+        "uniprot_id": "Q4E554",
+        "alphafold_length": 1214,
+        "chain_id": "A",
+        "true_chopping": "481-685"
+    },
+    {
+        "uniprot_id": "Q8GY81",
+        "alphafold_length": 423,
+        "chain_id": "A",
+        "true_chopping": "161-305"
+    },
+    {
+        "uniprot_id": "Q9BL40",
+        "alphafold_length": 384,
+        "chain_id": "A",
+        "true_chopping": "16-340"
+    },
+    {
+        "uniprot_id": "A0A132P8B1",
+        "alphafold_length": 116,
+        "chain_id": "A",
+        "true_chopping": "1-110"
+    },
+    {
+        "uniprot_id": "F1QA94",
+        "alphafold_length": 431,
+        "chain_id": "A",
+        "true_chopping": "61-170"
+    },
+    {
+        "uniprot_id": "E7F9B5",
+        "alphafold_length": 881,
+        "chain_id": "A",
+        "true_chopping": "36-140,361-465"
+    },
+    {
+        "uniprot_id": "A0A158Q4N8",
+        "alphafold_length": 633,
+        "chain_id": "A",
+        "true_chopping": "16-145,146-205_386-415"
+    },
+    {
+        "uniprot_id": "Q54SE3",
+        "alphafold_length": 764,
+        "chain_id": "A",
+        "true_chopping": "86-220_251-390_436-755"
+    },
+    {
+        "uniprot_id": "Q338Z0",
+        "alphafold_length": 501,
+        "chain_id": "A",
+        "true_chopping": "6-500"
+    },
+    {
+        "uniprot_id": "A0A1D6DUT0",
+        "alphafold_length": 476,
+        "chain_id": "A",
+        "true_chopping": "46-240_276-470"
+    },
+    {
+        "uniprot_id": "Q6MG21",
+        "alphafold_length": 1065,
+        "chain_id": "A",
+        "true_chopping": "536-580"
+    },
+    {
+        "uniprot_id": "K0F188",
+        "alphafold_length": 178,
+        "chain_id": "A",
+        "true_chopping": "6-155"
+    },
+    {
+        "uniprot_id": "K7VJX9",
+        "alphafold_length": 655,
+        "chain_id": "A",
+        "true_chopping": "11-190"
+    },
+    {
+        "uniprot_id": "Q57493",
+        "alphafold_length": 419,
+        "chain_id": "A",
+        "true_chopping": "1-415"
+    },
+    {
+        "uniprot_id": "P34208",
+        "alphafold_length": 496,
+        "chain_id": "A",
+        "true_chopping": "6-300_366-390"
+    },
+    {
+        "uniprot_id": "A0A1C1C8S4",
+        "alphafold_length": 348,
+        "chain_id": "A",
+        "true_chopping": "1-345"
+    },
+    {
+        "uniprot_id": "A0A1D6NFT9",
+        "alphafold_length": 205,
+        "chain_id": "A",
+        "true_chopping": "16-175"
+    },
+    {
+        "uniprot_id": "Q9HZE9",
+        "alphafold_length": 507,
+        "chain_id": "A",
+        "true_chopping": "11-295,296-500"
+    },
+    {
+        "uniprot_id": "K0F8Y0",
+        "alphafold_length": 125,
+        "chain_id": "A",
+        "true_chopping": "1-125"
+    },
+    {
+        "uniprot_id": "P71905",
+        "alphafold_length": 953,
+        "chain_id": "A",
+        "true_chopping": "456-530"
+    },
+    {
+        "uniprot_id": "Q32C34",
+        "alphafold_length": 711,
+        "chain_id": "A",
+        "true_chopping": "1-100"
+    },
+    {
+        "uniprot_id": "A0A0H3GHM9",
+        "alphafold_length": 289,
+        "chain_id": "A",
+        "true_chopping": "166-289"
+    },
+    {
+        "uniprot_id": "Q54Q83",
+        "alphafold_length": 237,
+        "chain_id": "A",
+        "true_chopping": "141-230"
+    },
+    {
+        "uniprot_id": "P55991",
+        "alphafold_length": 736,
+        "chain_id": "A",
+        "true_chopping": "186-245_391-405_426-450,696-730"
+    },
+    {
+        "uniprot_id": "A0A0D2GPX5",
+        "alphafold_length": 314,
+        "chain_id": "A",
+        "true_chopping": "1-314"
+    },
+    {
+        "uniprot_id": "Q9VQ35",
+        "alphafold_length": 181,
+        "chain_id": "A",
+        "true_chopping": "36-155"
+    },
+    {
+        "uniprot_id": "Q54RW1",
+        "alphafold_length": 431,
+        "chain_id": "A",
+        "true_chopping": "6-215_336-430,216-335"
+    },
+    {
+        "uniprot_id": "E7F362",
+        "alphafold_length": 646,
+        "chain_id": "A",
+        "true_chopping": "286-425"
+    },
+    {
+        "uniprot_id": "D3ZLH9",
+        "alphafold_length": 402,
+        "chain_id": "A",
+        "true_chopping": "101-205"
+    },
+    {
+        "uniprot_id": "U7Q5R5",
+        "alphafold_length": 454,
+        "chain_id": "A",
+        "true_chopping": "121-260,121-260"
+    },
+    {
+        "uniprot_id": "Q4DY24",
+        "alphafold_length": 469,
+        "chain_id": "A",
+        "true_chopping": "216-320"
+    },
+    {
+        "uniprot_id": "Q9N586",
+        "alphafold_length": 335,
+        "chain_id": "A",
+        "true_chopping": "126-310"
+    },
+    {
+        "uniprot_id": "C0H484",
+        "alphafold_length": 591,
+        "chain_id": "A",
+        "true_chopping": "6-100_166-225_288-395"
+    },
+    {
+        "uniprot_id": "Q5FA82",
+        "alphafold_length": 361,
+        "chain_id": "A",
+        "true_chopping": "131-225"
+    },
+    {
+        "uniprot_id": "A0A158Q379",
+        "alphafold_length": 659,
+        "chain_id": "A",
+        "true_chopping": "81-300"
+    },
+    {
+        "uniprot_id": "A0A3P7DLR8",
+        "alphafold_length": 330,
+        "chain_id": "A",
+        "true_chopping": "91-170,206-295"
+    },
+    {
+        "uniprot_id": "A0A0D2H4S7",
+        "alphafold_length": 517,
+        "chain_id": "A",
+        "true_chopping": "411-510"
+    },
+    {
+        "uniprot_id": "Q4DGH5",
+        "alphafold_length": 487,
+        "chain_id": "A",
+        "true_chopping": "336-395_421-435"
+    },
+    {
+        "uniprot_id": "Q9HTK5",
+        "alphafold_length": 408,
+        "chain_id": "A",
+        "true_chopping": "111-300"
+    },
+    {
+        "uniprot_id": "C0NKG1",
+        "alphafold_length": 770,
+        "chain_id": "A",
+        "true_chopping": "261-510_531-770"
+    },
+    {
+        "uniprot_id": "K0EQV3",
+        "alphafold_length": 218,
+        "chain_id": "A",
+        "true_chopping": "16-70"
+    },
+    {
+        "uniprot_id": "Q09891",
+        "alphafold_length": 1402,
+        "chain_id": "A",
+        "true_chopping": "61-170_441-560_1061-1315"
+    },
+    {
+        "uniprot_id": "Q58AA2",
+        "alphafold_length": 307,
+        "chain_id": "A",
+        "true_chopping": "6-195_216-300"
+    },
+    {
+        "uniprot_id": "A0A0H3GSS7",
+        "alphafold_length": 202,
+        "chain_id": "A",
+        "true_chopping": "31-200"
+    },
+    {
+        "uniprot_id": "Q4DCF4",
+        "alphafold_length": 314,
+        "chain_id": "A",
+        "true_chopping": "141-245"
+    },
+    {
+        "uniprot_id": "Q4DLW0",
+        "alphafold_length": 833,
+        "chain_id": "A",
+        "true_chopping": "121-145_186-205_296-620_671-695"
+    },
+    {
+        "uniprot_id": "Q55GX9",
+        "alphafold_length": 1322,
+        "chain_id": "A",
+        "true_chopping": "876-1085"
+    },
+    {
+        "uniprot_id": "X8FHZ9",
+        "alphafold_length": 807,
+        "chain_id": "A",
+        "true_chopping": "41-180_381-745"
+    },
+    {
+        "uniprot_id": "Q8ZPG4",
+        "alphafold_length": 413,
+        "chain_id": "A",
+        "true_chopping": "16-210,211-413"
+    },
+    {
+        "uniprot_id": "A0A1C1CTS4",
+        "alphafold_length": 423,
+        "chain_id": "A",
+        "true_chopping": "22-420"
+    },
+    {
+        "uniprot_id": "A0A5K4EPV4",
+        "alphafold_length": 1332,
+        "chain_id": "A",
+        "true_chopping": "1-340"
+    },
+    {
+        "uniprot_id": "Q9HVV8",
+        "alphafold_length": 190,
+        "chain_id": "A",
+        "true_chopping": "46-185"
+    },
+    {
+        "uniprot_id": "A0A0K0DSQ5",
+        "alphafold_length": 428,
+        "chain_id": "A",
+        "true_chopping": "21-425"
+    },
+    {
+        "uniprot_id": "K7M3R7",
+        "alphafold_length": 1132,
+        "chain_id": "A",
+        "true_chopping": "261-615,616-960,961-1130"
+    },
+    {
+        "uniprot_id": "A0A0K0E117",
+        "alphafold_length": 244,
+        "chain_id": "A",
+        "true_chopping": "11-240"
+    },
+    {
+        "uniprot_id": "A0A077ZCS4",
+        "alphafold_length": 105,
+        "chain_id": "A",
+        "true_chopping": "1-105"
+    },
+    {
+        "uniprot_id": "A0A0I9N6D7",
+        "alphafold_length": 631,
+        "chain_id": "A",
+        "true_chopping": "11-145"
+    },
+    {
+        "uniprot_id": "Q5ZR42",
+        "alphafold_length": 2007,
+        "chain_id": "A",
+        "true_chopping": "241-305,1456-1515"
+    },
+    {
+        "uniprot_id": "Q63355",
+        "alphafold_length": 1044,
+        "chain_id": "A",
+        "true_chopping": "741-845"
+    },
+    {
+        "uniprot_id": "A0A0K0JJK3",
+        "alphafold_length": 201,
+        "chain_id": "A",
+        "true_chopping": "36-200"
+    },
+    {
+        "uniprot_id": "Q5ANB2",
+        "alphafold_length": 908,
+        "chain_id": "A",
+        "true_chopping": "306-635"
+    },
+    {
+        "uniprot_id": "Q5VPG7",
+        "alphafold_length": 616,
+        "chain_id": "A",
+        "true_chopping": "171-420"
+    },
+    {
+        "uniprot_id": "Q8LNH6",
+        "alphafold_length": 332,
+        "chain_id": "A",
+        "true_chopping": "6-153"
+    },
+    {
+        "uniprot_id": "X8FMQ6",
+        "alphafold_length": 273,
+        "chain_id": "A",
+        "true_chopping": "16-145"
+    },
+    {
+        "uniprot_id": "Q54QP6",
+        "alphafold_length": 402,
+        "chain_id": "A",
+        "true_chopping": "36-395"
+    },
+    {
+        "uniprot_id": "Q9VGJ4",
+        "alphafold_length": 306,
+        "chain_id": "A",
+        "true_chopping": "26-305"
+    },
+    {
+        "uniprot_id": "Q8INF8",
+        "alphafold_length": 601,
+        "chain_id": "A",
+        "true_chopping": "26-80_121-285_351-360,286-295_361-575"
+    },
+    {
+        "uniprot_id": "Q58666",
+        "alphafold_length": 345,
+        "chain_id": "A",
+        "true_chopping": "1-320"
+    },
+    {
+        "uniprot_id": "I1JIJ9",
+        "alphafold_length": 1040,
+        "chain_id": "A",
+        "true_chopping": "716-1040"
+    },
+    {
+        "uniprot_id": "A0A077Z635",
+        "alphafold_length": 392,
+        "chain_id": "A",
+        "true_chopping": "66-355"
+    },
+    {
+        "uniprot_id": "Q383K3",
+        "alphafold_length": 617,
+        "chain_id": "A",
+        "true_chopping": "6-405_426-460"
+    },
+    {
+        "uniprot_id": "Q8L5R3",
+        "alphafold_length": 1254,
+        "chain_id": "A",
+        "true_chopping": "991-1225"
+    },
+    {
+        "uniprot_id": "A0A0P0WZ39",
+        "alphafold_length": 86,
+        "chain_id": "A",
+        "true_chopping": "6-85"
+    },
+    {
+        "uniprot_id": "E9AGM0",
+        "alphafold_length": 2698,
+        "chain_id": "A",
+        "true_chopping": "306-470,711-840"
+    },
+    {
+        "uniprot_id": "Q8ILN1",
+        "alphafold_length": 380,
+        "chain_id": "A",
+        "true_chopping": "186-300"
+    },
+    {
+        "uniprot_id": "Q4DQN9",
+        "alphafold_length": 169,
+        "chain_id": "A",
+        "true_chopping": "26-169"
+    },
+    {
+        "uniprot_id": "G8JLX0",
+        "alphafold_length": 321,
+        "chain_id": "A",
+        "true_chopping": "56-265_291-320"
+    },
+    {
+        "uniprot_id": "Q86BS6",
+        "alphafold_length": 325,
+        "chain_id": "A",
+        "true_chopping": "6-30_81-325"
+    },
+    {
+        "uniprot_id": "Q562A2",
+        "alphafold_length": 1073,
+        "chain_id": "A",
+        "true_chopping": "721-915"
+    },
+    {
+        "uniprot_id": "Q54RD3",
+        "alphafold_length": 564,
+        "chain_id": "A",
+        "true_chopping": "31-280,326-550"
+    },
+    {
+        "uniprot_id": "A0A3P7T0B9",
+        "alphafold_length": 102,
+        "chain_id": "A",
+        "true_chopping": "1-100"
+    },
+    {
+        "uniprot_id": "A0A0N4U3F0",
+        "alphafold_length": 516,
+        "chain_id": "A",
+        "true_chopping": "131-175"
+    },
+    {
+        "uniprot_id": "A0A0N4UK94",
+        "alphafold_length": 1387,
+        "chain_id": "A",
+        "true_chopping": "1-50_86-310_336-790_836-1280_1321-1375"
+    },
+    {
+        "uniprot_id": "Q8L5T9",
+        "alphafold_length": 147,
+        "chain_id": "A",
+        "true_chopping": "31-145"
+    },
+    {
+        "uniprot_id": "Q586S4",
+        "alphafold_length": 1340,
+        "chain_id": "A",
+        "true_chopping": "1-155_181-370_406-790"
+    },
+    {
+        "uniprot_id": "K0F219",
+        "alphafold_length": 473,
+        "chain_id": "A",
+        "true_chopping": "16-473"
+    },
+    {
+        "uniprot_id": "A0A0G2K622",
+        "alphafold_length": 169,
+        "chain_id": "A",
+        "true_chopping": "28-93"
+    },
+    {
+        "uniprot_id": "Q9I4V2",
+        "alphafold_length": 381,
+        "chain_id": "A",
+        "true_chopping": "6-115,236-380"
+    },
+    {
+        "uniprot_id": "Q64446",
+        "alphafold_length": 1462,
+        "chain_id": "A",
+        "true_chopping": "356-435"
+    },
+    {
+        "uniprot_id": "Q5HZJ0",
+        "alphafold_length": 1373,
+        "chain_id": "A",
+        "true_chopping": "871-900_941-1090,1091-1255"
+    },
+    {
+        "uniprot_id": "Q3UHL1",
+        "alphafold_length": 512,
+        "chain_id": "A",
+        "true_chopping": "11-325"
+    },
+    {
+        "uniprot_id": "P50080",
+        "alphafold_length": 613,
+        "chain_id": "A",
+        "true_chopping": "61-610"
+    },
+    {
+        "uniprot_id": "K7MHT4",
+        "alphafold_length": 748,
+        "chain_id": "A",
+        "true_chopping": "1-335,321-745"
+    },
+    {
+        "uniprot_id": "E7FBL8",
+        "alphafold_length": 168,
+        "chain_id": "A",
+        "true_chopping": "21-135"
+    },
+    {
+        "uniprot_id": "Q6ZPT1",
+        "alphafold_length": 617,
+        "chain_id": "A",
+        "true_chopping": "296-605"
+    },
+    {
+        "uniprot_id": "Q5A962",
+        "alphafold_length": 498,
+        "chain_id": "A",
+        "true_chopping": "36-165"
+    },
+    {
+        "uniprot_id": "A0A1D8PHR2",
+        "alphafold_length": 406,
+        "chain_id": "A",
+        "true_chopping": "6-145,211-365"
+    },
+    {
+        "uniprot_id": "Q95HJ4",
+        "alphafold_length": 303,
+        "chain_id": "A",
+        "true_chopping": "26-125"
+    },
+    {
+        "uniprot_id": "P43609",
+        "alphafold_length": 557,
+        "chain_id": "A",
+        "true_chopping": "256-305,311-370_411-485"
+    },
+    {
+        "uniprot_id": "O17753",
+        "alphafold_length": 223,
+        "chain_id": "A",
+        "true_chopping": "112-220"
+    },
+    {
+        "uniprot_id": "K7LEK5",
+        "alphafold_length": 302,
+        "chain_id": "A",
+        "true_chopping": "6-300"
+    },
+    {
+        "uniprot_id": "Q4DHE8",
+        "alphafold_length": 395,
+        "chain_id": "A",
+        "true_chopping": "6-170_216-335_366-390"
+    },
+    {
+        "uniprot_id": "Q32GH6",
+        "alphafold_length": 273,
+        "chain_id": "A",
+        "true_chopping": "111-125_171-220"
+    },
+    {
+        "uniprot_id": "Q9M1S9",
+        "alphafold_length": 486,
+        "chain_id": "A",
+        "true_chopping": "46-175,391-480"
+    },
+    {
+        "uniprot_id": "A0A0H3GQM8",
+        "alphafold_length": 382,
+        "chain_id": "A",
+        "true_chopping": "6-195,196-380"
+    },
+    {
+        "uniprot_id": "A0A175W4A4",
+        "alphafold_length": 1171,
+        "chain_id": "A",
+        "true_chopping": "86-95_121-335_986-1170"
+    },
+    {
+        "uniprot_id": "A0A1C1CYK1",
+        "alphafold_length": 173,
+        "chain_id": "A",
+        "true_chopping": "1-173"
+    },
+    {
+        "uniprot_id": "A0A3P7DZR8",
+        "alphafold_length": 1372,
+        "chain_id": "A",
+        "true_chopping": "1-140_186-240_716-1010,1011-1235"
+    },
+    {
+        "uniprot_id": "A0A0K0E1G3",
+        "alphafold_length": 249,
+        "chain_id": "A",
+        "true_chopping": "131-249"
+    },
+    {
+        "uniprot_id": "Q4DLM0",
+        "alphafold_length": 859,
+        "chain_id": "A",
+        "true_chopping": "241-250_296-410_456-670"
+    },
+    {
+        "uniprot_id": "A0A0K0DSV7",
+        "alphafold_length": 1301,
+        "chain_id": "A",
+        "true_chopping": "211-360_381-415"
+    },
+    {
+        "uniprot_id": "A0A0H3GL18",
+        "alphafold_length": 253,
+        "chain_id": "A",
+        "true_chopping": "136-253"
+    },
+    {
+        "uniprot_id": "Q8IIG8",
+        "alphafold_length": 1749,
+        "chain_id": "A",
+        "true_chopping": "521-550_601-675_911-1020_1121-1210"
+    },
+    {
+        "uniprot_id": "A0A0D2H0T3",
+        "alphafold_length": 491,
+        "chain_id": "A",
+        "true_chopping": "76-470"
+    },
+    {
+        "uniprot_id": "A0A5K4F5G7",
+        "alphafold_length": 360,
+        "chain_id": "A",
+        "true_chopping": "1-355"
+    },
+    {
+        "uniprot_id": "D4A1U4",
+        "alphafold_length": 1236,
+        "chain_id": "A",
+        "true_chopping": "441-515_566-815,851-1210"
+    },
+    {
+        "uniprot_id": "A0A3Q0KHR8",
+        "alphafold_length": 122,
+        "chain_id": "A",
+        "true_chopping": "6-120"
+    },
+    {
+        "uniprot_id": "Q8L706",
+        "alphafold_length": 560,
+        "chain_id": "A",
+        "true_chopping": "66-250,431-555"
+    },
+    {
+        "uniprot_id": "A0A0N4UMP0",
+        "alphafold_length": 331,
+        "chain_id": "A",
+        "true_chopping": "211-315"
+    },
+    {
+        "uniprot_id": "A0A3P7G358",
+        "alphafold_length": 147,
+        "chain_id": "A",
+        "true_chopping": "11-140"
+    },
+    {
+        "uniprot_id": "Q9WTR8",
+        "alphafold_length": 1696,
+        "chain_id": "A",
+        "true_chopping": "161-215_431-490,771-1125"
+    },
+    {
+        "uniprot_id": "A0A132P5T2",
+        "alphafold_length": 402,
+        "chain_id": "A",
+        "true_chopping": "161-225,226-385"
+    },
+    {
+        "uniprot_id": "A0A0K0DSZ4",
+        "alphafold_length": 382,
+        "chain_id": "A",
+        "true_chopping": "211-375"
+    },
+    {
+        "uniprot_id": "Q23534",
+        "alphafold_length": 426,
+        "chain_id": "A",
+        "true_chopping": "18-370"
+    },
+    {
+        "uniprot_id": "Q503I9",
+        "alphafold_length": 489,
+        "chain_id": "A",
+        "true_chopping": "151-285"
+    },
+    {
+        "uniprot_id": "K0F4T0",
+        "alphafold_length": 209,
+        "chain_id": "A",
+        "true_chopping": "61-205"
+    },
+    {
+        "uniprot_id": "Q8I426",
+        "alphafold_length": 531,
+        "chain_id": "A",
+        "true_chopping": "1-80,451-520"
+    },
+    {
+        "uniprot_id": "Q9VS87",
+        "alphafold_length": 299,
+        "chain_id": "A",
+        "true_chopping": "71-299"
+    },
+    {
+        "uniprot_id": "A0A175VPN8",
+        "alphafold_length": 529,
+        "chain_id": "A",
+        "true_chopping": "22-529"
+    },
+    {
+        "uniprot_id": "A0A0K0EQT4",
+        "alphafold_length": 428,
+        "chain_id": "A",
+        "true_chopping": "401-425"
+    },
+    {
+        "uniprot_id": "A0A0K0EDC2",
+        "alphafold_length": 1589,
+        "chain_id": "A",
+        "true_chopping": "236-360"
+    },
+    {
+        "uniprot_id": "K0F7A9",
+        "alphafold_length": 406,
+        "chain_id": "A",
+        "true_chopping": "1-145_166-285"
+    },
+    {
+        "uniprot_id": "C0P148",
+        "alphafold_length": 434,
+        "chain_id": "A",
+        "true_chopping": "36-85_296-400"
+    },
+    {
+        "uniprot_id": "A0A3Q0KR46",
+        "alphafold_length": 1432,
+        "chain_id": "A",
+        "true_chopping": "81-110_201-480_511-520_606-705_751-1050_1086-1215_1241-1425"
+    },
+    {
+        "uniprot_id": "Q9VYA5",
+        "alphafold_length": 918,
+        "chain_id": "A",
+        "true_chopping": "1-465_626-635,471-625,666-800"
+    },
+    {
+        "uniprot_id": "A0A0K0DVU7",
+        "alphafold_length": 1136,
+        "chain_id": "A",
+        "true_chopping": "11-80_161-490_511-995"
+    },
+    {
+        "uniprot_id": "Q9VUW0",
+        "alphafold_length": 342,
+        "chain_id": "A",
+        "true_chopping": "16-260"
+    },
+    {
+        "uniprot_id": "A4I0D4",
+        "alphafold_length": 1500,
+        "chain_id": "A",
+        "true_chopping": "26-435"
+    },
+    {
+        "uniprot_id": "C0NB62",
+        "alphafold_length": 583,
+        "chain_id": "A",
+        "true_chopping": "61-583"
+    },
+    {
+        "uniprot_id": "A8E5P7",
+        "alphafold_length": 280,
+        "chain_id": "A",
+        "true_chopping": "6-95_128-275"
+    },
+    {
+        "uniprot_id": "A0A2R8RPI8",
+        "alphafold_length": 567,
+        "chain_id": "A",
+        "true_chopping": "126-310"
+    },
+    {
+        "uniprot_id": "Q5VRK0",
+        "alphafold_length": 557,
+        "chain_id": "A",
+        "true_chopping": "16-205_256-335"
+    },
+    {
+        "uniprot_id": "A4I945",
+        "alphafold_length": 912,
+        "chain_id": "A",
+        "true_chopping": "1-453"
+    },
+    {
+        "uniprot_id": "Q8ILQ3",
+        "alphafold_length": 509,
+        "chain_id": "A",
+        "true_chopping": "386-505"
+    },
+    {
+        "uniprot_id": "A0A1C1CNL9",
+        "alphafold_length": 468,
+        "chain_id": "A",
+        "true_chopping": "26-95,186-210_262-415"
+    },
+    {
+        "uniprot_id": "C0H561",
+        "alphafold_length": 128,
+        "chain_id": "A",
+        "true_chopping": "16-125"
+    },
+    {
+        "uniprot_id": "Q9VG48",
+        "alphafold_length": 406,
+        "chain_id": "A",
+        "true_chopping": "31-405"
+    },
+    {
+        "uniprot_id": "Q9XTJ4",
+        "alphafold_length": 463,
+        "chain_id": "A",
+        "true_chopping": "181-463"
+    },
+    {
+        "uniprot_id": "A0A1D6J7J7",
+        "alphafold_length": 475,
+        "chain_id": "A",
+        "true_chopping": "46-470"
+    },
+    {
+        "uniprot_id": "A0A0N4UAS3",
+        "alphafold_length": 520,
+        "chain_id": "A",
+        "true_chopping": "86-95_126-375_401-425"
+    },
+    {
+        "uniprot_id": "P95144",
+        "alphafold_length": 129,
+        "chain_id": "A",
+        "true_chopping": "26-129"
+    },
+    {
+        "uniprot_id": "A0A044UTB2",
+        "alphafold_length": 288,
+        "chain_id": "A",
+        "true_chopping": "31-55_116-215"
+    },
+    {
+        "uniprot_id": "C1HDW1",
+        "alphafold_length": 587,
+        "chain_id": "A",
+        "true_chopping": "326-530"
+    },
+    {
+        "uniprot_id": "Q327L0",
+        "alphafold_length": 87,
+        "chain_id": "A",
+        "true_chopping": "11-80"
+    },
+    {
+        "uniprot_id": "K0ES50",
+        "alphafold_length": 289,
+        "chain_id": "A",
+        "true_chopping": "6-280"
+    },
+    {
+        "uniprot_id": "A0A077Z2V8",
+        "alphafold_length": 472,
+        "chain_id": "A",
+        "true_chopping": "6-470"
+    },
+    {
+        "uniprot_id": "K7MHU5",
+        "alphafold_length": 1104,
+        "chain_id": "A",
+        "true_chopping": "1-345,346-715"
+    },
+    {
+        "uniprot_id": "K7LNT0",
+        "alphafold_length": 275,
+        "chain_id": "A",
+        "true_chopping": "46-130_156-215_241-260"
+    },
+    {
+        "uniprot_id": "Q9NLB8",
+        "alphafold_length": 533,
+        "chain_id": "A",
+        "true_chopping": "291-435"
+    },
+    {
+        "uniprot_id": "K7KAR5",
+        "alphafold_length": 332,
+        "chain_id": "A",
+        "true_chopping": "1-330"
+    },
+    {
+        "uniprot_id": "B9FHB0",
+        "alphafold_length": 882,
+        "chain_id": "A",
+        "true_chopping": "26-880"
+    },
+    {
+        "uniprot_id": "A0A3P7DGR9",
+        "alphafold_length": 153,
+        "chain_id": "A",
+        "true_chopping": "66-150"
+    },
+    {
+        "uniprot_id": "I1MDU1",
+        "alphafold_length": 323,
+        "chain_id": "A",
+        "true_chopping": "21-323"
+    },
+    {
+        "uniprot_id": "E9AHW8",
+        "alphafold_length": 288,
+        "chain_id": "A",
+        "true_chopping": "16-260"
+    },
+    {
+        "uniprot_id": "A0A0R0JI83",
+        "alphafold_length": 651,
+        "chain_id": "A",
+        "true_chopping": "6-135"
+    },
+    {
+        "uniprot_id": "Q8I5Y6",
+        "alphafold_length": 1082,
+        "chain_id": "A",
+        "true_chopping": "806-1080"
+    },
+    {
+        "uniprot_id": "Q54HW1",
+        "alphafold_length": 232,
+        "chain_id": "A",
+        "true_chopping": "1-225"
+    },
+    {
+        "uniprot_id": "A0A0D2F245",
+        "alphafold_length": 338,
+        "chain_id": "A",
+        "true_chopping": "1-270"
+    },
+    {
+        "uniprot_id": "Q8IIS3",
+        "alphafold_length": 1812,
+        "chain_id": "A",
+        "true_chopping": "1206-1275"
+    },
+    {
+        "uniprot_id": "A0A5K4F4S4",
+        "alphafold_length": 1177,
+        "chain_id": "A",
+        "true_chopping": "1-100_126-230"
+    },
+    {
+        "uniprot_id": "A0A0R0GRU2",
+        "alphafold_length": 723,
+        "chain_id": "A",
+        "true_chopping": "1-250_661-723,251-640"
+    },
+    {
+        "uniprot_id": "A0A1D6DWK0",
+        "alphafold_length": 723,
+        "chain_id": "A",
+        "true_chopping": "86-420"
+    },
+    {
+        "uniprot_id": "Q810J8",
+        "alphafold_length": 777,
+        "chain_id": "A",
+        "true_chopping": "66-120"
+    },
+    {
+        "uniprot_id": "A0A0K0EEW8",
+        "alphafold_length": 574,
+        "chain_id": "A",
+        "true_chopping": "101-270"
+    },
+    {
+        "uniprot_id": "A0A140LH70",
+        "alphafold_length": 1198,
+        "chain_id": "A",
+        "true_chopping": "31-125,801-895,981-1090_1126-1150_1171-1198"
+    },
+    {
+        "uniprot_id": "A0A3P7DYW0",
+        "alphafold_length": 297,
+        "chain_id": "A",
+        "true_chopping": "6-295"
+    },
+    {
+        "uniprot_id": "A0A0D2D9L7",
+        "alphafold_length": 726,
+        "chain_id": "A",
+        "true_chopping": "141-150_176-485_511-610"
+    },
+    {
+        "uniprot_id": "K0F5F1",
+        "alphafold_length": 169,
+        "chain_id": "A",
+        "true_chopping": "1-165"
+    },
+    {
+        "uniprot_id": "Q6ZFB3",
+        "alphafold_length": 512,
+        "chain_id": "A",
+        "true_chopping": "341-510"
+    },
+    {
+        "uniprot_id": "Q9I590",
+        "alphafold_length": 320,
+        "chain_id": "A",
+        "true_chopping": "6-155,156-315"
+    },
+    {
+        "uniprot_id": "U7PQF8",
+        "alphafold_length": 759,
+        "chain_id": "A",
+        "true_chopping": "71-95_116-645_731-755"
+    },
+    {
+        "uniprot_id": "P76339",
+        "alphafold_length": 452,
+        "chain_id": "A",
+        "true_chopping": "176-235,306-450"
+    },
+    {
+        "uniprot_id": "P39682",
+        "alphafold_length": 629,
+        "chain_id": "A",
+        "true_chopping": "11-360"
+    },
+    {
+        "uniprot_id": "A0A1D6MME1",
+        "alphafold_length": 462,
+        "chain_id": "A",
+        "true_chopping": "11-75"
+    },
+    {
+        "uniprot_id": "C0H4K5",
+        "alphafold_length": 1603,
+        "chain_id": "A",
+        "true_chopping": "941-1240_1441-1535"
+    },
+    {
+        "uniprot_id": "A4HTX1",
+        "alphafold_length": 949,
+        "chain_id": "A",
+        "true_chopping": "156-210_236-320_401-495_527-610_641-755"
+    },
+    {
+        "uniprot_id": "A0A3P7DSW8",
+        "alphafold_length": 337,
+        "chain_id": "A",
+        "true_chopping": "16-330"
+    },
+    {
+        "uniprot_id": "Q54E86",
+        "alphafold_length": 221,
+        "chain_id": "A",
+        "true_chopping": "6-145"
+    },
+    {
+        "uniprot_id": "A0A175WDP3",
+        "alphafold_length": 66,
+        "chain_id": "A",
+        "true_chopping": "1-60"
+    },
+    {
+        "uniprot_id": "K0EWG6",
+        "alphafold_length": 174,
+        "chain_id": "A",
+        "true_chopping": "1-90"
+    },
+    {
+        "uniprot_id": "A0A3Q0KQY6",
+        "alphafold_length": 272,
+        "chain_id": "A",
+        "true_chopping": "41-110"
+    },
+    {
+        "uniprot_id": "A0A158Q2I4",
+        "alphafold_length": 819,
+        "chain_id": "A",
+        "true_chopping": "1-110,231-330,581-685"
+    },
+    {
+        "uniprot_id": "O15083",
+        "alphafold_length": 957,
+        "chain_id": "A",
+        "true_chopping": "416-610,416-610"
+    },
+    {
+        "uniprot_id": "A0A7I4K563",
+        "alphafold_length": 206,
+        "chain_id": "A",
+        "true_chopping": "166-190"
+    },
+    {
+        "uniprot_id": "A0A077Z4U3",
+        "alphafold_length": 472,
+        "chain_id": "A",
+        "true_chopping": "221-380"
+    },
+    {
+        "uniprot_id": "A0A0R0GEQ6",
+        "alphafold_length": 219,
+        "chain_id": "A",
+        "true_chopping": "11-215"
+    },
+    {
+        "uniprot_id": "Q8H067",
+        "alphafold_length": 908,
+        "chain_id": "A",
+        "true_chopping": "146-390,496-710"
+    },
+    {
+        "uniprot_id": "Q8DQC5",
+        "alphafold_length": 425,
+        "chain_id": "A",
+        "true_chopping": "1-65,326-420"
+    },
+    {
+        "uniprot_id": "Q38CP2",
+        "alphafold_length": 487,
+        "chain_id": "A",
+        "true_chopping": "26-405"
+    },
+    {
+        "uniprot_id": "Q8N3T1",
+        "alphafold_length": 639,
+        "chain_id": "A",
+        "true_chopping": "501-635"
+    },
+    {
+        "uniprot_id": "A0A1D6GNG6",
+        "alphafold_length": 290,
+        "chain_id": "A",
+        "true_chopping": "36-280"
+    },
+    {
+        "uniprot_id": "Q9VCJ5",
+        "alphafold_length": 602,
+        "chain_id": "A",
+        "true_chopping": "41-50_366-580"
+    },
+    {
+        "uniprot_id": "A0A0D2DCN8",
+        "alphafold_length": 373,
+        "chain_id": "A",
+        "true_chopping": "156-340"
+    },
+    {
+        "uniprot_id": "U7PUK7",
+        "alphafold_length": 1810,
+        "chain_id": "A",
+        "true_chopping": "291-455_541-740_1081-1165_1201-1360_1381-1480"
+    },
+    {
+        "uniprot_id": "A4ICR7",
+        "alphafold_length": 463,
+        "chain_id": "A",
+        "true_chopping": "6-35_61-270_316-415"
+    },
+    {
+        "uniprot_id": "U7Q822",
+        "alphafold_length": 545,
+        "chain_id": "A",
+        "true_chopping": "106-165_191-405,406-430_466-535"
+    },
+    {
+        "uniprot_id": "A0A132P9H4",
+        "alphafold_length": 243,
+        "chain_id": "A",
+        "true_chopping": "1-115,116-240"
+    },
+    {
+        "uniprot_id": "Q9SVE7",
+        "alphafold_length": 560,
+        "chain_id": "A",
+        "true_chopping": "106-175_201-335"
+    },
+    {
+        "uniprot_id": "A0A0A2V2W3",
+        "alphafold_length": 138,
+        "chain_id": "A",
+        "true_chopping": "1-138"
+    },
+    {
+        "uniprot_id": "A0A077ZLZ4",
+        "alphafold_length": 263,
+        "chain_id": "A",
+        "true_chopping": "126-230"
+    },
+    {
+        "uniprot_id": "C0NL09",
+        "alphafold_length": 352,
+        "chain_id": "A",
+        "true_chopping": "6-90_117-130_221-255_291-310"
+    },
+    {
+        "uniprot_id": "Q10139",
+        "alphafold_length": 105,
+        "chain_id": "A",
+        "true_chopping": "11-105"
+    },
+    {
+        "uniprot_id": "Q23227",
+        "alphafold_length": 472,
+        "chain_id": "A",
+        "true_chopping": "111-270"
+    },
+    {
+        "uniprot_id": "A0A1C1CLV4",
+        "alphafold_length": 138,
+        "chain_id": "A",
+        "true_chopping": "1-135"
+    },
+    {
+        "uniprot_id": "X8FDM2",
+        "alphafold_length": 904,
+        "chain_id": "A",
+        "true_chopping": "1-55_121-250,776-865"
+    },
+    {
+        "uniprot_id": "X8F988",
+        "alphafold_length": 389,
+        "chain_id": "A",
+        "true_chopping": "71-290"
+    },
+    {
+        "uniprot_id": "O26074",
+        "alphafold_length": 525,
+        "chain_id": "A",
+        "true_chopping": "26-60_131-190_331-340"
+    },
+    {
+        "uniprot_id": "G4LVP3",
+        "alphafold_length": 196,
+        "chain_id": "A",
+        "true_chopping": "56-150"
+    },
+    {
+        "uniprot_id": "A0A0R0FSA5",
+        "alphafold_length": 588,
+        "chain_id": "A",
+        "true_chopping": "6-560"
+    },
+    {
+        "uniprot_id": "A0A0R0F288",
+        "alphafold_length": 1060,
+        "chain_id": "A",
+        "true_chopping": "536-1060"
+    },
+    {
+        "uniprot_id": "A0A077ZBS4",
+        "alphafold_length": 444,
+        "chain_id": "A",
+        "true_chopping": "6-440"
+    },
+    {
+        "uniprot_id": "A0A1D8PR28",
+        "alphafold_length": 345,
+        "chain_id": "A",
+        "true_chopping": "1-300"
+    },
+    {
+        "uniprot_id": "Q383B9",
+        "alphafold_length": 572,
+        "chain_id": "A",
+        "true_chopping": "396-425_451-460_481-565"
+    },
+    {
+        "uniprot_id": "X8FCQ1",
+        "alphafold_length": 203,
+        "chain_id": "A",
+        "true_chopping": "1-130,131-195"
+    },
+    {
+        "uniprot_id": "O16436",
+        "alphafold_length": 1050,
+        "chain_id": "A",
+        "true_chopping": "391-625"
+    },
+    {
+        "uniprot_id": "C1H233",
+        "alphafold_length": 411,
+        "chain_id": "A",
+        "true_chopping": "76-400"
+    },
+    {
+        "uniprot_id": "G4V8Y8",
+        "alphafold_length": 371,
+        "chain_id": "A",
+        "true_chopping": "1-175,176-345"
+    },
+    {
+        "uniprot_id": "A0A3Q0KHN3",
+        "alphafold_length": 354,
+        "chain_id": "A",
+        "true_chopping": "181-280"
+    },
+    {
+        "uniprot_id": "Q9U6Y9",
+        "alphafold_length": 610,
+        "chain_id": "A",
+        "true_chopping": "1-270,446-610"
+    },
+    {
+        "uniprot_id": "A0A1D6KLZ2",
+        "alphafold_length": 793,
+        "chain_id": "A",
+        "true_chopping": "101-200,406-435_731-765"
+    },
+    {
+        "uniprot_id": "A0A175W278",
+        "alphafold_length": 1487,
+        "chain_id": "A",
+        "true_chopping": "286-420_571-580"
+    },
+    {
+        "uniprot_id": "A0A3P7GCN8",
+        "alphafold_length": 247,
+        "chain_id": "A",
+        "true_chopping": "1-220"
+    },
+    {
+        "uniprot_id": "A0A044SXK3",
+        "alphafold_length": 955,
+        "chain_id": "A",
+        "true_chopping": "516-570"
+    },
+    {
+        "uniprot_id": "A0A1C1CIZ5",
+        "alphafold_length": 385,
+        "chain_id": "A",
+        "true_chopping": "46-125_161-385"
+    },
+    {
+        "uniprot_id": "A0A077Z3I5",
+        "alphafold_length": 311,
+        "chain_id": "A",
+        "true_chopping": "6-105_291-310"
+    },
+    {
+        "uniprot_id": "A0A1C1CX51",
+        "alphafold_length": 337,
+        "chain_id": "A",
+        "true_chopping": "6-190"
+    },
+    {
+        "uniprot_id": "Q06188",
+        "alphafold_length": 304,
+        "chain_id": "A",
+        "true_chopping": "1-120"
+    },
+    {
+        "uniprot_id": "Q9VDY3",
+        "alphafold_length": 555,
+        "chain_id": "A",
+        "true_chopping": "226-395"
+    },
+    {
+        "uniprot_id": "A0A0P0XCD8",
+        "alphafold_length": 311,
+        "chain_id": "A",
+        "true_chopping": "1-310"
+    },
+    {
+        "uniprot_id": "Q9HTP0",
+        "alphafold_length": 120,
+        "chain_id": "A",
+        "true_chopping": "1-120"
+    },
+    {
+        "uniprot_id": "Q4DX27",
+        "alphafold_length": 508,
+        "chain_id": "A",
+        "true_chopping": "86-330_356-495"
+    },
+    {
+        "uniprot_id": "A0A0K0E3I0",
+        "alphafold_length": 423,
+        "chain_id": "A",
+        "true_chopping": "11-70_111-180"
+    },
+    {
+        "uniprot_id": "A0A0K0EH64",
+        "alphafold_length": 521,
+        "chain_id": "A",
+        "true_chopping": "26-175"
+    },
+    {
+        "uniprot_id": "A0A2K6VIH2",
+        "alphafold_length": 861,
+        "chain_id": "A",
+        "true_chopping": "26-110"
+    },
+    {
+        "uniprot_id": "Q54TC4",
+        "alphafold_length": 594,
+        "chain_id": "A",
+        "true_chopping": "136-245"
+    },
+    {
+        "uniprot_id": "Q60E62",
+        "alphafold_length": 262,
+        "chain_id": "A",
+        "true_chopping": "21-120_151-260"
+    },
+    {
+        "uniprot_id": "A0A0N4ULK7",
+        "alphafold_length": 322,
+        "chain_id": "A",
+        "true_chopping": "6-205_311-320,206-310"
+    },
+    {
+        "uniprot_id": "Q0P8T7",
+        "alphafold_length": 384,
+        "chain_id": "A",
+        "true_chopping": "311-384"
+    },
+    {
+        "uniprot_id": "A0A1C1CNX9",
+        "alphafold_length": 683,
+        "chain_id": "A",
+        "true_chopping": "1-55_91-320_526-575_651-670"
+    },
+    {
+        "uniprot_id": "Q9PM37",
+        "alphafold_length": 605,
+        "chain_id": "A",
+        "true_chopping": "106-230,231-350"
+    },
+    {
+        "uniprot_id": "A0A0K0ECA7",
+        "alphafold_length": 779,
+        "chain_id": "A",
+        "true_chopping": "291-655_716-779"
+    },
+    {
+        "uniprot_id": "A4HZQ9",
+        "alphafold_length": 676,
+        "chain_id": "A",
+        "true_chopping": "46-675"
+    },
+    {
+        "uniprot_id": "A0A486WX07",
+        "alphafold_length": 1160,
+        "chain_id": "A",
+        "true_chopping": "176-200_496-800"
+    },
+    {
+        "uniprot_id": "K7MAE1",
+        "alphafold_length": 746,
+        "chain_id": "A",
+        "true_chopping": "1-295_361-585"
+    },
+    {
+        "uniprot_id": "A0A1D6I7P1",
+        "alphafold_length": 468,
+        "chain_id": "A",
+        "true_chopping": "6-160"
+    },
+    {
+        "uniprot_id": "Q9ZS97",
+        "alphafold_length": 557,
+        "chain_id": "A",
+        "true_chopping": "106-550"
+    },
+    {
+        "uniprot_id": "A0A0R0IPZ4",
+        "alphafold_length": 144,
+        "chain_id": "A",
+        "true_chopping": "56-120"
+    },
+    {
+        "uniprot_id": "A0A175W0X2",
+        "alphafold_length": 582,
+        "chain_id": "A",
+        "true_chopping": "281-410,411-490_521-580"
+    },
+    {
+        "uniprot_id": "A0A0R0IM53",
+        "alphafold_length": 119,
+        "chain_id": "A",
+        "true_chopping": "6-119"
+    },
+    {
+        "uniprot_id": "A0A3P7ETF8",
+        "alphafold_length": 1107,
+        "chain_id": "A",
+        "true_chopping": "16-290_311-1090"
+    },
+    {
+        "uniprot_id": "Q9XVV9",
+        "alphafold_length": 747,
+        "chain_id": "A",
+        "true_chopping": "21-235,236-480"
+    },
+    {
+        "uniprot_id": "D4A5P8",
+        "alphafold_length": 137,
+        "chain_id": "A",
+        "true_chopping": "32-110"
+    },
+    {
+        "uniprot_id": "Q54HH8",
+        "alphafold_length": 257,
+        "chain_id": "A",
+        "true_chopping": "156-255"
+    },
+    {
+        "uniprot_id": "A0A077ZD37",
+        "alphafold_length": 327,
+        "chain_id": "A",
+        "true_chopping": "96-315"
+    },
+    {
+        "uniprot_id": "A0A1C1D2R0",
+        "alphafold_length": 579,
+        "chain_id": "A",
+        "true_chopping": "6-195"
+    },
+    {
+        "uniprot_id": "Q8ZQN7",
+        "alphafold_length": 714,
+        "chain_id": "A",
+        "true_chopping": "1-260_441-490"
+    },
+    {
+        "uniprot_id": "Q54J98",
+        "alphafold_length": 563,
+        "chain_id": "A",
+        "true_chopping": "16-35_56-240"
+    },
+    {
+        "uniprot_id": "A0A5S6PJE5",
+        "alphafold_length": 1277,
+        "chain_id": "A",
+        "true_chopping": "646-765"
+    },
+    {
+        "uniprot_id": "A0A0R0GAG0",
+        "alphafold_length": 592,
+        "chain_id": "A",
+        "true_chopping": "436-520"
+    },
+    {
+        "uniprot_id": "A0A1C1CQ94",
+        "alphafold_length": 858,
+        "chain_id": "A",
+        "true_chopping": "336-540_591-858"
+    },
+    {
+        "uniprot_id": "Q21365",
+        "alphafold_length": 385,
+        "chain_id": "A",
+        "true_chopping": "116-190,301-385"
+    },
+    {
+        "uniprot_id": "Q8IEC8",
+        "alphafold_length": 651,
+        "chain_id": "A",
+        "true_chopping": "61-70_446-600,251-385"
+    },
+    {
+        "uniprot_id": "O65403",
+        "alphafold_length": 516,
+        "chain_id": "A",
+        "true_chopping": "116-130_216-320_386-420"
+    },
+    {
+        "uniprot_id": "A0A1D6E966",
+        "alphafold_length": 491,
+        "chain_id": "A",
+        "true_chopping": "401-490"
+    },
+    {
+        "uniprot_id": "O76922",
+        "alphafold_length": 866,
+        "chain_id": "A",
+        "true_chopping": "91-125_206-275_391-455,126-205,456-620"
+    },
+    {
+        "uniprot_id": "U7PK75",
+        "alphafold_length": 310,
+        "chain_id": "A",
+        "true_chopping": "1-175"
+    },
+    {
+        "uniprot_id": "A0A077ZFK0",
+        "alphafold_length": 517,
+        "chain_id": "A",
+        "true_chopping": "1-490"
+    },
+    {
+        "uniprot_id": "A0A0R0EUX1",
+        "alphafold_length": 1235,
+        "chain_id": "A",
+        "true_chopping": "16-65_191-220,66-175,471-480_641-955"
+    },
+    {
+        "uniprot_id": "A0A0K0EAZ7",
+        "alphafold_length": 1478,
+        "chain_id": "A",
+        "true_chopping": "26-265,911-945,1151-1330"
+    },
+    {
+        "uniprot_id": "A0A077Z273",
+        "alphafold_length": 275,
+        "chain_id": "A",
+        "true_chopping": "6-265"
+    },
+    {
+        "uniprot_id": "Q4D7E5",
+        "alphafold_length": 643,
+        "chain_id": "A",
+        "true_chopping": "1-340_536-550"
+    },
+    {
+        "uniprot_id": "A0A0R0JKZ2",
+        "alphafold_length": 764,
+        "chain_id": "A",
+        "true_chopping": "126-335"
+    },
+    {
+        "uniprot_id": "K0F3G9",
+        "alphafold_length": 248,
+        "chain_id": "A",
+        "true_chopping": "6-245"
+    },
+    {
+        "uniprot_id": "Q9UQC2",
+        "alphafold_length": 676,
+        "chain_id": "A",
+        "true_chopping": "6-120"
+    },
+    {
+        "uniprot_id": "O00634",
+        "alphafold_length": 580,
+        "chain_id": "A",
+        "true_chopping": "31-255"
+    },
+    {
+        "uniprot_id": "E5DV48",
+        "alphafold_length": 868,
+        "chain_id": "A",
+        "true_chopping": "366-430,491-555,556-615"
+    },
+    {
+        "uniprot_id": "G4VR59",
+        "alphafold_length": 521,
+        "chain_id": "A",
+        "true_chopping": "1-305_346-485"
+    },
+    {
+        "uniprot_id": "Q32J31",
+        "alphafold_length": 116,
+        "chain_id": "A",
+        "true_chopping": "26-80"
+    },
+    {
+        "uniprot_id": "Q9CXE6",
+        "alphafold_length": 349,
+        "chain_id": "A",
+        "true_chopping": "71-260_281-345"
+    },
+    {
+        "uniprot_id": "Q386K2",
+        "alphafold_length": 151,
+        "chain_id": "A",
+        "true_chopping": "76-145"
+    },
+    {
+        "uniprot_id": "Q58955",
+        "alphafold_length": 386,
+        "chain_id": "A",
+        "true_chopping": "6-195,201-380"
+    },
+    {
+        "uniprot_id": "C0NVG3",
+        "alphafold_length": 484,
+        "chain_id": "A",
+        "true_chopping": "6-15_46-310"
+    },
+    {
+        "uniprot_id": "I1MIM0",
+        "alphafold_length": 705,
+        "chain_id": "A",
+        "true_chopping": "6-475"
+    },
+    {
+        "uniprot_id": "A0A0N4U6X5",
+        "alphafold_length": 442,
+        "chain_id": "A",
+        "true_chopping": "1-190,231-320"
+    },
+    {
+        "uniprot_id": "B6TNG8",
+        "alphafold_length": 242,
+        "chain_id": "A",
+        "true_chopping": "21-140_161-220"
+    },
+    {
+        "uniprot_id": "C1GWB9",
+        "alphafold_length": 244,
+        "chain_id": "A",
+        "true_chopping": "1-240"
+    },
+    {
+        "uniprot_id": "O17699",
+        "alphafold_length": 309,
+        "chain_id": "A",
+        "true_chopping": "6-305"
+    },
+    {
+        "uniprot_id": "Q9U3N1",
+        "alphafold_length": 556,
+        "chain_id": "A",
+        "true_chopping": "61-110"
+    },
+    {
+        "uniprot_id": "P52192",
+        "alphafold_length": 544,
+        "chain_id": "A",
+        "true_chopping": "216-395"
+    },
+    {
+        "uniprot_id": "Q9UHX3",
+        "alphafold_length": 823,
+        "chain_id": "A",
+        "true_chopping": "351-415_441-525"
+    },
+    {
+        "uniprot_id": "Q22322",
+        "alphafold_length": 289,
+        "chain_id": "A",
+        "true_chopping": "116-265"
+    },
+    {
+        "uniprot_id": "Q9I2W8",
+        "alphafold_length": 336,
+        "chain_id": "A",
+        "true_chopping": "6-335"
+    },
+    {
+        "uniprot_id": "A0A077ZKC9",
+        "alphafold_length": 310,
+        "chain_id": "A",
+        "true_chopping": "231-305"
+    },
+    {
+        "uniprot_id": "A4I5C4",
+        "alphafold_length": 579,
+        "chain_id": "A",
+        "true_chopping": "451-570"
+    },
+    {
+        "uniprot_id": "Q2FXP3",
+        "alphafold_length": 156,
+        "chain_id": "A",
+        "true_chopping": "46-130"
+    },
+    {
+        "uniprot_id": "L0T8G4",
+        "alphafold_length": 182,
+        "chain_id": "A",
+        "true_chopping": "32-180"
+    },
+    {
+        "uniprot_id": "A0A5K4FBH0",
+        "alphafold_length": 1350,
+        "chain_id": "A",
+        "true_chopping": "1101-1205_1321-1345"
+    },
+    {
+        "uniprot_id": "A0A1C1CCJ0",
+        "alphafold_length": 547,
+        "chain_id": "A",
+        "true_chopping": "1-390_481-545"
+    },
+    {
+        "uniprot_id": "Q9SNI6",
+        "alphafold_length": 191,
+        "chain_id": "A",
+        "true_chopping": "41-115"
+    },
+    {
+        "uniprot_id": "A0A1D6NJS2",
+        "alphafold_length": 910,
+        "chain_id": "A",
+        "true_chopping": "6-120,126-305_526-555"
+    },
+    {
+        "uniprot_id": "A0A0J9Y3V0",
+        "alphafold_length": 415,
+        "chain_id": "A",
+        "true_chopping": "6-260_291-335"
+    },
+    {
+        "uniprot_id": "Q6H6H7",
+        "alphafold_length": 411,
+        "chain_id": "A",
+        "true_chopping": "111-410"
+    },
+    {
+        "uniprot_id": "C7J7Z6",
+        "alphafold_length": 417,
+        "chain_id": "A",
+        "true_chopping": "1-30_256-405"
+    },
+    {
+        "uniprot_id": "A0A1D6IUN2",
+        "alphafold_length": 119,
+        "chain_id": "A",
+        "true_chopping": "16-115"
+    },
+    {
+        "uniprot_id": "X8FKU3",
+        "alphafold_length": 383,
+        "chain_id": "A",
+        "true_chopping": "266-380"
+    },
+    {
+        "uniprot_id": "Q5RIK0",
+        "alphafold_length": 635,
+        "chain_id": "A",
+        "true_chopping": "141-350"
+    },
+    {
+        "uniprot_id": "A0A077ZCW3",
+        "alphafold_length": 335,
+        "chain_id": "A",
+        "true_chopping": "1-100,111-200"
+    },
+    {
+        "uniprot_id": "Q94072",
+        "alphafold_length": 361,
+        "chain_id": "A",
+        "true_chopping": "1-315"
+    },
+    {
+        "uniprot_id": "Q1PEU2",
+        "alphafold_length": 252,
+        "chain_id": "A",
+        "true_chopping": "86-245"
+    },
+    {
+        "uniprot_id": "I1LEK4",
+        "alphafold_length": 393,
+        "chain_id": "A",
+        "true_chopping": "31-360_381-390"
+    },
+    {
+        "uniprot_id": "Q54JC7",
+        "alphafold_length": 1347,
+        "chain_id": "A",
+        "true_chopping": "566-855"
+    },
+    {
+        "uniprot_id": "Q6K8N9",
+        "alphafold_length": 404,
+        "chain_id": "A",
+        "true_chopping": "81-215"
+    },
+    {
+        "uniprot_id": "Q32F58",
+        "alphafold_length": 426,
+        "chain_id": "A",
+        "true_chopping": "6-425"
+    },
+    {
+        "uniprot_id": "Q9VF80",
+        "alphafold_length": 668,
+        "chain_id": "A",
+        "true_chopping": "171-183_261-420_451-570"
+    },
+    {
+        "uniprot_id": "A0A175W2C6",
+        "alphafold_length": 1133,
+        "chain_id": "A",
+        "true_chopping": "311-565"
+    },
+    {
+        "uniprot_id": "Q32CP6",
+        "alphafold_length": 341,
+        "chain_id": "A",
+        "true_chopping": "216-335"
+    },
+    {
+        "uniprot_id": "P9WGX3",
+        "alphafold_length": 457,
+        "chain_id": "A",
+        "true_chopping": "16-165"
+    },
+    {
+        "uniprot_id": "O25860",
+        "alphafold_length": 100,
+        "chain_id": "A",
+        "true_chopping": "6-95"
+    },
+    {
+        "uniprot_id": "Q57V78",
+        "alphafold_length": 520,
+        "chain_id": "A",
+        "true_chopping": "6-330_356-410_456-465"
+    },
+    {
+        "uniprot_id": "Q9GYR2",
+        "alphafold_length": 384,
+        "chain_id": "A",
+        "true_chopping": "1-105,106-380"
+    },
+    {
+        "uniprot_id": "Q2R7H8",
+        "alphafold_length": 900,
+        "chain_id": "A",
+        "true_chopping": "66-240,721-900"
+    },
+    {
+        "uniprot_id": "B4FIJ8",
+        "alphafold_length": 398,
+        "chain_id": "A",
+        "true_chopping": "26-50_116-395"
+    },
+    {
+        "uniprot_id": "A0A0B4KGD0",
+        "alphafold_length": 499,
+        "chain_id": "A",
+        "true_chopping": "71-190"
+    },
+    {
+        "uniprot_id": "Q10719",
+        "alphafold_length": 1372,
+        "chain_id": "A",
+        "true_chopping": "871-1285"
+    },
+    {
+        "uniprot_id": "F1QF11",
+        "alphafold_length": 1400,
+        "chain_id": "A",
+        "true_chopping": "6-140_231-250_291-340_366-975"
+    },
+    {
+        "uniprot_id": "Q8IPH8",
+        "alphafold_length": 2122,
+        "chain_id": "A",
+        "true_chopping": "1456-1550,1651-1820,1921-2025"
+    },
+    {
+        "uniprot_id": "E7FAT2",
+        "alphafold_length": 771,
+        "chain_id": "A",
+        "true_chopping": "291-580"
+    },
+    {
+        "uniprot_id": "A0A3P7DY68",
+        "alphafold_length": 235,
+        "chain_id": "A",
+        "true_chopping": "6-155_176-210"
+    },
+    {
+        "uniprot_id": "O94561",
+        "alphafold_length": 195,
+        "chain_id": "A",
+        "true_chopping": "36-190"
+    },
+    {
+        "uniprot_id": "X8EY74",
+        "alphafold_length": 289,
+        "chain_id": "A",
+        "true_chopping": "6-289"
+    },
+    {
+        "uniprot_id": "A0A3P7DCT5",
+        "alphafold_length": 844,
+        "chain_id": "A",
+        "true_chopping": "6-65_186-245_271-365_556-605"
+    },
+    {
+        "uniprot_id": "A0A0K0EMW6",
+        "alphafold_length": 346,
+        "chain_id": "A",
+        "true_chopping": "6-345"
+    },
+    {
+        "uniprot_id": "Q5F738",
+        "alphafold_length": 249,
+        "chain_id": "A",
+        "true_chopping": "1-230"
+    },
+    {
+        "uniprot_id": "B1Q005",
+        "alphafold_length": 435,
+        "chain_id": "A",
+        "true_chopping": "121-305,306-425"
+    },
+    {
+        "uniprot_id": "A0A175VRF3",
+        "alphafold_length": 385,
+        "chain_id": "A",
+        "true_chopping": "1-380"
+    },
+    {
+        "uniprot_id": "F1Q597",
+        "alphafold_length": 1452,
+        "chain_id": "A",
+        "true_chopping": "221-465_836-860"
+    },
+    {
+        "uniprot_id": "Q96L08",
+        "alphafold_length": 255,
+        "chain_id": "A",
+        "true_chopping": "31-90"
+    },
+    {
+        "uniprot_id": "A0A1D6GZC8",
+        "alphafold_length": 252,
+        "chain_id": "A",
+        "true_chopping": "66-250"
+    },
+    {
+        "uniprot_id": "Q9URY3",
+        "alphafold_length": 619,
+        "chain_id": "A",
+        "true_chopping": "1-75_111-135_246-315"
+    },
+    {
+        "uniprot_id": "A0A0N4U5E0",
+        "alphafold_length": 185,
+        "chain_id": "A",
+        "true_chopping": "6-150"
+    },
+    {
+        "uniprot_id": "K0F583",
+        "alphafold_length": 376,
+        "chain_id": "A",
+        "true_chopping": "216-370"
+    },
+    {
+        "uniprot_id": "A0A5S6PHA8",
+        "alphafold_length": 419,
+        "chain_id": "A",
+        "true_chopping": "6-95"
+    },
+    {
+        "uniprot_id": "Q02804",
+        "alphafold_length": 198,
+        "chain_id": "A",
+        "true_chopping": "6-195"
+    },
+    {
+        "uniprot_id": "Q8I2A6",
+        "alphafold_length": 1620,
+        "chain_id": "A",
+        "true_chopping": "406-450_636-780_986-995_1021-1235_1366-1395"
+    },
+    {
+        "uniprot_id": "Q5F9G0",
+        "alphafold_length": 263,
+        "chain_id": "A",
+        "true_chopping": "6-260"
+    },
+    {
+        "uniprot_id": "G3V661",
+        "alphafold_length": 1476,
+        "chain_id": "A",
+        "true_chopping": "1-10_36-110_246-285,586-695_721-805_891-925_986-1035"
+    },
+    {
+        "uniprot_id": "A0A1D6I9Z4",
+        "alphafold_length": 232,
+        "chain_id": "A",
+        "true_chopping": "11-125"
+    },
+    {
+        "uniprot_id": "U7PXB6",
+        "alphafold_length": 849,
+        "chain_id": "A",
+        "true_chopping": "71-565"
+    },
+    {
+        "uniprot_id": "I1NH59",
+        "alphafold_length": 223,
+        "chain_id": "A",
+        "true_chopping": "27-160"
+    },
+    {
+        "uniprot_id": "A0A0D2G8U0",
+        "alphafold_length": 1236,
+        "chain_id": "A",
+        "true_chopping": "676-685_766-1230"
+    },
+    {
+        "uniprot_id": "A0A175W7Y5",
+        "alphafold_length": 494,
+        "chain_id": "A",
+        "true_chopping": "1-470"
+    },
+    {
+        "uniprot_id": "Q39224",
+        "alphafold_length": 358,
+        "chain_id": "A",
+        "true_chopping": "11-358"
+    },
+    {
+        "uniprot_id": "Q54XF3",
+        "alphafold_length": 291,
+        "chain_id": "A",
+        "true_chopping": "136-290"
+    },
+    {
+        "uniprot_id": "A0A077ZCZ3",
+        "alphafold_length": 848,
+        "chain_id": "A",
+        "true_chopping": "726-845"
+    },
+    {
+        "uniprot_id": "A0A077Z213",
+        "alphafold_length": 1892,
+        "chain_id": "A",
+        "true_chopping": "651-705,706-825,936-990,1466-1520"
+    },
+    {
+        "uniprot_id": "Q9JLV2",
+        "alphafold_length": 797,
+        "chain_id": "A",
+        "true_chopping": "241-310_381-430_451-790"
+    },
+    {
+        "uniprot_id": "Q62923",
+        "alphafold_length": 181,
+        "chain_id": "A",
+        "true_chopping": "21-65"
+    },
+    {
+        "uniprot_id": "C1GYN7",
+        "alphafold_length": 1140,
+        "chain_id": "A",
+        "true_chopping": "6-120_196-365_406-440,891-925_996-1060"
+    },
+    {
+        "uniprot_id": "A0A2R8PV59",
+        "alphafold_length": 573,
+        "chain_id": "A",
+        "true_chopping": "81-270"
+    },
+    {
+        "uniprot_id": "Q4CNQ6",
+        "alphafold_length": 452,
+        "chain_id": "A",
+        "true_chopping": "6-105"
+    },
+    {
+        "uniprot_id": "Q5F6D2",
+        "alphafold_length": 133,
+        "chain_id": "A",
+        "true_chopping": "1-90"
+    },
+    {
+        "uniprot_id": "A0A3P7FGQ8",
+        "alphafold_length": 709,
+        "chain_id": "A",
+        "true_chopping": "376-705"
+    },
+    {
+        "uniprot_id": "A0A1D6KU62",
+        "alphafold_length": 247,
+        "chain_id": "A",
+        "true_chopping": "11-220"
+    },
+    {
+        "uniprot_id": "A0A0H3GK64",
+        "alphafold_length": 299,
+        "chain_id": "A",
+        "true_chopping": "1-285"
+    },
+    {
+        "uniprot_id": "U7PZL6",
+        "alphafold_length": 388,
+        "chain_id": "A",
+        "true_chopping": "6-155_181-388"
+    },
+    {
+        "uniprot_id": "A0A1C1CFU7",
+        "alphafold_length": 530,
+        "chain_id": "A",
+        "true_chopping": "1-135"
+    },
+    {
+        "uniprot_id": "Q8IR79",
+        "alphafold_length": 1257,
+        "chain_id": "A",
+        "true_chopping": "31-60,171-205_231-275,391-715"
+    },
+    {
+        "uniprot_id": "A0A0J9Y9Q0",
+        "alphafold_length": 197,
+        "chain_id": "A",
+        "true_chopping": "31-165"
+    },
+    {
+        "uniprot_id": "A0A0R4IAS2",
+        "alphafold_length": 1754,
+        "chain_id": "A",
+        "true_chopping": "386-450,491-610"
+    },
+    {
+        "uniprot_id": "C1H9A5",
+        "alphafold_length": 371,
+        "chain_id": "A",
+        "true_chopping": "41-370"
+    },
+    {
+        "uniprot_id": "O94651",
+        "alphafold_length": 263,
+        "chain_id": "A",
+        "true_chopping": "16-220"
+    },
+    {
+        "uniprot_id": "F1QLH2",
+        "alphafold_length": 1032,
+        "chain_id": "A",
+        "true_chopping": "451-660_701-820_1021-1030"
+    },
+    {
+        "uniprot_id": "Q4CXI7",
+        "alphafold_length": 641,
+        "chain_id": "A",
+        "true_chopping": "6-115"
+    },
+    {
+        "uniprot_id": "M9PHS6",
+        "alphafold_length": 1935,
+        "chain_id": "A",
+        "true_chopping": "231-330,611-705,806-905,906-1000,1316-1400,1401-1495"
+    },
+    {
+        "uniprot_id": "K0ESS5",
+        "alphafold_length": 261,
+        "chain_id": "A",
+        "true_chopping": "6-260"
+    },
+    {
+        "uniprot_id": "Q86IJ1",
+        "alphafold_length": 306,
+        "chain_id": "A",
+        "true_chopping": "226-305"
+    },
+    {
+        "uniprot_id": "A0A044RBK9",
+        "alphafold_length": 569,
+        "chain_id": "A",
+        "true_chopping": "306-535"
+    },
+    {
+        "uniprot_id": "Q8ZN13",
+        "alphafold_length": 790,
+        "chain_id": "A",
+        "true_chopping": "1-90"
+    },
+    {
+        "uniprot_id": "Q8ILJ4",
+        "alphafold_length": 1169,
+        "chain_id": "A",
+        "true_chopping": "326-335_881-1035"
+    },
+    {
+        "uniprot_id": "Q5SPF7",
+        "alphafold_length": 465,
+        "chain_id": "A",
+        "true_chopping": "6-240"
+    },
+    {
+        "uniprot_id": "O35516",
+        "alphafold_length": 2473,
+        "chain_id": "A",
+        "true_chopping": "186-220,221-260"
+    },
+    {
+        "uniprot_id": "Q6ZMU1",
+        "alphafold_length": 363,
+        "chain_id": "A",
+        "true_chopping": "66-145"
+    },
+    {
+        "uniprot_id": "G4VPU9",
+        "alphafold_length": 319,
+        "chain_id": "A",
+        "true_chopping": "6-130,256-319"
+    },
+    {
+        "uniprot_id": "A0A0D2GX37",
+        "alphafold_length": 306,
+        "chain_id": "A",
+        "true_chopping": "126-305"
+    },
+    {
+        "uniprot_id": "Q4DQF1",
+        "alphafold_length": 393,
+        "chain_id": "A",
+        "true_chopping": "6-130,131-393"
+    },
+    {
+        "uniprot_id": "A0A1D6EVM9",
+        "alphafold_length": 1012,
+        "chain_id": "A",
+        "true_chopping": "236-430_596-745_786-795_946-970_996-1005"
+    },
+    {
+        "uniprot_id": "A0A1D6MPZ6",
+        "alphafold_length": 230,
+        "chain_id": "A",
+        "true_chopping": "1-210"
+    },
+    {
+        "uniprot_id": "A0A1C1CAS6",
+        "alphafold_length": 387,
+        "chain_id": "A",
+        "true_chopping": "16-80_106-119_151-180,181-215_286-308_341-380"
+    },
+    {
+        "uniprot_id": "Q9QVC8",
+        "alphafold_length": 458,
+        "chain_id": "A",
+        "true_chopping": "256-458"
+    }
+]
