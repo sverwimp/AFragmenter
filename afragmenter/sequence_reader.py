@@ -46,7 +46,7 @@ def _get_content(file_input: Union[FilePath, StringIO]) -> str:
     raise TypeError(f"Unsupported input type: {type(file_input)}")
 
 
-def _determine_file_format(content: str) -> str:
+def determine_file_format(content: str) -> str:
     """
     Determines the format of a given file based on its first line.
     """
@@ -177,7 +177,7 @@ class SequenceReader:
         content = _get_content(file_input)
 
         if format.lower() == 'auto':
-            format = _determine_file_format(content)
+            format = determine_file_format(content)
         self.format = format.lower()
 
         if self.format == 'fasta':

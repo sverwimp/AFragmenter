@@ -1,7 +1,7 @@
 import os
 from typing  import TYPE_CHECKING
 
-from .sequence_reader import SequenceReader
+from .sequence_reader import determine_file_format
 from .structure_displacement import displace_structure
 
 COLOR_PALETTE = ['red', 'blue', 'green', 'yellow', 'purple', 'orange', 'cyan', 'magenta', 
@@ -69,7 +69,7 @@ def view_py3Dmol(structure_file: str,
         content = open(structure_file).read()
     else:
         content = structure_file
-    file_format = SequenceReader.determine_file_format(content)
+    file_format = determine_file_format(content)
 
     # Displace the domains if requested.
     tether_strength = kwargs.pop('tether_strength', 0.1)

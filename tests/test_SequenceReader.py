@@ -26,11 +26,11 @@ def test_determine_file_format():
     fasta_content = ">test\nACDGH"
     pdb_content = "HEADER    TEST PDB\nATOM      1  N   ALA A   1      11.104  13.207  10.000  1.00  0.00           N\n"
     mmcif_content = "data_test\n_entity_poly.pdbx_seq_one_letter_code\nA\n_entity_poly_seq.mon_id\nALA CYS ASP GLY HIS ILE\n"
-    assert sequence_reader._determine_file_format(fasta_content) == 'fasta'
-    assert sequence_reader._determine_file_format(pdb_content) == 'pdb'
-    assert sequence_reader._determine_file_format(mmcif_content) == 'mmcif'
+    assert sequence_reader.determine_file_format(fasta_content) == 'fasta'
+    assert sequence_reader.determine_file_format(pdb_content) == 'pdb'
+    assert sequence_reader.determine_file_format(mmcif_content) == 'mmcif'
     with pytest.raises(ValueError, match="Unsupported file format, please provide a FASTA, PDB or mmCIF file"):
-        sequence_reader._determine_file_format("invalid content")
+        sequence_reader.determine_file_format("invalid content")
 
 
 def test_read_first_valid_line():
