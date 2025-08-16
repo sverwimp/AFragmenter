@@ -45,11 +45,13 @@ AFragmenter is a schema-free, tunable protein domain segmentation tool for Alpha
     - [Python](#python)
     - [Command line](#command-line)
 5. [Options](#options)
+    - [Recommended](#recommended-settings)
     - [Threshold](#threshold)
     - [Resolution](#resolution)
-    - [Objective function](#objective-function)
-    - [Minimum size](#minimum-size-min_size)
-    - [Merge](#merge)
+    - More options
+        - [Objective function](#objective-function)
+        - [Minimum size](#minimum-size-min_size)
+        - [Merge](#merge)
 
 ## Try it
 
@@ -229,11 +231,21 @@ Docs coming soon...
 
 ## Options
 
+- [Recommended](#recommended-settings)
 - [Threshold](#threshold)
 - [Resolution](#resolution)
-- [Objective function](#objective-function)
-- [Minimum size](#minimum-size-min_size)
-- [Merge](#merge)
+- More options
+    - [Objective function](#objective-function)
+    - [Minimum size](#minimum-size-min_size)
+    - [Merge](#merge)
+
+### <ins>Recommended settings</ins>
+
+Recommended starting parameter settings, [based on benchmarking](https://github.com/sverwimp/AFragmenter/tree/main/benchmarking), are a **resolution = 0.7** and a **threshold = 2**. For initial exporlation, resolution values in the range of 0.4-0.8 and threshold range 0-4 are suggested. 
+Values outside these ranges may also be informative.
+
+Higher values for either parameter tend to yield a larger number of smaller protein segments, while lower values result in fewer, broader segments.
+
 
 ### <ins>Threshold</ins>
 
@@ -310,6 +322,10 @@ The **resolution** can be thought of as the coarseness of clustering. Increasing
 |:----------------:|:----------------:|
 |<img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/A0A098AQT8/A0A098AQT8_resolution_0_8.png" width=75% alt="Resolution 0.8"> | <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/A0A098AQT8/A0A098AQT8_resolution_1_4.png" width=75% alt="Resolution 1.4"> |
 
+<details>
+
+<summary><h2>More options</h2></summary>
+
 ### <ins>Objective function</ins>
 
 The objective function that is optimized during clustering, choices are either CPM (constant potts model) or Modularity. The contant potts model does not suffer from the resolution limit problem like modularity does, leading to more, smaller well-defined clusters.
@@ -349,3 +365,4 @@ The `merge` parameter, also referred to as `attempt_merge`, plays a important ro
 When enabled, it attempts to merge smaller clusters (= below min_size) with adjacent larger ones, ensuring that the resulting clusters are more meaningful and less fragmented. Resulting clusters below the min_size are first attempted to be merged with adjacent larger clusters. If merging is not possible, the small clusters are filtered out.
 
 - Default value: `True`
+</details>
