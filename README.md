@@ -155,7 +155,7 @@ Next, we cluster the residues into domains using the Leiden clustering algorithm
 
 ```python
 p15807 = AFragmenter(pae, threshold=3)
-result = p15807.cluster() # default resolution = 0.8
+result = p15807.cluster()
 result.plot_result()
 result.py3Dmol(structure)
 ```
@@ -306,7 +306,7 @@ we see two domains, consistent with the results from [SCOP](https://www.ebi.ac.u
 
 The **resolution** can be thought of as the coarseness of clustering. Increasing the resolution will result in more, smaller clusters (/domains). Decreasing the resolution will result in fewer but larger clusters.
 
-- Default: dependent on objective_function `{"modularity": 0.7, "pm": 0.3}`
+- Default: dependent on objective_function `{"modularity": 0.7, "cpm": 0.3}`
 
 **Examples**:
 
