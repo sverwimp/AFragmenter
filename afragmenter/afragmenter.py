@@ -39,7 +39,7 @@ class AFragmenter:
     - plot_pae: Plot the Predicted Aligned Error matrix as a heatmap.
     """
 
-    def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict, StringIO], threshold: float = 5.0, sequence_file: Optional[FilePath] = None):
+    def __init__(self, pae_matrix: Union[np.ndarray, FilePath, list, dict, StringIO], threshold: float = 2.0, sequence_file: Optional[FilePath] = None):
         if isinstance(pae_matrix, (list, dict)):
             pae_matrix = process_pae_data(pae_matrix)
         elif isinstance(pae_matrix, (str, Path, StringIO)):
