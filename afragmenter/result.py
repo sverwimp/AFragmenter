@@ -29,22 +29,6 @@ class ClusteringResult:
         self.params = params
         self.sequence_reader = sequence_reader
 
-    def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
-        """
-        Plot the Predicted Aligned Error matrix as a heatmap.
-
-        Parameters:
-        - **kwargs: Additional keyword arguments to be passed to the matplotlib.pyplot.imshow function.
-
-        Returns:
-        - Tuple[image.AxesImage, axes.Axes]: The image and axes objects.
-        """
-        kwargs.setdefault("colorbar_label", "Predicted Aligned Error (Å)")
-        image, ax = plotting.plot_matrix(self.pae_matrix, **kwargs)
-        ax.set_xlabel("Scored residue")
-        ax.set_ylabel("Aligned residue")
-
-        return image, ax
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
         """
@@ -62,6 +46,7 @@ class ClusteringResult:
         ax.set_ylabel("Aligned residue")
 
         return image, ax
+
 
     def plot_result(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
         """
@@ -80,6 +65,7 @@ class ClusteringResult:
         ax.set_ylabel("Aligned residue")
 
         return image, ax
+
 
     def print_result(self, base_name: Optional[str] = None, format: str = 'auto', delimiter: str = ',') -> None:
         """
