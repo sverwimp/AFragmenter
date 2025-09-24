@@ -1,4 +1,7 @@
 import igraph
+import numpy as np
+
+from typing import Optional, Union
 
 def find_cluster_intervals(clusters: igraph.VertexClustering) -> dict:
     """
@@ -156,7 +159,112 @@ def merge_intervals(intervals: dict, min_size: int) -> dict:
     return merged_intervals
 
 
-def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool = True) -> dict:
+def calculate_cluster_average_pae(pae_matrix: np.ndarray, intervals: list) -> Union[np.float64, float]:
+    """
+    Calculate the average PAE value within a cluster.
+    
+    Parameters:
+    - pae_matrix (np.ndarray): The Predicted Aligned Error matrix
+    - intervals (list): List of (start, end) tuples defining the cluster regions
+
+    Returns:
+    - float or np.float64: Average PAE value for intra-cluster residue pairs
+    """
+    # Collect all residues from all intervals in this cluster
+    cluster_residues = []
+    for start, end in intervals:
+        cluster_residues.extend(range(start, end + 1))
+    
+    if len(cluster_residues) < 2:
+        return 0.0
+        
+    pae_values = []
+    
+    # Calculate PAE for all pairs within the cluster (including between segments)
+    for i in range(len(cluster_residues)):
+        for j in range(i + 1, len(cluster_residues)):
+            res_i = cluster_residues[i]
+            res_j = cluster_residues[j]
+            
+            # Make sure indices are within bounds
+            if res_i < pae_matrix.shape[0] and res_j < pae_matrix.shape[1]:
+                pae_values.append(pae_matrix[res_i][res_j])
+                # Only add the symmetric value if the matrix is not symmetric
+                if pae_matrix[res_i][res_j] != pae_matrix[res_j][res_i]:
+                    pae_values.append(pae_matrix[res_j][res_i])
+    
+    return np.mean(pae_values) if pae_values else 0.0
+
+
+def filter_intervals_by_average_pae(intervals: dict, pae_matrix: np.ndarray, 
+                               min_avg_pae: float = 5.0, verbose: bool = False) -> dict:
+    """
+    Filter out cluster intervals that have average PAE values above the threshold.
+    
+    This function removes clusters where the average PAE between all residue pairs 
+    within the cluster exceeds the min_avg_pae threshold. 
+    Can helpfilter out poorly structured domains with low confidence.
+    
+    Parameters:
+    - intervals: Dictionary where keys are cluster indices and values are lists of 
+                (start, end) tuples representing cluster intervals
+    - pae_matrix: The Predicted Aligned Error matrix (2D numpy array)
+    - min_avg_pae: Maximum allowed average PAE for a cluster (clusters above this are removed)
+    - verbose: Whether to print filtering information
+        
+    Returns:
+    - Dictionary with same structure as input, but with high-PAE clusters removed
+        and keys renumbered starting from zero
+        
+    Example:
+        intervals = {0: [(0, 119), (299, 320)], 1: [(120, 298)], 2: [(321, 350)]}
+        pae_matrix = np.array(...)  # PAE matrix
+        min_avg_pae = 5.0
+        
+        # If cluster 2 has avg PAE = 7.2, it gets filtered out
+        filtered = filter_intervals_by_avg_pae(intervals, pae_matrix, min_avg_pae, verbose=True)
+        # Returns: {0: [(0, 119), (299, 320)], 1: [(120, 298)]}
+    """
+    if min_avg_pae < 0:
+        raise ValueError("Minimum average PAE must be greater than or equal to 0")
+    
+    filtered_intervals = {}
+    cluster_pae_stats = {}
+    removed_clusters = []
+    
+    for cluster_id, cluster_intervals in intervals.items():
+        avg_pae = calculate_cluster_average_pae(pae_matrix, cluster_intervals)
+        cluster_pae_stats[cluster_id] = avg_pae
+        
+        total_residues = sum(end - start + 1 for start, end in cluster_intervals)
+        is_discontinuous = len(cluster_intervals) > 1
+        
+        if avg_pae <= min_avg_pae:
+            filtered_intervals[cluster_id] = cluster_intervals
+            if verbose:
+                discontinuous_note = " (discontinuous)" if is_discontinuous else ""
+                print(f"Cluster {cluster_id}: {total_residues} residues{discontinuous_note}, "
+                      f"avg PAE = {avg_pae:.2f} - KEPT")
+        else:
+            removed_clusters.append((cluster_id, cluster_intervals, avg_pae))
+            if verbose:
+                discontinuous_note = " (discontinuous)" if is_discontinuous else ""
+                print(f"Cluster {cluster_id}: {total_residues} residues{discontinuous_note}, "
+                      f"avg PAE = {avg_pae:.2f} - FILTERED OUT")
+    
+    if verbose:
+        print(f"\nPAE filtering summary:")
+        print(f"\tOriginal clusters: {len(intervals)}")
+        print(f"\tClusters kept: {len(filtered_intervals)}")
+        print(f"\tClusters removed: {len(removed_clusters)}")
+    
+    renumbered_intervals = {i: v for i, (_, v) in enumerate(filtered_intervals.items())}
+    
+    return renumbered_intervals
+
+
+def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool = True,
+                             pae_matrix: Optional[np.ndarray] = None, min_avg_pae: Optional[float] = None) -> dict:
     """
     Filter out intervals that are smaller than a given size. 
     Optionally attempt to merge smaller clusters with adjacent larger ones.
@@ -185,5 +293,9 @@ def filter_cluster_intervals(intervals: dict, min_size: int, attempt_merge: bool
         intervals = remove_min_size_intervals(intervals, min_size)
 
     # Renumber the keys starting from zero
-    renumbered_intervals = {i: v for i, (_, v) in enumerate(intervals.items())}    
-    return renumbered_intervals
+    filtered_intervals = {i: v for i, (_, v) in enumerate(intervals.items())}
+
+    if pae_matrix is not None and min_avg_pae is not None:
+        filtered_intervals = filter_intervals_by_average_pae(filtered_intervals, pae_matrix, min_avg_pae)
+
+    return filtered_intervals

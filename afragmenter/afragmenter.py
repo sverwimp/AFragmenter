@@ -83,6 +83,7 @@ class AFragmenter:
                 n_iterations: int = -1, 
                 min_size: int = 10,
                 attempt_merge: bool = True,
+                min_avg_pae: Optional[float] = None,
                 **kwargs) -> 'ClusteringResult':
         """
         Create a graph from the edge_weights_matrix and cluster it using the Leiden algorithm.
@@ -127,8 +128,10 @@ class AFragmenter:
         params.update(cluster_params) # Update the parameters with the actual values used for clustering
         cluster_intervals = find_cluster_intervals(clusters)
         cluster_intervals = filter_cluster_intervals(intervals=cluster_intervals, 
-                                                          min_size=min_size, 
-                                                          attempt_merge=attempt_merge)
+                                                     min_size=min_size, 
+                                                     attempt_merge=attempt_merge,
+                                                     pae_matrix=self.pae_matrix,
+                                                     min_avg_pae=min_avg_pae)
         return ClusteringResult(self.pae_matrix, cluster_intervals, params, self.sequence_reader)
     
 
@@ -137,6 +140,7 @@ class AFragmenter:
             n_iterations: int = -1, 
             min_size: int = 10,
             attempt_merge: bool = True,
+            min_avg_pae: Optional[float] = None,
             **kwargs) -> 'ClusteringResult':
         """Alias for the cluster method."""
         return self.cluster(resolution=resolution, 
@@ -144,6 +148,7 @@ class AFragmenter:
                             n_iterations=n_iterations, 
                             min_size=min_size, 
                             attempt_merge=attempt_merge,
+                            min_avg_pae=min_avg_pae,
                             **kwargs)
 
     def plot_pae(self, **kwargs) -> Tuple[image.AxesImage, axes.Axes]:
