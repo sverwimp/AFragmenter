@@ -185,10 +185,9 @@ result.save_fasta(structure, 'result.fasta')
 ```
 
 <details>
-<summary><h3>More examples</h3></summary>
+<summary><h2>More examples</h2></summary>
 
 ## Q14914
-
 
 Q14914 is a great example of an AlphaFold prediction with very high confidence, as indicated by a high pLDDT score and uniformly low PAE values. This could present a challenge for AFragmenter, since it's clustering method relies on a contrast between the intra-domain and inter-domain PAE values. When all PAE values are uniformly low, this contrast is minimal, which could cause the algorithm only ever produce a single large cluster (i.e. whole protein is one domain).
 In these cases, it is a good idea to lower the PAE theshold value (default = `2`) if changing the resolution parameter does not produce any different results.
@@ -226,8 +225,8 @@ view2.show()
 ```
 
 <p style="display: flex" float="left">
-    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q14914/result_Q14914_resolution_0-5.png" width=50% alt="resolution = 0.5"/>
-    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q14914/structure_Q14914_0_5.png" width=50% alt="one domain"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q14914/result_Q14914_0_5.png" width=50% alt="resolution = 0.5"/>
+    <img src="https://raw.githubusercontent.com/sverwimp/afragmenter/master/images/Q14914/structure_Q14914_resolution_0_5.png" width=50% alt="one domain"/>
 </p>
 
 
